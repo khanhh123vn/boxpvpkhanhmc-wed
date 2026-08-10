@@ -29,10 +29,7 @@ document.querySelectorAll(".nav-link").forEach(link => {
     });
 });
 
-
-/* =========================
-   SERVER API
-========================= */
+/* SERVER API */
 
 async function loadServerStatus() {
     try {
@@ -78,10 +75,7 @@ async function loadServerStatus() {
     }
 }
 
-
-/* =========================
-   COPY IP
-========================= */
+/* COPY IP */
 
 async function copyServerIP() {
     const serverIp =
@@ -94,9 +88,7 @@ async function copyServerIP() {
 
     try {
         await navigator.clipboard.writeText(serverIp);
-
         showToast(`📋 Đã sao chép IP: ${serverIp}`);
-
     } catch {
         showToast(`🎮 IP server: ${serverIp}`);
     }
@@ -128,10 +120,7 @@ document.getElementById("playButton")?.addEventListener(
     }
 );
 
-
-/* =========================
-   DAILY CODE
-========================= */
+/* DAILY CODE */
 
 document.getElementById("claimCode")?.addEventListener(
     "click",
@@ -142,15 +131,11 @@ document.getElementById("claimCode")?.addEventListener(
     }
 );
 
-
-/* =========================
-   SKIN
-========================= */
+/* SKIN */
 
 document.getElementById("updateSkin")?.addEventListener(
     "click",
     () => {
-
         const input =
             document.getElementById("skinName");
 
@@ -163,111 +148,4 @@ document.getElementById("updateSkin")?.addEventListener(
         if (!name) {
             if (hint) {
                 hint.textContent =
-                    "⚠️ Hãy nhập tên Minecraft trước.";
-            }
-
-            return;
-        }
-
-        if (hint) {
-            hint.textContent =
-                `👕 Đã chọn skin của ${name}.`;
-        }
-
-        showToast(`👕 Đã chọn skin: ${name}`);
-    }
-);
-
-
-/* =========================
-   DEMO BUTTONS
-========================= */
-
-document.querySelectorAll("[data-demo]").forEach(
-    button => {
-
-        button.addEventListener(
-            "click",
-            () => showToast(button.dataset.demo)
-        );
-
-    }
-);
-
-
-/* =========================
-   DISCORD
-========================= */
-
-document.getElementById("discordButton")
-    ?.addEventListener("click", event => {
-
-        event.preventDefault();
-
-        showToast(
-            "💬 Thay link Discord thật vào file index.html."
-        );
-
-    });
-
-
-/* =========================
-   ACTIVE NAVIGATION
-========================= */
-
-const sections =
-    document.querySelectorAll("main section[id]");
-
-const navLinks =
-    document.querySelectorAll(".nav-link");
-
-if (sections.length && navLinks.length) {
-
-    const observer =
-        new IntersectionObserver(
-            entries => {
-
-                const visible =
-                    entries
-                        .filter(entry => entry.isIntersecting)
-                        .sort(
-                            (a, b) =>
-                                b.intersectionRatio -
-                                a.intersectionRatio
-                        )[0];
-
-                if (!visible) return;
-
-                navLinks.forEach(link => {
-
-                    link.classList.toggle(
-                        "active",
-                        link.getAttribute("href") ===
-                        `#${visible.target.id}`
-                    );
-
-                });
-
-            },
-            {
-                rootMargin: "-25% 0px -60% 0px",
-                threshold: [0.01, 0.1, 0.25]
-            }
-        );
-
-    sections.forEach(
-        section => observer.observe(section)
-    );
-}
-
-
-/* =========================
-   START API
-========================= */
-
-loadServerStatus();
-
-setInterval(
-    loadServerStatus,
-    30000
-);
+                    "⚠️ Hãy nhập tên
