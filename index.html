@@ -1,90 +1,220 @@
 ```html
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="BOXPVP - Minecraft BoxPvP Server">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="BOXPVP - Minecraft BoxPvP Server"
+  >
+
   <title>⚔️ BOXPVP | Minecraft Server</title>
-  <link rel="stylesheet" href="style.css">
+
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
 </head>
+
+
 <body>
+
   <div class="bg-grid"></div>
 
+
+  <!-- =====================================================
+       HEADER
+  ====================================================== -->
+
   <header class="topbar">
-    <a class="brand" href="#home" aria-label="BOXPVP">
+
+    <a
+      class="brand"
+      href="#home"
+      aria-label="BOXPVP"
+    >
       <span class="brand-icon">⚔️</span>
       <span>BOXPVP</span>
     </a>
 
-    <button class="menu-toggle" id="menuToggle" aria-label="Mở menu">☰</button>
 
-    <nav class="nav" id="nav">
-      <a class="nav-link active" href="#home">🏠 <span>Trang chủ</span></a>
-      <a class="nav-link" href="#topup">🛒 <span>Nạp</span></a>
-      <a class="nav-link" href="#code">🎁 <span>Code</span></a>
-      <a class="nav-link" href="#account">👤 <span>Tài khoản</span></a>
-      <a class="nav-link" href="#skin">👕 <span>Skin</span></a>
-      <a class="nav-link" href="#ranking">🏆 <span>BXH</span></a>
+    <button
+      class="menu-toggle"
+      id="menuToggle"
+      aria-label="Mở menu"
+      type="button"
+    >
+      ☰
+    </button>
+
+
+    <nav
+      class="nav"
+      id="nav"
+    >
+
+      <a
+        class="nav-link active"
+        href="#home"
+      >
+        🏠 <span>Trang chủ</span>
+      </a>
+
+      <a
+        class="nav-link"
+        href="#topup"
+      >
+        🛒 <span>Nạp</span>
+      </a>
+
+      <a
+        class="nav-link"
+        href="#code"
+      >
+        🎁 <span>Code</span>
+      </a>
+
+      <a
+        class="nav-link"
+        href="#account"
+      >
+        👤 <span>Tài khoản</span>
+      </a>
+
+      <a
+        class="nav-link"
+        href="#skin"
+      >
+        👕 <span>Skin</span>
+      </a>
+
+      <a
+        class="nav-link"
+        href="#ranking"
+      >
+        🏆 <span>BXH</span>
+      </a>
+
     </nav>
+
   </header>
+
+
 
   <main>
 
-    <!-- HOME -->
-    <section class="hero section" id="home">
+
+    <!-- =====================================================
+         HOME
+    ====================================================== -->
+
+    <section
+      class="hero section"
+      id="home"
+    >
+
       <div class="hero-glow"></div>
 
+
       <div class="hero-content">
+
         <div class="status-pill">
+
           <span class="status-dot"></span>
+
           SERVER ĐANG HOẠT ĐỘNG
+
         </div>
 
-        <h1>⚔️ BOXPVP</h1>
+
+        <h1>
+          ⚔️ BOXPVP
+        </h1>
+
 
         <p class="hero-subtitle">
           MINECRAFT BOX PVP SERVER
         </p>
 
+
+        <!-- SERVER CARD -->
+
         <div class="server-card">
 
-          <div class="server-stat">
-            <span class="stat-label">Trạng thái</span>
-            <strong class="online-text">🟢 ONLINE</strong>
-          </div>
 
           <div class="server-stat">
-            <span class="stat-label">Người chơi</span>
+
+            <span class="stat-label">
+              Trạng thái
+            </span>
+
+            <strong class="online-text">
+              🟢 ONLINE
+            </strong>
+
+          </div>
+
+
+          <div class="server-stat">
+
+            <span class="stat-label">
+              Người chơi
+            </span>
+
             <strong id="serverPlayers">
               0 <small>/ 100</small>
             </strong>
+
           </div>
 
+
           <div class="server-ip">
-            <span>IP SERVER</span>
+
+            <span>
+              IP SERVER
+            </span>
+
 
             <button
               id="copyIp"
               class="ip-button"
               title="Bấm để sao chép"
+              type="button"
             >
+
               <strong id="serverIp">
                 play.boxpvp.vn
               </strong>
-              <span>📋</span>
+
+              <span>
+                📋
+              </span>
+
             </button>
+
           </div>
 
         </div>
 
+
+        <!-- HERO BUTTONS -->
+
         <div class="hero-actions">
+
           <button
             class="btn btn-primary"
             id="playButton"
+            type="button"
           >
             🎮 CHƠI NGAY
           </button>
+
 
           <a
             class="btn btn-secondary"
@@ -92,7 +222,9 @@
           >
             💬 DISCORD
           </a>
+
         </div>
+
 
         <p
           class="copy-hint"
@@ -100,24 +232,34 @@
         >
           Bấm vào IP để sao chép địa chỉ server.
         </p>
+
       </div>
+
     </section>
 
 
-    <!-- FEATURES -->
+
+    <!-- =====================================================
+         FEATURES
+    ====================================================== -->
+
     <section
       class="section"
       id="features"
     >
+
+
       <div class="section-heading">
 
         <span class="eyebrow">
           BOXPVP SERVER
         </span>
 
+
         <h2>
           🔥 TÍNH NĂNG
         </h2>
+
 
         <p>
           Mọi thứ cần thiết cho một server BoxPvP.
@@ -126,71 +268,219 @@
       </div>
 
 
+
+      <!-- CLICKABLE FEATURES -->
+
       <div class="feature-grid">
 
-        <article class="feature-card">
-          <span class="feature-icon">⚔️</span>
-          <h3>BoxPvP</h3>
+
+        <!-- BOX PVP -->
+
+        <button
+          type="button"
+          class="feature-card feature-click"
+          data-target="#home"
+        >
+
+          <span class="feature-icon">
+            ⚔️
+          </span>
+
+
+          <h3>
+            BoxPvP
+          </h3>
+
+
           <p>
             Chiến đấu, farm và leo bảng xếp hạng.
           </p>
-        </article>
 
-        <article class="feature-card">
-          <span class="feature-icon">💰</span>
-          <h3>Economy</h3>
+
+          <span class="feature-action">
+            🎮 XEM SERVER →
+          </span>
+
+        </button>
+
+
+
+        <!-- ECONOMY -->
+
+        <button
+          type="button"
+          class="feature-card feature-click"
+          data-target="#topup"
+        >
+
+          <span class="feature-icon">
+            💰
+          </span>
+
+
+          <h3>
+            Economy
+          </h3>
+
+
           <p>
             Kiếm tiền và giao dịch trong server.
           </p>
-        </article>
 
-        <article class="feature-card">
-          <span class="feature-icon">🎁</span>
-          <h3>Crate</h3>
+
+          <span class="feature-action">
+            💰 XEM ECONOMY →
+          </span>
+
+        </button>
+
+
+
+        <!-- CRATE -->
+
+        <button
+          type="button"
+          class="feature-card feature-click"
+          data-target="#code"
+        >
+
+          <span class="feature-icon">
+            🎁
+          </span>
+
+
+          <h3>
+            Crate
+          </h3>
+
+
           <p>
             Mở crate và nhận phần thưởng.
           </p>
-        </article>
 
-        <article class="feature-card">
-          <span class="feature-icon">👑</span>
-          <h3>Rank</h3>
+
+          <span class="feature-action">
+            🎁 XEM CRATE →
+          </span>
+
+        </button>
+
+
+
+        <!-- RANK -->
+
+        <button
+          type="button"
+          class="feature-card feature-click"
+          data-target="#account"
+        >
+
+          <span class="feature-icon">
+            👑
+          </span>
+
+
+          <h3>
+            Rank
+          </h3>
+
+
           <p>
             Hệ thống rank từ Member đến Owner.
           </p>
-        </article>
 
-        <article class="feature-card">
-          <span class="feature-icon">🏪</span>
-          <h3>Shop</h3>
+
+          <span class="feature-action">
+            👑 XEM RANK →
+          </span>
+
+        </button>
+
+
+
+        <!-- SHOP -->
+
+        <button
+          type="button"
+          class="feature-card feature-click"
+          data-target="#topup"
+        >
+
+          <span class="feature-icon">
+            🏪
+          </span>
+
+
+          <h3>
+            Shop
+          </h3>
+
+
           <p>
             Mua bán vật phẩm và trang bị.
           </p>
-        </article>
 
-        <article class="feature-card">
-          <span class="feature-icon">🏆</span>
-          <h3>BXH</h3>
+
+          <span class="feature-action">
+            🏪 MỞ SHOP →
+          </span>
+
+        </button>
+
+
+
+        <!-- RANKING -->
+
+        <button
+          type="button"
+          class="feature-card feature-click"
+          data-target="#ranking"
+        >
+
+          <span class="feature-icon">
+            🏆
+          </span>
+
+
+          <h3>
+            BXH
+          </h3>
+
+
           <p>
             Đua top kills, tiền và thành tích.
           </p>
-        </article>
+
+
+          <span class="feature-action">
+            🏆 XEM BXH →
+          </span>
+
+        </button>
+
 
       </div>
+
     </section>
 
 
-    <!-- RANKING -->
+
+    <!-- =====================================================
+         RANKING
+    ====================================================== -->
+
     <section
       class="section panel-section"
       id="ranking"
     >
+
 
       <div class="section-heading">
 
         <span class="eyebrow">
           LEADERBOARD
         </span>
+
 
         <h2>
           🏆 BXH
@@ -210,9 +500,11 @@
             🏆
           </div>
 
+
           <div class="avatar">
             ?
           </div>
+
 
           <div class="rank-player">
 
@@ -220,17 +512,22 @@
               Chưa có dữ liệu
             </strong>
 
+
             <span>
               Đang chờ dữ liệu người chơi
             </span>
 
           </div>
 
+
           <div class="rank-score">
+
             ⚔️ 0
+
             <small>
               Kills
             </small>
+
           </div>
 
         </div>
@@ -240,10 +537,17 @@
     </section>
 
 
-    <!-- ACCOUNT -->
+
+    <!-- =====================================================
+         ACCOUNT + CODE
+    ====================================================== -->
+
     <section
       class="section dual-grid"
     >
+
+
+      <!-- ACCOUNT -->
 
       <article
         class="dashboard-card"
@@ -254,9 +558,11 @@
           👤
         </span>
 
+
         <span class="eyebrow">
           PLAYER PROFILE
         </span>
+
 
         <h2>
           TÀI KHOẢN
@@ -272,11 +578,13 @@
             ?
           </div>
 
+
           <div>
 
             <strong id="profileUsername">
               Username
             </strong>
+
 
             <span id="profileRank">
               Chưa có rank
@@ -287,55 +595,72 @@
         </div>
 
 
+
         <div class="stats-list">
 
+
           <div>
+
             <span>
               💰 Coin
             </span>
 
+
             <strong id="profileCoin">
               0
             </strong>
+
           </div>
 
 
           <div>
+
             <span>
               💠 Shard
             </span>
 
+
             <strong id="profileShard">
               0
             </strong>
+
           </div>
 
 
           <div>
+
             <span>
               ⚔️ Kills
             </span>
 
+
             <strong id="profileKills">
               0
             </strong>
+
           </div>
 
 
           <div>
+
             <span>
               ☠️ Deaths
             </span>
 
+
             <strong id="profileDeaths">
               0
             </strong>
+
           </div>
+
 
         </div>
 
 
+
         <!-- USERNAME -->
+
         <div class="input-row">
 
           <input
@@ -345,9 +670,11 @@
             placeholder="Nhập username Minecraft"
           >
 
+
           <button
             class="btn btn-primary"
             id="saveUsername"
+            type="button"
           >
             LƯU
           </button>
@@ -355,17 +682,22 @@
         </div>
 
 
+
         <button
           class="btn btn-secondary full"
           id="resetAccount"
+          type="button"
         >
           🔄 XÓA TÀI KHOẢN TEST
         </button>
 
+
       </article>
 
 
+
       <!-- DAILY CODE -->
+
       <article
         class="dashboard-card"
         id="code"
@@ -375,19 +707,23 @@
           🎁
         </span>
 
+
         <span class="eyebrow">
           DAILY REWARD
         </span>
 
+
         <h2>
           CODE HÔM NAY
         </h2>
+
 
         <div class="code-box">
 
           <span>
             MÃ PHẦN THƯỞNG
           </span>
+
 
           <strong>
             BXP-7K2M-91QX
@@ -396,11 +732,13 @@
         </div>
 
 
+
         <div class="reward-list">
 
           <span>
             💰 +500 Coin
           </span>
+
 
           <span>
             💠 +10 Shard
@@ -409,12 +747,15 @@
         </div>
 
 
+
         <button
           class="btn btn-primary full"
           id="claimCode"
+          type="button"
         >
           🎁 NHẬN CODE
         </button>
+
 
         <p class="small-note">
           ⏰ Code mới mỗi ngày lúc 12:00.
@@ -425,11 +766,18 @@
     </section>
 
 
-    <!-- TOPUP + SKIN -->
+
+    <!-- =====================================================
+         TOPUP + SKIN
+    ====================================================== -->
+
     <section
       class="section dual-grid"
       id="topup"
     >
+
+
+      <!-- TOPUP -->
 
       <article class="dashboard-card">
 
@@ -437,9 +785,11 @@
           🛒
         </span>
 
+
         <span class="eyebrow">
           STORE
         </span>
+
 
         <h2>
           NẠP COIN
@@ -448,25 +798,74 @@
 
         <div class="topup-list">
 
-          <button data-demo="Đã chọn gói 10.000đ.">
-            <span>10.000đ</span>
-            <strong>1.000 💰</strong>
+
+          <button
+            type="button"
+            data-demo="Đã chọn gói 10.000đ."
+          >
+
+            <span>
+              10.000đ
+            </span>
+
+
+            <strong>
+              1.000 💰
+            </strong>
+
           </button>
 
-          <button data-demo="Đã chọn gói 20.000đ.">
-            <span>20.000đ</span>
-            <strong>2.200 💰</strong>
+
+          <button
+            type="button"
+            data-demo="Đã chọn gói 20.000đ."
+          >
+
+            <span>
+              20.000đ
+            </span>
+
+
+            <strong>
+              2.200 💰
+            </strong>
+
           </button>
 
-          <button data-demo="Đã chọn gói 50.000đ.">
-            <span>50.000đ</span>
-            <strong>6.000 💰</strong>
+
+          <button
+            type="button"
+            data-demo="Đã chọn gói 50.000đ."
+          >
+
+            <span>
+              50.000đ
+            </span>
+
+
+            <strong>
+              6.000 💰
+            </strong>
+
           </button>
 
-          <button data-demo="Đã chọn gói 100.000đ.">
-            <span>100.000đ</span>
-            <strong>13.000 💰</strong>
+
+          <button
+            type="button"
+            data-demo="Đã chọn gói 100.000đ."
+          >
+
+            <span>
+              100.000đ
+            </span>
+
+
+            <strong>
+              13.000 💰
+            </strong>
+
           </button>
+
 
         </div>
 
@@ -478,7 +877,9 @@
       </article>
 
 
+
       <!-- SKIN -->
+
       <article
         class="dashboard-card"
         id="skin"
@@ -488,9 +889,11 @@
           👕
         </span>
 
+
         <span class="eyebrow">
           PLAYER SKIN
         </span>
+
 
         <h2>
           SKIN MINECRAFT
@@ -503,11 +906,13 @@
             🙂
           </div>
 
+
           <span id="skinUsername">
             Username
           </span>
 
         </div>
+
 
 
         <div class="input-row">
@@ -519,9 +924,11 @@
             maxlength="16"
           >
 
+
           <button
             class="btn btn-primary"
             id="updateSkin"
+            type="button"
           >
             CẬP NHẬT
           </button>
@@ -538,14 +945,20 @@
 
       </article>
 
+
     </section>
 
 
-    <!-- DISCORD -->
+
+    <!-- =====================================================
+         DISCORD
+    ====================================================== -->
+
     <section
       class="section discord-section"
       id="discord"
     >
+
 
       <div>
 
@@ -553,9 +966,11 @@
           COMMUNITY
         </span>
 
+
         <h2>
           💬 THAM GIA DISCORD
         </h2>
+
 
         <p>
           Tham gia cộng đồng BOXPVP để nhận thông báo,
@@ -573,21 +988,29 @@
         💬 MỞ DISCORD
       </a>
 
+
     </section>
+
 
   </main>
 
 
-  <!-- FOOTER -->
+
+  <!-- =====================================================
+       FOOTER
+  ====================================================== -->
+
   <footer>
 
     <div class="footer-brand">
       ⚔️ BOXPVP
     </div>
 
+
     <p>
       Minecraft BoxPvP Server
     </p>
+
 
     <span id="footerServerStatus">
       🟢 Online
@@ -596,6 +1019,9 @@
   </footer>
 
 
+
+  <!-- TOAST -->
+
   <div
     class="toast"
     id="toast"
@@ -603,8 +1029,12 @@
   ></div>
 
 
+
+  <!-- JAVASCRIPT -->
+
   <script src="script.js"></script>
 
 </body>
+
 </html>
 ```
