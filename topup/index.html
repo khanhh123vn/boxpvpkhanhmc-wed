@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="description"
+    content="BOXPVP - Nạp Coin Demo"
+  >
+
+  <title>🛒 BOXPVP | Nạp Coin</title>
+
+  <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+
+  <div class="bg-grid"></div>
+
+  <!-- ==================== HEADER ==================== -->
+
+  <header class="topbar">
+
+    <a class="brand" href="/">
+      <span class="brand-icon">⚔️</span>
+      <span>BOXPVP</span>
+    </a>
+
+    <button
+      class="menu-toggle"
+      id="menuToggle"
+      aria-label="Mở menu"
+      type="button"
+    >
+      ☰
+    </button>
+
+    <nav class="nav" id="nav">
+
+      <a class="nav-link" href="/">
+        🏠 <span>Trang chủ</span>
+      </a>
+
+      <a class="nav-link active" href="/topup">
+        🛒 <span>Nạp</span>
+      </a>
+
+      <a class="nav-link" href="/code">
+        🎁 <span>Code</span>
+      </a>
+
+      <a class="nav-link" href="/account">
+        👤 <span>Tài khoản</span>
+      </a>
+
+      <a class="nav-link" href="/skin">
+        👕 <span>Skin</span>
+      </a>
+
+      <a class="nav-link" href="/ranking">
+        🏆 <span>BXH</span>
+      </a>
+
+    </nav>
+
+  </header>
+
+
+  <!-- ==================== MAIN ==================== -->
+
+  <main>
+
+    <section class="section">
+
+      <div class="section-heading">
+
+        <span class="eyebrow">
+          BOXPVP STORE
+        </span>
+
+        <h1>
+          🛒 NẠP COIN
+        </h1>
+
+        <p>
+          Chọn gói Coin để nạp vào tài khoản Minecraft.
+        </p>
+
+      </div>
+
+
+      <!-- ==================== ACCOUNT ==================== -->
+
+      <div class="dashboard-card">
+
+        <span class="card-icon">
+          👤
+        </span>
+
+        <span class="eyebrow">
+          PLAYER
+        </span>
+
+        <h2>
+          TÀI KHOẢN
+        </h2>
+
+        <label for="usernameInput">
+          Tên Minecraft
+        </label>
+
+        <input
+          id="usernameInput"
+          type="text"
+          maxlength="16"
+          placeholder="Nhập username Minecraft"
+          autocomplete="off"
+        >
+
+        <p
+          id="currentAccount"
+          class="small-note"
+        >
+          Chưa chọn tài khoản.
+        </p>
+
+      </div>
+
+
+      <!-- ==================== COIN PACKAGES ==================== -->
+
+      <section class="section">
+
+        <div class="section-heading">
+
+          <span class="eyebrow">
+            COIN PACKAGES
+          </span>
+
+          <h2>
+            💰 CHỌN GÓI NẠP
+          </h2>
+
+        </div>
+
+
+        <div class="feature-grid">
+
+
+          <!-- 10K -->
+
+          <button
+            class="feature-card topup-package"
+            type="button"
+            data-price="10000"
+            data-coins="1000"
+          >
+
+            <span class="feature-icon">
+              💰
+            </span>
+
+            <h3>
+              10.000đ
+            </h3>
+
+            <p>
+              Nhận 1.000 Coin
+            </p>
+
+            <strong>
+              NẠP NGAY
+            </strong>
+
+          </button>
+
+
+          <!-- 20K -->
+
+          <button
+            class="feature-card topup-package"
+            type="button"
+            data-price="20000"
+            data-coins="2200"
+          >
+
+            <span class="feature-icon">
+              💰
+            </span>
+
+            <h3>
+              20.000đ
+            </h3>
+
+            <p>
+              Nhận 2.200 Coin
+            </p>
+
+            <strong>
+              NẠP NGAY
+            </strong>
+
+          </button>
+
+
+          <!-- 50K -->
+
+          <button
+            class="feature-card topup-package"
+            type="button"
+            data-price="50000"
+            data-coins="6000"
+          >
+
+            <span class="feature-icon">
+              💰
+            </span>
+
+            <h3>
+              50.000đ
+            </h3>
+
+            <p>
+              Nhận 6.000 Coin
+            </p>
+
+            <strong>
+              NẠP NGAY
+            </strong>
+
+          </button>
+
+
+          <!-- 100K -->
+
+          <button
+            class="feature-card topup-package"
+            type="button"
+            data-price="100000"
+            data-coins="13000"
+          >
+
+            <span class="feature-icon">
+              💰
+            </span>
+
+            <h3>
+              100.000đ
+            </h3>
+
+            <p>
+              Nhận 13.000 Coin
+            </p>
+
+            <strong>
+              NẠP NGAY
+            </strong>
+
+          </button>
+
+        </div>
+
+      </section>
+
+
+      <!-- ==================== ACCOUNT BALANCE ==================== -->
+
+      <section class="section">
+
+        <div class="dashboard-card">
+
+          <span class="card-icon">
+            💰
+          </span>
+
+          <span class="eyebrow">
+            BALANCE
+          </span>
+
+          <h2>
+            SỐ DƯ COIN
+          </h2>
+
+          <div class="code-box">
+
+            <span>
+              COIN HIỆN TẠI
+            </span>
+
+            <strong id="coinBalance">
+              0 💰
+            </strong>
+
+          </div>
+
+          <p class="small-note">
+            Đây là hệ thống demo. Coin được lưu trên trình duyệt.
+          </p>
+
+        </div>
+
+      </section>
+
+
+      <!-- ==================== NOTICE ==================== -->
+
+      <section class="section">
+
+        <div class="dashboard-card">
+
+          <span class="card-icon">
+            ⚠️
+          </span>
+
+          <span class="eyebrow">
+            DEMO SYSTEM
+          </span>
+
+          <h2>
+            LƯU Ý
+          </h2>
+
+          <p>
+            Đây chỉ là hệ thống demo để kiểm tra giao diện
+            và chức năng nạp Coin.
+          </p>
+
+          <p>
+            Chưa có thanh toán bằng tiền thật.
+          </p>
+
+        </div>
+
+      </section>
+
+    </section>
+
+  </main>
+
+
+  <!-- ==================== FOOTER ==================== -->
+
+  <footer>
+
+    <div class="footer-brand">
+      ⚔️ BOXPVP
+    </div>
+
+    <p>
+      Minecraft BoxPvP Server
+    </p>
+
+    <span>
+      🟢 Online
+    </span>
+
+  </footer>
+
+
+  <!-- ==================== TOAST ==================== -->
+
+  <div
+    class="toast"
+    id="toast"
+    role="status"
+  ></div>
+
+
+  <!-- ==================== SCRIPT ==================== -->
+
+  <script>
+
+    const toast = document.getElementById("toast");
+
+    const menuToggle = document.getElementById("menuToggle");
+
+    const nav = document.getElementById("nav");
+
+    const usernameInput =
+      document.getElementById("usernameInput");
+
+    const currentAccount =
+      document.getElementById("currentAccount");
+
+    const coinBalance =
+      document.getElementById("coinBalance");
+
+
+    /* ==================== TOAST ==================== */
+
+    function showToast(message) {
+
+      if (!toast) {
+        return;
+      }
+
+      toast.textContent = message;
+
+      toast.classList.add("show");
+
+      clearTimeout(window.boxpvpToastTimer);
+
+      window.boxpvpToastTimer = setTimeout(() => {
+
+        toast.classList.remove("show");
+
+      }, 2600);
+
+    }
+
+
+    /* ==================== MOBILE MENU ==================== */
+
+    if (menuToggle && nav) {
+
+      menuToggle.addEventListener("click", () => {
+
+        nav.classList.toggle("open");
+
+      });
+
+    }
+
+
+    document
+      .querySelectorAll(".nav-link")
+      .forEach(link => {
+
+        link.addEventListener("click", () => {
+
+          if (nav) {
+
+            nav.classList.remove("open");
+
+          }
+
+        });
+
+      });
+
+
+    /* ==================== USERNAME ==================== */
+
+    function getUsername() {
+
+      return localStorage
+        .getItem("boxpvp_username") || "";
+
+    }
+
+
+    function saveUsername(username) {
+
+      localStorage.setItem(
+        "boxpvp_username",
+        username
+      );
+
+    }
+
+
+    /* ==================== COIN ==================== */
+
+    function getCoin() {
+
+      const value =
+        Number(
+          localStorage.getItem("boxpvp_coin")
+        );
+
+      return Number.isFinite(value)
+        ? value
+        : 0;
+
+    }
+
+
+    function saveCoin(value) {
+
+      localStorage.setItem(
+        "boxpvp_coin",
+        String(value)
+      );
+
+    }
+
+
+    function updateCoinDisplay() {
+
+      const username = getUsername();
+
+      const coin = getCoin();
+
+
+      if (coinBalance) {
+
+        coinBalance.textContent =
+          `${coin.toLocaleString("vi-VN")} 💰`;
+
+      }
+
+
+      if (currentAccount) {
+
+        if (username) {
+
+          currentAccount.textContent =
+            `👤 Tài khoản: ${username}`;
+
+        } else {
+
+          currentAccount.textContent =
+            "⚠️ Chưa chọn tài khoản.";
+
+        }
+
+      }
+
+    }
+
+
+    /* ==================== LOAD ACCOUNT ==================== */
+
+    const savedUsername = getUsername();
+
+    if (usernameInput && savedUsername) {
+
+      usernameInput.value =
+        savedUsername;
+
+    }
+
+    updateCoinDisplay();
+
+
+    /* ==================== CHANGE USERNAME ==================== */
+
+    if (usernameInput) {
+
+      usernameInput.addEventListener(
+        "change",
+        () => {
+
+          const username =
+            usernameInput.value.trim();
+
+
+          if (!username) {
+
+            localStorage.removeItem(
+              "boxpvp_username"
+            );
+
+            updateCoinDisplay();
+
+            return;
+
+          }
+
+
+          saveUsername(username);
+
+          updateCoinDisplay();
+
+          showToast(
+            `👤 Đã chọn tài khoản ${username}`
+          );
+
+        }
+      );
+
+    }
+
+
+    /* ==================== TOPUP ==================== */
+
+    document
+      .querySelectorAll(".topup-package")
+      .forEach(packageButton => {
+
+        packageButton.addEventListener(
+          "click",
+          () => {
+
+            const username =
+              usernameInput?.value.trim();
+
+
+            if (!username) {
+
+              showToast(
+                "⚠️ Hãy nhập username Minecraft trước."
+              );
+
+              usernameInput?.focus();
+
+              return;
+
+            }
+
+
+            const price =
+              Number(
+                packageButton.dataset.price
+              );
+
+
+            const coins =
+              Number(
+                packageButton.dataset.coins
+              );
+
+
+            if (
+              !Number.isFinite(price) ||
+              !Number.isFinite(coins)
+            ) {
+
+              showToast(
+                "❌ Gói Coin không hợp lệ."
+              );
+
+              return;
+
+            }
+
+
+            saveUsername(username);
+
+
+            const oldCoin =
+              getCoin();
+
+
+            const newCoin =
+              oldCoin + coins;
+
+
+            saveCoin(newCoin);
+
+
+            updateCoinDisplay();
+
+
+            showToast(
+              `✅ Demo thành công! +${coins.toLocaleString("vi-VN")} Coin`
+            );
+
+          }
+        );
+
+      });
+
+
+    /* ==================== START ==================== */
+
+    updateCoinDisplay();
+
+  </script>
+
+</body>
+</html>
