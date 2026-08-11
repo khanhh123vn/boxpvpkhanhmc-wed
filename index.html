@@ -4,14 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <meta
-    name="description"
-    content="BOXPVP - Minecraft BoxPvP Server"
-  >
-
+  <meta name="description" content="BOXPVP - Minecraft BoxPvP Server">
   <title>⚔️ BOXPVP | Minecraft Server</title>
-
   <link rel="stylesheet" href="style.css">
 </head>
 
@@ -19,22 +13,14 @@
 
   <div class="bg-grid"></div>
 
-
-  <!-- =====================================================
-       HEADER
-  ====================================================== -->
+  <!-- ================= HEADER ================= -->
 
   <header class="topbar">
 
-    <a
-      class="brand"
-      href="#home"
-      aria-label="BOXPVP"
-    >
+    <a class="brand" href="#home" aria-label="BOXPVP">
       <span class="brand-icon">⚔️</span>
       <span>BOXPVP</span>
     </a>
-
 
     <button
       class="menu-toggle"
@@ -45,51 +31,29 @@
       ☰
     </button>
 
+    <nav class="nav" id="nav">
 
-    <nav
-      class="nav"
-      id="nav"
-    >
-
-      <a
-        class="nav-link active"
-        href="#home"
-      >
+      <a class="nav-link active" href="#home">
         🏠 <span>Trang chủ</span>
       </a>
 
-      <a
-        class="nav-link"
-        href="#topup"
-      >
+      <a class="nav-link" href="#topup">
         🛒 <span>Nạp</span>
       </a>
 
-      <a
-        class="nav-link"
-        href="#code"
-      >
+      <a class="nav-link" href="#code">
         🎁 <span>Code</span>
       </a>
 
-      <a
-        class="nav-link"
-        href="#account"
-      >
+      <a class="nav-link" href="#account">
         👤 <span>Tài khoản</span>
       </a>
 
-      <a
-        class="nav-link"
-        href="#skin"
-      >
+      <a class="nav-link" href="#skin">
         👕 <span>Skin</span>
       </a>
 
-      <a
-        class="nav-link"
-        href="#ranking"
-      >
+      <a class="nav-link" href="#ranking">
         🏆 <span>BXH</span>
       </a>
 
@@ -100,44 +64,27 @@
 
   <main>
 
+    <!-- ================= HOME ================= -->
 
-    <!-- =====================================================
-         HOME
-    ====================================================== -->
-
-    <section
-      class="hero section"
-      id="home"
-    >
+    <section class="hero section" id="home">
 
       <div class="hero-glow"></div>
-
 
       <div class="hero-content">
 
         <div class="status-pill">
-
           <span class="status-dot"></span>
-
           SERVER ĐANG HOẠT ĐỘNG
-
         </div>
 
-
-        <h1>
-          ⚔️ BOXPVP
-        </h1>
-
+        <h1>⚔️ BOXPVP</h1>
 
         <p class="hero-subtitle">
           MINECRAFT BOX PVP SERVER
         </p>
 
 
-        <!-- SERVER -->
-
         <div class="server-card">
-
 
           <div class="server-stat">
 
@@ -171,12 +118,11 @@
               IP SERVER
             </span>
 
-
             <button
               id="copyIp"
               class="ip-button"
               type="button"
-              title="Bấm để sao chép"
+              title="Bấm để sao chép IP"
             >
 
               <strong id="serverIp">
@@ -191,11 +137,8 @@
 
           </div>
 
-
         </div>
 
-
-        <!-- BUTTON -->
 
         <div class="hero-actions">
 
@@ -230,10 +173,7 @@
     </section>
 
 
-
-    <!-- =====================================================
-         FEATURES
-    ====================================================== -->
+    <!-- ================= FEATURES ================= -->
 
     <section
       class="section"
@@ -251,7 +191,7 @@
         </h2>
 
         <p>
-          Mọi thứ cần thiết cho một server BoxPvP.
+          Bấm vào từng tính năng để chuyển đến khu vực tương ứng.
         </p>
 
       </div>
@@ -284,7 +224,6 @@
         </article>
 
 
-
         <!-- ECONOMY -->
 
         <article
@@ -307,7 +246,6 @@
           </p>
 
         </article>
-
 
 
         <!-- CRATE -->
@@ -334,7 +272,6 @@
         </article>
 
 
-
         <!-- RANK -->
 
         <article
@@ -357,7 +294,6 @@
           </p>
 
         </article>
-
 
 
         <!-- SHOP -->
@@ -384,7 +320,6 @@
         </article>
 
 
-
         <!-- BXH -->
 
         <article
@@ -408,16 +343,12 @@
 
         </article>
 
-
       </div>
 
     </section>
 
 
-
-    <!-- =====================================================
-         RANKING
-    ====================================================== -->
+    <!-- ================= RANKING ================= -->
 
     <section
       class="section panel-section"
@@ -434,6 +365,10 @@
           🏆 BXH
         </h2>
 
+        <p>
+          Bảng xếp hạng người chơi.
+        </p>
+
       </div>
 
 
@@ -448,17 +383,20 @@
             🏆
           </div>
 
-          <div class="avatar">
+          <div
+            class="avatar"
+            id="rankingAvatar"
+          >
             ?
           </div>
 
           <div class="rank-player">
 
-            <strong>
+            <strong id="rankingUsername">
               Chưa có dữ liệu
             </strong>
 
-            <span>
+            <span id="rankingRank">
               Đang chờ dữ liệu người chơi
             </span>
 
@@ -466,7 +404,10 @@
 
           <div class="rank-score">
 
-            ⚔️ 0
+            ⚔️
+            <span id="rankingKills">
+              0
+            </span>
 
             <small>
               Kills
@@ -481,10 +422,7 @@
     </section>
 
 
-
-    <!-- =====================================================
-         ACCOUNT + CODE
-    ====================================================== -->
+    <!-- ================= ACCOUNT + CODE ================= -->
 
     <section
       class="section dual-grid"
@@ -502,11 +440,9 @@
           👤
         </span>
 
-
         <span class="eyebrow">
           PLAYER PROFILE
         </span>
-
 
         <h2>
           TÀI KHOẢN
@@ -522,7 +458,6 @@
             ?
           </div>
 
-
           <div>
 
             <strong id="profileUsername">
@@ -537,9 +472,6 @@
 
         </div>
 
-
-
-        <!-- STATS -->
 
         <div class="stats-list">
 
@@ -597,7 +529,6 @@
         </div>
 
 
-
         <!-- USERNAME -->
 
         <div class="input-row">
@@ -606,9 +537,9 @@
             id="usernameInput"
             type="text"
             maxlength="16"
+            autocomplete="off"
             placeholder="Nhập username Minecraft"
           >
-
 
           <button
             class="btn btn-primary"
@@ -621,9 +552,6 @@
         </div>
 
 
-
-        <!-- RESET -->
-
         <button
           class="btn btn-secondary full"
           id="resetAccount"
@@ -633,7 +561,6 @@
         </button>
 
       </article>
-
 
 
       <!-- DAILY CODE -->
@@ -647,11 +574,9 @@
           🎁
         </span>
 
-
         <span class="eyebrow">
           DAILY REWARD
         </span>
-
 
         <h2>
           CODE HÔM NAY
@@ -664,7 +589,7 @@
             MÃ PHẦN THƯỞNG
           </span>
 
-          <strong>
+          <strong id="dailyCode">
             BXP-7K2M-91QX
           </strong>
 
@@ -702,10 +627,7 @@
     </section>
 
 
-
-    <!-- =====================================================
-         TOPUP + SKIN
-    ====================================================== -->
+    <!-- ================= TOPUP + SKIN ================= -->
 
     <section
       class="section dual-grid"
@@ -721,11 +643,9 @@
           🛒
         </span>
 
-
         <span class="eyebrow">
           STORE
         </span>
-
 
         <h2>
           NẠP COIN
@@ -734,12 +654,10 @@
 
         <div class="topup-list">
 
-
           <button
             type="button"
             data-demo="Đã chọn gói 10.000đ."
           >
-
             <span>
               10.000đ
             </span>
@@ -747,16 +665,13 @@
             <strong>
               1.000 💰
             </strong>
-
           </button>
-
 
 
           <button
             type="button"
             data-demo="Đã chọn gói 20.000đ."
           >
-
             <span>
               20.000đ
             </span>
@@ -764,16 +679,13 @@
             <strong>
               2.200 💰
             </strong>
-
           </button>
-
 
 
           <button
             type="button"
             data-demo="Đã chọn gói 50.000đ."
           >
-
             <span>
               50.000đ
             </span>
@@ -781,16 +693,13 @@
             <strong>
               6.000 💰
             </strong>
-
           </button>
-
 
 
           <button
             type="button"
             data-demo="Đã chọn gói 100.000đ."
           >
-
             <span>
               100.000đ
             </span>
@@ -798,19 +707,16 @@
             <strong>
               13.000 💰
             </strong>
-
           </button>
-
 
         </div>
 
 
         <p class="small-note">
-          Bản giao diện hiện là demo.
+          Bản giao diện hiện là demo, chưa xử lý tiền thật.
         </p>
 
       </article>
-
 
 
       <!-- SKIN -->
@@ -824,11 +730,9 @@
           👕
         </span>
 
-
         <span class="eyebrow">
           PLAYER SKIN
         </span>
-
 
         <h2>
           SKIN MINECRAFT
@@ -853,10 +757,10 @@
           <input
             id="skinName"
             type="text"
-            placeholder="Nhập tên Minecraft"
             maxlength="16"
+            autocomplete="off"
+            placeholder="Nhập tên Minecraft"
           >
-
 
           <button
             class="btn btn-primary"
@@ -881,10 +785,7 @@
     </section>
 
 
-
-    <!-- =====================================================
-         DISCORD
-    ====================================================== -->
+    <!-- ================= DISCORD ================= -->
 
     <section
       class="section discord-section"
@@ -897,11 +798,9 @@
           COMMUNITY
         </span>
 
-
         <h2>
           💬 THAM GIA DISCORD
         </h2>
-
 
         <p>
           Tham gia cộng đồng BOXPVP để nhận thông báo,
@@ -924,10 +823,7 @@
   </main>
 
 
-
-  <!-- =====================================================
-       FOOTER
-  ====================================================== -->
+  <!-- ================= FOOTER ================= -->
 
   <footer>
 
@@ -935,11 +831,9 @@
       ⚔️ BOXPVP
     </div>
 
-
     <p>
       Minecraft BoxPvP Server
     </p>
-
 
     <span id="footerServerStatus">
       🟢 Online
@@ -948,8 +842,7 @@
   </footer>
 
 
-
-  <!-- TOAST -->
+  <!-- ================= TOAST ================= -->
 
   <div
     class="toast"
@@ -959,8 +852,7 @@
   ></div>
 
 
-
-  <!-- SCRIPT -->
+  <!-- ================= SCRIPT ================= -->
 
   <script src="script.js"></script>
 
