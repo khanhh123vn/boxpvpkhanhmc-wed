@@ -6,7 +6,7 @@
 
   <meta
     name="description"
-    content="BOXPVP - Nạp Coin Demo"
+    content="BOXPVP - Nạp Coin"
   >
 
   <title>🛒 BOXPVP | Nạp Coin</title>
@@ -30,8 +30,8 @@
     <button
       class="menu-toggle"
       id="menuToggle"
-      aria-label="Mở menu"
       type="button"
+      aria-label="Mở menu"
     >
       ☰
     </button>
@@ -84,13 +84,13 @@
         </h1>
 
         <p>
-          Chọn gói Coin để nạp vào tài khoản Minecraft.
+          Nạp Coin vào tài khoản BOXPVP.
         </p>
 
       </div>
 
 
-      <!-- ==================== ACCOUNT ==================== -->
+      <!-- ==================== PLAYER ==================== -->
 
       <div class="dashboard-card">
 
@@ -122,13 +122,48 @@
           id="currentAccount"
           class="small-note"
         >
-          Chưa chọn tài khoản.
+          ⚠️ Chưa chọn tài khoản.
         </p>
 
       </div>
 
 
-      <!-- ==================== COIN PACKAGES ==================== -->
+      <!-- ==================== COIN RULE ==================== -->
+
+      <div class="dashboard-card">
+
+        <span class="card-icon">
+          💰
+        </span>
+
+        <span class="eyebrow">
+          COIN RATE
+        </span>
+
+        <h2>
+          TỶ LỆ NẠP
+        </h2>
+
+        <div class="code-box">
+
+          <span>
+            TỶ LỆ
+          </span>
+
+          <strong>
+            1.000đ = 1 💰
+          </strong>
+
+        </div>
+
+        <p class="small-note">
+          Chọn gói bên dưới để nhận Coin demo.
+        </p>
+
+      </div>
+
+
+      <!-- ==================== PACKAGES ==================== -->
 
       <section class="section">
 
@@ -139,8 +174,12 @@
           </span>
 
           <h2>
-            💰 CHỌN GÓI NẠP
+            💰 GÓI NẠP COIN
           </h2>
+
+          <p>
+            Mỗi 1.000đ tương ứng 1 Coin.
+          </p>
 
         </div>
 
@@ -150,12 +189,7 @@
 
           <!-- 10K -->
 
-          <button
-            class="feature-card topup-package"
-            type="button"
-            data-price="10000"
-            data-coins="1000"
-          >
+          <div class="feature-card">
 
             <span class="feature-icon">
               💰
@@ -166,24 +200,24 @@
             </h3>
 
             <p>
-              Nhận 1.000 Coin
+              Nhận <strong>10 Coin</strong>
             </p>
 
-            <strong>
-              NẠP NGAY
-            </strong>
+            <button
+              class="btn btn-primary topup-button"
+              type="button"
+              data-price="10000"
+              data-coins="10"
+            >
+              ⚡ NẠP NGAY
+            </button>
 
-          </button>
+          </div>
 
 
           <!-- 20K -->
 
-          <button
-            class="feature-card topup-package"
-            type="button"
-            data-price="20000"
-            data-coins="2200"
-          >
+          <div class="feature-card">
 
             <span class="feature-icon">
               💰
@@ -194,24 +228,24 @@
             </h3>
 
             <p>
-              Nhận 2.200 Coin
+              Nhận <strong>20 Coin</strong>
             </p>
 
-            <strong>
-              NẠP NGAY
-            </strong>
+            <button
+              class="btn btn-primary topup-button"
+              type="button"
+              data-price="20000"
+              data-coins="20"
+            >
+              ⚡ NẠP NGAY
+            </button>
 
-          </button>
+          </div>
 
 
           <!-- 50K -->
 
-          <button
-            class="feature-card topup-package"
-            type="button"
-            data-price="50000"
-            data-coins="6000"
-          >
+          <div class="feature-card">
 
             <span class="feature-icon">
               💰
@@ -222,24 +256,24 @@
             </h3>
 
             <p>
-              Nhận 6.000 Coin
+              Nhận <strong>50 Coin</strong>
             </p>
 
-            <strong>
-              NẠP NGAY
-            </strong>
+            <button
+              class="btn btn-primary topup-button"
+              type="button"
+              data-price="50000"
+              data-coins="50"
+            >
+              ⚡ NẠP NGAY
+            </button>
 
-          </button>
+          </div>
 
 
           <!-- 100K -->
 
-          <button
-            class="feature-card topup-package"
-            type="button"
-            data-price="100000"
-            data-coins="13000"
-          >
+          <div class="feature-card">
 
             <span class="feature-icon">
               💰
@@ -250,21 +284,138 @@
             </h3>
 
             <p>
-              Nhận 13.000 Coin
+              Nhận <strong>100 Coin</strong>
             </p>
 
-            <strong>
-              NẠP NGAY
-            </strong>
+            <button
+              class="btn btn-primary topup-button"
+              type="button"
+              data-price="100000"
+              data-coins="100"
+            >
+              ⚡ NẠP NGAY
+            </button>
 
-          </button>
+          </div>
+
+
+          <!-- 200K -->
+
+          <div class="feature-card">
+
+            <span class="feature-icon">
+              💰
+            </span>
+
+            <h3>
+              200.000đ
+            </h3>
+
+            <p>
+              Nhận <strong>200 Coin</strong>
+            </p>
+
+            <button
+              class="btn btn-primary topup-button"
+              type="button"
+              data-price="200000"
+              data-coins="200"
+            >
+              ⚡ NẠP NGAY
+            </button>
+
+          </div>
+
+
+          <!-- 300K -->
+
+          <div class="feature-card">
+
+            <span class="feature-icon">
+              💰
+            </span>
+
+            <h3>
+              300.000đ
+            </h3>
+
+            <p>
+              Nhận <strong>300 Coin</strong>
+            </p>
+
+            <button
+              class="btn btn-primary topup-button"
+              type="button"
+              data-price="300000"
+              data-coins="300"
+            >
+              ⚡ NẠP NGAY
+            </button>
+
+          </div>
+
+
+          <!-- 400K -->
+
+          <div class="feature-card">
+
+            <span class="feature-icon">
+              💰
+            </span>
+
+            <h3>
+              400.000đ
+            </h3>
+
+            <p>
+              Nhận <strong>400 Coin</strong>
+            </p>
+
+            <button
+              class="btn btn-primary topup-button"
+              type="button"
+              data-price="400000"
+              data-coins="400"
+            >
+              ⚡ NẠP NGAY
+            </button>
+
+          </div>
+
+
+          <!-- 500K -->
+
+          <div class="feature-card">
+
+            <span class="feature-icon">
+              💰
+            </span>
+
+            <h3>
+              500.000đ
+            </h3>
+
+            <p>
+              Nhận <strong>500 Coin</strong>
+            </p>
+
+            <button
+              class="btn btn-primary topup-button"
+              type="button"
+              data-price="500000"
+              data-coins="500"
+            >
+              ⚡ NẠP NGAY
+            </button>
+
+          </div>
 
         </div>
 
       </section>
 
 
-      <!-- ==================== ACCOUNT BALANCE ==================== -->
+      <!-- ==================== BALANCE ==================== -->
 
       <section class="section">
 
@@ -275,7 +426,7 @@
           </span>
 
           <span class="eyebrow">
-            BALANCE
+            PLAYER BALANCE
           </span>
 
           <h2>
@@ -294,16 +445,12 @@
 
           </div>
 
-          <p class="small-note">
-            Đây là hệ thống demo. Coin được lưu trên trình duyệt.
-          </p>
-
         </div>
 
       </section>
 
 
-      <!-- ==================== NOTICE ==================== -->
+      <!-- ==================== DEMO NOTICE ==================== -->
 
       <section class="section">
 
@@ -314,20 +461,20 @@
           </span>
 
           <span class="eyebrow">
-            DEMO SYSTEM
+            DEMO
           </span>
 
           <h2>
-            LƯU Ý
+            NẠP COIN DEMO
           </h2>
 
           <p>
-            Đây chỉ là hệ thống demo để kiểm tra giao diện
-            và chức năng nạp Coin.
+            Đây chỉ là giao diện thử nghiệm.
+            Chưa có thanh toán bằng tiền thật.
           </p>
 
-          <p>
-            Chưa có thanh toán bằng tiền thật.
+          <p class="small-note">
+            Coin demo được lưu trên trình duyệt hiện tại.
           </p>
 
         </div>
@@ -371,11 +518,14 @@
 
   <script>
 
-    const toast = document.getElementById("toast");
+    const toast =
+      document.getElementById("toast");
 
-    const menuToggle = document.getElementById("menuToggle");
+    const menuToggle =
+      document.getElementById("menuToggle");
 
-    const nav = document.getElementById("nav");
+    const nav =
+      document.getElementById("nav");
 
     const usernameInput =
       document.getElementById("usernameInput");
@@ -401,24 +551,28 @@
 
       clearTimeout(window.boxpvpToastTimer);
 
-      window.boxpvpToastTimer = setTimeout(() => {
+      window.boxpvpToastTimer =
+        setTimeout(() => {
 
-        toast.classList.remove("show");
+          toast.classList.remove("show");
 
-      }, 2600);
+        }, 2600);
 
     }
 
 
-    /* ==================== MOBILE MENU ==================== */
+    /* ==================== MENU ==================== */
 
     if (menuToggle && nav) {
 
-      menuToggle.addEventListener("click", () => {
+      menuToggle.addEventListener(
+        "click",
+        () => {
 
-        nav.classList.toggle("open");
+          nav.classList.toggle("open");
 
-      });
+        }
+      );
 
     }
 
@@ -427,15 +581,16 @@
       .querySelectorAll(".nav-link")
       .forEach(link => {
 
-        link.addEventListener("click", () => {
+        link.addEventListener(
+          "click",
+          () => {
 
-          if (nav) {
-
-            nav.classList.remove("open");
+            if (nav) {
+              nav.classList.remove("open");
+            }
 
           }
-
-        });
+        );
 
       });
 
@@ -444,8 +599,11 @@
 
     function getUsername() {
 
-      return localStorage
-        .getItem("boxpvp_username") || "";
+      return (
+        localStorage.getItem(
+          "boxpvp_username"
+        ) || ""
+      );
 
     }
 
@@ -466,12 +624,16 @@
 
       const value =
         Number(
-          localStorage.getItem("boxpvp_coin")
+          localStorage.getItem(
+            "boxpvp_coin"
+          )
         );
 
-      return Number.isFinite(value)
-        ? value
-        : 0;
+      if (!Number.isFinite(value)) {
+        return 0;
+      }
+
+      return value;
 
     }
 
@@ -486,17 +648,19 @@
     }
 
 
-    function updateCoinDisplay() {
+    function updateDisplay() {
 
-      const username = getUsername();
+      const username =
+        getUsername();
 
-      const coin = getCoin();
+      const coin =
+        getCoin();
 
 
-      if (coinBalance) {
+      if (usernameInput) {
 
-        coinBalance.textContent =
-          `${coin.toLocaleString("vi-VN")} 💰`;
+        usernameInput.value =
+          username;
 
       }
 
@@ -517,24 +681,18 @@
 
       }
 
-    }
 
+      if (coinBalance) {
 
-    /* ==================== LOAD ACCOUNT ==================== */
+        coinBalance.textContent =
+          `${coin.toLocaleString("vi-VN")} 💰`;
 
-    const savedUsername = getUsername();
-
-    if (usernameInput && savedUsername) {
-
-      usernameInput.value =
-        savedUsername;
+      }
 
     }
 
-    updateCoinDisplay();
 
-
-    /* ==================== CHANGE USERNAME ==================== */
+    /* ==================== USERNAME INPUT ==================== */
 
     if (usernameInput) {
 
@@ -552,7 +710,11 @@
               "boxpvp_username"
             );
 
-            updateCoinDisplay();
+            updateDisplay();
+
+            showToast(
+              "⚠️ Username không được để trống."
+            );
 
             return;
 
@@ -561,10 +723,10 @@
 
           saveUsername(username);
 
-          updateCoinDisplay();
+          updateDisplay();
 
           showToast(
-            `👤 Đã chọn tài khoản ${username}`
+            `👤 Đã chọn ${username}`
           );
 
         }
@@ -576,10 +738,10 @@
     /* ==================== TOPUP ==================== */
 
     document
-      .querySelectorAll(".topup-package")
-      .forEach(packageButton => {
+      .querySelectorAll(".topup-button")
+      .forEach(button => {
 
-        packageButton.addEventListener(
+        button.addEventListener(
           "click",
           () => {
 
@@ -602,13 +764,12 @@
 
             const price =
               Number(
-                packageButton.dataset.price
+                button.dataset.price
               );
-
 
             const coins =
               Number(
-                packageButton.dataset.coins
+                button.dataset.coins
               );
 
 
@@ -618,7 +779,7 @@
             ) {
 
               showToast(
-                "❌ Gói Coin không hợp lệ."
+                "❌ Gói nạp không hợp lệ."
               );
 
               return;
@@ -639,12 +800,11 @@
 
             saveCoin(newCoin);
 
-
-            updateCoinDisplay();
+            updateDisplay();
 
 
             showToast(
-              `✅ Demo thành công! +${coins.toLocaleString("vi-VN")} Coin`
+              `✅ Nạp demo thành công: +${coins} Coin`
             );
 
           }
@@ -655,7 +815,7 @@
 
     /* ==================== START ==================== */
 
-    updateCoinDisplay();
+    updateDisplay();
 
   </script>
 
