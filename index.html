@@ -1,866 +1,721 @@
-<!DOCTYPE html>
-
-<html lang="vi">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<meta
-name="description"
-content="BOXPVP - Minecraft BoxPvP Server"
-
->
-
-  <title>⚔️ BOXPVP | Minecraft Server</title>
-
-  <link rel="stylesheet" href="style.css">
-</head>
-
-<body>
-
-  <div class="bg-grid"></div>
-
-  <!-- ==================== HEADER ==================== -->
-
-  <header class="topbar">
-
-```
-<a
-  class="brand"
-  href="/"
-  aria-label="BOXPVP"
->
-  <span class="brand-icon">⚔️</span>
-  <span>BOXPVP</span>
-</a>
+// =====================================================
+// BOXPVP - SCRIPT TRANG CHỦ
+// =====================================================
 
-<button
-  class="menu-toggle"
-  id="menuToggle"
-  type="button"
-  aria-label="Mở menu"
->
-  ☰
-</button>
+// ==================== API ====================
 
-<nav
-  class="nav"
-  id="nav"
->
+const API_URL = "https://boxpvp-backend.vercel.app";
 
-  <a
-    class="nav-link active"
-    href="/"
-  >
-    🏠 <span>Trang chủ</span>
-  </a>
+const SERVER_IP = "boxpvpkhanhmc.levyathan.ch";
 
-  <a
-    class="nav-link"
-    href="/shop"
-  >
-    🏪 <span>Shop</span>
-  </a>
 
-  <a
-    class="nav-link"
-    href="/topup"
-  >
-    🛒 <span>Nạp</span>
-  </a>
+// ==================== ELEMENTS ====================
 
-  <a
-    class="nav-link"
-    href="/code"
-  >
-    🎁 <span>Code</span>
-  </a>
+const toast = document.getElementById("toast");
 
-  <a
-    class="nav-link"
-    href="/account"
-  >
-    👤 <span>Tài khoản</span>
-  </a>
+const nav = document.getElementById("nav");
 
-  <a
-    class="nav-link"
-    href="/skin"
-  >
-    👕 <span>Skin</span>
-  </a>
+const menuToggle = document.getElementById("menuToggle");
 
-  <a
-    class="nav-link"
-    href="/ranking"
-  >
-    🏆 <span>BXH</span>
-  </a>
 
-</nav>
-```
+// =====================================================
+// THÔNG BÁO
+// =====================================================
 
-  </header>
+function showToast(message) {
 
-  <!-- ==================== MAIN ==================== -->
+  if (!toast) return;
 
-  <main>
+  toast.textContent = message;
 
-```
-<!-- ==================== HERO ==================== -->
+  toast.classList.add("show");
 
-<section class="hero section" id="home">
+  clearTimeout(window.toastTimer);
 
-  <div class="hero-glow"></div>
+  window.toastTimer = setTimeout(() => {
 
-  <div class="hero-content">
+    toast.classList.remove("show");
 
-    <div class="status-pill">
-      <span class="status-dot"></span>
-      SERVER ĐANG HOẠT ĐỘNG
-    </div>
+  }, 2600);
 
-    <h1>
-      ⚔️ BOXPVP
-    </h1>
+}
 
-    <p class="hero-subtitle">
-      MINECRAFT BOX PVP SERVER
-    </p>
 
+// =====================================================
+// MENU ĐIỆN THOẠI
+// =====================================================
 
-    <!-- ==================== SERVER ==================== -->
+if (menuToggle && nav) {
 
-    <div class="server-card">
+  menuToggle.addEventListener("click", () => {
 
-      <div class="server-stat">
+    nav.classList.toggle("open");
 
-        <span class="stat-label">
-          Trạng thái
-        </span>
+  });
 
-        <strong class="online-text">
-          🟢 ONLINE
-        </strong>
+}
 
-      </div>
 
+document
+  .querySelectorAll(".nav-link")
+  .forEach(link => {
 
-      <div class="server-stat">
+    link.addEventListener("click", () => {
 
-        <span class="stat-label">
-          Người chơi
-        </span>
+      if (nav) {
 
-        <strong id="serverPlayers">
-          0 <small>/ 100</small>
-        </strong>
+        nav.classList.remove("open");
 
-      </div>
+      }
 
+    });
 
-      <div class="server-ip">
+  });
 
-        <span>
-          IP SERVER
-        </span>
 
-        <button
-          id="copyIp"
-          class="ip-button"
-          type="button"
-          title="Bấm để sao chép IP"
-        >
+// =====================================================
+// API MÁY CHỦ
+// =====================================================
 
-          <strong id="serverIp">
-            boxpvpkhanhmc.levyathan.ch
-          </strong>
+async function loadServerStatus() {
 
-          <span>
-            📋
-          </span>
+  const serverIp =
+    document.getElementById("serverIp");
 
-        </button>
+  const onlineElement =
+    document.querySelector(".online-text");
 
-      </div>
+  const playerElement =
+    document.getElementById("serverPlayers");
 
-    </div>
+  const footerStatus =
+    document.getElementById(
+      "footerServerStatus"
+    );
 
 
-    <!-- ==================== ACTIONS ==================== -->
+  // IP SERVER CỐ ĐỊNH
 
-    <div class="hero-actions">
+  if (serverIp) {
 
-      <button
-        class="btn btn-primary"
-        id="playButton"
-        type="button"
-      >
-        🎮 CHƠI NGAY
-      </button>
+    serverIp.textContent =
+      SERVER_IP;
 
-      <a
-        class="btn btn-secondary"
-        href="#discord"
-      >
-        💬 DISCORD
-      </a>
+  }
 
-    </div>
 
+  try {
 
-    <p
-      class="copy-hint"
-      id="copyHint"
-    >
-      Bấm vào IP để sao chép địa chỉ server.
-    </p>
+    const response =
+      await fetch(
+        `${API_URL}/api/server`
+      );
 
-  </div>
 
-</section>
+    if (!response.ok) {
 
+      throw new Error("Lỗi API");
 
-<!-- ==================== FEATURES ==================== -->
+    }
 
-<section
-  class="section"
-  id="features"
->
 
-  <div class="section-heading">
+    const data =
+      await response.json();
 
-    <span class="eyebrow">
-      BOXPVP SERVER
-    </span>
 
-    <h2>
-      🔥 TÍNH NĂNG
-    </h2>
+    // ==================== ONLINE ====================
 
-    <p>
-      Mọi thứ cần thiết cho một server BoxPvP.
-    </p>
+    if (onlineElement) {
 
-  </div>
+      onlineElement.textContent =
+        data.online
+          ? "🟢 ONLINE"
+          : "🔴 OFFLINE";
 
+    }
 
-  <div class="feature-grid">
 
+    // ==================== PLAYERS ====================
 
-    <!-- BOX PVP -->
+    if (playerElement) {
 
-    <a
-      class="feature-card"
-      href="/boxpvp"
-    >
+      playerElement.innerHTML =
+        `${data.players ?? 0} <small>/ ${data.maxPlayers ?? 100}</small>`;
 
-      <span class="feature-icon">
-        ⚔️
-      </span>
+    }
 
-      <h3>
-        BoxPvP
-      </h3>
 
-      <p>
-        Chiến đấu, farm và leo bảng xếp hạng.
-      </p>
+    // ==================== FOOTER ====================
 
-    </a>
+    if (footerStatus) {
 
+      footerStatus.textContent =
+        data.online
+          ? `🟢 Trực tuyến • ${data.players ?? 0}/${data.maxPlayers ?? 100}`
+          : "🔴 Ngoại tuyến";
 
-    <!-- ECONOMY -->
+    }
 
-    <a
-      class="feature-card"
-      href="/topup"
-    >
 
-      <span class="feature-icon">
-        💰
-      </span>
+  } catch (error) {
 
-      <h3>
-        Economy
-      </h3>
+    console.error(
+      "API BOXPVP:",
+      error
+    );
 
-      <p>
-        Kiếm tiền và giao dịch trong server.
-      </p>
 
-    </a>
+    if (onlineElement) {
 
+      onlineElement.textContent =
+        "🔴 OFFLINE";
 
-    <!-- CRATE -->
+    }
 
-    <a
-      class="feature-card"
-      href="/code"
-    >
 
-      <span class="feature-icon">
-        🎁
-      </span>
+    if (footerStatus) {
 
-      <h3>
-        Crate
-      </h3>
+      footerStatus.textContent =
+        "🔴 Ngoại tuyến";
 
-      <p>
-        Mở crate và nhận phần thưởng.
-      </p>
+    }
 
-    </a>
+  }
 
+}
 
-    <!-- RANK -->
 
-    <a
-      class="feature-card"
-      href="/account"
-    >
+// =====================================================
+// SAO CHÉP IP SERVER
+// =====================================================
 
-      <span class="feature-icon">
-        👑
-      </span>
+async function copyServerIP() {
 
-      <h3>
-        Rank
-      </h3>
+  const serverIp =
+    document.getElementById(
+      "serverIp"
+    )?.textContent.trim();
 
-      <p>
-        Hệ thống rank từ Member đến Owner.
-      </p>
 
-    </a>
+  const ip =
+    serverIp || SERVER_IP;
 
 
-    <!-- SHOP -->
+  try {
 
-    <a
-      class="feature-card"
-      href="/shop"
-    >
+    await navigator.clipboard.writeText(
+      ip
+    );
 
-      <span class="feature-icon">
-        🏪
-      </span>
 
-      <h3>
-        Shop
-      </h3>
+    showToast(
+      `📋 Đã sao chép IP: ${ip}`
+    );
 
-      <p>
-        Mua bán vật phẩm và trang bị.
-      </p>
 
-    </a>
+  } catch {
 
+    showToast(
+      `🎮 IP server: ${ip}`
+    );
 
-    <!-- RANKING -->
+  }
 
-    <a
-      class="feature-card"
-      href="/ranking"
-    >
+}
 
-      <span class="feature-icon">
-        🏆
-      </span>
 
-      <h3>
-        BXH
-      </h3>
+const copyIp =
+  document.getElementById(
+    "copyIp"
+  );
 
-      <p>
-        Đua top kills, tiền và thành tích.
-      </p>
 
-    </a>
+if (copyIp) {
 
-  </div>
+  copyIp.addEventListener(
+    "click",
+    copyServerIP
+  );
 
-</section>
+}
 
 
-<!-- ==================== RANKING PREVIEW ==================== -->
+// =====================================================
+// NÚT CHƠI NGAY
+// =====================================================
 
-<section
-  class="section panel-section"
-  id="ranking-preview"
->
+const playButton =
+  document.getElementById(
+    "playButton"
+  );
 
-  <div class="section-heading">
 
-    <span class="eyebrow">
-      LEADERBOARD
-    </span>
+if (playButton) {
 
-    <h2>
-      🏆 BXH
-    </h2>
+  playButton.addEventListener(
+    "click",
+    async () => {
 
-    <p>
-      Xem bảng xếp hạng người chơi.
-    </p>
+      const ip =
+        SERVER_IP;
 
-  </div>
 
+      try {
 
-  <div class="panel">
+        await navigator.clipboard.writeText(
+          ip
+        );
 
-    <div class="rank-row">
 
-      <div class="rank-position">
-        🏆
-      </div>
+        showToast(
+          `🎮 Đã sao chép IP ${ip}. Mở Minecraft để tham gia!`
+        );
 
-      <div class="avatar">
-        ?
-      </div>
 
-      <div class="rank-player">
+      } catch {
 
-        <strong>
-          Chưa có dữ liệu
-        </strong>
+        showToast(
+          `🎮 IP server: ${ip}`
+        );
 
-        <span>
-          Đang chờ dữ liệu người chơi
-        </span>
+      }
 
-      </div>
+    }
+  );
 
-      <div class="rank-score">
+}
 
-        ⚔️ 0
 
-        <small>
-          Kills
-        </small>
+// =====================================================
+// TÊN NGƯỜI DÙNG
+// =====================================================
 
-      </div>
+const saveUsername =
+  document.getElementById(
+    "saveUsername"
+  );
 
-    </div>
 
-  </div>
+if (saveUsername) {
 
+  saveUsername.addEventListener(
+    "click",
+    () => {
 
-  <div class="hero-actions">
+      const input =
+        document.getElementById(
+          "usernameInput"
+        );
 
-    <a
-      class="btn btn-primary"
-      href="/ranking"
-    >
-      🏆 XEM BXH
-    </a>
 
-  </div>
+      const username =
+        input?.value.trim();
 
-</section>
 
+      if (!username) {
 
-<!-- ==================== ACCOUNT ==================== -->
+        showToast(
+          "⚠️ Hãy nhập tên người dùng Minecraft."
+        );
 
-<section class="section dual-grid">
+        return;
 
-  <article
-    class="dashboard-card"
-    id="account-preview"
-  >
+      }
 
-    <span class="card-icon">
-      👤
-    </span>
 
-    <span class="eyebrow">
-      PLAYER PROFILE
-    </span>
+      const avatar =
+        document.getElementById(
+          "profileAvatar"
+        );
 
-    <h2>
-      TÀI KHOẢN
-    </h2>
 
+      const profileUsername =
+        document.getElementById(
+          "profileUsername"
+        );
 
-    <div class="profile">
 
-      <div
-        class="profile-avatar"
-        id="profileAvatar"
-      >
-        ?
-      </div>
+      const skinUsername =
+        document.getElementById(
+          "skinUsername"
+        );
 
-      <div>
 
-        <strong id="profileUsername">
-          Username
-        </strong>
+      if (avatar) {
 
-        <span id="profileRank">
-          Chưa có rank
-        </span>
+        avatar.textContent =
+          username
+            .charAt(0)
+            .toUpperCase();
 
-      </div>
+      }
 
-    </div>
 
+      if (profileUsername) {
 
-    <div class="stats-list">
+        profileUsername.textContent =
+          username;
 
-      <div>
+      }
 
-        <span>
-          💰 Coin
-        </span>
 
-        <strong id="profileCoin">
-          0
-        </strong>
+      if (skinUsername) {
 
-      </div>
+        skinUsername.textContent =
+          username;
 
+      }
 
-      <div>
 
-        <span>
-          💠 Shard
-        </span>
+      localStorage.setItem(
+        "boxpvp_username",
+        username
+      );
 
-        <strong id="profileShard">
-          0
-        </strong>
 
-      </div>
+      showToast(
+        `✅ Đã lưu username: ${username}`
+      );
 
+    }
+  );
 
-      <div>
+}
 
-        <span>
-          ⚔️ Kills
-        </span>
 
-        <strong id="profileKills">
-          0
-        </strong>
+// =====================================================
+// TẢI TÊN NGƯỜI DÙNG
+// =====================================================
 
-      </div>
+function loadUsername() {
 
+  const username =
+    localStorage.getItem(
+      "boxpvp_username"
+    );
 
-      <div>
 
-        <span>
-          ☠️ Deaths
-        </span>
+  if (!username) {
 
-        <strong id="profileDeaths">
-          0
-        </strong>
+    return;
 
-      </div>
+  }
 
-    </div>
 
+  const input =
+    document.getElementById(
+      "usernameInput"
+    );
 
-    <div class="hero-actions">
 
-      <a
-        class="btn btn-secondary full"
-        href="/account"
-      >
-        👤 XEM TÀI KHOẢN
-      </a>
+  const avatar =
+    document.getElementById(
+      "profileAvatar"
+    );
 
-    </div>
 
-  </article>
+  const profileUsername =
+    document.getElementById(
+      "profileUsername"
+    );
 
 
-  <!-- ==================== DAILY CODE ==================== -->
+  const skinUsername =
+    document.getElementById(
+      "skinUsername"
+    );
 
-  <article
-    class="dashboard-card"
-    id="code-preview"
-  >
 
-    <span class="card-icon">
-      🎁
-    </span>
+  if (input) {
 
-    <span class="eyebrow">
-      DAILY REWARD
-    </span>
+    input.value =
+      username;
 
-    <h2>
-      CODE HÔM NAY
-    </h2>
+  }
 
 
-    <div class="code-box">
+  if (avatar) {
 
-      <span>
-        MÃ PHẦN THƯỞNG
-      </span>
+    avatar.textContent =
+      username
+        .charAt(0)
+        .toUpperCase();
 
-      <strong>
-        BXP-7K2M-91QX
-      </strong>
+  }
 
-    </div>
 
+  if (profileUsername) {
 
-    <div class="reward-list">
+    profileUsername.textContent =
+      username;
 
-      <span>
-        💰 +500 Coin
-      </span>
+  }
 
-      <span>
-        💠 +10 Shard
-      </span>
 
-    </div>
+  if (skinUsername) {
 
+    skinUsername.textContent =
+      username;
 
-    <div class="hero-actions">
+  }
 
-      <a
-        class="btn btn-primary full"
-        href="/code"
-      >
-        🎁 XEM CODE
-      </a>
+}
 
-    </div>
 
+// =====================================================
+// ĐẶT LẠI TÀI KHOẢN
+// =====================================================
 
-    <p class="small-note">
-      ⏰ Code mới mỗi ngày lúc 12:00.
-    </p>
+const resetAccount =
+  document.getElementById(
+    "resetAccount"
+  );
 
-  </article>
 
-</section>
+if (resetAccount) {
 
+  resetAccount.addEventListener(
+    "click",
+    () => {
 
-<!-- ==================== SHOP + SKIN ==================== -->
+      localStorage.removeItem(
+        "boxpvp_username"
+      );
 
-<section class="section dual-grid">
 
+      const input =
+        document.getElementById(
+          "usernameInput"
+        );
 
-  <!-- SHOP -->
 
-  <article
-    class="dashboard-card"
-    id="topup-preview"
-  >
+      const avatar =
+        document.getElementById(
+          "profileAvatar"
+        );
 
-    <span class="card-icon">
-      🛒
-    </span>
 
-    <span class="eyebrow">
-      STORE
-    </span>
+      const username =
+        document.getElementById(
+          "profileUsername"
+        );
 
-    <h2>
-      CỬA HÀNG
-    </h2>
 
+      const skinUsername =
+        document.getElementById(
+          "skinUsername"
+        );
 
-    <div class="topup-list">
 
-      <a href="/shop">
+      if (input) {
 
-        <span>
-          10.000đ
-        </span>
+        input.value = "";
 
-        <strong>
-          1.000 💰
-        </strong>
+      }
 
-      </a>
 
+      if (avatar) {
 
-      <a href="/shop">
+        avatar.textContent = "?";
 
-        <span>
-          20.000đ
-        </span>
+      }
 
-        <strong>
-          2.200 💰
-        </strong>
 
-      </a>
+      if (username) {
 
+        username.textContent =
+          "Username";
 
-      <a href="/shop">
+      }
 
-        <span>
-          50.000đ
-        </span>
 
-        <strong>
-          6.000 💰
-        </strong>
+      if (skinUsername) {
 
-      </a>
+        skinUsername.textContent =
+          "Username";
 
+      }
 
-      <a href="/shop">
 
-        <span>
-          100.000đ
-        </span>
+      showToast(
+        "🔄 Đã xóa tài khoản test."
+      );
 
-        <strong>
-          13.000 💰
-        </strong>
+    }
+  );
 
-      </a>
+}
 
-    </div>
 
+// =====================================================
+// MÃ HÀNG NGÀY
+// =====================================================
 
-    <a
-      class="btn btn-primary full"
-      href="/shop"
-    >
-      🛒 MỞ CỬA HÀNG
-    </a>
+const claimCode =
+  document.getElementById(
+    "claimCode"
+  );
 
 
-    <p class="small-note">
-      Giao diện hiện là bản demo.
-    </p>
+if (claimCode) {
 
-  </article>
+  claimCode.addEventListener(
+    "click",
+    () => {
 
+      showToast(
+        "🎁 Mã hôm nay: BXP-7K2M-91QX"
+      );
 
-  <!-- SKIN -->
+    }
+  );
 
-  <article
-    class="dashboard-card"
-    id="skin-preview"
-  >
+}
 
-    <span class="card-icon">
-      👕
-    </span>
 
-    <span class="eyebrow">
-      PLAYER SKIN
-    </span>
+// =====================================================
+// SKIN
+// =====================================================
 
-    <h2>
-      SKIN MINECRAFT
-    </h2>
+const updateSkin =
+  document.getElementById(
+    "updateSkin"
+  );
 
 
-    <div class="skin-preview">
+if (updateSkin) {
 
-      <div class="skin-head">
-        🙂
-      </div>
+  updateSkin.addEventListener(
+    "click",
+    () => {
 
-      <span id="skinUsername">
-        Username
-      </span>
+      const input =
+        document.getElementById(
+          "skinName"
+        );
 
-    </div>
 
+      const hint =
+        document.getElementById(
+          "skinHint"
+        );
 
-    <div class="hero-actions">
 
-      <a
-        class="btn btn-primary full"
-        href="/skin"
-      >
-        👕 MỞ SKIN
-      </a>
+      const skinUsername =
+        document.getElementById(
+          "skinUsername"
+        );
 
-    </div>
 
+      const name =
+        input?.value.trim();
 
-    <p class="small-note">
-      Nhập username Minecraft để xem skin.
-    </p>
 
-  </article>
+      if (!name) {
 
-</section>
+        if (hint) {
 
+          hint.textContent =
+            "⚠️ Hãy nhập tên người dùng Minecraft.";
 
-<!-- ==================== DISCORD ==================== -->
+        }
 
-<section
-  class="section discord-section"
-  id="discord"
->
+        return;
 
-  <div>
+      }
 
-    <span class="eyebrow">
-      COMMUNITY
-    </span>
 
-    <h2>
-      💬 THAM GIA DISCORD
-    </h2>
+      if (skinUsername) {
 
-    <p>
-      Tham gia cộng đồng BOXPVP để nhận thông báo,
-      sự kiện và hỗ trợ.
-    </p>
+        skinUsername.textContent =
+          name;
 
-  </div>
+      }
 
 
-  <a
-    class="btn btn-secondary"
-    href="#"
-    id="discordButton"
-  >
-    💬 MỞ DISCORD
-  </a>
+      if (hint) {
 
-</section>
-```
+        hint.textContent =
+          `✅ Đã cập nhật skin cho ${name}.`;
 
-  </main>
+      }
 
-  <!-- ==================== FOOTER ==================== -->
 
-  <footer>
+      showToast(
+        `👕 Đã cập nhật skin: ${name}`
+      );
 
-```
-<div class="footer-brand">
-  ⚔️ BOXPVP
-</div>
+    }
+  );
 
-<p>
-  Minecraft BoxPvP Server
-</p>
+}
 
-<span id="footerServerStatus">
-  🟢 Online
-</span>
-```
 
-  </footer>
+// =====================================================
+// DEMO
+// =====================================================
 
-  <!-- ==================== TOAST ==================== -->
+document
+  .querySelectorAll("[data-demo]")
+  .forEach(button => {
 
-  <div
-    class="toast"
-    id="toast"
-    role="status"
-  ></div>
+    button.addEventListener(
+      "click",
+      () => {
 
-  <script src="script.js"></script>
+        showToast(
+          button.dataset.demo
+        );
 
-</body>
-</html>
+      }
+    );
+
+  });
+
+
+// =====================================================
+// DISCORD
+// =====================================================
+
+const discordButton =
+  document.getElementById(
+    "discordButton"
+  );
+
+
+if (discordButton) {
+
+  discordButton.addEventListener(
+    "click",
+    event => {
+
+      event.preventDefault();
+
+
+      showToast(
+        "💬 Discord chưa được cấu hình."
+      );
+
+    }
+  );
+
+}
+
+
+// =====================================================
+// KHỞI ĐỘNG
+// =====================================================
+
+loadUsername();
+
+loadServerStatus();
+
+
+// =====================================================
+// TỰ ĐỘNG CẬP NHẬT SERVER
+// =====================================================
+
+setInterval(
+  loadServerStatus,
+  30000
+);
