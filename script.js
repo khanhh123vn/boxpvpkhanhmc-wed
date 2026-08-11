@@ -6,8 +6,10 @@
 // CẤU HÌNH
 // =========================================================
 
-const API_URL = "https://boxpvp-backend.vercel.app";
+const API_URL = "https://khanhmc-wed.vercel.app";
 const SERVER_IP = "boxpvpkhanhmc.levyathan.ch";
+
+// Nếu chưa có Discord thì để "#"
 const DISCORD_URL = "#";
 
 // =========================================================
@@ -47,7 +49,7 @@ if (menuToggle && nav) {
     });
 }
 
-document.querySelectorAll(".nav-link").forEach(link => {
+document.querySelectorAll(".nav-link").forEach((link) => {
     link.addEventListener("click", () => {
         if (nav) {
             nav.classList.remove("open");
@@ -60,112 +62,103 @@ document.querySelectorAll(".nav-link").forEach(link => {
 // =========================================================
 
 async function loadServerStatus() {
-
     const serverIp = document.getElementById("serverIp");
     const onlineElement = document.querySelector(".online-text");
     const playerElement = document.getElementById("serverPlayers");
     const footerStatus = document.getElementById("footerServerStatus");
 
-    // Hiển thị IP server
+    // -----------------------------------------------------
+    // HIỂN THỊ IP SERVER
+    // -----------------------------------------------------
+
     if (serverIp) {
         serverIp.textContent = SERVER_IP;
     }
 
-    try {
+    // -----------------------------------------------------
+    // GỌI API BACKEND
+    // -----------------------------------------------------
 
-        const response = await fetch(
-            `${API_URL}/api/server`,
-            {
-                cache: "no-store"
-            }
-        );
+    try {
+        const response = await fetch(`${API_URL}/api/server`, {
+            method: "GET",
+            cache: "no-store"
+        });
 
         if (!response.ok) {
-            throw new Error("Backend API lỗi");
+            throw new Error(`API trả về HTTP ${response.status}`);
         }
 
         const data = await response.json();
 
         console.log("BOXPVP SERVER:", data);
 
-        // =====================================================
+        // -------------------------------------------------
+        // TRẠNG THÁI SERVER
+        // -------------------------------------------------
+
+        const isOnline = data.online === true;
+
+        // -------------------------------------------------
+        // SỐ NGƯỜI CHƠI
+        // -------------------------------------------------
+
+        const players = Number.isFinite(Number(data.players))
+            ? Number(data.players)
+            : 0;
+
+        const maxPlayers = Number.isFinite(Number(data.maxPlayers))
+            ? Number(data.maxPlayers)
+            : 100;
+
+        // -------------------------------------------------
         // ONLINE / OFFLINE
-        // =====================================================
+        // -------------------------------------------------
 
         if (onlineElement) {
-
-            if (data.online === true) {
-                onlineElement.textContent = "🟢 TRỰC TUYẾN";
-            } else {
-                onlineElement.textContent = "🔴 NGOẠI TUYẾN";
-            }
-
+            onlineElement.textContent = isOnline
+                ? "🟢 TRỰC TUYẾN"
+                : "🔴 NGOẠI TUYẾN";
         }
 
-        // =====================================================
+        // -------------------------------------------------
         // NGƯỜI CHƠI
-        // =====================================================
-
-        const players =
-            Number.isFinite(Number(data.players))
-                ? Number(data.players)
-                : 0;
-
-        const maxPlayers =
-            Number.isFinite(Number(data.maxPlayers))
-                ? Number(data.maxPlayers)
-                : 100;
+        // -------------------------------------------------
 
         if (playerElement) {
-
             playerElement.innerHTML =
                 `${players} <small>/ ${maxPlayers}</small>`;
-
         }
 
-        // =====================================================
+        // -------------------------------------------------
         // FOOTER
-        // =====================================================
+        // -------------------------------------------------
 
         if (footerStatus) {
-
-            if (data.online === true) {
-
-                footerStatus.textContent =
-                    `🟢 Trực tuyến • ${players}/${maxPlayers}`;
-
-            } else {
-
-                footerStatus.textContent =
-                    "🔴 Ngoại tuyến";
-
-            }
-
+            footerStatus.textContent = isOnline
+                ? `🟢 Trực tuyến • ${players}/${maxPlayers}`
+                : "🔴 Ngoại tuyến";
         }
 
     } catch (error) {
+        console.error("BOXPVP API:", error);
 
-        console.error(
-            "BOXPVP API:",
-            error
-        );
-
-        // =====================================================
+        // -------------------------------------------------
         // API LỖI
-        // =====================================================
+        // -------------------------------------------------
 
         if (onlineElement) {
             onlineElement.textContent = "🔴 NGOẠI TUYẾN";
         }
 
         if (playerElement) {
-            playerElement.innerHTML = "0 <small>/ 100</small>";
+            playerElement.innerHTML =
+                `0 <small>/ 100</small>`;
         }
 
         if (footerStatus) {
             footerStatus.textContent = "🔴 Ngoại tuyến";
         }
-
     }
 }
 
@@ -174,41 +167,31 @@ async function loadServerStatus() {
 // =========================================================
 
 async function copyServerIP() {
+    const ip = SERVER_IP;
 
     try {
-
-        await navigator.clipboard.writeText(
-            SERVER_IP
-        );
+        await navigator.clipboard.writeText(ip);
 
         showToast(
-            `📋 Đã sao chép IP: ${SERVER_IP}`
+            `📋 Đã sao chép IP: ${ip}`
         );
 
     } catch (error) {
-
-        console.error(
-            "Copy IP:",
-            error
-        );
+        console.error("Copy IP:", error);
 
         showToast(
-            `🎮 IP server: ${SERVER_IP}`
+            `🎮 IP server: ${ip}`
         );
-
     }
 }
 
-const copyIp =
-    document.getElementById("copyIp");
+const copyIp = document.getElementById("copyIp");
 
 if (copyIp) {
-
     copyIp.addEventListener(
         "click",
         copyServerIP
     );
-
 }
 
 // =========================================================
@@ -219,13 +202,11 @@ const playButton =
     document.getElementById("playButton");
 
 if (playButton) {
-
     playButton.addEventListener(
         "click",
         async () => {
 
             try {
-
                 await navigator.clipboard.writeText(
                     SERVER_IP
                 );
@@ -235,21 +216,17 @@ if (playButton) {
                 );
 
             } catch (error) {
-
                 console.error(
-                    "Play button:",
+                    "Copy IP:",
                     error
                 );
 
                 showToast(
                     `🎮 IP server: ${SERVER_IP}`
                 );
-
             }
-
         }
     );
-
 }
 
 // =========================================================
@@ -260,7 +237,6 @@ const saveUsername =
     document.getElementById("saveUsername");
 
 if (saveUsername) {
-
     saveUsername.addEventListener(
         "click",
         () => {
@@ -274,7 +250,6 @@ if (saveUsername) {
                 input?.value.trim();
 
             if (!username) {
-
                 showToast(
                     "⚠️ Hãy nhập tên Minecraft."
                 );
@@ -294,14 +269,12 @@ if (saveUsername) {
             showToast(
                 `✅ Đã lưu tài khoản: ${username}`
             );
-
         }
     );
-
 }
 
 // =========================================================
-// CẬP NHẬT USERNAME
+// CẬP NHẬT USERNAME UI
 // =========================================================
 
 function updateUsernameUI(username) {
@@ -322,28 +295,21 @@ function updateUsernameUI(username) {
         );
 
     if (avatar) {
-
         avatar.textContent =
             username
                 .charAt(0)
                 .toUpperCase();
-
     }
 
     if (profileUsername) {
-
         profileUsername.textContent =
             username;
-
     }
 
     if (skinUsername) {
-
         skinUsername.textContent =
             username;
-
     }
-
 }
 
 // =========================================================
@@ -367,16 +333,12 @@ function loadUsername() {
         );
 
     if (input) {
-
-        input.value =
-            username;
-
+        input.value = username;
     }
 
     updateUsernameUI(
         username
     );
-
 }
 
 // =========================================================
@@ -427,20 +389,20 @@ if (resetAccount) {
             }
 
             if (username) {
-                username.textContent = "Username";
+                username.textContent =
+                    "Username";
             }
 
             if (skinUsername) {
-                skinUsername.textContent = "Username";
+                skinUsername.textContent =
+                    "Username";
             }
 
             showToast(
                 "🔄 Đã xóa tài khoản test."
             );
-
         }
     );
-
 }
 
 // =========================================================
@@ -464,7 +426,6 @@ if (claimCode) {
 
         }
     );
-
 }
 
 // =========================================================
@@ -503,36 +464,28 @@ if (updateSkin) {
             if (!name) {
 
                 if (hint) {
-
                     hint.textContent =
                         "⚠️ Vui lòng nhập tên Minecraft.";
-
                 }
 
                 return;
             }
 
             if (skinUsername) {
-
                 skinUsername.textContent =
                     name;
-
             }
 
             if (hint) {
-
                 hint.textContent =
                     `✅ Đã cập nhật skin cho ${name}.`;
-
             }
 
             showToast(
                 `👕 Đã cập nhật skin: ${name}`
             );
-
         }
     );
-
 }
 
 // =========================================================
@@ -541,7 +494,7 @@ if (updateSkin) {
 
 document
     .querySelectorAll("[data-demo]")
-    .forEach(button => {
+    .forEach((button) => {
 
         button.addEventListener(
             "click",
@@ -569,7 +522,7 @@ if (discordButton) {
 
     discordButton.addEventListener(
         "click",
-        event => {
+        (event) => {
 
             if (DISCORD_URL === "#") {
 
@@ -586,12 +539,11 @@ if (discordButton) {
 
             window.open(
                 DISCORD_URL,
-                "_blank"
+                "_blank",
+                "noopener,noreferrer"
             );
-
         }
     );
-
 }
 
 // =========================================================
