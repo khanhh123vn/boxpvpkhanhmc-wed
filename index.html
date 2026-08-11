@@ -13,11 +13,10 @@
 
   <div class="bg-grid"></div>
 
-  <!-- ================= HEADER ================= -->
-
+  <!-- HEADER -->
   <header class="topbar">
 
-    <a class="brand" href="#home" aria-label="BOXPVP">
+    <a class="brand" href="/">
       <span class="brand-icon">⚔️</span>
       <span>BOXPVP</span>
     </a>
@@ -25,35 +24,35 @@
     <button
       class="menu-toggle"
       id="menuToggle"
-      aria-label="Mở menu"
       type="button"
+      aria-label="Mở menu"
     >
       ☰
     </button>
 
     <nav class="nav" id="nav">
 
-      <a class="nav-link active" href="#home">
+      <a class="nav-link active" href="/">
         🏠 <span>Trang chủ</span>
       </a>
 
-      <a class="nav-link" href="#topup">
+      <a class="nav-link" href="/shop">
         🛒 <span>Nạp</span>
       </a>
 
-      <a class="nav-link" href="#code">
+      <a class="nav-link" href="/crate">
         🎁 <span>Code</span>
       </a>
 
-      <a class="nav-link" href="#account">
-        👤 <span>Tài khoản</span>
+      <a class="nav-link" href="/rank">
+        👑 <span>Tài khoản</span>
       </a>
 
-      <a class="nav-link" href="#skin">
+      <a class="nav-link" href="/skin">
         👕 <span>Skin</span>
       </a>
 
-      <a class="nav-link" href="#ranking">
+      <a class="nav-link" href="/ranking">
         🏆 <span>BXH</span>
       </a>
 
@@ -64,8 +63,7 @@
 
   <main>
 
-    <!-- ================= HOME ================= -->
-
+    <!-- HOME -->
     <section class="hero section" id="home">
 
       <div class="hero-glow"></div>
@@ -82,7 +80,6 @@
         <p class="hero-subtitle">
           MINECRAFT BOX PVP SERVER
         </p>
-
 
         <div class="server-card">
 
@@ -122,16 +119,13 @@
               id="copyIp"
               class="ip-button"
               type="button"
-              title="Bấm để sao chép IP"
             >
 
               <strong id="serverIp">
                 play.boxpvp.vn
               </strong>
 
-              <span>
-                📋
-              </span>
+              <span>📋</span>
 
             </button>
 
@@ -149,7 +143,6 @@
           >
             🎮 CHƠI NGAY
           </button>
-
 
           <a
             class="btn btn-secondary"
@@ -173,12 +166,8 @@
     </section>
 
 
-    <!-- ================= FEATURES ================= -->
-
-    <section
-      class="section"
-      id="features"
-    >
+    <!-- FEATURES -->
+    <section class="section" id="features">
 
       <div class="section-heading">
 
@@ -191,7 +180,7 @@
         </h2>
 
         <p>
-          Bấm vào từng tính năng để chuyển đến khu vực tương ứng.
+          Bấm vào tính năng để chuyển sang trang riêng.
         </p>
 
       </div>
@@ -199,12 +188,10 @@
 
       <div class="feature-grid">
 
-
         <!-- BOXPVP -->
-
         <article
           class="feature-card feature-click"
-          data-target="#home"
+          data-url="/"
           role="button"
           tabindex="0"
         >
@@ -225,10 +212,9 @@
 
 
         <!-- ECONOMY -->
-
         <article
           class="feature-card feature-click"
-          data-target="#topup"
+          data-url="/shop"
           role="button"
           tabindex="0"
         >
@@ -249,10 +235,9 @@
 
 
         <!-- CRATE -->
-
         <article
           class="feature-card feature-click"
-          data-target="#code"
+          data-url="/crate"
           role="button"
           tabindex="0"
         >
@@ -273,10 +258,9 @@
 
 
         <!-- RANK -->
-
         <article
           class="feature-card feature-click"
-          data-target="#account"
+          data-url="/rank"
           role="button"
           tabindex="0"
         >
@@ -297,10 +281,9 @@
 
 
         <!-- SHOP -->
-
         <article
           class="feature-card feature-click"
-          data-target="#topup"
+          data-url="/shop"
           role="button"
           tabindex="0"
         >
@@ -321,10 +304,9 @@
 
 
         <!-- BXH -->
-
         <article
           class="feature-card feature-click"
-          data-target="#ranking"
+          data-url="/ranking"
           role="button"
           tabindex="0"
         >
@@ -348,8 +330,7 @@
     </section>
 
 
-    <!-- ================= RANKING ================= -->
-
+    <!-- RANKING -->
     <section
       class="section panel-section"
       id="ranking"
@@ -364,10 +345,6 @@
         <h2>
           🏆 BXH
         </h2>
-
-        <p>
-          Bảng xếp hạng người chơi.
-        </p>
 
       </div>
 
@@ -405,6 +382,7 @@
           <div class="rank-score">
 
             ⚔️
+
             <span id="rankingKills">
               0
             </span>
@@ -422,14 +400,8 @@
     </section>
 
 
-    <!-- ================= ACCOUNT + CODE ================= -->
-
-    <section
-      class="section dual-grid"
-    >
-
-
-      <!-- ACCOUNT -->
+    <!-- ACCOUNT -->
+    <section class="section dual-grid">
 
       <article
         class="dashboard-card"
@@ -476,60 +448,27 @@
         <div class="stats-list">
 
           <div>
-
-            <span>
-              💰 Coin
-            </span>
-
-            <strong id="profileCoin">
-              0
-            </strong>
-
+            <span>💰 Coin</span>
+            <strong id="profileCoin">0</strong>
           </div>
 
-
           <div>
-
-            <span>
-              💠 Shard
-            </span>
-
-            <strong id="profileShard">
-              0
-            </strong>
-
+            <span>💠 Shard</span>
+            <strong id="profileShard">0</strong>
           </div>
 
-
           <div>
-
-            <span>
-              ⚔️ Kills
-            </span>
-
-            <strong id="profileKills">
-              0
-            </strong>
-
+            <span>⚔️ Kills</span>
+            <strong id="profileKills">0</strong>
           </div>
 
-
           <div>
-
-            <span>
-              ☠️ Deaths
-            </span>
-
-            <strong id="profileDeaths">
-              0
-            </strong>
-
+            <span>☠️ Deaths</span>
+            <strong id="profileDeaths">0</strong>
           </div>
 
         </div>
 
-
-        <!-- USERNAME -->
 
         <div class="input-row">
 
@@ -563,8 +502,7 @@
       </article>
 
 
-      <!-- DAILY CODE -->
-
+      <!-- CODE -->
       <article
         class="dashboard-card"
         id="code"
@@ -617,7 +555,6 @@
           🎁 NHẬN CODE
         </button>
 
-
         <p class="small-note">
           ⏰ Code mới mỗi ngày lúc 12:00.
         </p>
@@ -627,16 +564,13 @@
     </section>
 
 
-    <!-- ================= TOPUP + SKIN ================= -->
-
+    <!-- SHOP + SKIN -->
     <section
       class="section dual-grid"
       id="topup"
     >
 
-
-      <!-- TOPUP -->
-
+      <!-- SHOP -->
       <article class="dashboard-card">
 
         <span class="card-icon">
@@ -658,69 +592,45 @@
             type="button"
             data-demo="Đã chọn gói 10.000đ."
           >
-            <span>
-              10.000đ
-            </span>
-
-            <strong>
-              1.000 💰
-            </strong>
+            <span>10.000đ</span>
+            <strong>1.000 💰</strong>
           </button>
-
 
           <button
             type="button"
             data-demo="Đã chọn gói 20.000đ."
           >
-            <span>
-              20.000đ
-            </span>
-
-            <strong>
-              2.200 💰
-            </strong>
+            <span>20.000đ</span>
+            <strong>2.200 💰</strong>
           </button>
-
 
           <button
             type="button"
             data-demo="Đã chọn gói 50.000đ."
           >
-            <span>
-              50.000đ
-            </span>
-
-            <strong>
-              6.000 💰
-            </strong>
+            <span>50.000đ</span>
+            <strong>6.000 💰</strong>
           </button>
-
 
           <button
             type="button"
             data-demo="Đã chọn gói 100.000đ."
           >
-            <span>
-              100.000đ
-            </span>
-
-            <strong>
-              13.000 💰
-            </strong>
+            <span>100.000đ</span>
+            <strong>13.000 💰</strong>
           </button>
 
         </div>
 
 
         <p class="small-note">
-          Bản giao diện hiện là demo, chưa xử lý tiền thật.
+          Giao diện hiện là bản demo, chưa xử lý tiền thật.
         </p>
 
       </article>
 
 
       <!-- SKIN -->
-
       <article
         class="dashboard-card"
         id="skin"
@@ -785,8 +695,7 @@
     </section>
 
 
-    <!-- ================= DISCORD ================= -->
-
+    <!-- DISCORD -->
     <section
       class="section discord-section"
       id="discord"
@@ -823,8 +732,7 @@
   </main>
 
 
-  <!-- ================= FOOTER ================= -->
-
+  <!-- FOOTER -->
   <footer>
 
     <div class="footer-brand">
@@ -842,17 +750,12 @@
   </footer>
 
 
-  <!-- ================= TOAST ================= -->
-
   <div
     class="toast"
     id="toast"
     role="status"
-    aria-live="polite"
   ></div>
 
-
-  <!-- ================= SCRIPT ================= -->
 
   <script src="script.js"></script>
 
