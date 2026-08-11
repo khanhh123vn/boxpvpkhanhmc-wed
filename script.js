@@ -1,88 +1,114 @@
+// =====================================================
+// CẤU HÌNH
+// =====================================================
+
 const API_URL = "https://boxpvp-backend.vercel.app";
+const WEBSITE_URL = "https://khanhmc-wed.vercel.app";
+
+
+// =====================================================
+// ELEMENT
+// =====================================================
 
 const toast = document.getElementById("toast");
 const nav = document.getElementById("nav");
 const menuToggle = document.getElementById("menuToggle");
+
 
 // =====================================================
 // THÔNG BÁO
 // =====================================================
 
 function showToast(message) {
-    if (!toast) return;
+  if (!toast) return;
 
-    toast.textContent = message;
-    toast.classList.add("show");
+  toast.textContent = message;
+  toast.classList.add("show");
 
-    clearTimeout(window.toastTimer);
+  clearTimeout(window.toastTimer);
 
-    window.toastTimer = setTimeout(() => {
-        toast.classList.remove("show");
-    }, 2600);
+  window.toastTimer = setTimeout(() => {
+    toast.classList.remove("show");
+  }, 2600);
 }
 
+
 // =====================================================
-// MENU
+// MENU MOBILE
 // =====================================================
 
 if (menuToggle && nav) {
-    menuToggle.addEventListener("click", () => {
-        nav.classList.toggle("open");
-    });
+  menuToggle.addEventListener("click", () => {
+    nav.classList.toggle("open");
+  });
 }
+
 
 document.querySelectorAll(".nav-link").forEach((link) => {
-    link.addEventListener("click", () => {
-        nav?.classList.remove("open");
-    });
+  link.addEventListener("click", () => {
+    if (nav) {
+      nav.classList.remove("open");
+    }
+  });
 });
 
-// =====================================================
-// CHUYỂN ĐẾN KHU VỰC
-// =====================================================
-
-function goToSection(target) {
-    if (!target) {
-        showToast("❌ Không tìm thấy liên kết.");
-        return;
-    }
-
-    const section = document.querySelector(target);
-
-    if (!section) {
-        showToast("❌ Không tìm thấy khu vực.");
-        return;
-    }
-
-    section.scrollIntoView({
-        behavior: "smooth",
-        block: "start"
-    });
-
-    history.replaceState(null, "", target);
-}
 
 // =====================================================
 // 6 Ô TÍNH NĂNG
+// BẤM VÀO → CHUYỂN SANG TRANG KHÁC
 // =====================================================
+
+const featureRoutes = {
+  "/boxpvp": `${WEBSITE_URL}/`,
+  "/topup": `${WEBSITE_URL}/topup`,
+  "/code": `${WEBSITE_URL}/code`,
+  "/account": `${WEBSITE_URL}/account`,
+  "/shop": `${WEBSITE_URL}/shop`,
+  "/ranking": `${WEBSITE_URL}/ranking`
+};
+
 
 document.querySelectorAll(".feature-click").forEach((card) => {
 
-    card.addEventListener("click", () => {
-        goToSection(card.dataset.target);
-    });
+  function openFeature() {
 
-    card.addEventListener("keydown", (event) => {
+    const target = card.dataset.target;
 
-        if (event.key === "Enter" || event.key === " ") {
+    if (!target) {
+      showToast("❌ Không tìm thấy liên kết.");
+      return;
+    }
 
-            event.preventDefault();
+    const url = featureRoutes[target];
 
-            goToSection(card.dataset.target);
-        }
-    });
+    if (!url) {
+      showToast("❌ Không tìm thấy trang.");
+      return;
+    }
+
+    window.location.href = url;
+  }
+
+
+  card.addEventListener("click", openFeature);
+
+
+  card.addEventListener("keydown", (event) => {
+
+    if (
+      event.key === "Enter" ||
+      event.key === " "
+    ) {
+
+      event.preventDefault();
+
+      openFeature();
+    }
+
+  });
 
 });
+
 
 // =====================================================
 // API SERVER
@@ -90,513 +116,734 @@ document.querySelectorAll(".feature-click").forEach((card) => {
 
 async function loadServerStatus() {
 
-    try {
+  try {
 
-        const response = await fetch(
-            `${API_URL}/api/server`,
-            {
-                cache: "no-store"
-            }
-        );
+    const response = await fetch(
+      `${API_URL}/api/server`,
+      {
+        method: "GET",
+        cache: "no-store"
+      }
+    );
 
-        if (!response.ok) {
-            throw new Error("Lỗi API");
-        }
 
-        const data = await response.json();
-
-        // IP
-
-        const serverIp =
-            document.getElementById("serverIp");
-
-        if (serverIp && data.ip) {
-            serverIp.textContent = data.ip;
-        }
-
-        // ONLINE
-
-        const onlineElement =
-            document.querySelector(".online-text");
-
-        if (onlineElement) {
-
-            onlineElement.textContent =
-                data.online
-                    ? "🟢 ONLINE"
-                    : "🔴 OFFLINE";
-        }
-
-        // PLAYER
-
-        const players =
-            Number(data.players) || 0;
-
-        const maxPlayers =
-            Number(data.maxPlayers) || 100;
-
-        const playerElement =
-            document.getElementById("serverPlayers");
-
-        if (playerElement) {
-
-            playerElement.innerHTML =
-                `${players} <small>/ ${maxPlayers}</small>`;
-        }
-
-        // FOOTER
-
-        const footerStatus =
-            document.getElementById(
-                "footerServerStatus"
-            );
-
-        if (footerStatus) {
-
-            footerStatus.textContent =
-                data.online
-                    ? `🟢 Online • ${players}/${maxPlayers}`
-                    : "🔴 Offline";
-        }
-
-    } catch (error) {
-
-        console.error(
-            "BOXPVP API:",
-            error
-        );
-
-        const onlineElement =
-            document.querySelector(
-                ".online-text"
-            );
-
-        if (onlineElement) {
-            onlineElement.textContent =
-                "🔴 OFFLINE";
-        }
+    if (!response.ok) {
+      throw new Error("API server lỗi");
     }
+
+
+    const data = await response.json();
+
+
+    // -----------------------------
+    // IP SERVER
+    // -----------------------------
+
+    const serverIp =
+      document.getElementById("serverIp");
+
+    if (serverIp) {
+
+      serverIp.textContent =
+        data.ip || "boxpvpkhanhmc.levyathan.ch";
+
+    }
+
+
+    // -----------------------------
+    // ONLINE / OFFLINE
+    // -----------------------------
+
+    const onlineElement =
+      document.querySelector(".online-text");
+
+    if (onlineElement) {
+
+      onlineElement.textContent =
+        data.online
+          ? "🟢 ONLINE"
+          : "🔴 OFFLINE";
+
+    }
+
+
+    // -----------------------------
+    // PLAYER
+    // -----------------------------
+
+    const playerElement =
+      document.getElementById("serverPlayers");
+
+    if (playerElement) {
+
+      playerElement.innerHTML =
+        `${data.players ?? 0} <small>/ ${data.maxPlayers ?? 100}</small>`;
+
+    }
+
+
+    // -----------------------------
+    // FOOTER
+    // -----------------------------
+
+    const footerStatus =
+      document.getElementById(
+        "footerServerStatus"
+      );
+
+
+    if (footerStatus) {
+
+      footerStatus.textContent =
+        data.online
+          ? `🟢 Trực tuyến • ${data.players ?? 0}/${data.maxPlayers ?? 100}`
+          : "🔴 Ngoại tuyến";
+
+    }
+
+
+  } catch (error) {
+
+    console.error(
+      "API BOXPVP:",
+      error
+    );
+
+
+    // Nếu API lỗi vẫn hiện IP server thật
+
+    const serverIp =
+      document.getElementById("serverIp");
+
+    if (serverIp) {
+
+      serverIp.textContent =
+        "boxpvpkhanhmc.levyathan.ch";
+
+    }
+
+
+    const onlineElement =
+      document.querySelector(".online-text");
+
+    if (onlineElement) {
+
+      onlineElement.textContent =
+        "🔴 Ngoại tuyến";
+
+    }
+
+
+    const footerStatus =
+      document.getElementById(
+        "footerServerStatus"
+      );
+
+    if (footerStatus) {
+
+      footerStatus.textContent =
+        "🔴 Ngoại tuyến";
+
+    }
+
+  }
+
 }
 
+
 // =====================================================
-// COPY IP
+// SAO CHÉP IP SERVER
 // =====================================================
 
 async function copyServerIP() {
 
-    const serverIp =
-        document
-            .getElementById("serverIp")
-            ?.textContent
-            .trim();
+  const serverIpElement =
+    document.getElementById("serverIp");
 
-    if (!serverIp) {
 
-        showToast(
-            "❌ Không tìm thấy IP server."
-        );
+  const serverIp =
+    serverIpElement?.textContent.trim();
 
-        return;
-    }
 
-    try {
+  if (!serverIp) {
+
+    showToast(
+      "❌ Không tìm thấy IP server."
+    );
+
+    return;
+  }
+
+
+  try {
+
+    await navigator.clipboard.writeText(
+      serverIp
+    );
+
+
+    showToast(
+      `📋 Đã sao chép IP: ${serverIp}`
+    );
+
+
+  } catch (error) {
+
+    showToast(
+      `🎮 IP server: ${serverIp}`
+    );
+
+  }
+
+}
+
+
+const copyIp =
+  document.getElementById("copyIp");
+
+
+if (copyIp) {
+
+  copyIp.addEventListener(
+    "click",
+    copyServerIP
+  );
+
+}
+
+
+// =====================================================
+// NÚT CHƠI NGAY
+// =====================================================
+
+const playButton =
+  document.getElementById("playButton");
+
+
+if (playButton) {
+
+  playButton.addEventListener(
+    "click",
+    async () => {
+
+      const serverIpElement =
+        document.getElementById("serverIp");
+
+
+      const serverIp =
+        serverIpElement?.textContent.trim()
+        || "boxpvpkhanhmc.levyathan.ch";
+
+
+      try {
 
         await navigator.clipboard.writeText(
-            serverIp
+          serverIp
         );
+
 
         showToast(
-            `📋 Đã sao chép IP: ${serverIp}`
+          `🎮 Đã sao chép IP ${serverIp}. Mở Minecraft để tham gia!`
         );
 
-    } catch {
+
+      } catch {
 
         showToast(
-            `🎮 IP server: ${serverIp}`
+          `🎮 IP server: ${serverIp}`
         );
+
+      }
+
     }
+  );
+
 }
 
-document
-    .getElementById("copyIp")
-    ?.addEventListener(
-        "click",
-        copyServerIP
-    );
 
 // =====================================================
-// CHƠI NGAY
-// =====================================================
-
-document
-    .getElementById("playButton")
-    ?.addEventListener(
-        "click",
-        copyServerIP
-    );
-
-// =====================================================
-// USERNAME
-// =====================================================
-
-function setUsername(username) {
-
-    const cleanName =
-        String(username || "").trim();
-
-    if (!cleanName) return;
-
-    const input =
-        document.getElementById(
-            "usernameInput"
-        );
-
-    const avatar =
-        document.getElementById(
-            "profileAvatar"
-        );
-
-    const profileUsername =
-        document.getElementById(
-            "profileUsername"
-        );
-
-    const skinUsername =
-        document.getElementById(
-            "skinUsername"
-        );
-
-    if (input) {
-        input.value = cleanName;
-    }
-
-    if (avatar) {
-
-        avatar.textContent =
-            cleanName
-                .charAt(0)
-                .toUpperCase();
-    }
-
-    if (profileUsername) {
-
-        profileUsername.textContent =
-            cleanName;
-    }
-
-    if (skinUsername) {
-
-        skinUsername.textContent =
-            cleanName;
-    }
-}
-
-// =====================================================
-// LƯU USERNAME
+// TÊN NGƯỜI DÙNG
 // =====================================================
 
 const saveUsername =
-    document.getElementById(
-        "saveUsername"
-    );
+  document.getElementById("saveUsername");
+
 
 if (saveUsername) {
 
-    saveUsername.addEventListener(
-        "click",
-        () => {
+  saveUsername.addEventListener(
+    "click",
+    () => {
 
-            const username =
-                document
-                    .getElementById(
-                        "usernameInput"
-                    )
-                    ?.value
-                    .trim();
+      const input =
+        document.getElementById(
+          "usernameInput"
+        );
 
-            if (!username) {
 
-                showToast(
-                    "⚠️ Hãy nhập username Minecraft."
-                );
+      const username =
+        input?.value.trim();
 
-                return;
-            }
 
-            if (
-                !/^[A-Za-z0-9_]{1,16}$/.test(
-                    username
-                )
-            ) {
+      if (!username) {
 
-                showToast(
-                    "⚠️ Username chỉ được gồm chữ, số và _ (tối đa 16 ký tự)."
-                );
+        showToast(
+          "⚠️ Hãy nhập tên người dùng Minecraft."
+        );
 
-                return;
-            }
+        return;
+      }
 
-            setUsername(username);
 
-            localStorage.setItem(
-                "boxpvp_username",
-                username
-            );
+      const avatar =
+        document.getElementById(
+          "profileAvatar"
+        );
 
-            showToast(
-                `✅ Đã lưu username: ${username}`
-            );
-        }
-    );
+
+      const profileUsername =
+        document.getElementById(
+          "profileUsername"
+        );
+
+
+      const skinUsername =
+        document.getElementById(
+          "skinUsername"
+        );
+
+
+      if (avatar) {
+
+        avatar.textContent =
+          username
+            .charAt(0)
+            .toUpperCase();
+
+      }
+
+
+      if (profileUsername) {
+
+        profileUsername.textContent =
+          username;
+
+      }
+
+
+      if (skinUsername) {
+
+        skinUsername.textContent =
+          username;
+
+      }
+
+
+      localStorage.setItem(
+        "boxpvp_username",
+        username
+      );
+
+
+      showToast(
+        `✅ Đã lưu username: ${username}`
+      );
+
+    }
+  );
+
 }
 
+
 // =====================================================
-// TẢI USERNAME
+// TẢI TÊN NGƯỜI DÙNG
 // =====================================================
 
 function loadUsername() {
 
-    const username =
-        localStorage.getItem(
-            "boxpvp_username"
-        );
+  const username =
+    localStorage.getItem(
+      "boxpvp_username"
+    );
 
-    if (username) {
-        setUsername(username);
-    }
+
+  if (!username) {
+    return;
+  }
+
+
+  const input =
+    document.getElementById(
+      "usernameInput"
+    );
+
+
+  const avatar =
+    document.getElementById(
+      "profileAvatar"
+    );
+
+
+  const profileUsername =
+    document.getElementById(
+      "profileUsername"
+    );
+
+
+  const skinUsername =
+    document.getElementById(
+      "skinUsername"
+    );
+
+
+  if (input) {
+
+    input.value =
+      username;
+
+  }
+
+
+  if (avatar) {
+
+    avatar.textContent =
+      username
+        .charAt(0)
+        .toUpperCase();
+
+  }
+
+
+  if (profileUsername) {
+
+    profileUsername.textContent =
+      username;
+
+  }
+
+
+  if (skinUsername) {
+
+    skinUsername.textContent =
+      username;
+
+  }
+
 }
 
+
 // =====================================================
-// XÓA TÀI KHOẢN TEST
+// ĐẶT LẠI TÀI KHOẢN
 // =====================================================
 
 const resetAccount =
-    document.getElementById(
-        "resetAccount"
-    );
+  document.getElementById(
+    "resetAccount"
+  );
+
 
 if (resetAccount) {
 
-    resetAccount.addEventListener(
-        "click",
-        () => {
+  resetAccount.addEventListener(
+    "click",
+    () => {
 
-            localStorage.removeItem(
-                "boxpvp_username"
-            );
+      localStorage.removeItem(
+        "boxpvp_username"
+      );
 
-            const input =
-                document.getElementById(
-                    "usernameInput"
-                );
 
-            const avatar =
-                document.getElementById(
-                    "profileAvatar"
-                );
+      const input =
+        document.getElementById(
+          "usernameInput"
+        );
 
-            const profileUsername =
-                document.getElementById(
-                    "profileUsername"
-                );
 
-            const skinUsername =
-                document.getElementById(
-                    "skinUsername"
-                );
+      const avatar =
+        document.getElementById(
+          "profileAvatar"
+        );
 
-            if (input) {
-                input.value = "";
-            }
 
-            if (avatar) {
-                avatar.textContent = "?";
-            }
+      const username =
+        document.getElementById(
+          "profileUsername"
+        );
 
-            if (profileUsername) {
-                profileUsername.textContent =
-                    "Username";
-            }
 
-            if (skinUsername) {
-                skinUsername.textContent =
-                    "Username";
-            }
+      const skinUsername =
+        document.getElementById(
+          "skinUsername"
+        );
 
-            showToast(
-                "🔄 Đã xóa tài khoản test."
-            );
-        }
-    );
+
+      if (input) {
+
+        input.value = "";
+
+      }
+
+
+      if (avatar) {
+
+        avatar.textContent = "?";
+
+      }
+
+
+      if (username) {
+
+        username.textContent =
+          "Username";
+
+      }
+
+
+      if (skinUsername) {
+
+        skinUsername.textContent =
+          "Username";
+
+      }
+
+
+      showToast(
+        "🔄 Đã xóa tài khoản test."
+      );
+
+    }
+  );
+
 }
 
+
 // =====================================================
-// DAILY CODE
+// CODE HÀNG NGÀY
 // =====================================================
 
 const claimCode =
-    document.getElementById(
-        "claimCode"
-    );
+  document.getElementById(
+    "claimCode"
+  );
+
 
 if (claimCode) {
 
-    claimCode.addEventListener(
-        "click",
-        async () => {
+  claimCode.addEventListener(
+    "click",
+    () => {
 
-            const code =
-                "BXP-7K2M-91QX";
+      showToast(
+        "🎁 Mã Hàng Ngày: BXP-7K2M-91QX"
+      );
 
-            try {
+    }
+  );
 
-                await navigator.clipboard.writeText(
-                    code
-                );
-
-                showToast(
-                    `🎁 Đã nhận và sao chép Daily Code: ${code}`
-                );
-
-            } catch {
-
-                showToast(
-                    `🎁 Daily Code: ${code}`
-                );
-            }
-        }
-    );
 }
+
 
 // =====================================================
 // SKIN
 // =====================================================
 
 const updateSkin =
-    document.getElementById(
-        "updateSkin"
-    );
+  document.getElementById(
+    "updateSkin"
+  );
+
 
 if (updateSkin) {
 
-    updateSkin.addEventListener(
-        "click",
-        () => {
+  updateSkin.addEventListener(
+    "click",
+    () => {
 
-            const input =
-                document.getElementById(
-                    "skinName"
-                );
+      const input =
+        document.getElementById(
+          "skinName"
+        );
 
-            const hint =
-                document.getElementById(
-                    "skinHint"
-                );
 
-            const skinUsername =
-                document.getElementById(
-                    "skinUsername"
-                );
+      const hint =
+        document.getElementById(
+          "skinHint"
+        );
 
-            const name =
-                input?.value.trim();
 
-            if (!name) {
+      const skinUsername =
+        document.getElementById(
+          "skinUsername"
+        );
 
-                if (hint) {
 
-                    hint.textContent =
-                        "⚠️ Hãy nhập username Minecraft.";
-                }
+      const name =
+        input?.value.trim();
 
-                showToast(
-                    "⚠️ Hãy nhập username Minecraft."
-                );
 
-                return;
-            }
+      if (!name) {
 
-            if (
-                !/^[A-Za-z0-9_]{1,16}$/.test(
-                    name
-                )
-            ) {
+        if (hint) {
 
-                if (hint) {
+          hint.textContent =
+            "⚠️ Hãy nhập tên người dùng Minecraft.";
 
-                    hint.textContent =
-                        "⚠️ Username không hợp lệ.";
-                }
-
-                showToast(
-                    "⚠️ Username chỉ được gồm chữ, số và _."
-                );
-
-                return;
-            }
-
-            if (skinUsername) {
-
-                skinUsername.textContent =
-                    name;
-            }
-
-            if (hint) {
-
-                hint.textContent =
-                    `✅ Đã cập nhật skin cho ${name}.`;
-            }
-
-            showToast(
-                `👕 Đã cập nhật skin: ${name}`
-            );
         }
-    );
+
+        return;
+      }
+
+
+      if (skinUsername) {
+
+        skinUsername.textContent =
+          name;
+
+      }
+
+
+      if (hint) {
+
+        hint.textContent =
+          `✅ Đã cập nhật skin cho ${name}.`;
+
+      }
+
+
+      showToast(
+        `👕 Đã cập nhật skin: ${name}`
+      );
+
+    }
+  );
+
 }
 
+
 // =====================================================
-// NẠP TIỀN DEMO
+// DEMO NẠP TIỀN
 // =====================================================
 
 document
-    .querySelectorAll("[data-demo]")
-    .forEach((button) => {
+  .querySelectorAll("[data-demo]")
+  .forEach((button) => {
 
-        button.addEventListener(
-            "click",
-            () => {
+    button.addEventListener(
+      "click",
+      () => {
 
-                showToast(
-                    button.dataset.demo ||
-                    "✅ Đã chọn."
-                );
-            }
+        showToast(
+          button.dataset.demo
         );
-    });
+
+      }
+    );
+
+  });
+
 
 // =====================================================
 // DISCORD
 // =====================================================
 
+// THAY LINK NÀY BẰNG LINK DISCORD THẬT CỦA SERVER
+
+const DISCORD_URL =
+  "https://discord.gg/";
+
+
 const discordButton =
-    document.getElementById(
-        "discordButton"
-    );
+  document.getElementById(
+    "discordButton"
+  );
+
 
 if (discordButton) {
 
-    discordButton.addEventListener(
-        "click",
-        (event) => {
+  discordButton.addEventListener(
+    "click",
+    (event) => {
 
-            event.preventDefault();
+      event.preventDefault();
 
-            showToast(
-                "💬 Discord chưa được cấu hình."
-            );
-        }
-    );
+
+      if (
+        DISCORD_URL ===
+        "https://discord.gg/"
+      ) {
+
+        showToast(
+          "💬 Discord chưa được cấu hình."
+        );
+
+        return;
+      }
+
+
+      window.location.href =
+        DISCORD_URL;
+
+    }
+  );
+
 }
+
+
+// =====================================================
+// LINK DISCORD TỰ ĐỘNG
+// =====================================================
+
+const discordLinks =
+  document.querySelectorAll(
+    'a[href="#discord"]'
+  );
+
+
+discordLinks.forEach((link) => {
+
+  link.addEventListener(
+    "click",
+    (event) => {
+
+      event.preventDefault();
+
+
+      if (
+        DISCORD_URL ===
+        "https://discord.gg/"
+      ) {
+
+        const discordSection =
+          document.getElementById(
+            "discord"
+          );
+
+
+        if (discordSection) {
+
+          discordSection.scrollIntoView({
+            behavior: "smooth"
+          });
+
+        }
+
+
+        showToast(
+          "💬 Discord chưa được cấu hình."
+        );
+
+        return;
+      }
+
+
+      window.location.href =
+        DISCORD_URL;
+
+    }
+  );
+
+});
+
 
 // =====================================================
 // KHỞI ĐỘNG
@@ -606,7 +853,10 @@ loadUsername();
 
 loadServerStatus();
 
+
+// Cập nhật trạng thái server mỗi 30 giây
+
 setInterval(
-    loadServerStatus,
-    30000
+  loadServerStatus,
+  30000
 );
