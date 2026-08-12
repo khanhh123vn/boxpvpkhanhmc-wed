@@ -1,1117 +1,999 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Code | BOXPVP</title>
-
-<style>
-*{
-    box-sizing:border-box;
-    margin:0;
-    padding:0;
-}
-
-body{
-    font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-    min-height:100vh;
-    color:#fff;
-    background:
-        radial-gradient(circle at 50% -15%,rgba(255,40,40,.18),transparent 40%),
-        #070707;
-}
-
-/* HEADER */
-
-header{
-    position:sticky;
-    top:0;
-    z-index:100;
-    border-bottom:1px solid rgba(255,255,255,.08);
-    background:rgba(7,7,7,.88);
-    backdrop-filter:blur(18px);
-}
-
-.navbar{
-    max-width:1180px;
-    min-height:72px;
-    margin:auto;
-    padding:0 22px;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:20px;
-}
-
-.logo{
-    color:white;
-    text-decoration:none;
-    font-size:21px;
-    font-weight:900;
-    white-space:nowrap;
-}
-
-.logo span{
-    color:#ff3030;
-}
-
-nav{
-    display:flex;
-    align-items:center;
-    gap:6px;
-}
-
-nav a{
-    color:rgba(255,255,255,.62);
-    text-decoration:none;
-    padding:10px 13px;
-    border-radius:10px;
-    font-size:14px;
-    font-weight:700;
-    white-space:nowrap;
-    transition:.18s ease;
-}
-
-nav a:hover{
-    color:white;
-    background:rgba(255,255,255,.06);
-}
-
-nav a.active{
-    color:white;
-    background:rgba(255,48,48,.12);
-    border:1px solid rgba(255,48,48,.22);
-}
-
-/* MAIN */
-
-main{
-    max-width:1050px;
-    margin:auto;
-    padding:55px 20px 80px;
-}
-
-.title{
-    text-align:center;
-    margin-bottom:38px;
-}
-
-.title-icon{
-    width:68px;
-    height:68px;
-    margin:0 auto 17px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    border-radius:21px;
-    background:linear-gradient(135deg,#ff3030,#960000);
-    box-shadow:0 15px 45px rgba(255,0,0,.22);
-    font-size:30px;
-}
-
-.title h1{
-    font-size:35px;
-    font-weight:900;
-}
-
-.title p{
-    margin-top:8px;
-    color:rgba(255,255,255,.45);
-    font-size:14px;
-}
-
-/* LAYOUT */
-
-.layout{
-    display:grid;
-    grid-template-columns:minmax(0,1fr) 330px;
-    gap:22px;
-    align-items:start;
-}
-
-.card{
-    border:1px solid rgba(255,255,255,.08);
-    border-radius:21px;
-    background:linear-gradient(
-        180deg,
-        rgba(255,255,255,.045),
-        rgba(255,255,255,.018)
-    );
-    box-shadow:0 20px 60px rgba(0,0,0,.3);
-    overflow:hidden;
-}
-
-.card-header{
-    padding:24px;
-    border-bottom:1px solid rgba(255,255,255,.07);
-}
-
-.card-header h2{
-    font-size:17px;
-}
-
-.card-header p{
-    margin-top:5px;
-    color:rgba(255,255,255,.4);
-    font-size:12px;
-}
-
-.card-content{
-    padding:25px;
-}
-
-/* STEP */
-
-.step{
-    margin-bottom:31px;
-}
-
-.step:last-child{
-    margin-bottom:0;
-}
-
-.step-head{
-    display:flex;
-    align-items:center;
-    gap:12px;
-    margin-bottom:16px;
-}
-
-.number{
-    width:34px;
-    height:34px;
-    flex-shrink:0;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    border-radius:10px;
-    color:#ff4b4b;
-    background:rgba(255,48,48,.12);
-    border:1px solid rgba(255,48,48,.22);
-    font-size:12px;
-    font-weight:900;
-}
-
-.step-head h3{
-    font-size:15px;
-}
-
-.step-head p{
-    margin-top:3px;
-    color:rgba(255,255,255,.4);
-    font-size:12px;
-}
-
-/* INPUT */
-
-.label{
-    display:block;
-    margin-bottom:8px;
-    color:rgba(255,255,255,.65);
-    font-size:12px;
-    font-weight:700;
-}
-
-.input{
-    width:100%;
-    height:50px;
-    padding:0 15px;
-    border-radius:13px;
-    border:1px solid rgba(255,255,255,.09);
-    outline:none;
-    background:rgba(0,0,0,.3);
-    color:white;
-    font-size:14px;
-    transition:.18s ease;
-}
-
-.input::placeholder{
-    color:rgba(255,255,255,.23);
-}
-
-.input:focus{
-    border-color:rgba(255,48,48,.65);
-    box-shadow:0 0 0 3px rgba(255,48,48,.08);
-}
-
-/* USER STATUS */
-
-.user-status{
-    margin-top:8px;
-    font-size:11px;
-    color:#ffb347;
-}
-
-.user-status.ok{
-    color:#54e07a;
-}
-
-/* LOCKED */
-
-.locked{
-    opacity:.38;
-    pointer-events:none;
-    filter:grayscale(.3);
-}
-
-/* DAILY CODE */
-
-.daily-code{
-    padding:20px;
-    border-radius:16px;
-    text-align:center;
-    background:
-        linear-gradient(
-            135deg,
-            rgba(255,48,48,.1),
-            rgba(255,255,255,.025)
-        );
-    border:1px solid rgba(255,48,48,.18);
-}
-
-.daily-label{
-    color:rgba(255,255,255,.4);
-    font-size:10px;
-    font-weight:800;
-    letter-spacing:1px;
-}
-
-.code-value{
-    margin-top:9px;
-    color:#fff;
-    font-size:23px;
-    font-weight:900;
-    letter-spacing:2px;
-}
-
-.copy{
-    margin-top:14px;
-    padding:10px 16px;
-    border:1px solid rgba(255,255,255,.1);
-    border-radius:10px;
-    background:rgba(255,255,255,.05);
-    color:white;
-    cursor:pointer;
-    font-size:12px;
-    font-weight:800;
-}
-
-.copy:hover{
-    background:rgba(255,255,255,.1);
-}
-
-/* CLAIM */
-
-.claim{
-    margin-top:15px;
-    padding:18px;
-    border-radius:16px;
-    background:rgba(255,255,255,.025);
-    border:1px solid rgba(255,255,255,.07);
-}
-
-.claim-button{
-    width:100%;
-    height:50px;
-    margin-top:12px;
-    border:0;
-    border-radius:13px;
-    background:linear-gradient(135deg,#ff3b3b,#bd0000);
-    color:white;
-    font-size:13px;
-    font-weight:900;
-    cursor:pointer;
-    box-shadow:0 12px 30px rgba(255,0,0,.18);
-    transition:.18s ease;
-}
-
-.claim-button:hover{
-    transform:translateY(-2px);
-    box-shadow:0 16px 35px rgba(255,0,0,.25);
-}
-
-/* REWARDS */
-
-.rewards{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:12px;
-}
-
-.reward{
-    padding:18px;
-    border-radius:15px;
-    background:rgba(255,255,255,.025);
-    border:1px solid rgba(255,255,255,.07);
-}
-
-.reward-icon{
-    font-size:21px;
-    margin-bottom:9px;
-}
-
-.reward-label{
-    color:rgba(255,255,255,.4);
-    font-size:11px;
-}
-
-.reward-value{
-    margin-top:4px;
-    font-size:18px;
-    font-weight:900;
-}
-
-/* SIDE */
-
-.side{
-    position:sticky;
-    top:95px;
-}
-
-.side-top{
-    padding:24px;
-    border-bottom:1px solid rgba(255,255,255,.07);
-    background:linear-gradient(
-        145deg,
-        rgba(255,48,48,.1),
-        transparent
-    );
-}
-
-.side-icon{
-    width:46px;
-    height:46px;
-    margin-bottom:14px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    border-radius:14px;
-    background:rgba(255,48,48,.12);
-    font-size:21px;
-}
-
-.side-top h2{
-    font-size:18px;
-}
-
-.side-top p{
-    margin-top:5px;
-    color:rgba(255,255,255,.4);
-    font-size:12px;
-}
-
-.side-body{
-    padding:23px;
-}
-
-.row{
-    display:flex;
-    justify-content:space-between;
-    gap:15px;
-    padding:13px 0;
-    border-bottom:1px solid rgba(255,255,255,.06);
-    font-size:13px;
-}
-
-.row span{
-    color:rgba(255,255,255,.42);
-}
-
-.row strong{
-    text-align:right;
-}
-
-.green{
-    color:#54e07a;
-}
-
-.notice{
-    margin-top:17px;
-    padding:13px;
-    border-radius:11px;
-    background:rgba(255,190,0,.05);
-    border:1px solid rgba(255,190,0,.1);
-    color:rgba(255,255,255,.45);
-    font-size:11px;
-    line-height:1.6;
-}
-
-/* TOAST */
-
-.toast{
-    position:fixed;
-    left:50%;
-    bottom:25px;
-    transform:translate(-50%,20px);
-    opacity:0;
-    pointer-events:none;
-    padding:13px 18px;
-    border-radius:12px;
-    background:#181818;
-    border:1px solid rgba(255,255,255,.1);
-    box-shadow:0 15px 45px rgba(0,0,0,.4);
-    font-size:13px;
-    font-weight:700;
-    transition:.25s ease;
-    z-index:999;
-}
-
-.toast.show{
-    opacity:1;
-    transform:translate(-50%,0);
-}
-
-/* MOBILE */
-
-@media(max-width:850px){
-
-    .layout{
-        grid-template-columns:1fr;
-    }
-
-    .side{
-        position:static;
-    }
-}
-
-@media(max-width:620px){
-
-    .navbar{
-        min-height:70px;
-        flex-direction:column;
-        padding:14px 15px;
-        gap:10px;
-    }
-
-    nav{
-        width:100%;
-        overflow-x:auto;
-    }
-
-    nav a{
-        padding:8px 7px;
-        font-size:12px;
-    }
-
-    main{
-        padding:35px 14px 60px;
-    }
-
-    .title h1{
-        font-size:28px;
-    }
-
-    .card-content{
-        padding:18px;
-    }
-
-    .rewards{
-        grid-template-columns:1fr;
-    }
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Code | BOXPVP</title>
+    <meta name="description" content="Nhận code phần thưởng BOXPVP">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont,
+                "Segoe UI", sans-serif;
+
+            min-height: 100vh;
+            color: #fff;
+
+            background:
+                radial-gradient(
+                    circle at 50% -15%,
+                    rgba(255, 40, 40, .18),
+                    transparent 40%
+                ),
+                #080808;
+        }
+
+        /* HEADER */
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+
+            background: rgba(8, 8, 8, .88);
+            backdrop-filter: blur(18px);
+
+            border-bottom:
+                1px solid rgba(255,255,255,.08);
+        }
+
+        .navbar {
+            max-width: 1180px;
+            height: 72px;
+
+            margin: auto;
+            padding: 0 22px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            color: #fff;
+            text-decoration: none;
+
+            font-size: 21px;
+            font-weight: 900;
+        }
+
+        .logo span {
+            color: #ff3030;
+        }
+
+        nav {
+            display: flex;
+            gap: 6px;
+        }
+
+        nav a {
+            color: rgba(255,255,255,.62);
+            text-decoration: none;
+
+            padding: 10px 13px;
+            border-radius: 10px;
+
+            font-size: 14px;
+            font-weight: 700;
+
+            transition: .18s ease;
+        }
+
+        nav a:hover {
+            color: #fff;
+            background: rgba(255,255,255,.06);
+        }
+
+        nav a.active {
+            color: #fff;
+
+            background:
+                rgba(255,48,48,.12);
+
+            border:
+                1px solid rgba(255,48,48,.22);
+        }
+
+        /* MAIN */
+
+        main {
+            max-width: 900px;
+
+            margin: auto;
+
+            padding:
+                55px 20px 80px;
+        }
+
+        .hero {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .hero-icon {
+            width: 70px;
+            height: 70px;
+
+            margin: 0 auto 18px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 21px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #ff3030,
+                    #a90000
+                );
+
+            box-shadow:
+                0 15px 45px
+                rgba(255,0,0,.25);
+
+            font-size: 30px;
+        }
+
+        .hero h1 {
+            font-size: 34px;
+            font-weight: 900;
+        }
+
+        .hero p {
+            margin-top: 9px;
+
+            color:
+                rgba(255,255,255,.45);
+
+            font-size: 14px;
+        }
+
+        /* CARD */
+
+        .card {
+            border:
+                1px solid rgba(255,255,255,.08);
+
+            border-radius: 20px;
+
+            background:
+                linear-gradient(
+                    180deg,
+                    rgba(255,255,255,.045),
+                    rgba(255,255,255,.018)
+                );
+
+            box-shadow:
+                0 25px 70px
+                rgba(0,0,0,.3);
+
+            overflow: hidden;
+
+            margin-bottom: 20px;
+        }
+
+        .card-header {
+            padding: 23px 25px;
+
+            border-bottom:
+                1px solid rgba(255,255,255,.07);
+        }
+
+        .card-header h2 {
+            font-size: 17px;
+        }
+
+        .card-header p {
+            margin-top: 5px;
+
+            color:
+                rgba(255,255,255,.42);
+
+            font-size: 13px;
+        }
+
+        .card-body {
+            padding: 25px;
+        }
+
+        /* INPUT */
+
+        .label {
+            display: block;
+
+            margin-bottom: 8px;
+
+            color:
+                rgba(255,255,255,.65);
+
+            font-size: 12px;
+            font-weight: 800;
+        }
+
+        .input {
+            width: 100%;
+            height: 50px;
+
+            padding: 0 15px;
+
+            border-radius: 12px;
+
+            border:
+                1px solid rgba(255,255,255,.1);
+
+            outline: none;
+
+            background:
+                rgba(0,0,0,.3);
+
+            color: #fff;
+
+            font-size: 14px;
+
+            transition: .18s ease;
+        }
+
+        .input:focus {
+            border-color: #ff3030;
+
+            box-shadow:
+                0 0 0 3px
+                rgba(255,48,48,.09);
+        }
+
+        .input::placeholder {
+            color:
+                rgba(255,255,255,.25);
+        }
+
+        /* CODE */
+
+        .code-box {
+            margin-top: 25px;
+
+            padding: 25px;
+
+            text-align: center;
+
+            border-radius: 17px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(255,48,48,.11),
+                    rgba(255,255,255,.025)
+                );
+
+            border:
+                1px solid rgba(255,48,48,.16);
+        }
+
+        .code-label {
+            color:
+                rgba(255,255,255,.45);
+
+            font-size: 11px;
+            font-weight: 800;
+
+            letter-spacing: 1px;
+        }
+
+        .code {
+            margin-top: 12px;
+
+            font-size: 25px;
+            font-weight: 900;
+
+            letter-spacing: 2px;
+
+            color: #fff;
+        }
+
+        /* REWARD */
+
+        .rewards {
+            display: grid;
+
+            grid-template-columns:
+                1fr 1fr;
+
+            gap: 12px;
+
+            margin-top: 20px;
+        }
+
+        .reward {
+            padding: 18px;
+
+            border-radius: 14px;
+
+            background:
+                rgba(255,255,255,.025);
+
+            border:
+                1px solid rgba(255,255,255,.07);
+
+            display: flex;
+            align-items: center;
+
+            gap: 13px;
+        }
+
+        .reward-icon {
+            width: 43px;
+            height: 43px;
+
+            flex-shrink: 0;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 12px;
+
+            background:
+                rgba(255,255,255,.06);
+
+            font-size: 20px;
+        }
+
+        .reward small {
+            display: block;
+
+            color:
+                rgba(255,255,255,.4);
+
+            font-size: 11px;
+        }
+
+        .reward strong {
+            display: block;
+
+            margin-top: 3px;
+
+            font-size: 15px;
+        }
+
+        /* BUTTON */
+
+        .claim {
+            width: 100%;
+            height: 52px;
+
+            margin-top: 20px;
+
+            border: 0;
+            border-radius: 13px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #ff3b3b,
+                    #c50000
+                );
+
+            color: #fff;
+
+            font-size: 14px;
+            font-weight: 900;
+
+            cursor: pointer;
+
+            box-shadow:
+                0 12px 30px
+                rgba(255,0,0,.18);
+
+            transition: .18s ease;
+        }
+
+        .claim:hover {
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 16px 38px
+                rgba(255,0,0,.25);
+        }
+
+        .claim:disabled {
+            cursor: not-allowed;
+
+            opacity: .45;
+
+            transform: none;
+
+            box-shadow: none;
+        }
+
+        /* STATUS */
+
+        .status {
+            margin-top: 15px;
+
+            padding: 13px;
+
+            text-align: center;
+
+            border-radius: 11px;
+
+            background:
+                rgba(255,255,255,.025);
+
+            border:
+                1px solid rgba(255,255,255,.06);
+
+            color:
+                rgba(255,255,255,.45);
+
+            font-size: 12px;
+        }
+
+        .warning {
+            margin-top: 15px;
+
+            padding: 13px;
+
+            border-radius: 11px;
+
+            background:
+                rgba(255,190,0,.05);
+
+            border:
+                1px solid rgba(255,190,0,.1);
+
+            color:
+                rgba(255,255,255,.45);
+
+            font-size: 11px;
+
+            line-height: 1.6;
+        }
+
+        /* TOAST */
+
+        .toast {
+            position: fixed;
+
+            left: 50%;
+            bottom: 25px;
+
+            transform:
+                translate(-50%, 20px);
+
+            opacity: 0;
+
+            pointer-events: none;
+
+            padding: 13px 18px;
+
+            border-radius: 12px;
+
+            background: #181818;
+
+            border:
+                1px solid rgba(255,255,255,.1);
+
+            box-shadow:
+                0 15px 45px
+                rgba(0,0,0,.4);
+
+            font-size: 13px;
+            font-weight: 700;
+
+            transition: .25s ease;
+
+            z-index: 999;
+        }
+
+        .toast.show {
+            opacity: 1;
+
+            transform:
+                translate(-50%, 0);
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 700px) {
+
+            .navbar {
+                height: auto;
+
+                min-height: 70px;
+
+                flex-direction: column;
+
+                gap: 10px;
+
+                padding: 14px;
+            }
+
+            nav {
+                width: 100%;
+
+                overflow-x: auto;
+            }
+
+            nav a {
+                white-space: nowrap;
+
+                padding:
+                    8px 9px;
+
+                font-size: 12px;
+            }
+
+            main {
+                padding:
+                    35px 14px 60px;
+            }
+
+            .hero h1 {
+                font-size: 27px;
+            }
+
+            .rewards {
+                grid-template-columns: 1fr;
+            }
+
+            .card-body {
+                padding: 18px;
+            }
+
+            .code {
+                font-size: 21px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
 <header>
+    <div class="navbar">
 
-<div class="navbar">
+        <a href="../index.html" class="logo">
+            ⚔️ <span>BOX</span>PVP
+        </a>
 
-<a href="../index.html" class="logo">
-    ⚔️ <span>BOX</span>PVP
-</a>
+        <nav>
+            <a href="../index.html">
+                🏠 Trang chủ
+            </a>
 
-<nav>
+            <a href="../topup/">
+                🛒 Nạp
+            </a>
 
-<a href="../index.html">
-    🏠 Trang chủ
-</a>
+            <a href="./" class="active">
+                🎁 Code
+            </a>
 
-<a href="../topup/">
-    🛒 Nạp
-</a>
+            <a href="../account/">
+                👤 Tài khoản
+            </a>
 
-<a href="./" class="active">
-    🎁 Code
-</a>
+            <a href="../skin/">
+                👕 Skin
+            </a>
 
-<a href="../account/">
-    👤 Tài khoản
-</a>
+            <a href="../ranking/">
+                🏆 BXH
+            </a>
+        </nav>
 
-<a href="../skin/">
-    👕 Skin
-</a>
-
-<a href="../ranking/">
-    🏆 BXH
-</a>
-
-</nav>
-
-</div>
-
+    </div>
 </header>
 
 
 <main>
 
-<div class="title">
+    <section class="hero">
 
-<div class="title-icon">
-    🎁
-</div>
+        <div class="hero-icon">
+            🎁
+        </div>
 
-<h1>
-    Code BOXPVP
-</h1>
+        <h1>
+            Code BOXPVP
+        </h1>
 
-<p>
-    Nhận phần thưởng hàng ngày từ BOXPVP.
-</p>
+        <p>
+            Nhập username và mã phần thưởng để nhận quà.
+        </p>
 
-</div>
+    </section>
 
 
-<div class="layout">
+    <!-- NHẬP USERNAME + CODE -->
 
+    <section class="card">
 
-<!-- LEFT -->
+        <div class="card-header">
 
-<div class="card">
+            <h2>
+                🔐 Nhận mã phần thưởng
+            </h2>
 
-<div class="card-header">
+            <p>
+                Mỗi tài khoản chỉ được nhận code một lần mỗi ngày.
+            </p>
 
-<h2>
-    🎁 Nhận phần thưởng
-</h2>
+        </div>
 
-<p>
-    Nhập username trước khi nhận code.
-</p>
 
-</div>
+        <div class="card-body">
 
+            <!-- USERNAME -->
 
-<div class="card-content">
+            <label class="label" for="username">
+                👤 Tên tài khoản Minecraft
+            </label>
 
+            <input
+                class="input"
+                id="username"
+                type="text"
+                placeholder="Nhập username Minecraft..."
+                autocomplete="off"
+            >
 
-<!-- USERNAME -->
 
-<div class="step">
+            <!-- CODE -->
 
-<div class="step-head">
+            <div style="margin-top:18px;">
 
-<div class="number">
-    01
-</div>
+                <label class="label" for="codeInput">
+                    🎁 Nhập mã phần thưởng
+                </label>
 
-<div>
+                <input
+                    class="input"
+                    id="codeInput"
+                    type="text"
+                    placeholder="Ví dụ: BXP-7K2M-91QX"
+                    autocomplete="off"
+                >
 
-<h3>
-    👤 Tên tài khoản Minecraft
-</h3>
+            </div>
 
-<p>
-    Nhập username của bạn trước.
-</p>
 
-</div>
+            <!-- BUTTON -->
 
-</div>
+            <button
+                class="claim"
+                id="claimButton"
+                disabled
+            >
+                🎁 NHẬN THƯỞNG
+            </button>
 
 
-<label class="label">
-    Username
-</label>
+            <div
+                class="status"
+                id="status"
+            >
+                🔒 Nhập username và mã code để tiếp tục.
+            </div>
 
-<input
-    id="username"
-    class="input"
-    type="text"
-    placeholder="Ví dụ: khanhk360"
-    autocomplete="off"
->
+        </div>
 
-<div
-    id="userStatus"
-    class="user-status"
->
-    ⚠️ Chưa nhập username
-</div>
+    </section>
 
-</div>
 
+    <!-- CODE HÔM NAY -->
 
-<!-- CODE -->
+    <section class="card">
 
-<div
-    id="codeStep"
-    class="step locked"
->
+        <div class="card-header">
 
-<div class="step-head">
+            <h2>
+                🎁 Mã phần thưởng hôm nay
+            </h2>
 
-<div class="number">
-    02
-</div>
+            <p>
+                Code hiện tại của BOXPVP.
+            </p>
 
-<div>
+        </div>
 
-<h3>
-    🔐 Nhập Code
-</h3>
 
-<p>
-    Nhập mã phần thưởng của bạn.
-</p>
+        <div class="card-body">
 
-</div>
+            <div class="code-box">
 
-</div>
+                <div class="code-label">
+                    MÃ PHẦN THƯỞNG
+                </div>
 
+                <div class="code">
+                    BXP-7K2M-91QX
+                </div>
 
-<div class="daily-code">
+            </div>
 
-<div class="daily-label">
-    MÃ PHẦN THƯỞNG HÔM NAY
-</div>
 
-<div
-    class="code-value"
-    id="dailyCode"
->
-    BXP-7K2M-91QX
-</div>
+            <div class="rewards">
 
-<button
-    class="copy"
-    id="copyButton"
->
-    📋 SAO CHÉP CODE
-</button>
+                <div class="reward">
 
-</div>
+                    <div class="reward-icon">
+                        💰
+                    </div>
 
+                    <div>
+                        <small>
+                            Tiền trong server
+                        </small>
 
-<div class="claim">
+                        <strong>
+                            +500 Money
+                        </strong>
+                    </div>
 
-<label class="label">
-    Nhập mã phần thưởng
-</label>
+                </div>
 
-<input
-    id="codeInput"
-    class="input"
-    type="text"
-    placeholder="Nhập code..."
-    autocomplete="off"
->
 
-<button
-    id="claimButton"
-    class="claim-button"
->
-    🎁 NHẬN THƯỞNG
-</button>
+                <div class="reward">
 
-</div>
+                    <div class="reward-icon">
+                        💠
+                    </div>
 
-</div>
+                    <div>
+                        <small>
+                            Shard
+                        </small>
 
+                        <strong>
+                            +10 Shard
+                        </strong>
+                    </div>
 
-<!-- REWARD -->
+                </div>
 
-<div class="step">
+            </div>
 
-<div class="step-head">
 
-<div class="number">
-    03
-</div>
+            <div class="warning">
 
-<div>
+                ⚠️ <strong>Lưu ý:</strong><br>
 
-<h3>
-    🎁 Phần thưởng
-</h3>
+                Mỗi username chỉ được nhận mã này
+                một lần trong ngày.
+                Phần thưởng là <strong>Money</strong> và
+                <strong>Shard</strong>, không phải Coin.
 
-<p>
-    Phần thưởng khi nhập code chính xác.
-</p>
+            </div>
 
-</div>
+        </div>
 
-</div>
-
-
-<div class="rewards">
-
-<div class="reward">
-
-<div class="reward-icon">
-    💰
-</div>
-
-<div class="reward-label">
-    Tiền trong server
-</div>
-
-<div class="reward-value">
-    +500 Money
-</div>
-
-</div>
-
-
-<div class="reward">
-
-<div class="reward-icon">
-    💠
-</div>
-
-<div class="reward-label">
-    Shard
-</div>
-
-<div class="reward-value">
-    +10 Shard
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-
-</div>
-
-</div>
-
-
-<!-- RIGHT -->
-
-<aside class="card side">
-
-<div class="side-top">
-
-<div class="side-icon">
-    🎁
-</div>
-
-<h2>
-    Code hôm nay
-</h2>
-
-<p>
-    Mã mới được cập nhật mỗi ngày lúc 12:00.
-</p>
-
-</div>
-
-
-<div class="side-body">
-
-<div class="row">
-
-<span>
-    👤 Tài khoản
-</span>
-
-<strong id="summaryUser">
-    Chưa nhập
-</strong>
-
-</div>
-
-
-<div class="row">
-
-<span>
-    🎁 Code
-</span>
-
-<strong>
-    Hàng ngày
-</strong>
-
-</div>
-
-
-<div class="row">
-
-<span>
-    💰 Money
-</span>
-
-<strong>
-    +500
-</strong>
-
-</div>
-
-
-<div class="row">
-
-<span>
-    💠 Shard
-</span>
-
-<strong>
-    +10
-</strong>
-
-</div>
-
-
-<div class="row">
-
-<span>
-    Trạng thái
-</span>
-
-<strong class="green">
-    🟢 Đang hoạt động
-</strong>
-
-</div>
-
-
-<div class="notice">
-
-⚠️ Mỗi tài khoản chỉ được nhận
-code một lần mỗi ngày.
-
-<br><br>
-
-Code mới mỗi ngày lúc
-<strong>12:00</strong>.
-
-</div>
-
-</div>
-
-</aside>
-
-
-</div>
+    </section>
 
 </main>
 
 
-<div id="toast" class="toast"></div>
+<div class="toast" id="toast"></div>
 
 
 <script>
 
-const DAILY_CODE = "BXP-7K2M-91QX";
+    const CURRENT_CODE = "BXP-7K2M-91QX";
 
-const usernameInput =
-    document.getElementById("username");
-
-const userStatus =
-    document.getElementById("userStatus");
-
-const summaryUser =
-    document.getElementById("summaryUser");
-
-const codeStep =
-    document.getElementById("codeStep");
-
-const codeInput =
-    document.getElementById("codeInput");
-
-const claimButton =
-    document.getElementById("claimButton");
-
-const copyButton =
-    document.getElementById("copyButton");
-
-const toast =
-    document.getElementById("toast");
+    const REWARD_MONEY = 500;
+    const REWARD_SHARD = 10;
 
 
-function showToast(message){
+    const usernameInput =
+        document.getElementById("username");
 
-    toast.textContent = message;
+    const codeInput =
+        document.getElementById("codeInput");
 
-    toast.classList.add("show");
+    const claimButton =
+        document.getElementById("claimButton");
 
-    clearTimeout(window.toastTimer);
+    const status =
+        document.getElementById("status");
 
-    window.toastTimer =
-        setTimeout(() => {
+    const toast =
+        document.getElementById("toast");
+
+
+    function showToast(message) {
+
+        toast.textContent = message;
+
+        toast.classList.add("show");
+
+        clearTimeout(window.toastTimer);
+
+        window.toastTimer = setTimeout(() => {
 
             toast.classList.remove("show");
 
-        },2600);
-}
-
-
-/* USERNAME */
-
-usernameInput.addEventListener("input",()=>{
-
-    const username =
-        usernameInput.value.trim();
-
-    summaryUser.textContent =
-        username || "Chưa nhập";
-
-
-    if(!username){
-
-        userStatus.textContent =
-            "⚠️ Chưa nhập username";
-
-        userStatus.classList.remove("ok");
-
-        codeStep.classList.add("locked");
-
-        return;
+        }, 2800);
     }
 
 
-    userStatus.textContent =
-        "✅ Username hợp lệ";
+    function getTodayKey(username) {
 
-    userStatus.classList.add("ok");
+        const today =
+            new Date().toISOString().slice(0, 10);
 
-    codeStep.classList.remove("locked");
-
-});
-
-
-/* COPY CODE */
-
-copyButton.addEventListener("click",async()=>{
-
-    try{
-
-        await navigator.clipboard.writeText(
-            DAILY_CODE
-        );
-
-        showToast(
-            "📋 Đã sao chép code!"
-        );
-
-    }catch{
-
-        showToast(
-            "🎁 Code: "+DAILY_CODE
-        );
-
-    }
-
-});
-
-
-/* CLAIM */
-
-claimButton.addEventListener("click",()=>{
-
-    const username =
-        usernameInput.value.trim();
-
-    const code =
-        codeInput.value.trim().toUpperCase();
-
-
-    if(!username){
-
-        showToast(
-            "⚠️ Hãy nhập username trước!"
-        );
-
-        usernameInput.focus();
-
-        return;
+        return `boxpvp_code_${username.toLowerCase()}_${today}`;
     }
 
 
-    if(!code){
+    function checkForm() {
 
-        showToast(
-            "⚠️ Hãy nhập code!"
-        );
+        const username =
+            usernameInput.value.trim();
 
-        codeInput.focus();
+        const code =
+            codeInput.value.trim();
 
-        return;
+        claimButton.disabled =
+            !(username && code);
+
+        if (!username) {
+
+            status.textContent =
+                "🔒 Hãy nhập username Minecraft trước.";
+
+            return;
+        }
+
+        if (!code) {
+
+            status.textContent =
+                "🔒 Hãy nhập mã phần thưởng.";
+
+            return;
+        }
+
+        const received =
+            localStorage.getItem(
+                getTodayKey(username)
+            );
+
+        if (received) {
+
+            status.textContent =
+                "✅ Tài khoản này đã nhận code hôm nay.";
+
+            claimButton.disabled = true;
+
+            return;
+        }
+
+        status.textContent =
+            "🟢 Có thể nhận phần thưởng.";
+
     }
 
 
-    if(code !== DAILY_CODE){
-
-        showToast(
-            "❌ Code không đúng!"
-        );
-
-        return;
-    }
-
-
-    const today =
-        new Date()
-        .toISOString()
-        .slice(0,10);
-
-
-    const claimKey =
-        "boxpvp_claim_" +
-        username.toLowerCase() +
-        "_" +
-        today;
-
-
-    if(localStorage.getItem(claimKey)){
-
-        showToast(
-            "⚠️ Tài khoản đã nhận code hôm nay!"
-        );
-
-        return;
-    }
-
-
-    localStorage.setItem(
-        claimKey,
-        "claimed"
+    usernameInput.addEventListener(
+        "input",
+        checkForm
     );
 
 
-    showToast(
-        "🎉 "+username+
-        " nhận +500 Money và +10 Shard!"
+    codeInput.addEventListener(
+        "input",
+        checkForm
     );
 
-});
+
+    claimButton.addEventListener(
+        "click",
+        () => {
+
+            const username =
+                usernameInput.value.trim();
+
+            const code =
+                codeInput.value.trim().toUpperCase();
 
 
-/* LOAD USERNAME */
+            if (!username) {
 
-const saved =
-    localStorage.getItem("boxpvp_username");
+                showToast(
+                    "⚠️ Hãy nhập username Minecraft."
+                );
+
+                usernameInput.focus();
+
+                return;
+            }
 
 
-if(saved){
+            if (!code) {
 
-    usernameInput.value = saved;
+                showToast(
+                    "⚠️ Hãy nhập mã phần thưởng."
+                );
 
-    summaryUser.textContent = saved;
+                codeInput.focus();
 
-    userStatus.textContent =
-        "✅ Username hợp lệ";
+                return;
+            }
 
-    userStatus.classList.add("ok");
 
-    codeStep.classList.remove("locked");
+            if (code !== CURRENT_CODE) {
 
-}
+                showToast(
+                    "❌ Mã phần thưởng không đúng."
+                );
+
+                return;
+            }
+
+
+            const todayKey =
+                getTodayKey(username);
+
+
+            if (
+                localStorage.getItem(todayKey)
+            ) {
+
+                showToast(
+                    "⚠️ Username này đã nhận code hôm nay."
+                );
+
+                claimButton.disabled = true;
+
+                return;
+            }
+
+
+            /*
+             * Đánh dấu username đã nhận.
+             */
+
+            localStorage.setItem(
+                todayKey,
+                JSON.stringify({
+
+                    username: username,
+
+                    code: CURRENT_CODE,
+
+                    money: REWARD_MONEY,
+
+                    shard: REWARD_SHARD,
+
+                    receivedAt:
+                        new Date().toISOString()
+
+                })
+            );
+
+
+            status.textContent =
+                "✅ Đã nhận phần thưởng hôm nay.";
+
+            claimButton.disabled = true;
+
+
+            showToast(
+                `🎉 ${username} nhận +500 Money và +10 Shard!`
+            );
+
+        }
+    );
+
+
+    checkForm();
 
 </script>
 
