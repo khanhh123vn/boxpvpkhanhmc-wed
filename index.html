@@ -1,1616 +1,968 @@
 <!DOCTYPE html>
 <html lang="vi">
-
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>BOXPVP | Minecraft BoxPvP Server</title>
+
+<meta
+    name="description"
+    content="BOXPVP Minecraft BoxPvP Server"
+/>
+
+<style>
 
-    <meta charset="UTF-8">
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+html {
+    scroll-behavior: smooth;
+}
 
-    <title>BOXPVP | Minecraft BoxPvP</title>
+body {
+    font-family:
+        Inter,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
 
-    <meta
-        name="description"
-        content="BOXPVP - Minecraft BoxPvP Server"
-    >
+    background:
+        radial-gradient(
+            circle at 50% -15%,
+            rgba(255, 35, 35, .16),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 10% 40%,
+            rgba(255, 0, 0, .05),
+            transparent 30%
+        ),
+        #070707;
 
-    <style>
+    color: white;
+    min-height: 100vh;
+}
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
 
-        html {
-            scroll-behavior: smooth;
-        }
+/* =====================================================
+   HEADER
+===================================================== */
 
-        body {
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 
-            font-family:
-                Inter,
-                system-ui,
-                -apple-system,
-                BlinkMacSystemFont,
-                "Segoe UI",
-                sans-serif;
+    border-bottom:
+        1px solid rgba(255,255,255,.07);
 
-            background:
-                radial-gradient(
-                    circle at 50% -20%,
-                    rgba(255,40,40,.15),
-                    transparent 38%
-                ),
-                #080808;
+    background:
+        rgba(7,7,7,.88);
 
-            color: white;
+    backdrop-filter:
+        blur(18px);
+}
 
-            min-height: 100vh;
-        }
+.navbar {
+    width: min(1180px, calc(100% - 30px));
+    height: 70px;
 
+    margin: auto;
 
-        /* =====================================================
-           HEADER
-        ===================================================== */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 
-        header {
+    gap: 20px;
+}
 
-            position: sticky;
+.logo {
+    color: white;
+    text-decoration: none;
 
-            top: 0;
+    font-size: 21px;
+    font-weight: 950;
 
-            z-index: 1000;
+    white-space: nowrap;
+}
 
-            border-bottom:
-                1px solid rgba(255,255,255,.07);
+.logo span {
+    color: #ff3030;
+}
 
-            background:
-                rgba(8,8,8,.88);
+nav {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
 
-            backdrop-filter:
-                blur(18px);
-        }
+nav a {
+    color:
+        rgba(255,255,255,.58);
 
+    text-decoration: none;
 
-        .navbar {
+    padding: 9px 12px;
 
-            max-width: 1180px;
+    border-radius: 10px;
 
-            height: 72px;
+    font-size: 13px;
+    font-weight: 750;
 
-            margin: auto;
+    transition: .18s ease;
+}
 
-            padding: 0 20px;
+nav a:hover {
+    color: white;
 
-            display: flex;
+    background:
+        rgba(255,255,255,.06);
+}
 
-            align-items: center;
+nav a.active {
+    color: white;
 
-            justify-content: space-between;
+    background:
+        rgba(255,45,45,.11);
 
-            gap: 20px;
-        }
+    border:
+        1px solid rgba(255,45,45,.18);
+}
 
 
-        .logo {
+/* =====================================================
+   MAIN
+===================================================== */
 
-            color: white;
+main {
+    width: min(1180px, calc(100% - 30px));
 
-            text-decoration: none;
+    margin: auto;
+}
 
-            font-size: 21px;
 
-            font-weight: 900;
+/* =====================================================
+   HERO
+===================================================== */
 
-            white-space: nowrap;
-        }
+.hero {
+    position: relative;
 
+    min-height: 570px;
 
-        .logo span {
-            color: #ff3030;
-        }
+    display: flex;
+    flex-direction: column;
 
+    align-items: center;
+    justify-content: center;
 
-        nav {
+    text-align: center;
 
-            display: flex;
+    padding: 80px 20px 65px;
 
-            align-items: center;
+    overflow: hidden;
+}
 
-            gap: 5px;
-        }
+.hero::before {
+    content: "";
 
+    position: absolute;
 
-        nav a {
+    width: 500px;
+    height: 500px;
 
-            color:
-                rgba(255,255,255,.58);
+    border-radius: 50%;
 
-            text-decoration: none;
+    background:
+        rgba(255,0,0,.08);
 
-            padding: 9px 11px;
+    filter: blur(80px);
 
-            border-radius: 10px;
+    top: -250px;
 
-            font-size: 13px;
+    z-index: -1;
+}
 
-            font-weight: 700;
+.hero-badge {
+    display: inline-flex;
 
-            transition: .18s ease;
-        }
+    align-items: center;
+    gap: 8px;
 
+    padding: 8px 13px;
 
-        nav a:hover {
+    border-radius: 999px;
 
-            color: white;
+    background:
+        rgba(255,255,255,.045);
 
-            background:
-                rgba(255,255,255,.06);
-        }
+    border:
+        1px solid rgba(255,255,255,.09);
 
+    color:
+        rgba(255,255,255,.72);
 
-        nav a.active {
+    font-size: 12px;
+    font-weight: 800;
 
-            color: white;
+    margin-bottom: 22px;
+}
 
-            background:
-                rgba(255,48,48,.12);
+.status-dot {
+    width: 8px;
+    height: 8px;
 
-            border:
-                1px solid rgba(255,48,48,.18);
-        }
+    border-radius: 50%;
 
+    background: #32d74b;
 
-        /* =====================================================
-           MAIN
-        ===================================================== */
+    box-shadow:
+        0 0 13px
+        rgba(50,215,75,.8);
+}
 
-        main {
+.hero h1 {
+    font-size:
+        clamp(48px, 9vw, 92px);
 
-            max-width: 1180px;
+    line-height: .95;
 
-            margin: auto;
+    font-weight: 1000;
 
-            padding:
-                55px 20px 80px;
-        }
+    letter-spacing: -4px;
 
+    margin-bottom: 18px;
+}
 
-        /* =====================================================
-           SERVER HERO
-        ===================================================== */
+.hero h1 span {
+    color: #ff3030;
+}
 
-        .hero {
+.hero-subtitle {
+    max-width: 620px;
 
-            position: relative;
+    color:
+        rgba(255,255,255,.48);
 
-            overflow: hidden;
+    font-size: 15px;
 
-            padding: 48px 42px;
+    line-height: 1.7;
 
-            border-radius: 24px;
+    margin-bottom: 35px;
+}
 
-            border:
-                1px solid rgba(255,255,255,.08);
 
-            background:
-                linear-gradient(
-                    135deg,
-                    rgba(255,48,48,.09),
-                    rgba(255,255,255,.025)
-                );
+/* =====================================================
+   SERVER PANEL
+===================================================== */
 
-            box-shadow:
-                0 25px 80px rgba(0,0,0,.35);
-        }
+.server-panel {
+    width: min(780px, 100%);
 
+    padding: 20px;
 
-        .hero::before {
+    border-radius: 20px;
 
-            content: "";
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.055),
+            rgba(255,255,255,.018)
+        );
 
-            position: absolute;
+    border:
+        1px solid rgba(255,255,255,.09);
 
-            width: 300px;
-            height: 300px;
+    box-shadow:
+        0 25px 70px
+        rgba(0,0,0,.35);
+}
 
-            right: -120px;
-            top: -150px;
+.server-top {
+    display: flex;
 
-            border-radius: 50%;
+    justify-content: space-between;
+    align-items: center;
 
-            background:
-                rgba(255,30,30,.12);
+    margin-bottom: 15px;
+}
 
-            filter: blur(20px);
+.server-status {
+    display: flex;
+    align-items: center;
+    gap: 8px;
 
-            pointer-events: none;
-        }
+    color:
+        #42df5a;
 
+    font-size: 12px;
+    font-weight: 850;
+}
 
-        .status {
+.server-status-dot {
+    width: 8px;
+    height: 8px;
 
-            display: inline-flex;
+    border-radius: 50%;
 
-            align-items: center;
+    background: #42df5a;
 
-            gap: 8px;
+    box-shadow:
+        0 0 12px
+        rgba(66,223,90,.8);
+}
 
-            padding: 7px 11px;
+.server-version {
+    color:
+        rgba(255,255,255,.38);
 
-            border-radius: 999px;
+    font-size: 11px;
+    font-weight: 700;
+}
 
-            background:
-                rgba(0,255,120,.06);
+.server-ip-box {
+    display: flex;
 
-            border:
-                1px solid rgba(0,255,120,.12);
+    align-items: center;
 
-            color:
-                #65ff9a;
+    gap: 12px;
 
-            font-size: 11px;
+    padding: 15px;
 
-            font-weight: 800;
+    border-radius: 14px;
 
-            margin-bottom: 18px;
-        }
+    background:
+        rgba(0,0,0,.3);
 
+    border:
+        1px solid rgba(255,255,255,.07);
+}
 
-        .hero h1 {
+.server-ip {
+    flex: 1;
 
-            position: relative;
+    text-align: left;
 
-            font-size: clamp(38px, 7vw, 72px);
+    color: white;
 
-            line-height: .95;
+    font-family:
+        Consolas,
+        monospace;
 
-            font-weight: 1000;
+    font-size: 15px;
+    font-weight: 850;
 
-            letter-spacing: -3px;
-        }
+    word-break: break-all;
+}
 
+.copy-ip {
+    border: 0;
 
-        .hero h1 span {
-            color: #ff3030;
-        }
+    padding: 10px 14px;
 
+    border-radius: 10px;
 
-        .hero-subtitle {
+    background:
+        rgba(255,255,255,.08);
 
-            position: relative;
+    color: white;
 
-            margin-top: 16px;
+    cursor: pointer;
 
-            color:
-                rgba(255,255,255,.48);
+    font-size: 12px;
+    font-weight: 850;
 
-            font-size: 14px;
+    transition: .18s ease;
+}
 
-            line-height: 1.7;
+.copy-ip:hover {
+    background:
+        rgba(255,255,255,.14);
+}
 
-            max-width: 550px;
-        }
+.server-stats {
+    display: grid;
 
+    grid-template-columns:
+        repeat(2, 1fr);
 
-        .server-grid {
+    gap: 10px;
 
-            position: relative;
+    margin-top: 10px;
+}
 
-            margin-top: 30px;
+.server-stat {
+    padding: 12px;
 
-            display: grid;
+    border-radius: 12px;
 
-            grid-template-columns:
-                repeat(3, 1fr);
+    background:
+        rgba(255,255,255,.025);
 
-            gap: 12px;
-        }
+    text-align: left;
+}
 
+.server-stat-label {
+    color:
+        rgba(255,255,255,.35);
 
-        .server-info {
+    font-size: 10px;
 
-            padding: 17px;
+    text-transform: uppercase;
 
-            border-radius: 14px;
+    font-weight: 800;
+}
 
-            background:
-                rgba(255,255,255,.025);
+.server-stat-value {
+    margin-top: 4px;
 
-            border:
-                1px solid rgba(255,255,255,.07);
-        }
+    font-size: 13px;
+    font-weight: 850;
+}
 
 
-        .server-info-label {
+/* =====================================================
+   HERO BUTTONS
+===================================================== */
 
-            color:
-                rgba(255,255,255,.38);
+.hero-buttons {
+    display: flex;
 
-            font-size: 10px;
+    gap: 10px;
 
-            font-weight: 800;
+    margin-top: 18px;
+}
 
-            text-transform: uppercase;
+.btn {
+    height: 48px;
 
-            letter-spacing: 1px;
-        }
+    padding: 0 22px;
 
+    border-radius: 12px;
 
-        .server-info-value {
+    display: inline-flex;
 
-            margin-top: 7px;
+    align-items: center;
+    justify-content: center;
 
-            font-size: 15px;
+    text-decoration: none;
 
-            font-weight: 900;
+    font-size: 13px;
+    font-weight: 900;
 
-            word-break: break-word;
-        }
+    transition: .18s ease;
 
+    cursor: pointer;
+}
 
-        .ip-box {
+.btn-primary {
+    color: white;
 
-            cursor: pointer;
+    background:
+        linear-gradient(
+            135deg,
+            #ff3b3b,
+            #bd0000
+        );
 
-            transition: .18s ease;
-        }
+    box-shadow:
+        0 12px 30px
+        rgba(255,0,0,.2);
+}
 
+.btn-primary:hover {
+    transform: translateY(-2px);
 
-        .ip-box:hover {
+    box-shadow:
+        0 16px 35px
+        rgba(255,0,0,.3);
+}
 
-            border-color:
-                rgba(255,48,48,.35);
+.btn-secondary {
+    color: white;
 
-            background:
-                rgba(255,48,48,.05);
-        }
+    background:
+        rgba(255,255,255,.045);
 
+    border:
+        1px solid rgba(255,255,255,.09);
+}
 
-        .hero-buttons {
+.btn-secondary:hover {
+    background:
+        rgba(255,255,255,.08);
 
-            position: relative;
+    transform: translateY(-2px);
+}
 
-            display: flex;
 
-            gap: 10px;
+/* =====================================================
+   FEATURES SECTION
+===================================================== */
 
-            margin-top: 24px;
-        }
+.features-section {
+    padding: 45px 0 90px;
+}
 
+.section-heading {
+    text-align: center;
 
-        .btn {
+    margin-bottom: 30px;
+}
 
-            display: inline-flex;
+.section-label {
+    color: #ff3d3d;
 
-            align-items: center;
+    font-size: 11px;
 
-            justify-content: center;
+    font-weight: 900;
 
-            min-height: 46px;
+    text-transform: uppercase;
 
-            padding: 0 18px;
+    letter-spacing: 1.5px;
 
-            border-radius: 12px;
+    margin-bottom: 8px;
+}
 
-            text-decoration: none;
+.section-heading h2 {
+    font-size: 30px;
 
-            font-size: 12px;
+    font-weight: 950;
 
-            font-weight: 900;
+    letter-spacing: -.8px;
+}
 
-            transition: .18s ease;
+.section-heading p {
+    margin-top: 8px;
 
-            cursor: pointer;
+    color:
+        rgba(255,255,255,.4);
 
-            border: 0;
-        }
+    font-size: 13px;
+}
 
 
-        .btn-primary {
+/* =====================================================
+   6 FEATURE BOXES
+===================================================== */
 
-            color: white;
+.features {
+    display: grid;
 
-            background:
-                linear-gradient(
-                    135deg,
-                    #ff3b3b,
-                    #c60000
-                );
+    grid-template-columns:
+        repeat(3, 1fr);
 
-            box-shadow:
-                0 10px 28px rgba(255,0,0,.2);
-        }
+    gap: 14px;
+}
 
+.feature-click {
+    position: relative;
 
-        .btn-primary:hover {
+    min-height: 190px;
 
-            transform:
-                translateY(-2px);
+    padding: 24px;
 
-            box-shadow:
-                0 15px 35px rgba(255,0,0,.28);
-        }
+    border-radius: 18px;
 
+    border:
+        1px solid rgba(255,255,255,.08);
 
-        .btn-secondary {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.045),
+            rgba(255,255,255,.015)
+        );
 
-            color: white;
+    text-decoration: none;
 
-            background:
-                rgba(255,255,255,.05);
+    color: white;
 
-            border:
-                1px solid rgba(255,255,255,.09);
-        }
+    cursor: pointer;
 
+    overflow: hidden;
 
-        .btn-secondary:hover {
+    transition:
+        transform .2s ease,
+        border-color .2s ease,
+        background .2s ease;
+}
 
-            background:
-                rgba(255,255,255,.08);
+.feature-click::after {
+    content: "→";
 
-            transform:
-                translateY(-2px);
-        }
+    position: absolute;
 
+    right: 20px;
+    bottom: 18px;
 
-        /* =====================================================
-           SECTION
-        ===================================================== */
+    color:
+        rgba(255,255,255,.3);
 
-        .section {
+    font-size: 20px;
 
-            margin-top: 55px;
-        }
+    transition: .2s ease;
+}
 
+.feature-click:hover {
+    transform:
+        translateY(-5px);
 
-        .section-head {
+    border-color:
+        rgba(255,48,48,.35);
 
-            margin-bottom: 20px;
-        }
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,48,48,.09),
+            rgba(255,255,255,.018)
+        );
+}
 
+.feature-click:hover::after {
+    color: #ff4040;
 
-        .section-label {
+    transform:
+        translateX(4px);
+}
 
-            color:
-                #ff4747;
+.feature-icon {
+    width: 50px;
+    height: 50px;
 
-            font-size: 10px;
+    display: flex;
 
-            font-weight: 900;
+    align-items: center;
+    justify-content: center;
 
-            letter-spacing: 1.7px;
-        }
+    border-radius: 14px;
 
+    background:
+        rgba(255,48,48,.1);
 
-        .section-head h2 {
+    border:
+        1px solid rgba(255,48,48,.13);
 
-            margin-top: 5px;
+    font-size: 23px;
 
-            font-size: 27px;
+    margin-bottom: 18px;
+}
 
-            font-weight: 950;
+.feature-click h3 {
+    font-size: 16px;
 
-            letter-spacing: -.7px;
-        }
+    font-weight: 900;
+}
 
+.feature-click p {
+    max-width: 250px;
 
-        .section-head p {
+    margin-top: 7px;
 
-            margin-top: 6px;
+    color:
+        rgba(255,255,255,.4);
 
-            color:
-                rgba(255,255,255,.42);
+    font-size: 12px;
 
-            font-size: 13px;
-        }
+    line-height: 1.6;
+}
 
 
-        /* =====================================================
-           6 FEATURE BOXES
-        ===================================================== */
+/* =====================================================
+   INFO
+===================================================== */
 
-        .features {
+.info-section {
+    padding: 0 0 80px;
+}
 
-            display: grid;
+.info-box {
+    padding: 28px;
 
-            grid-template-columns:
-                repeat(3, 1fr);
+    border-radius: 20px;
 
-            gap: 14px;
-        }
+    border:
+        1px solid rgba(255,255,255,.07);
 
+    background:
+        rgba(255,255,255,.025);
 
-        .feature {
+    display: grid;
 
-            position: relative;
+    grid-template-columns:
+        repeat(3, 1fr);
 
-            min-height: 175px;
+    gap: 20px;
+}
 
-            padding: 23px;
+.info-item {
+    text-align: center;
+}
 
-            border-radius: 18px;
+.info-icon {
+    font-size: 25px;
 
-            border:
-                1px solid rgba(255,255,255,.08);
+    margin-bottom: 9px;
+}
 
-            background:
-                linear-gradient(
-                    145deg,
-                    rgba(255,255,255,.045),
-                    rgba(255,255,255,.018)
-                );
+.info-item strong {
+    display: block;
 
-            text-decoration: none;
+    font-size: 14px;
+}
 
-            color: white;
+.info-item span {
+    display: block;
 
-            overflow: hidden;
+    margin-top: 5px;
 
-            cursor: pointer;
+    color:
+        rgba(255,255,255,.38);
 
-            transition:
-                transform .2s ease,
-                border-color .2s ease,
-                background .2s ease;
-        }
+    font-size: 11px;
+}
 
 
-        .feature:hover {
+/* =====================================================
+   FOOTER
+===================================================== */
 
-            transform:
-                translateY(-4px);
+footer {
+    border-top:
+        1px solid rgba(255,255,255,.07);
 
-            border-color:
-                rgba(255,48,48,.32);
+    padding: 28px 0 35px;
 
-            background:
-                linear-gradient(
-                    145deg,
-                    rgba(255,48,48,.09),
-                    rgba(255,255,255,.025)
-                );
-        }
+    color:
+        rgba(255,255,255,.35);
 
+    font-size: 11px;
+}
 
-        .feature-icon {
+.footer-inner {
+    width: min(1180px, calc(100% - 30px));
 
-            width: 48px;
-            height: 48px;
+    margin: auto;
 
-            display: flex;
+    display: flex;
 
-            align-items: center;
+    justify-content: space-between;
 
-            justify-content: center;
+    align-items: center;
 
-            border-radius: 14px;
+    gap: 20px;
+}
 
-            background:
-                rgba(255,48,48,.10);
+.footer-logo {
+    color: white;
 
-            border:
-                1px solid rgba(255,48,48,.14);
+    font-weight: 900;
 
-            font-size: 22px;
+    font-size: 14px;
+}
 
-            margin-bottom: 18px;
-        }
+.footer-logo span {
+    color: #ff3030;
+}
 
 
-        .feature h3 {
+/* =====================================================
+   TOAST
+===================================================== */
 
-            font-size: 16px;
+.toast {
+    position: fixed;
 
-            font-weight: 900;
-        }
+    left: 50%;
+    bottom: 25px;
 
+    transform:
+        translate(-50%, 20px);
 
-        .feature p {
+    opacity: 0;
 
-            margin-top: 6px;
+    pointer-events: none;
 
-            color:
-                rgba(255,255,255,.42);
+    z-index: 9999;
 
-            font-size: 12px;
+    padding:
+        13px 18px;
 
-            line-height: 1.6;
-        }
+    border-radius: 12px;
 
+    background: #181818;
 
-        .feature-arrow {
+    border:
+        1px solid rgba(255,255,255,.1);
 
-            position: absolute;
+    box-shadow:
+        0 15px 45px
+        rgba(0,0,0,.45);
 
-            right: 20px;
+    font-size: 13px;
 
-            bottom: 18px;
+    font-weight: 750;
 
-            color:
-                rgba(255,255,255,.28);
+    transition: .25s ease;
 
-            font-size: 18px;
-        }
+    white-space: nowrap;
+}
 
+.toast.show {
+    opacity: 1;
 
-        /* =====================================================
-           DISCORD
-        ===================================================== */
+    transform:
+        translate(-50%, 0);
+}
 
-        .discord-box {
 
-            position: relative;
+/* =====================================================
+   MOBILE
+===================================================== */
 
-            display: flex;
+@media (max-width: 850px) {
 
-            align-items: center;
+    .navbar {
+        height: auto;
 
-            gap: 20px;
+        padding:
+            14px 0;
 
-            padding: 25px 28px;
+        flex-direction: column;
 
-            border-radius: 18px;
+        align-items: stretch;
+    }
 
-            background:
-                linear-gradient(
-                    135deg,
-                    rgba(88,101,242,.14),
-                    rgba(255,255,255,.025)
-                );
+    .logo {
+        text-align: center;
+    }
 
-            border:
-                1px solid rgba(88,101,242,.28);
+    nav {
+        justify-content: center;
 
-            box-shadow:
-                0 18px 50px rgba(0,0,0,.22);
+        flex-wrap: wrap;
+    }
 
-            overflow: hidden;
-        }
+    .features {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
 
+    .hero {
+        min-height: auto;
 
-        .discord-icon {
+        padding-top: 60px;
+    }
 
-            width: 58px;
-            height: 58px;
+    .info-box {
+        grid-template-columns:
+            1fr;
+    }
 
-            flex-shrink: 0;
+}
 
-            display: flex;
 
-            align-items: center;
+@media (max-width: 600px) {
 
-            justify-content: center;
+    main {
+        width:
+            calc(100% - 20px);
+    }
 
-            border-radius: 16px;
+    .navbar {
+        width:
+            calc(100% - 20px);
+    }
 
-            background:
-                linear-gradient(
-                    135deg,
-                    #5865f2,
-                    #404eed
-                );
+    nav {
+        overflow-x: auto;
 
-            font-size: 27px;
-        }
+        justify-content: flex-start;
 
+        flex-wrap: nowrap;
 
-        .discord-content {
+        padding-bottom: 3px;
+    }
 
-            flex: 1;
-        }
+    nav a {
+        white-space: nowrap;
+    }
 
+    .hero {
+        padding:
+            50px 5px 45px;
+    }
 
-        .discord-label {
+    .hero h1 {
+        font-size: 52px;
 
-            color:
-                #929cff;
+        letter-spacing: -2.5px;
+    }
 
-            font-size: 10px;
+    .hero-subtitle {
+        font-size: 13px;
+    }
 
-            font-weight: 900;
+    .server-ip-box {
+        flex-direction: column;
 
-            letter-spacing: 1.5px;
-        }
+        align-items: stretch;
+    }
 
+    .server-ip {
+        text-align: center;
+    }
 
-        .discord-content h2 {
+    .copy-ip {
+        width: 100%;
+    }
 
-            margin-top: 5px;
+    .hero-buttons {
+        width: 100%;
 
-            font-size: 19px;
+        flex-direction: column;
+    }
 
-            font-weight: 900;
-        }
+    .btn {
+        width: 100%;
+    }
 
+    .features {
+        grid-template-columns: 1fr;
+    }
 
-        .discord-content p {
+    .feature-click {
+        min-height: 165px;
+    }
 
-            margin-top: 6px;
+    .server-stats {
+        grid-template-columns: 1fr;
+    }
 
-            color:
-                rgba(255,255,255,.45);
+    .footer-inner {
+        flex-direction: column;
 
-            font-size: 13px;
+        text-align: center;
+    }
 
-            line-height: 1.6;
-        }
+    .toast {
+        max-width:
+            calc(100% - 30px);
 
+        white-space: normal;
 
-        .discord-button {
+        text-align: center;
+    }
 
-            flex-shrink: 0;
+}
 
-            display: inline-flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            min-height: 46px;
-
-            padding: 0 20px;
-
-            border-radius: 12px;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    #5865f2,
-                    #404eed
-                );
-
-            color: white;
-
-            text-decoration: none;
-
-            font-size: 12px;
-
-            font-weight: 900;
-
-            transition: .18s ease;
-        }
-
-
-        .discord-button:hover {
-
-            transform:
-                translateY(-2px);
-
-            filter:
-                brightness(1.08);
-        }
-
-
-        /* =====================================================
-           LEADERBOARD
-        ===================================================== */
-
-        .leaderboard {
-
-            display: grid;
-
-            grid-template-columns:
-                1fr 280px;
-
-            gap: 18px;
-        }
-
-
-        .leader-card {
-
-            border:
-                1px solid rgba(255,255,255,.08);
-
-            border-radius: 18px;
-
-            background:
-                rgba(255,255,255,.025);
-
-            overflow: hidden;
-        }
-
-
-        .leader-head {
-
-            padding: 18px 20px;
-
-            border-bottom:
-                1px solid rgba(255,255,255,.07);
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: space-between;
-        }
-
-
-        .leader-head strong {
-            font-size: 14px;
-        }
-
-
-        .leader-head a {
-
-            color:
-                #ff5050;
-
-            text-decoration: none;
-
-            font-size: 11px;
-
-            font-weight: 800;
-        }
-
-
-        .leader-body {
-
-            padding: 10px;
-        }
-
-
-        .leader-player {
-
-            display: flex;
-
-            align-items: center;
-
-            gap: 12px;
-
-            padding: 13px;
-
-            border-radius: 12px;
-
-            transition: .15s ease;
-        }
-
-
-        .leader-player:hover {
-
-            background:
-                rgba(255,255,255,.04);
-        }
-
-
-        .rank-number {
-
-            width: 28px;
-
-            color:
-                rgba(255,255,255,.3);
-
-            font-weight: 900;
-
-            text-align: center;
-        }
-
-
-        .player-avatar {
-
-            width: 38px;
-            height: 38px;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            border-radius: 10px;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    #ff3030,
-                    #7c0000
-                );
-
-            font-size: 14px;
-
-            font-weight: 900;
-        }
-
-
-        .player-name {
-
-            flex: 1;
-        }
-
-
-        .player-name strong {
-
-            display: block;
-
-            font-size: 13px;
-        }
-
-
-        .player-name span {
-
-            display: block;
-
-            margin-top: 3px;
-
-            color:
-                rgba(255,255,255,.35);
-
-            font-size: 10px;
-        }
-
-
-        .kills {
-
-            color:
-                #ff5050;
-
-            font-size: 11px;
-
-            font-weight: 900;
-        }
-
-
-        /* =====================================================
-           PROFILE
-        ===================================================== */
-
-        .profile-card {
-
-            padding: 23px;
-
-            border-radius: 18px;
-
-            border:
-                1px solid rgba(255,255,255,.08);
-
-            background:
-                linear-gradient(
-                    145deg,
-                    rgba(255,48,48,.07),
-                    rgba(255,255,255,.025)
-                );
-        }
-
-
-        .profile-top {
-
-            display: flex;
-
-            align-items: center;
-
-            gap: 14px;
-        }
-
-
-        .profile-avatar {
-
-            width: 55px;
-            height: 55px;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            border-radius: 15px;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    #ff3030,
-                    #8f0000
-                );
-
-            font-size: 20px;
-
-            font-weight: 900;
-        }
-
-
-        .profile-name {
-
-            font-size: 16px;
-
-            font-weight: 900;
-        }
-
-
-        .profile-rank {
-
-            margin-top: 4px;
-
-            color:
-                #ff4b4b;
-
-            font-size: 11px;
-
-            font-weight: 800;
-        }
-
-
-        .profile-stats {
-
-            display: grid;
-
-            grid-template-columns:
-                repeat(2,1fr);
-
-            gap: 8px;
-
-            margin-top: 20px;
-        }
-
-
-        .stat {
-
-            padding: 12px;
-
-            border-radius: 11px;
-
-            background:
-                rgba(255,255,255,.035);
-        }
-
-
-        .stat span {
-
-            display: block;
-
-            color:
-                rgba(255,255,255,.35);
-
-            font-size: 9px;
-
-            font-weight: 800;
-        }
-
-
-        .stat strong {
-
-            display: block;
-
-            margin-top: 5px;
-
-            font-size: 14px;
-        }
-
-
-        /* =====================================================
-           DAILY CODE
-        ===================================================== */
-
-        .daily-code {
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: space-between;
-
-            gap: 20px;
-
-            padding: 24px;
-
-            border-radius: 18px;
-
-            border:
-                1px solid rgba(255,255,255,.08);
-
-            background:
-                rgba(255,255,255,.025);
-        }
-
-
-        .daily-left {
-
-            display: flex;
-
-            align-items: center;
-
-            gap: 15px;
-        }
-
-
-        .daily-icon {
-
-            width: 48px;
-            height: 48px;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            border-radius: 14px;
-
-            background:
-                rgba(255,185,0,.08);
-
-            font-size: 22px;
-        }
-
-
-        .daily-code h3 {
-
-            font-size: 15px;
-        }
-
-
-        .daily-code p {
-
-            margin-top: 5px;
-
-            color:
-                rgba(255,255,255,.38);
-
-            font-size: 11px;
-        }
-
-
-        .code-value {
-
-            padding: 11px 15px;
-
-            border-radius: 10px;
-
-            background:
-                rgba(255,255,255,.05);
-
-            border:
-                1px dashed rgba(255,255,255,.12);
-
-            font-family:
-                monospace;
-
-            color:
-                #ffbaba;
-
-            font-size: 13px;
-
-            font-weight: 900;
-        }
-
-
-        /* =====================================================
-           STORE
-        ===================================================== */
-
-        .store-grid {
-
-            display: grid;
-
-            grid-template-columns:
-                repeat(5, 1fr);
-
-            gap: 10px;
-        }
-
-
-        .store-item {
-
-            padding: 18px 12px;
-
-            text-align: center;
-
-            border-radius: 14px;
-
-            border:
-                1px solid rgba(255,255,255,.07);
-
-            background:
-                rgba(255,255,255,.025);
-
-            text-decoration: none;
-
-            color: white;
-
-            transition: .18s ease;
-        }
-
-
-        .store-item:hover {
-
-            transform:
-                translateY(-3px);
-
-            border-color:
-                rgba(255,48,48,.3);
-        }
-
-
-        .store-coin {
-
-            font-size: 22px;
-        }
-
-
-        .store-item strong {
-
-            display: block;
-
-            margin-top: 8px;
-
-            font-size: 13px;
-        }
-
-
-        .store-price {
-
-            margin-top: 5px;
-
-            color:
-                #ff5050;
-
-            font-size: 11px;
-
-            font-weight: 900;
-        }
-
-
-        /* =====================================================
-           SKIN
-        ===================================================== */
-
-        .skin-box {
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: space-between;
-
-            gap: 20px;
-
-            padding: 23px;
-
-            border-radius: 18px;
-
-            border:
-                1px solid rgba(255,255,255,.08);
-
-            background:
-                rgba(255,255,255,.025);
-        }
-
-
-        .skin-user {
-
-            display: flex;
-
-            align-items: center;
-
-            gap: 14px;
-        }
-
-
-        .skin-avatar {
-
-            width: 55px;
-            height: 55px;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            border-radius: 15px;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    #272727,
-                    #111
-                );
-
-            font-size: 22px;
-        }
-
-
-        .skin-user strong {
-
-            display: block;
-
-            font-size: 15px;
-        }
-
-
-        .skin-user span {
-
-            display: block;
-
-            margin-top: 4px;
-
-            color:
-                rgba(255,255,255,.38);
-
-            font-size: 11px;
-        }
-
-
-        /* =====================================================
-           FOOTER
-        ===================================================== */
-
-        footer {
-
-            border-top:
-                1px solid rgba(255,255,255,.07);
-
-            padding:
-                35px 20px;
-
-            background:
-                #050505;
-        }
-
-
-        .footer-inner {
-
-            max-width: 1180px;
-
-            margin: auto;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: space-between;
-
-            gap: 20px;
-        }
-
-
-        .footer-logo {
-
-            font-size: 16px;
-
-            font-weight: 950;
-        }
-
-
-        .footer-logo span {
-            color: #ff3030;
-        }
-
-
-        .footer-text {
-
-            color:
-                rgba(255,255,255,.35);
-
-            font-size: 11px;
-        }
-
-
-        /* =====================================================
-           TOAST
-        ===================================================== */
-
-        .toast {
-
-            position: fixed;
-
-            left: 50%;
-
-            bottom: 25px;
-
-            z-index: 9999;
-
-            transform:
-                translate(-50%,20px);
-
-            opacity: 0;
-
-            pointer-events: none;
-
-            padding:
-                13px 18px;
-
-            border-radius: 12px;
-
-            background:
-                #181818;
-
-            border:
-                1px solid rgba(255,255,255,.1);
-
-            box-shadow:
-                0 15px 45px rgba(0,0,0,.45);
-
-            font-size: 12px;
-
-            font-weight: 800;
-
-            transition: .25s ease;
-        }
-
-
-        .toast.show {
-
-            opacity: 1;
-
-            transform:
-                translate(-50%,0);
-        }
-
-
-        /* =====================================================
-           MOBILE
-        ===================================================== */
-
-        @media (max-width: 900px) {
-
-            .features {
-
-                grid-template-columns:
-                    repeat(2,1fr);
-            }
-
-
-            .leaderboard {
-
-                grid-template-columns:
-                    1fr;
-            }
-
-
-            .store-grid {
-
-                grid-template-columns:
-                    repeat(3,1fr);
-            }
-
-        }
-
-
-        @media (max-width: 700px) {
-
-            .navbar {
-
-                height: auto;
-
-                min-height: 70px;
-
-                flex-direction: column;
-
-                padding:
-                    13px 15px;
-
-                gap: 9px;
-            }
-
-
-            nav {
-
-                width: 100%;
-
-                overflow-x: auto;
-
-                justify-content: flex-start;
-            }
-
-
-            nav a {
-
-                white-space: nowrap;
-
-                font-size: 11px;
-
-                padding:
-                    8px 9px;
-            }
-
-
-            main {
-
-                padding:
-                    30px 14px 60px;
-            }
-
-
-            .hero {
-
-                padding:
-                    32px 22px;
-            }
-
-
-            .hero h1 {
-
-                letter-spacing: -2px;
-            }
-
-
-            .server-grid {
-
-                grid-template-columns:
-                    1fr;
-            }
-
-
-            .hero-buttons {
-
-                flex-direction: column;
-            }
-
-
-            .btn {
-
-                width: 100%;
-            }
-
-
-            .features {
-
-                grid-template-columns:
-                    1fr;
-            }
-
-
-            .discord-box {
-
-                flex-direction: column;
-
-                align-items: flex-start;
-            }
-
-
-            .discord-button {
-
-                width: 100%;
-            }
-
-
-            .daily-code {
-
-                flex-direction: column;
-
-                align-items: flex-start;
-            }
-
-
-            .code-value {
-
-                width: 100%;
-
-                text-align: center;
-            }
-
-
-            .store-grid {
-
-                grid-template-columns:
-                    repeat(2,1fr);
-            }
-
-
-            .skin-box {
-
-                flex-direction: column;
-
-                align-items: flex-start;
-            }
-
-
-            .footer-inner {
-
-                flex-direction: column;
-
-                align-items: flex-start;
-            }
-
-        }
-
-    </style>
-
+</style>
 </head>
 
 
@@ -1625,13 +977,9 @@
 
     <div class="navbar">
 
-        <a
-            href="./index.html"
-            class="logo"
-        >
+        <a href="./index.html" class="logo">
             ⚔️ <span>BOX</span>PVP
         </a>
-
 
         <nav>
 
@@ -1669,7 +1017,6 @@
 </header>
 
 
-
 <main>
 
 
@@ -1679,11 +1026,12 @@
 
 <section class="hero">
 
-    <div
-        class="status"
-        id="serverStatus"
-    >
-        🟢 SERVER ĐANG HOẠT ĐỘNG
+    <div class="hero-badge">
+
+        <span class="status-dot"></span>
+
+        SERVER ĐANG HOẠT ĐỘNG
+
     </div>
 
 
@@ -1698,65 +1046,95 @@
 
         <br>
 
-        Chiến đấu, farm tài nguyên,
-        nâng cấp sức mạnh và leo bảng xếp hạng.
+        Chiến đấu • Farm • Nâng cấp • Leo bảng xếp hạng
 
     </p>
 
 
-    <div class="server-grid">
+    <!-- SERVER -->
+
+    <div class="server-panel">
 
 
-        <div class="server-info">
+        <div class="server-top">
 
-            <div class="server-info-label">
-                Trạng thái
+            <div class="server-status">
+
+                <span class="server-status-dot"></span>
+
+                <span id="serverStatus">
+                    TRỰC TUYẾN
+                </span>
+
             </div>
 
+
             <div
-                class="server-info-value"
-                id="onlineText"
+                class="server-version"
+                id="serverVersion"
             >
-                🟢 TRỰC TUYẾN
+                Minecraft 1.20+
             </div>
 
         </div>
 
 
-        <div class="server-info">
-
-            <div class="server-info-label">
-                Người chơi
-            </div>
+        <div class="server-ip-box">
 
             <div
-                class="server-info-value"
-                id="serverPlayers"
-            >
-                0 / 0
-            </div>
-
-        </div>
-
-
-        <div
-            class="server-info ip-box"
-            id="copyIp"
-        >
-
-            <div class="server-info-label">
-                IP SERVER
-            </div>
-
-            <div
-                class="server-info-value"
+                class="server-ip"
                 id="serverIp"
             >
                 boxpvpkhanhmc.levyathan.ch
             </div>
 
+
+            <button
+                class="copy-ip"
+                id="copyIp"
+            >
+                📋 SAO CHÉP IP
+            </button>
+
         </div>
 
+
+        <div class="server-stats">
+
+
+            <div class="server-stat">
+
+                <div class="server-stat-label">
+                    Người chơi
+                </div>
+
+                <div
+                    class="server-stat-value"
+                    id="serverPlayers"
+                >
+                    0 / 100
+                </div>
+
+            </div>
+
+
+            <div class="server-stat">
+
+                <div class="server-stat-label">
+                    Trạng thái
+                </div>
+
+                <div
+                    class="server-stat-value"
+                    id="serverOnlineText"
+                >
+                    🟢 ONLINE
+                </div>
+
+            </div>
+
+
+        </div>
 
     </div>
 
@@ -1775,7 +1153,7 @@
             class="btn btn-secondary"
             href="https://discord.gg/ttxmvuQmr"
             target="_blank"
-            rel="noopener noreferrer"
+            rel="noopener"
         >
             💬 DISCORD
         </a>
@@ -1785,25 +1163,25 @@
 </section>
 
 
-
 <!-- =====================================================
-     6 FEATURES
+     6 Ô CHỨC NĂNG
 ===================================================== -->
 
-<section class="section">
+<section class="features-section">
 
-    <div class="section-head">
+
+    <div class="section-heading">
 
         <div class="section-label">
-            🔥 TÍNH NĂNG
+            BOXPVP SERVER
         </div>
 
         <h2>
-            Mọi thứ cho BOXPVP
+            🔥 TÍNH NĂNG
         </h2>
 
         <p>
-            Chọn một khu vực để sử dụng.
+            Mọi thứ cần thiết cho server BoxPvP.
         </p>
 
     </div>
@@ -1812,9 +1190,11 @@
     <div class="features">
 
 
+        <!-- 1 -->
+
         <a
-            class="feature"
             href="./boxpvp/"
+            class="feature-click"
         >
 
             <div class="feature-icon">
@@ -1829,17 +1209,14 @@
                 Chiến đấu, farm và leo bảng xếp hạng.
             </p>
 
-            <div class="feature-arrow">
-                →
-            </div>
-
         </a>
 
 
+        <!-- 2 -->
 
         <a
-            class="feature"
             href="./topup/"
+            class="feature-click"
         >
 
             <div class="feature-icon">
@@ -1847,24 +1224,21 @@
             </div>
 
             <h3>
-                Economy
+                Nạp Coin
             </h3>
 
             <p>
                 Nạp Coin và sử dụng trong server.
             </p>
 
-            <div class="feature-arrow">
-                →
-            </div>
-
         </a>
 
 
+        <!-- 3 -->
 
         <a
-            class="feature"
             href="./code/"
+            class="feature-click"
         >
 
             <div class="feature-icon">
@@ -1872,74 +1246,65 @@
             </div>
 
             <h3>
-                Daily Code
+                Code
             </h3>
 
             <p>
-                Nhận Money và Shard mỗi ngày.
+                Nhận mã phần thưởng hàng ngày.
             </p>
-
-            <div class="feature-arrow">
-                →
-            </div>
 
         </a>
 
 
+        <!-- 4 -->
 
         <a
-            class="feature"
             href="./account/"
+            class="feature-click"
         >
 
             <div class="feature-icon">
-                👑
+                👤
             </div>
 
             <h3>
-                Rank & Account
+                Tài khoản
             </h3>
 
             <p>
-                Xem tài khoản, rank và chỉ số người chơi.
+                Xem thông tin, Money, Shard và thành tích.
             </p>
-
-            <div class="feature-arrow">
-                →
-            </div>
 
         </a>
 
 
+        <!-- 5 -->
 
         <a
-            class="feature"
-            href="./shop/"
+            href="./skin/"
+            class="feature-click"
         >
 
             <div class="feature-icon">
-                🏪
+                👕
             </div>
 
             <h3>
-                Shop
+                Skin
             </h3>
 
             <p>
-                Mua bán vật phẩm và trang bị.
+                Xem Skin Minecraft theo username.
             </p>
-
-            <div class="feature-arrow">
-                →
-            </div>
 
         </a>
 
 
+        <!-- 6 -->
 
         <a
-            class="feature"
             href="./ranking/"
+            class="feature-click"
         >
 
             <div class="feature-icon">
@@ -1954,10 +1319,6 @@
                 Đua TOP Money, Kills và thành tích.
             </p>
 
-            <div class="feature-arrow">
-                →
-            </div>
-
         </a>
 
 
@@ -1966,510 +1327,64 @@
 </section>
 
 
-
 <!-- =====================================================
-     DISCORD
+     INFO
 ===================================================== -->
 
-<section class="section">
+<section class="info-section">
 
-    <div class="discord-box">
+    <div class="info-box">
 
 
-        <div class="discord-icon">
-            💬
+        <div class="info-item">
+
+            <div class="info-icon">
+                ⚔️
+            </div>
+
+            <strong>
+                BoxPvP
+            </strong>
+
+            <span>
+                Chiến đấu và farm
+            </span>
+
         </div>
 
 
-        <div class="discord-content">
+        <div class="info-item">
 
-            <div class="discord-label">
-                COMMUNITY
+            <div class="info-icon">
+                🏆
             </div>
 
-            <h2>
+            <strong>
+                Leaderboard
+            </strong>
+
+            <span>
+                Cạnh tranh TOP server
+            </span>
+
+        </div>
+
+
+        <div class="info-item">
+
+            <div class="info-icon">
+                💬
+            </div>
+
+            <strong>
+                Community
+            </strong>
+
+            <span>
                 Tham gia Discord BOXPVP
-            </h2>
-
-            <p>
-                Tham gia cộng đồng BOXPVP để nhận thông báo,
-                sự kiện, hỗ trợ và trò chuyện cùng người chơi.
-            </p>
+            </span>
 
         </div>
-
-
-        <a
-            class="discord-button"
-            href="https://discord.gg/ttxmvuQmr"
-            target="_blank"
-            rel="noopener noreferrer"
-        >
-            💬 THAM GIA DISCORD
-        </a>
-
-
-    </div>
-
-</section>
-
-
-
-<!-- =====================================================
-     LEADERBOARD
-===================================================== -->
-
-<section class="section">
-
-    <div class="section-head">
-
-        <div class="section-label">
-            LEADERBOARD
-        </div>
-
-        <h2>
-            🏆 BXH
-        </h2>
-
-        <p>
-            Xem những người chơi hàng đầu của BOXPVP.
-        </p>
-
-    </div>
-
-
-    <div class="leaderboard">
-
-
-        <div class="leader-card">
-
-            <div class="leader-head">
-
-                <strong>
-                    🏆 TOP NGƯỜI CHƠI
-                </strong>
-
-                <a href="./ranking/">
-                    XEM TẤT CẢ →
-                </a>
-
-            </div>
-
-
-            <div
-                class="leader-body"
-                id="homeRanking"
-            >
-
-                <div class="leader-player">
-
-                    <div class="rank-number">
-                        #
-                    </div>
-
-                    <div class="player-avatar">
-                        ?
-                    </div>
-
-                    <div class="player-name">
-
-                        <strong>
-                            Chưa có dữ liệu
-                        </strong>
-
-                        <span>
-                            Đang chờ dữ liệu người chơi
-                        </span>
-
-                    </div>
-
-                    <div class="kills">
-                        ⚔️ 0
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-
-
-        <div class="profile-card">
-
-
-            <div class="profile-top">
-
-                <div
-                    class="profile-avatar"
-                    id="profileAvatar"
-                >
-                    K
-                </div>
-
-
-                <div>
-
-                    <div
-                        class="profile-name"
-                        id="profileUsername"
-                    >
-                        khanhk360
-                    </div>
-
-                    <div class="profile-rank">
-                        Chưa có rank
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <div class="profile-stats">
-
-
-                <div class="stat">
-
-                    <span>
-                        MONEY
-                    </span>
-
-                    <strong>
-                        0
-                    </strong>
-
-                </div>
-
-
-                <div class="stat">
-
-                    <span>
-                        SHARD
-                    </span>
-
-                    <strong>
-                        0
-                    </strong>
-
-                </div>
-
-
-                <div class="stat">
-
-                    <span>
-                        KILLS
-                    </span>
-
-                    <strong>
-                        0
-                    </strong>
-
-                </div>
-
-
-                <div class="stat">
-
-                    <span>
-                        DEATHS
-                    </span>
-
-                    <strong>
-                        0
-                    </strong>
-
-                </div>
-
-
-            </div>
-
-
-            <a
-                class="btn btn-secondary"
-                href="./account/"
-                style="
-                    width:100%;
-                    margin-top:15px;
-                "
-            >
-                👤 XEM TÀI KHOẢN
-            </a>
-
-
-        </div>
-
-
-    </div>
-
-</section>
-
-
-
-<!-- =====================================================
-     DAILY CODE
-===================================================== -->
-
-<section class="section">
-
-    <div class="section-head">
-
-        <div class="section-label">
-            DAILY REWARD
-        </div>
-
-        <h2>
-            🎁 CODE HÔM NAY
-        </h2>
-
-        <p>
-            Mã phần thưởng mới mỗi ngày lúc 12:00.
-        </p>
-
-    </div>
-
-
-    <div class="daily-code">
-
-
-        <div class="daily-left">
-
-            <div class="daily-icon">
-                🎁
-            </div>
-
-
-            <div>
-
-                <h3>
-                    Mã phần thưởng
-                </h3>
-
-                <p>
-                    Nhập code để nhận Money + Shard.
-                </p>
-
-            </div>
-
-        </div>
-
-
-        <div class="code-value">
-            BXP-7K2M-91QX
-        </div>
-
-
-        <a
-            class="btn btn-primary"
-            href="./code/"
-        >
-            🎁 XEM CODE
-        </a>
-
-
-    </div>
-
-</section>
-
-
-
-<!-- =====================================================
-     STORE
-===================================================== -->
-
-<section class="section">
-
-    <div class="section-head">
-
-        <div class="section-label">
-            STORE
-        </div>
-
-        <h2>
-            🛒 CỬA HÀNG
-        </h2>
-
-        <p>
-            Chọn gói Coin phù hợp với bạn.
-        </p>
-
-    </div>
-
-
-    <div class="store-grid">
-
-
-        <a
-            class="store-item"
-            href="./topup/"
-        >
-
-            <div class="store-coin">
-                💰
-            </div>
-
-            <strong>
-                10 Coin
-            </strong>
-
-            <div class="store-price">
-                10.000đ
-            </div>
-
-        </a>
-
-
-        <a
-            class="store-item"
-            href="./topup/"
-        >
-
-            <div class="store-coin">
-                💰
-            </div>
-
-            <strong>
-                20 Coin
-            </strong>
-
-            <div class="store-price">
-                20.000đ
-            </div>
-
-        </a>
-
-
-        <a
-            class="store-item"
-            href="./topup/"
-        >
-
-            <div class="store-coin">
-                💰
-            </div>
-
-            <strong>
-                50 Coin
-            </strong>
-
-            <div class="store-price">
-                50.000đ
-            </div>
-
-        </a>
-
-
-        <a
-            class="store-item"
-            href="./topup/"
-        >
-
-            <div class="store-coin">
-                💰
-            </div>
-
-            <strong>
-                100 Coin
-            </strong>
-
-            <div class="store-price">
-                100.000đ
-            </div>
-
-        </a>
-
-
-        <a
-            class="store-item"
-            href="./topup/"
-        >
-
-            <div class="store-coin">
-                💰
-            </div>
-
-            <strong>
-                200 Coin
-            </strong>
-
-            <div class="store-price">
-                200.000đ
-            </div>
-
-        </a>
-
-
-    </div>
-
-
-    <a
-        class="btn btn-primary"
-        href="./topup/"
-        style="
-            margin-top:15px;
-        "
-    >
-        🛒 NẠP COIN
-    </a>
-
-
-</section>
-
-
-
-<!-- =====================================================
-     SKIN
-===================================================== -->
-
-<section class="section">
-
-    <div class="section-head">
-
-        <div class="section-label">
-            PLAYER SKIN
-        </div>
-
-        <h2>
-            👕 SKIN MINECRAFT
-        </h2>
-
-        <p>
-            Xem skin Minecraft của người chơi.
-        </p>
-
-    </div>
-
-
-    <div class="skin-box">
-
-
-        <div class="skin-user">
-
-            <div class="skin-avatar">
-                🙂
-            </div>
-
-
-            <div>
-
-                <strong id="skinUsername">
-                    khanhk360
-                </strong>
-
-                <span>
-                    Nhập username Minecraft để xem skin.
-                </span>
-
-            </div>
-
-        </div>
-
-
-        <a
-            class="btn btn-secondary"
-            href="./skin/"
-        >
-            👕 MỞ SKIN
-        </a>
 
 
     </div>
@@ -2480,7 +1395,6 @@
 </main>
 
 
-
 <!-- =====================================================
      FOOTER
 ===================================================== -->
@@ -2489,40 +1403,24 @@
 
     <div class="footer-inner">
 
+        <div class="footer-logo">
+            ⚔️ <span>BOX</span>PVP
+        </div>
 
         <div>
-
-            <div class="footer-logo">
-                ⚔️ <span>BOX</span>PVP
-            </div>
-
-            <div
-                class="footer-text"
-                style="margin-top:6px;"
-            >
-                Minecraft BoxPvP Server
-            </div>
-
+            Minecraft BoxPvP Server
         </div>
 
-
-        <div
-            class="footer-text"
-            id="footerServerStatus"
-        >
-            🟢 Trực tuyến • 0/0
+        <div id="footerServerStatus">
+            🟢 Trực tuyến • 0/100
         </div>
-
 
     </div>
 
 </footer>
 
 
-
-<!-- =====================================================
-     TOAST
-===================================================== -->
+<!-- TOAST -->
 
 <div
     class="toast"
@@ -2530,357 +1428,272 @@
 ></div>
 
 
-
 <script>
 
-    /* =====================================================
-       API
-    ===================================================== */
-
-    const API_URL =
-        "https://boxpvp-backend.vercel.app";
+const API_URL =
+    "https://boxpvp-backend.vercel.app";
 
 
-    /* =====================================================
-       TOAST
-    ===================================================== */
-
-    const toast =
-        document.getElementById("toast");
+const DEFAULT_IP =
+    "boxpvpkhanhmc.levyathan.ch";
 
 
-    function showToast(message) {
+/* =====================================================
+   TOAST
+===================================================== */
 
-        if (!toast) return;
-
-        toast.textContent =
-            message;
-
-        toast.classList.add(
-            "show"
-        );
-
-        clearTimeout(
-            window.toastTimer
-        );
-
-        window.toastTimer =
-            setTimeout(() => {
-
-                toast.classList.remove(
-                    "show"
-                );
-
-            }, 2600);
-
-    }
+const toast =
+    document.getElementById("toast");
 
 
+function showToast(message) {
 
-    /* =====================================================
-       COPY IP
-    ===================================================== */
+    toast.textContent =
+        message;
 
-    const copyIp =
-        document.getElementById(
-            "copyIp"
-        );
+    toast.classList.add("show");
 
+    clearTimeout(
+        window.toastTimer
+    );
 
-    if (copyIp) {
+    window.toastTimer =
+        setTimeout(() => {
 
-        copyIp.addEventListener(
-            "click",
-            async () => {
+            toast.classList.remove("show");
 
-                const ip =
-                    document
-                        .getElementById(
-                            "serverIp"
-                        )
-                        ?.textContent
-                        .trim();
+        }, 2600);
+
+}
 
 
-                if (!ip) return;
+/* =====================================================
+   SERVER STATUS
+===================================================== */
 
+async function loadServerStatus() {
 
-                try {
+    try {
 
-                    await navigator.clipboard.writeText(
-                        ip
-                    );
-
-                    showToast(
-                        `📋 Đã sao chép IP: ${ip}`
-                    );
-
-                } catch {
-
-                    showToast(
-                        `🎮 IP server: ${ip}`
-                    );
-
+        const response =
+            await fetch(
+                `${API_URL}/api/server`,
+                {
+                    cache: "no-store"
                 }
-
-            }
-        );
-
-    }
+            );
 
 
+        if (!response.ok) {
 
-    /* =====================================================
-       PLAY BUTTON
-    ===================================================== */
+            throw new Error(
+                "API server lỗi"
+            );
 
-    const playButton =
+        }
+
+
+        const data =
+            await response.json();
+
+
+        const ip =
+            data.ip ||
+            DEFAULT_IP;
+
+
         document.getElementById(
-            "playButton"
+            "serverIp"
+        ).textContent =
+            ip;
+
+
+        const players =
+            Number(
+                data.players ?? 0
+            );
+
+
+        const maxPlayers =
+            Number(
+                data.maxPlayers ?? 100
+            );
+
+
+        document.getElementById(
+            "serverPlayers"
+        ).textContent =
+            `${players} / ${maxPlayers}`;
+
+
+        const online =
+            Boolean(
+                data.online
+            );
+
+
+        document.getElementById(
+            "serverStatus"
+        ).textContent =
+            online
+                ? "TRỰC TUYẾN"
+                : "NGOẠI TUYẾN";
+
+
+        document.getElementById(
+            "serverOnlineText"
+        ).textContent =
+            online
+                ? "🟢 ONLINE"
+                : "🔴 OFFLINE";
+
+
+        document.getElementById(
+            "serverVersion"
+        ).textContent =
+            data.version ||
+            "Minecraft 1.20+";
+
+
+        document.getElementById(
+            "footerServerStatus"
+        ).textContent =
+            online
+                ? `🟢 Trực tuyến • ${players}/${maxPlayers}`
+                : "🔴 Ngoại tuyến";
+
+
+    } catch (error) {
+
+        console.error(
+            "BOXPVP API:",
+            error
         );
 
 
-    if (playButton) {
-
-        playButton.addEventListener(
-            "click",
-            async () => {
-
-                const ip =
-                    document
-                        .getElementById(
-                            "serverIp"
-                        )
-                        ?.textContent
-                        .trim();
+        document.getElementById(
+            "serverIp"
+        ).textContent =
+            DEFAULT_IP;
 
 
-                try {
+        document.getElementById(
+            "serverStatus"
+        ).textContent =
+            "API KHÔNG PHẢN HỒI";
 
-                    await navigator.clipboard.writeText(
-                        ip
-                    );
 
-                    showToast(
-                        `🎮 Đã sao chép IP ${ip}. Mở Minecraft để tham gia!`
-                    );
+        document.getElementById(
+            "serverOnlineText"
+        ).textContent =
+            "🔴 OFFLINE";
 
-                } catch {
 
-                    showToast(
-                        `🎮 IP server: ${ip}`
-                    );
-
-                }
-
-            }
-        );
+        document.getElementById(
+            "footerServerStatus"
+        ).textContent =
+            "🔴 Không kết nối được API";
 
     }
 
+}
 
 
-    /* =====================================================
-       LOAD SERVER
-    ===================================================== */
+/* =====================================================
+   COPY IP
+===================================================== */
 
-    async function loadServerStatus() {
-
-        try {
-
-            const response =
-                await fetch(
-                    `${API_URL}/api/server`
-                );
-
-
-            if (!response.ok) {
-
-                throw new Error(
-                    "API lỗi"
-                );
-
-            }
-
-
-            const data =
-                await response.json();
-
-
-            const onlineText =
-                document.getElementById(
-                    "onlineText"
-                );
-
-
-            const status =
-                document.getElementById(
-                    "serverStatus"
-                );
-
-
-            const players =
-                document.getElementById(
-                    "serverPlayers"
-                );
-
+document
+    .getElementById("copyIp")
+    .addEventListener(
+        "click",
+        async () => {
 
             const ip =
-                document.getElementById(
-                    "serverIp"
+                document
+                    .getElementById("serverIp")
+                    .textContent
+                    .trim();
+
+
+            try {
+
+                await navigator
+                    .clipboard
+                    .writeText(ip);
+
+
+                showToast(
+                    `📋 Đã sao chép IP: ${ip}`
                 );
 
 
-            const footer =
-                document.getElementById(
-                    "footerServerStatus"
+            } catch {
+
+                showToast(
+                    `🎮 IP server: ${ip}`
                 );
 
-
-            const isOnline =
-                Boolean(
-                    data.online
-                );
-
-
-            if (onlineText) {
-
-                onlineText.textContent =
-                    isOnline
-                        ? "🟢 TRỰC TUYẾN"
-                        : "🔴 NGOẠI TUYẾN";
-
             }
-
-
-            if (status) {
-
-                status.textContent =
-                    isOnline
-                        ? "🟢 SERVER ĐANG HOẠT ĐỘNG"
-                        : "🔴 SERVER ĐANG NGOẠI TUYẾN";
-
-            }
-
-
-            if (players) {
-
-                players.textContent =
-                    `${data.players ?? 0} / ${data.maxPlayers ?? 0}`;
-
-            }
-
-
-            if (ip && data.ip) {
-
-                ip.textContent =
-                    data.ip;
-
-            }
-
-
-            if (footer) {
-
-                footer.textContent =
-                    isOnline
-                        ? `🟢 Trực tuyến • ${data.players ?? 0}/${data.maxPlayers ?? 0}`
-                        : "🔴 Ngoại tuyến";
-
-            }
-
-
-        } catch (error) {
-
-            console.error(
-                "BOXPVP API:",
-                error
-            );
 
         }
-
-    }
-
-
-
-    /* =====================================================
-       LOAD USERNAME
-    ===================================================== */
-
-    function loadUsername() {
-
-        const username =
-            localStorage.getItem(
-                "boxpvp_username"
-            );
-
-
-        if (!username) return;
-
-
-        const profile =
-            document.getElementById(
-                "profileUsername"
-            );
-
-
-        const skin =
-            document.getElementById(
-                "skinUsername"
-            );
-
-
-        const avatar =
-            document.getElementById(
-                "profileAvatar"
-            );
-
-
-        if (profile) {
-
-            profile.textContent =
-                username;
-
-        }
-
-
-        if (skin) {
-
-            skin.textContent =
-                username;
-
-        }
-
-
-        if (avatar) {
-
-            avatar.textContent =
-                username
-                    .charAt(0)
-                    .toUpperCase();
-
-        }
-
-    }
-
-
-
-    /* =====================================================
-       LOAD
-    ===================================================== */
-
-    loadUsername();
-
-    loadServerStatus();
-
-
-    setInterval(
-        loadServerStatus,
-        30000
     );
+
+
+/* =====================================================
+   PLAY NOW
+===================================================== */
+
+document
+    .getElementById("playButton")
+    .addEventListener(
+        "click",
+        async () => {
+
+            const ip =
+                document
+                    .getElementById("serverIp")
+                    .textContent
+                    .trim();
+
+
+            try {
+
+                await navigator
+                    .clipboard
+                    .writeText(ip);
+
+
+                showToast(
+                    `🎮 Đã sao chép IP ${ip}. Mở Minecraft để tham gia!`
+                );
+
+
+            } catch {
+
+                showToast(
+                    `🎮 IP server: ${ip}`
+                );
+
+            }
+
+        }
+    );
+
+
+/* =====================================================
+   LOAD
+===================================================== */
+
+loadServerStatus();
+
+
+setInterval(
+    loadServerStatus,
+    30000
+);
 
 </script>
 
-
 </body>
-
 </html>
