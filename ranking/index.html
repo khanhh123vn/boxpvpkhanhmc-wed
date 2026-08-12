@@ -1,23 +1,12 @@
 <!DOCTYPE html>
 <html lang="vi">
-
 <head>
     <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>BXH | BOXPVP</title>
 
-    <meta
-        name="description"
-        content="Bảng xếp hạng BOXPVP"
-    >
-
     <style>
-
         * {
             box-sizing: border-box;
             margin: 0;
@@ -25,304 +14,146 @@
         }
 
         body {
-            font-family:
-                Inter,
-                system-ui,
-                -apple-system,
-                BlinkMacSystemFont,
-                "Segoe UI",
-                sans-serif;
-
-            min-height: 100vh;
-
-            color: #fff;
-
+            font-family: Inter, Arial, sans-serif;
             background:
                 radial-gradient(
                     circle at 50% -20%,
-                    rgba(255, 40, 40, .15),
+                    rgba(255, 40, 40, .16),
                     transparent 40%
                 ),
                 #080808;
+            color: #fff;
+            min-height: 100vh;
         }
-
-
-        /* ==============================
-           HEADER
-        ============================== */
 
         header {
             position: sticky;
-
             top: 0;
-
             z-index: 100;
-
-            border-bottom:
-                1px solid rgba(255,255,255,.08);
-
-            background:
-                rgba(8,8,8,.88);
-
-            backdrop-filter:
-                blur(18px);
+            border-bottom: 1px solid rgba(255,255,255,.08);
+            background: rgba(8,8,8,.88);
+            backdrop-filter: blur(18px);
         }
-
 
         .navbar {
             max-width: 1180px;
-
             min-height: 72px;
-
             margin: auto;
-
             padding: 0 22px;
 
             display: flex;
-
             align-items: center;
-
             justify-content: space-between;
-
             gap: 20px;
         }
 
-
         .logo {
-            color: #fff;
-
+            color: white;
             text-decoration: none;
-
             font-size: 21px;
-
             font-weight: 900;
-
             white-space: nowrap;
         }
-
 
         .logo span {
             color: #ff3030;
         }
 
-
         nav {
             display: flex;
-
             align-items: center;
-
             gap: 6px;
-
-            overflow-x: auto;
         }
-
 
         nav a {
-            color:
-                rgba(255,255,255,.6);
-
+            color: rgba(255,255,255,.62);
             text-decoration: none;
-
-            padding:
-                10px 12px;
-
+            padding: 10px 12px;
             border-radius: 10px;
-
             font-size: 13px;
-
             font-weight: 700;
-
             white-space: nowrap;
-
-            transition: .18s ease;
+            transition: .18s;
         }
-
 
         nav a:hover {
-            color: #fff;
-
-            background:
-                rgba(255,255,255,.06);
+            color: white;
+            background: rgba(255,255,255,.06);
         }
-
 
         nav a.active {
-            color: #fff;
-
-            background:
-                rgba(255,48,48,.12);
-
-            border:
-                1px solid
-                rgba(255,48,48,.22);
+            color: white;
+            background: rgba(255,48,48,.12);
+            border: 1px solid rgba(255,48,48,.22);
         }
-
-
-        /* ==============================
-           MAIN
-        ============================== */
 
         main {
             max-width: 1100px;
-
             margin: auto;
-
-            padding:
-                55px 20px 80px;
+            padding: 55px 20px 80px;
         }
-
 
         .hero {
             text-align: center;
-
-            margin-bottom: 35px;
+            margin-bottom: 30px;
         }
 
-
         .hero-icon {
-            width: 68px;
-
-            height: 68px;
-
-            margin:
-                0 auto 18px;
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 18px;
 
             display: flex;
-
             align-items: center;
-
             justify-content: center;
 
-            border-radius: 20px;
+            border-radius: 21px;
 
             background:
                 linear-gradient(
                     135deg,
                     #ff3030,
-                    #8f0000
+                    #8d0000
                 );
 
             box-shadow:
-                0 18px 45px
-                rgba(255,0,0,.22);
+                0 15px 45px rgba(255,0,0,.22);
 
             font-size: 30px;
         }
 
-
         .hero h1 {
-            font-size: 35px;
-
+            font-size: 36px;
             font-weight: 900;
-
             letter-spacing: -.8px;
         }
 
-
         .hero p {
             margin-top: 9px;
-
-            color:
-                rgba(255,255,255,.45);
-
+            color: rgba(255,255,255,.45);
             font-size: 14px;
         }
 
+        .status {
+            max-width: 760px;
+            margin: 0 auto 24px;
+            padding: 13px 17px;
 
-        /* ==============================
-           TABS
-        ============================== */
+            border-radius: 12px;
 
-        .tabs {
-            display: flex;
+            background: rgba(0,255,100,.035);
+            border: 1px solid rgba(0,255,100,.12);
 
-            justify-content: center;
-
-            gap: 8px;
-
-            margin-bottom: 25px;
-
-            flex-wrap: wrap;
-        }
-
-
-        .tab {
-            padding:
-                11px 17px;
-
-            border-radius: 11px;
-
-            border:
-                1px solid
-                rgba(255,255,255,.08);
-
-            background:
-                rgba(255,255,255,.025);
-
-            color:
-                rgba(255,255,255,.55);
-
-            cursor: pointer;
-
-            font-size: 13px;
-
-            font-weight: 800;
-
-            transition: .18s ease;
-        }
-
-
-        .tab:hover {
-            color: #fff;
-
-            background:
-                rgba(255,255,255,.05);
-        }
-
-
-        .tab.active {
-            color: #fff;
-
-            border-color:
-                rgba(255,48,48,.4);
-
-            background:
-                rgba(255,48,48,.12);
-        }
-
-
-        /* ==============================
-           TOP 3
-        ============================== */
-
-        .podium {
-            display: grid;
-
-            grid-template-columns:
-                1fr
-                1.15fr
-                1fr;
-
-            gap: 15px;
-
-            align-items: end;
-
-            margin-bottom: 25px;
-        }
-
-
-        .player-card {
-            position: relative;
-
-            padding: 25px 18px;
-
+            color: rgba(255,255,255,.55);
             text-align: center;
+            font-size: 12px;
+        }
 
+        .box {
+            overflow: hidden;
+
+            border: 1px solid rgba(255,255,255,.08);
             border-radius: 20px;
-
-            border:
-                1px solid
-                rgba(255,255,255,.08);
 
             background:
                 linear-gradient(
@@ -332,428 +163,292 @@
                 );
 
             box-shadow:
-                0 20px 55px
-                rgba(0,0,0,.25);
+                0 20px 60px rgba(0,0,0,.3);
         }
 
-
-        .player-card.first {
-            padding-top: 31px;
-
-            border-color:
-                rgba(255,190,0,.25);
-
-            background:
-                linear-gradient(
-                    180deg,
-                    rgba(255,190,0,.08),
-                    rgba(255,255,255,.018)
-                );
-        }
-
-
-        .medal {
-            font-size: 31px;
-
-            margin-bottom: 12px;
-        }
-
-
-        .avatar {
-            width: 62px;
-
-            height: 62px;
-
-            margin:
-                0 auto 13px;
+        .box-header {
+            min-height: 70px;
+            padding: 18px 22px;
 
             display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            border-bottom: 1px solid rgba(255,255,255,.07);
+        }
+
+        .box-header h2 {
+            font-size: 17px;
+            font-weight: 900;
+        }
+
+        .refresh {
+            border: 1px solid rgba(255,255,255,.08);
+            border-radius: 10px;
+
+            padding: 9px 13px;
+
+            background: rgba(255,255,255,.045);
+            color: white;
+
+            cursor: pointer;
+
+            font-size: 12px;
+            font-weight: 800;
+
+            transition: .18s;
+        }
+
+        .refresh:hover {
+            background: rgba(255,48,48,.13);
+            border-color: rgba(255,48,48,.25);
+        }
+
+        .table-header,
+        .player-row {
+            display: grid;
+
+            grid-template-columns:
+                65px
+                minmax(190px, 1.5fr)
+                1fr
+                1fr
+                1fr
+                1fr;
 
             align-items: center;
 
+            gap: 12px;
+            padding: 0 20px;
+        }
+
+        .table-header {
+            min-height: 48px;
+
+            color: rgba(255,255,255,.38);
+
+            font-size: 10px;
+            font-weight: 900;
+
+            text-transform: uppercase;
+
+            border-bottom:
+                1px solid rgba(255,255,255,.06);
+        }
+
+        .player-row {
+            min-height: 75px;
+
+            border-bottom:
+                1px solid rgba(255,255,255,.055);
+
+            transition: .15s;
+        }
+
+        .player-row:hover {
+            background: rgba(255,255,255,.025);
+        }
+
+        .player-row:last-child {
+            border-bottom: 0;
+        }
+
+        .position {
+            font-size: 14px;
+            font-weight: 900;
+        }
+
+        .position.top1 {
+            color: #ffd43b;
+            font-size: 19px;
+        }
+
+        .position.top2 {
+            color: #cfd5df;
+            font-size: 18px;
+        }
+
+        .position.top3 {
+            color: #cd8b55;
+            font-size: 18px;
+        }
+
+        .player {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            min-width: 0;
+        }
+
+        .avatar {
+            width: 40px;
+            height: 40px;
+            flex-shrink: 0;
+
+            display: flex;
+            align-items: center;
             justify-content: center;
 
-            border-radius: 17px;
+            border-radius: 11px;
 
             background:
                 linear-gradient(
                     135deg,
-                    #292929,
-                    #111
+                    #ff3030,
+                    #720000
                 );
 
-            border:
-                1px solid
-                rgba(255,255,255,.1);
-
-            font-size: 22px;
-
+            font-size: 14px;
             font-weight: 900;
         }
 
-
-        .first .avatar {
-            width: 72px;
-
-            height: 72px;
-
-            font-size: 26px;
+        .player-info {
+            min-width: 0;
         }
-
 
         .player-name {
-            font-size: 15px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
 
+            font-size: 14px;
             font-weight: 900;
         }
-
 
         .player-rank {
-            margin-top: 5px;
-
-            color:
-                #ff4b4b;
-
-            font-size: 11px;
-
-            font-weight: 800;
-        }
-
-
-        .player-score {
-            margin-top: 15px;
-
-            font-size: 21px;
-
-            font-weight: 900;
-        }
-
-
-        .player-score-label {
             margin-top: 3px;
 
-            color:
-                rgba(255,255,255,.38);
+            color: rgba(255,255,255,.38);
 
             font-size: 10px;
+            font-weight: 700;
         }
 
-
-        /* ==============================
-           TABLE
-        ============================== */
-
-        .table-box {
-            overflow: hidden;
-
-            border:
-                1px solid
-                rgba(255,255,255,.08);
-
-            border-radius: 20px;
-
-            background:
-                rgba(255,255,255,.025);
-
-            box-shadow:
-                0 20px 60px
-                rgba(0,0,0,.25);
-        }
-
-
-        .table-header {
-            padding:
-                21px 24px;
-
-            display: flex;
-
-            justify-content: space-between;
-
-            align-items: center;
-
-            border-bottom:
-                1px solid
-                rgba(255,255,255,.07);
-        }
-
-
-        .table-header h2 {
-            font-size: 17px;
-        }
-
-
-        .table-header span {
-            color:
-                rgba(255,255,255,.38);
-
-            font-size: 11px;
-        }
-
-
-        .table-scroll {
-            overflow-x: auto;
-        }
-
-
-        table {
-            width: 100%;
-
-            min-width: 650px;
-
-            border-collapse: collapse;
-        }
-
-
-        th {
-            padding:
-                14px 18px;
-
-            text-align: left;
-
-            color:
-                rgba(255,255,255,.35);
-
-            background:
-                rgba(0,0,0,.18);
-
-            font-size: 11px;
-
+        .value {
+            font-size: 13px;
             font-weight: 800;
-
-            text-transform: uppercase;
         }
 
+        .money {
+            color: #65df78;
+        }
 
-        td {
-            padding:
-                15px 18px;
+        .kills {
+            color: #ff5555;
+        }
 
-            border-top:
-                1px solid
-                rgba(255,255,255,.055);
+        .deaths {
+            color: #b7b7b7;
+        }
+
+        .shard {
+            color: #8db5ff;
+        }
+
+        .loading,
+        .empty {
+            padding: 55px 20px;
+
+            text-align: center;
+
+            color: rgba(255,255,255,.42);
 
             font-size: 13px;
         }
 
-
-        tbody tr {
-            transition: .18s ease;
+        .error {
+            color: #ff6262;
         }
 
-
-        tbody tr:hover {
-            background:
-                rgba(255,255,255,.035);
-        }
-
-
-        .position {
-            width: 65px;
-
-            color:
-                rgba(255,255,255,.45);
-
-            font-weight: 900;
-        }
-
-
-        .position.top {
-            color: #fff;
-        }
-
-
-        .user {
-            display: flex;
-
-            align-items: center;
-
-            gap: 11px;
-        }
-
-
-        .small-avatar {
-            width: 36px;
-
-            height: 36px;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            border-radius: 10px;
-
-            background:
-                #171717;
-
-            border:
-                1px solid
-                rgba(255,255,255,.08);
-
-            font-size: 12px;
-
-            font-weight: 900;
-        }
-
-
-        .user-name {
-            font-weight: 800;
-        }
-
-
-        .user-rank {
-            margin-top: 3px;
-
-            color:
-                rgba(255,255,255,.35);
-
-            font-size: 10px;
-        }
-
-
-        .number {
-            font-weight: 800;
-        }
-
-
-        .kills {
-            color: #ff5252;
-        }
-
-
-        .money {
-            color: #ffd54a;
-        }
-
-
-        .shard {
-            color: #b98cff;
-        }
-
-
-        /* ==============================
-           STATUS
-        ============================== */
-
-        .status {
-            margin-top: 18px;
-
-            padding: 13px 16px;
-
-            border-radius: 12px;
-
-            border:
-                1px solid
-                rgba(255,255,255,.06);
-
-            background:
-                rgba(255,255,255,.02);
-
-            color:
-                rgba(255,255,255,.4);
-
-            text-align: center;
-
-            font-size: 11px;
-        }
-
-
-        .status strong {
-            color:
-                #55dc78;
-        }
-
-
-        /* ==============================
-           MOBILE
-        ============================== */
-
-        @media (max-width: 760px) {
+        @media (max-width: 800px) {
 
             .navbar {
+                padding: 14px;
                 flex-direction: column;
-
-                padding:
-                    14px 15px;
             }
-
 
             nav {
                 width: 100%;
-
-                justify-content:
-                    flex-start;
+                overflow-x: auto;
+                justify-content: flex-start;
             }
-
 
             main {
-                padding:
-                    38px 14px 60px;
+                padding: 35px 12px 60px;
             }
-
 
             .hero h1 {
                 font-size: 28px;
             }
 
-
-            .podium {
-                grid-template-columns: 1fr;
-
-                align-items: stretch;
-            }
-
-
-            .player-card.first {
-                order: -1;
-            }
-
-        }
-
-
-        @media (max-width: 450px) {
-
-            .tabs {
-                display: grid;
-
+            .table-header,
+            .player-row {
                 grid-template-columns:
-                    repeat(3, 1fr);
+                    42px
+                    minmax(150px, 1fr)
+                    90px;
             }
 
+            .table-header > div:nth-child(4),
+            .table-header > div:nth-child(5),
+            .table-header > div:nth-child(6),
 
-            .tab {
-                padding:
-                    10px 5px;
-
-                font-size: 11px;
+            .player-row > div:nth-child(4),
+            .player-row > div:nth-child(5),
+            .player-row > div:nth-child(6) {
+                display: none;
             }
-
         }
 
-    </style>
+        @media (max-width: 500px) {
 
+            .logo {
+                font-size: 19px;
+            }
+
+            nav a {
+                font-size: 11px;
+                padding: 8px 9px;
+            }
+
+            .box-header {
+                padding: 16px;
+            }
+
+            .table-header,
+            .player-row {
+                padding: 0 13px;
+            }
+
+            .player-row {
+                min-height: 67px;
+            }
+
+            .avatar {
+                width: 36px;
+                height: 36px;
+            }
+
+            .player-name {
+                font-size: 13px;
+            }
+
+            .value {
+                font-size: 12px;
+            }
+        }
+    </style>
 </head>
 
-
 <body>
-
-
-<!-- ==============================
-     HEADER
-============================== -->
 
 <header>
 
     <div class="navbar">
 
-        <a
-            href="../index.html"
-            class="logo"
-        >
+        <a href="../index.html" class="logo">
             ⚔️ <span>BOX</span>PVP
         </a>
-
 
         <nav>
 
@@ -777,10 +472,7 @@
                 👕 Skin
             </a>
 
-            <a
-                href="../ranking/"
-                class="active"
-            >
+            <a href="./" class="active">
                 🏆 BXH
             </a>
 
@@ -791,12 +483,7 @@
 </header>
 
 
-<!-- ==============================
-     MAIN
-============================== -->
-
 <main>
-
 
     <section class="hero">
 
@@ -809,805 +496,312 @@
         </h1>
 
         <p>
-            Những người chơi nổi bật nhất BOXPVP
+            Những người chơi hàng đầu của BOXPVP
         </p>
 
     </section>
 
 
-    <!-- ==============================
-         TABS
-    ============================== -->
-
-    <div class="tabs">
-
-        <button
-            class="tab active"
-            data-type="kills"
-        >
-            ⚔️ Kills
-        </button>
-
-        <button
-            class="tab"
-            data-type="money"
-        >
-            💰 Money
-        </button>
-
-        <button
-            class="tab"
-            data-type="shard"
-        >
-            💠 Shard
-        </button>
-
+    <div class="status" id="status">
+        🟡 Đang kết nối dữ liệu...
     </div>
 
 
-    <!-- ==============================
-         PODIUM
-    ============================== -->
+    <section class="box">
 
-    <section class="podium">
-
-
-        <!-- TOP 2 -->
-
-        <div
-            class="player-card"
-            id="top2"
-        >
-
-            <div class="medal">
-                🥈
-            </div>
-
-            <div
-                class="avatar"
-                id="avatar2"
-            >
-                K
-            </div>
-
-            <div
-                class="player-name"
-                id="name2"
-            >
-                PlayerTwo
-            </div>
-
-            <div class="player-rank">
-                🔥 Ác Ma
-            </div>
-
-            <div
-                class="player-score"
-                id="score2"
-            >
-                980
-            </div>
-
-            <div
-                class="player-score-label"
-                id="label2"
-            >
-                KILLS
-            </div>
-
-        </div>
-
-
-        <!-- TOP 1 -->
-
-        <div
-            class="player-card first"
-            id="top1"
-        >
-
-            <div class="medal">
-                🥇
-            </div>
-
-            <div
-                class="avatar"
-                id="avatar1"
-            >
-                K
-            </div>
-
-            <div
-                class="player-name"
-                id="name1"
-            >
-                khanhk360
-            </div>
-
-            <div class="player-rank">
-                👑 Owner
-            </div>
-
-            <div
-                class="player-score"
-                id="score1"
-            >
-                1254
-            </div>
-
-            <div
-                class="player-score-label"
-                id="label1"
-            >
-                KILLS
-            </div>
-
-        </div>
-
-
-        <!-- TOP 3 -->
-
-        <div
-            class="player-card"
-            id="top3"
-        >
-
-            <div class="medal">
-                🥉
-            </div>
-
-            <div
-                class="avatar"
-                id="avatar3"
-            >
-                P
-            </div>
-
-            <div
-                class="player-name"
-                id="name3"
-            >
-                PlayerThree
-            </div>
-
-            <div class="player-rank">
-                💎 VIP+
-            </div>
-
-            <div
-                class="player-score"
-                id="score3"
-            >
-                875
-            </div>
-
-            <div
-                class="player-score-label"
-                id="label3"
-            >
-                KILLS
-            </div>
-
-        </div>
-
-
-    </section>
-
-
-    <!-- ==============================
-         TABLE
-    ============================== -->
-
-    <section class="table-box">
-
-        <div class="table-header">
+        <div class="box-header">
 
             <h2>
                 🏆 TOP NGƯỜI CHƠI
             </h2>
 
-            <span>
-                Cập nhật liên tục
-            </span>
+            <button
+                class="refresh"
+                id="refresh"
+            >
+                ↻ Làm mới
+            </button>
 
         </div>
 
 
-        <div class="table-scroll">
+        <div class="table-header">
 
-            <table>
+            <div>
+                #
+            </div>
 
-                <thead>
+            <div>
+                Người chơi
+            </div>
 
-                    <tr>
+            <div>
+                Money
+            </div>
 
-                        <th>
-                            #
-                        </th>
+            <div>
+                Kills
+            </div>
 
-                        <th>
-                            Người chơi
-                        </th>
+            <div>
+                Deaths
+            </div>
 
-                        <th>
-                            Kills
-                        </th>
+            <div>
+                Shard
+            </div>
 
-                        <th>
-                            Deaths
-                        </th>
+        </div>
 
-                        <th>
-                            Money
-                        </th>
 
-                        <th>
-                            Shard
-                        </th>
+        <div id="ranking">
 
-                    </tr>
-
-                </thead>
-
-
-                <tbody id="rankingBody">
-
-
-                    <tr>
-
-                        <td class="position top">
-                            🥇
-                        </td>
-
-                        <td>
-
-                            <div class="user">
-
-                                <div class="small-avatar">
-                                    K
-                                </div>
-
-                                <div>
-
-                                    <div class="user-name">
-                                        khanhk360
-                                    </div>
-
-                                    <div class="user-rank">
-                                        👑 Owner
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                        </td>
-
-                        <td class="number kills">
-                            1,254
-                        </td>
-
-                        <td class="number">
-                            231
-                        </td>
-
-                        <td class="number money">
-                            25,000
-                        </td>
-
-                        <td class="number shard">
-                            120
-                        </td>
-
-                    </tr>
-
-
-                    <tr>
-
-                        <td class="position top">
-                            🥈
-                        </td>
-
-                        <td>
-
-                            <div class="user">
-
-                                <div class="small-avatar">
-                                    P
-                                </div>
-
-                                <div>
-
-                                    <div class="user-name">
-                                        PlayerTwo
-                                    </div>
-
-                                    <div class="user-rank">
-                                        🔥 Ác Ma
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                        </td>
-
-                        <td class="number kills">
-                            980
-                        </td>
-
-                        <td class="number">
-                            190
-                        </td>
-
-                        <td class="number money">
-                            18,500
-                        </td>
-
-                        <td class="number shard">
-                            95
-                        </td>
-
-                    </tr>
-
-
-                    <tr>
-
-                        <td class="position top">
-                            🥉
-                        </td>
-
-                        <td>
-
-                            <div class="user">
-
-                                <div class="small-avatar">
-                                    P
-                                </div>
-
-                                <div>
-
-                                    <div class="user-name">
-                                        PlayerThree
-                                    </div>
-
-                                    <div class="user-rank">
-                                        💎 VIP+
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                        </td>
-
-                        <td class="number kills">
-                            875
-                        </td>
-
-                        <td class="number">
-                            160
-                        </td>
-
-                        <td class="number money">
-                            15,200
-                        </td>
-
-                        <td class="number shard">
-                            80
-                        </td>
-
-                    </tr>
-
-
-                    <tr>
-
-                        <td class="position">
-                            4
-                        </td>
-
-                        <td>
-
-                            <div class="user">
-
-                                <div class="small-avatar">
-                                    N
-                                </div>
-
-                                <div>
-
-                                    <div class="user-name">
-                                        NguyenPvP
-                                    </div>
-
-                                    <div class="user-rank">
-                                        💠 VIP
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                        </td>
-
-                        <td class="number kills">
-                            720
-                        </td>
-
-                        <td class="number">
-                            142
-                        </td>
-
-                        <td class="number money">
-                            12,400
-                        </td>
-
-                        <td class="number shard">
-                            72
-                        </td>
-
-                    </tr>
-
-
-                    <tr>
-
-                        <td class="position">
-                            5
-                        </td>
-
-                        <td>
-
-                            <div class="user">
-
-                                <div class="small-avatar">
-                                    K
-                                </div>
-
-                                <div>
-
-                                    <div class="user-name">
-                                        KillerVN
-                                    </div>
-
-                                    <div class="user-rank">
-                                        🔹 Member
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                        </td>
-
-                        <td class="number kills">
-                            645
-                        </td>
-
-                        <td class="number">
-                            131
-                        </td>
-
-                        <td class="number money">
-                            9,800
-                        </td>
-
-                        <td class="number shard">
-                            64
-                        </td>
-
-                    </tr>
-
-
-                    <tr>
-
-                        <td class="position">
-                            6
-                        </td>
-
-                        <td>
-
-                            <div class="user">
-
-                                <div class="small-avatar">
-                                    P
-                                </div>
-
-                                <div>
-
-                                    <div class="user-name">
-                                        ProBox
-                                    </div>
-
-                                    <div class="user-rank">
-                                        🔹 Member
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                        </td>
-
-                        <td class="number kills">
-                            510
-                        </td>
-
-                        <td class="number">
-                            115
-                        </td>
-
-                        <td class="number money">
-                            7,500
-                        </td>
-
-                        <td class="number shard">
-                            51
-                        </td>
-
-                    </tr>
-
-
-                </tbody>
-
-            </table>
+            <div class="loading">
+                ⏳ Đang tải BXH...
+            </div>
 
         </div>
 
     </section>
-
-
-    <div class="status">
-
-        🟢 Dữ liệu BXH hiện đang ở chế độ thử nghiệm.
-        <strong>Chưa kết nối trực tiếp với server Minecraft.</strong>
-
-    </div>
-
 
 </main>
 
 
 <script>
 
-    /* =========================================
-       USERNAME LOCALSTORAGE
-    ========================================= */
-
-    const savedUsername =
-        localStorage.getItem(
-            "boxpvp_username"
-        );
+const API_URL =
+    "https://boxpvp-backend.vercel.app";
 
 
-    if (savedUsername) {
-
-        const avatar1 =
-            document.getElementById("avatar1");
-
-        const name1 =
-            document.getElementById("name1");
+const ranking =
+    document.getElementById("ranking");
 
 
-        avatar1.textContent =
-            savedUsername
-                .charAt(0)
-                .toUpperCase();
+const status =
+    document.getElementById("status");
 
 
-        name1.textContent =
-            savedUsername;
+const refresh =
+    document.getElementById("refresh");
 
 
-        const firstRow =
-            document.querySelector(
-                "#rankingBody tr:first-child"
+function number(value) {
+
+    return Number(value || 0)
+        .toLocaleString("vi-VN");
+
+}
+
+
+function safe(value) {
+
+    return String(value ?? "")
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+
+}
+
+
+function render(players) {
+
+    if (!players.length) {
+
+        ranking.innerHTML = `
+            <div class="empty">
+                🟡 Chưa có dữ liệu người chơi.
+            </div>
+        `;
+
+        return;
+    }
+
+
+    ranking.innerHTML =
+        players.map((player, index) => {
+
+            const username =
+                player.username ||
+                player.name ||
+                "Unknown";
+
+
+            const rank =
+                player.rank ||
+                "Member";
+
+
+            const initial =
+                username.charAt(0).toUpperCase();
+
+
+            let positionClass = "";
+
+            if (index === 0) {
+                positionClass = "top1";
+            }
+
+            if (index === 1) {
+                positionClass = "top2";
+            }
+
+            if (index === 2) {
+                positionClass = "top3";
+            }
+
+
+            return `
+
+                <div class="player-row">
+
+                    <div
+                        class="position ${positionClass}"
+                    >
+                        ${index + 1}
+                    </div>
+
+
+                    <div class="player">
+
+                        <div class="avatar">
+                            ${safe(initial)}
+                        </div>
+
+                        <div class="player-info">
+
+                            <div class="player-name">
+                                ${safe(username)}
+                            </div>
+
+                            <div class="player-rank">
+                                ${safe(rank)}
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="value money">
+                        ${number(player.money)}
+                    </div>
+
+
+                    <div class="value kills">
+                        ${number(player.kills)}
+                    </div>
+
+
+                    <div class="value deaths">
+                        ${number(player.deaths)}
+                    </div>
+
+
+                    <div class="value shard">
+                        ${number(player.shard)}
+                    </div>
+
+                </div>
+
+            `;
+
+        }).join("");
+
+}
+
+
+async function loadRanking() {
+
+    ranking.innerHTML = `
+        <div class="loading">
+            ⏳ Đang tải BXH...
+        </div>
+    `;
+
+
+    status.textContent =
+        "🟡 Đang kết nối dữ liệu...";
+
+
+    try {
+
+        const response =
+            await fetch(
+                `${API_URL}/api/ranking`,
+                {
+                    method: "GET",
+                    cache: "no-store"
+                }
             );
 
 
-        if (firstRow) {
+        if (!response.ok) {
 
-            const rowAvatar =
-                firstRow.querySelector(
-                    ".small-avatar"
-                );
-
-            const rowName =
-                firstRow.querySelector(
-                    ".user-name"
-                );
-
-
-            if (rowAvatar) {
-
-                rowAvatar.textContent =
-                    savedUsername
-                        .charAt(0)
-                        .toUpperCase();
-
-            }
-
-
-            if (rowName) {
-
-                rowName.textContent =
-                    savedUsername;
-
-            }
+            throw new Error(
+                `HTTP ${response.status}`
+            );
 
         }
 
-    }
-
-
-    /* =========================================
-       RANKING DATA
-    ========================================= */
-
-    const rankingData = {
-
-        kills: {
-
-            label: "KILLS",
-
-            top: [
-                {
-                    name: "khanhk360",
-                    score: "1,254"
-                },
-                {
-                    name: "PlayerTwo",
-                    score: "980"
-                },
-                {
-                    name: "PlayerThree",
-                    score: "875"
-                }
-            ]
-
-        },
-
-
-        money: {
-
-            label: "MONEY",
-
-            top: [
-                {
-                    name: "khanhk360",
-                    score: "25,000"
-                },
-                {
-                    name: "PlayerTwo",
-                    score: "18,500"
-                },
-                {
-                    name: "PlayerThree",
-                    score: "15,200"
-                }
-            ]
-
-        },
-
-
-        shard: {
-
-            label: "SHARD",
-
-            top: [
-                {
-                    name: "khanhk360",
-                    score: "120"
-                },
-                {
-                    name: "PlayerTwo",
-                    score: "95"
-                },
-                {
-                    name: "PlayerThree",
-                    score: "80"
-                }
-            ]
-
-        }
-
-    };
-
-
-    /* =========================================
-       TAB
-    ========================================= */
-
-    const tabs =
-        document.querySelectorAll(".tab");
-
-
-    tabs.forEach(tab => {
-
-        tab.addEventListener(
-            "click",
-            () => {
-
-                tabs.forEach(item => {
-
-                    item.classList.remove(
-                        "active"
-                    );
-
-                });
-
-
-                tab.classList.add(
-                    "active"
-                );
-
-
-                updatePodium(
-                    tab.dataset.type
-                );
-
-            }
-        );
-
-    });
-
-
-    /* =========================================
-       UPDATE PODIUM
-    ========================================= */
-
-    function updatePodium(type) {
 
         const data =
-            rankingData[type];
+            await response.json();
 
 
-        if (!data) {
-            return;
-        }
+        const players =
+            Array.isArray(data.players)
+                ? data.players
+                : [];
 
 
-        for (
-            let i = 1;
-            i <= 3;
-            i++
-        ) {
-
-            const player =
-                data.top[i - 1];
+        render(players);
 
 
-            document.getElementById(
-                `name${i}`
-            ).textContent =
-                player.name;
+        status.textContent =
+            `🟢 Đã kết nối API • ${players.length} người chơi`;
 
 
-            document.getElementById(
-                `score${i}`
-            ).textContent =
-                player.score;
+    } catch (error) {
+
+        console.error(
+            "BOXPVP BXH:",
+            error
+        );
 
 
-            document.getElementById(
-                `label${i}`
-            ).textContent =
-                data.label;
+        ranking.innerHTML = `
+            <div class="empty error">
+                🔴 Không thể tải BXH.<br><br>
+                API /api/ranking chưa hoạt động.
+            </div>
+        `;
 
 
-            document.getElementById(
-                `avatar${i}`
-            ).textContent =
-                player.name
-                    .charAt(0)
-                    .toUpperCase();
-
-        }
+        status.textContent =
+            "🔴 Không thể kết nối API BXH.";
 
     }
 
+}
+
+
+refresh.addEventListener(
+    "click",
+    loadRanking
+);
+
+
+loadRanking();
+
+
+setInterval(
+    loadRanking,
+    30000
+);
 
 </script>
 
-
 </body>
-
 </html>
