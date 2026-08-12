@@ -1,0 +1,682 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background:
+        radial-gradient(
+            circle at top,
+            #202020 0,
+            #0b0b0b 45%,
+            #050505 100%
+        );
+    color: #ffffff;
+    min-height: 100vh;
+}
+
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+    width: 100%;
+    background: rgba(8, 8, 8, 0.95);
+    border-bottom: 1px solid #292929;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(12px);
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: auto;
+    min-height: 70px;
+    padding: 0 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 21px;
+    font-weight: 900;
+}
+
+nav {
+    display: flex;
+    gap: 8px;
+}
+
+nav a {
+    color: #cfcfcf;
+    text-decoration: none;
+    padding: 10px 13px;
+    border-radius: 9px;
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+nav a:hover {
+    color: #ffffff;
+    background: #1c1c1c;
+}
+
+.menu-toggle {
+    display: none;
+    border: 0;
+    background: #181818;
+    color: white;
+    padding: 10px 13px;
+    border-radius: 8px;
+    font-size: 18px;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.topup-page {
+    max-width: 1200px;
+    margin: auto;
+    padding: 60px 20px 80px;
+}
+
+.topup-header {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.topup-icon {
+    width: 70px;
+    height: 70px;
+    margin: auto auto 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: linear-gradient(
+        135deg,
+        #252525,
+        #111111
+    );
+
+    border: 1px solid #343434;
+    border-radius: 20px;
+
+    font-size: 32px;
+
+    box-shadow:
+        0 15px 40px rgba(0,0,0,0.45);
+}
+
+.topup-header h1 {
+    font-size: 38px;
+    margin-bottom: 10px;
+}
+
+.topup-header p {
+    color: #929292;
+    font-size: 15px;
+}
+
+
+/* =========================
+   LAYOUT
+========================= */
+
+.topup-layout {
+    display: grid;
+    grid-template-columns:
+        minmax(0, 1fr)
+        360px;
+
+    gap: 25px;
+    align-items: start;
+}
+
+
+/* =========================
+   CARDS
+========================= */
+
+.topup-card,
+.order-card {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(30,30,30,0.98),
+            rgba(13,13,13,0.98)
+        );
+
+    border: 1px solid #2b2b2b;
+    border-radius: 18px;
+
+    box-shadow:
+        0 20px 50px rgba(0,0,0,0.28);
+}
+
+.topup-card {
+    padding: 25px;
+    margin-bottom: 20px;
+}
+
+
+/* =========================
+   STEP TITLE
+========================= */
+
+.step-title {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.step-title > span {
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #ffffff;
+    color: #080808;
+
+    border-radius: 12px;
+
+    font-size: 17px;
+    font-weight: 900;
+}
+
+.step-title h2 {
+    font-size: 18px;
+    margin-bottom: 4px;
+}
+
+.step-title p {
+    color: #777777;
+    font-size: 13px;
+}
+
+
+/* =========================
+   INPUT
+========================= */
+
+label {
+    display: block;
+    margin-bottom: 9px;
+
+    color: #bdbdbd;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+input {
+    width: 100%;
+
+    background: #090909;
+    color: #ffffff;
+
+    border: 1px solid #303030;
+    border-radius: 11px;
+
+    padding: 14px 15px;
+
+    outline: none;
+    font-size: 14px;
+
+    transition: 0.2s;
+}
+
+input:focus {
+    border-color: #777777;
+
+    box-shadow:
+        0 0 0 3px rgba(255,255,255,0.06);
+}
+
+input::placeholder {
+    color: #5c5c5c;
+}
+
+
+/* =========================
+   PACKAGE
+========================= */
+
+.package-grid {
+    display: grid;
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 14px;
+}
+
+.package {
+    position: relative;
+
+    text-align: left;
+
+    background: #0d0d0d;
+    color: #ffffff;
+
+    border: 1px solid #292929;
+    border-radius: 14px;
+
+    padding: 20px;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s,
+        border-color 0.2s,
+        background 0.2s;
+}
+
+.package:hover {
+    transform: translateY(-2px);
+    border-color: #555555;
+    background: #151515;
+}
+
+.package.selected {
+    border-color: #ffffff;
+    background: #1c1c1c;
+
+    box-shadow:
+        0 0 0 2px rgba(255,255,255,0.08);
+}
+
+.package-icon {
+    font-size: 25px;
+    margin-bottom: 14px;
+}
+
+.package strong {
+    display: block;
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+
+.package span {
+    color: #a0a0a0;
+    font-size: 14px;
+}
+
+
+/* =========================
+   PAYMENT
+========================= */
+
+.payment-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+
+    gap: 10px;
+}
+
+.payment {
+    min-height: 75px;
+
+    border: 1px solid #292929;
+    background: #0d0d0d;
+    color: #ffffff;
+
+    border-radius: 12px;
+
+    cursor: pointer;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 7px;
+
+    font-size: 22px;
+
+    transition: 0.2s;
+}
+
+.payment span {
+    font-size: 12px;
+    color: #c4c4c4;
+}
+
+.payment:hover {
+    border-color: #555555;
+    background: #161616;
+}
+
+.payment.selected {
+    border-color: #ffffff;
+    background: #1c1c1c;
+
+    box-shadow:
+        0 0 0 2px rgba(255,255,255,0.07);
+}
+
+
+/* =========================
+   CARD INPUT
+========================= */
+
+.card-input-area {
+    margin-top: 20px;
+
+    padding: 20px;
+
+    background: #090909;
+
+    border: 1px solid #2a2a2a;
+    border-radius: 13px;
+}
+
+.card-input-title {
+    font-size: 15px;
+    font-weight: 800;
+
+    margin-bottom: 18px;
+}
+
+.card-input-area label {
+    margin-top: 13px;
+}
+
+.card-input-area label:first-of-type {
+    margin-top: 0;
+}
+
+
+/* =========================
+   ORDER
+========================= */
+
+.order-card {
+    position: sticky;
+    top: 95px;
+    overflow: hidden;
+}
+
+.order-header {
+    padding: 22px;
+
+    display: flex;
+    align-items: center;
+    gap: 13px;
+
+    border-bottom: 1px solid #292929;
+}
+
+.order-header > span {
+    width: 43px;
+    height: 43px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #1c1c1c;
+
+    border-radius: 12px;
+
+    font-size: 21px;
+}
+
+.order-header h2 {
+    font-size: 17px;
+}
+
+.order-header p {
+    margin-top: 4px;
+
+    color: #777777;
+    font-size: 12px;
+}
+
+.order-content {
+    padding: 22px;
+}
+
+.order-row {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 15px 0;
+
+    border-bottom: 1px solid #222222;
+}
+
+.order-row span {
+    color: #808080;
+    font-size: 13px;
+}
+
+.order-row strong {
+    color: #ffffff;
+    font-size: 13px;
+
+    text-align: right;
+    word-break: break-word;
+}
+
+.order-total {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    margin-top: 20px;
+    padding: 18px 0;
+}
+
+.order-total span {
+    color: #a0a0a0;
+}
+
+.order-total strong {
+    font-size: 22px;
+}
+
+
+/* =========================
+   CONTINUE
+========================= */
+
+.continue-button {
+    width: 100%;
+
+    border: none;
+    border-radius: 12px;
+
+    padding: 15px;
+
+    background: #ffffff;
+    color: #050505;
+
+    font-size: 14px;
+    font-weight: 900;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.continue-button:hover {
+    transform: translateY(-2px);
+
+    background: #dddddd;
+}
+
+.continue-button:active {
+    transform: translateY(0);
+}
+
+
+/* =========================
+   WARNING
+========================= */
+
+.demo-warning {
+    display: flex;
+    gap: 12px;
+
+    margin-top: 18px;
+    padding: 14px;
+
+    border-radius: 11px;
+
+    background: #16120a;
+    border: 1px solid #3b301a;
+
+    color: #d7c38c;
+
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.demo-warning p {
+    margin-top: 4px;
+    color: #92845e;
+}
+
+
+/* =========================
+   TOAST
+========================= */
+
+.toast {
+    position: fixed;
+
+    left: 50%;
+    bottom: 25px;
+
+    transform:
+        translate(-50%, 20px);
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    background: #ffffff;
+    color: #050505;
+
+    padding: 13px 20px;
+
+    border-radius: 12px;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    box-shadow:
+        0 15px 40px rgba(0,0,0,0.4);
+
+    transition: 0.25s;
+
+    z-index: 9999;
+}
+
+.toast.show {
+    opacity: 1;
+
+    transform:
+        translate(-50%, 0);
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 850px) {
+
+    .topup-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .order-card {
+        position: static;
+    }
+
+}
+
+
+@media (max-width: 650px) {
+
+    .topup-page {
+        padding:
+            35px 14px 60px;
+    }
+
+    .topup-header h1 {
+        font-size: 28px;
+    }
+
+    .topup-card {
+        padding: 18px;
+    }
+
+    .package-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .payment-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+    .nav-container {
+        position: relative;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    nav {
+        display: none;
+
+        position: absolute;
+
+        top: 70px;
+        left: 14px;
+        right: 14px;
+
+        padding: 10px;
+
+        flex-direction: column;
+
+        background: #101010;
+
+        border: 1px solid #292929;
+        border-radius: 13px;
+    }
+
+    nav.open {
+        display: flex;
+    }
+
+    nav a {
+        padding: 13px;
+    }
+
+}
