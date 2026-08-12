@@ -8,6 +8,7 @@
     <title>Code | BOXPVP</title>
 
     <style>
+
         * {
             box-sizing: border-box;
             margin: 0;
@@ -15,17 +16,23 @@
         }
 
         body {
-            font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont,
-                "Segoe UI", sans-serif;
+            font-family:
+                Inter,
+                system-ui,
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                sans-serif;
 
             min-height: 100vh;
-            color: #fff;
+
+            color: white;
 
             background:
                 radial-gradient(
                     circle at 50% -10%,
                     rgba(255, 40, 40, .18),
-                    transparent 38%
+                    transparent 40%
                 ),
                 #080808;
         }
@@ -37,16 +44,19 @@
             top: 0;
             z-index: 100;
 
-            border-bottom: 1px solid rgba(255,255,255,.08);
+            border-bottom:
+                1px solid rgba(255,255,255,.08);
 
-            background: rgba(8,8,8,.88);
+            background:
+                rgba(8,8,8,.88);
 
             backdrop-filter: blur(18px);
         }
 
         .navbar {
             max-width: 1180px;
-            height: 72px;
+
+            min-height: 72px;
 
             margin: auto;
             padding: 0 22px;
@@ -54,14 +64,18 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
+
+            gap: 20px;
         }
 
         .logo {
-            color: #fff;
+            color: white;
             text-decoration: none;
 
             font-size: 21px;
             font-weight: 900;
+
+            white-space: nowrap;
         }
 
         .logo span {
@@ -70,53 +84,57 @@
 
         nav {
             display: flex;
-            gap: 7px;
+            align-items: center;
+            gap: 6px;
         }
 
         nav a {
-            color: rgba(255,255,255,.62);
+            color: rgba(255,255,255,.58);
+
             text-decoration: none;
 
-            padding: 10px 13px;
+            padding: 10px 12px;
 
             border-radius: 10px;
 
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 700;
 
-            transition: .18s;
+            transition: .18s ease;
         }
 
         nav a:hover {
-            color: #fff;
+            color: white;
             background: rgba(255,255,255,.06);
         }
 
         nav a.active {
-            color: #fff;
+            color: white;
 
-            background: rgba(255,48,48,.12);
+            background:
+                rgba(255,48,48,.12);
 
-            border: 1px solid rgba(255,48,48,.22);
+            border:
+                1px solid rgba(255,48,48,.2);
         }
 
         /* ================= MAIN ================= */
 
         main {
-            max-width: 920px;
+            width: min(1000px, calc(100% - 30px));
 
             margin: auto;
 
-            padding: 55px 20px 80px;
+            padding: 55px 0 80px;
         }
 
-        .title {
+        .hero {
             text-align: center;
 
             margin-bottom: 35px;
         }
 
-        .title-icon {
+        .hero-icon {
             width: 68px;
             height: 68px;
 
@@ -132,83 +150,121 @@
                 linear-gradient(
                     135deg,
                     #ff3030,
-                    #a40000
+                    #9d0000
                 );
 
             box-shadow:
-                0 15px 40px rgba(255,0,0,.22);
+                0 15px 45px
+                rgba(255,0,0,.22);
 
             font-size: 30px;
         }
 
-        .title h1 {
+        .hero h1 {
             font-size: 35px;
             font-weight: 900;
         }
 
-        .title p {
+        .hero p {
             margin-top: 8px;
 
-            color: rgba(255,255,255,.45);
+            color:
+                rgba(255,255,255,.45);
 
             font-size: 14px;
         }
 
-        /* ================= CARD ================= */
+        /* ================= STATUS ================= */
+
+        .status {
+            width: fit-content;
+
+            margin: 0 auto 25px;
+
+            padding: 8px 14px;
+
+            border-radius: 999px;
+
+            color: #72ff9a;
+
+            background:
+                rgba(50,255,110,.07);
+
+            border:
+                1px solid rgba(50,255,110,.15);
+
+            font-size: 12px;
+            font-weight: 800;
+        }
+
+        /* ================= LAYOUT ================= */
+
+        .layout {
+            display: grid;
+
+            grid-template-columns:
+                minmax(0, 1fr)
+                320px;
+
+            gap: 20px;
+
+            align-items: start;
+        }
 
         .card {
             border:
                 1px solid rgba(255,255,255,.08);
 
-            border-radius: 22px;
-
-            overflow: hidden;
+            border-radius: 20px;
 
             background:
                 linear-gradient(
                     180deg,
                     rgba(255,255,255,.045),
-                    rgba(255,255,255,.015)
+                    rgba(255,255,255,.018)
                 );
 
             box-shadow:
-                0 25px 70px rgba(0,0,0,.3);
+                0 20px 60px rgba(0,0,0,.28);
+
+            overflow: hidden;
         }
 
         .card-header {
-            padding: 25px;
+            padding: 22px 23px;
 
             border-bottom:
                 1px solid rgba(255,255,255,.07);
         }
 
         .card-header h2 {
-            font-size: 18px;
+            font-size: 17px;
         }
 
         .card-header p {
             margin-top: 5px;
 
-            color: rgba(255,255,255,.4);
+            color:
+                rgba(255,255,255,.4);
 
-            font-size: 13px;
+            font-size: 12px;
         }
 
-        .content {
-            padding: 25px;
+        .card-body {
+            padding: 23px;
         }
 
         /* ================= STEP ================= */
 
         .step {
-            margin-bottom: 28px;
+            margin-bottom: 27px;
         }
 
         .step:last-child {
             margin-bottom: 0;
         }
 
-        .step-title {
+        .step-head {
             display: flex;
             align-items: center;
 
@@ -218,8 +274,10 @@
         }
 
         .number {
-            width: 34px;
-            height: 34px;
+            width: 32px;
+            height: 32px;
+
+            flex-shrink: 0;
 
             display: flex;
             align-items: center;
@@ -227,170 +285,107 @@
 
             border-radius: 10px;
 
-            color: #ff5050;
+            color: #ff5757;
 
             background:
-                rgba(255,48,48,.12);
+                rgba(255,48,48,.1);
 
             border:
-                1px solid rgba(255,48,48,.2);
+                1px solid rgba(255,48,48,.18);
 
             font-size: 12px;
             font-weight: 900;
         }
 
-        .step-title h3 {
+        .step-head h3 {
             font-size: 15px;
         }
 
-        .step-title p {
+        .step-head p {
             margin-top: 3px;
 
-            color: rgba(255,255,255,.38);
+            color:
+                rgba(255,255,255,.38);
 
             font-size: 12px;
         }
 
-        /* ================= INPUT ================= */
+        /* ================= USERNAME ================= */
 
         label {
             display: block;
 
             margin-bottom: 8px;
 
-            color: rgba(255,255,255,.6);
+            color:
+                rgba(255,255,255,.65);
 
             font-size: 12px;
             font-weight: 700;
         }
 
-        .input {
+        input {
             width: 100%;
             height: 50px;
 
             padding: 0 15px;
 
-            border:
-                1px solid rgba(255,255,255,.09);
+            outline: none;
 
             border-radius: 12px;
 
-            outline: none;
+            border:
+                1px solid rgba(255,255,255,.09);
 
-            background: rgba(0,0,0,.3);
+            background:
+                rgba(0,0,0,.3);
 
-            color: #fff;
+            color: white;
 
             font-size: 14px;
 
-            transition: .18s;
+            transition: .18s ease;
         }
 
-        .input:focus {
-            border-color: #ff3030;
+        input::placeholder {
+            color:
+                rgba(255,255,255,.25);
+        }
+
+        input:focus {
+            border-color:
+                rgba(255,48,48,.65);
 
             box-shadow:
-                0 0 0 3px rgba(255,48,48,.08);
+                0 0 0 3px
+                rgba(255,48,48,.08);
         }
 
-        .input::placeholder {
-            color: rgba(255,255,255,.25);
-        }
+        /* ================= USER VALID ================= */
 
-        /* ================= USER STATUS ================= */
+        .username-status {
+            display: none;
 
-        .user-status {
-            margin-top: 10px;
+            margin-top: 9px;
 
-            padding: 10px 12px;
+            padding: 9px 11px;
 
             border-radius: 10px;
 
-            display: none;
+            color: #72ff9a;
 
-            background: rgba(60,200,100,.07);
+            background:
+                rgba(50,255,110,.06);
 
             border:
-                1px solid rgba(60,200,100,.15);
-
-            color: #79e69b;
+                1px solid rgba(50,255,110,.12);
 
             font-size: 12px;
             font-weight: 700;
         }
 
-        .user-status.show {
+        .username-status.show {
             display: block;
-        }
-
-        /* ================= CODE BOX ================= */
-
-        .code-box {
-            padding: 25px;
-
-            border-radius: 17px;
-
-            border:
-                1px solid rgba(255,48,48,.18);
-
-            background:
-                linear-gradient(
-                    135deg,
-                    rgba(255,48,48,.11),
-                    rgba(255,255,255,.025)
-                );
-
-            text-align: center;
-        }
-
-        .code-label {
-            color: rgba(255,255,255,.42);
-
-            font-size: 11px;
-            font-weight: 800;
-
-            letter-spacing: 1px;
-        }
-
-        .code {
-            margin-top: 12px;
-
-            font-size: 27px;
-
-            font-weight: 900;
-
-            letter-spacing: 2px;
-
-            color: #fff;
-
-            word-break: break-all;
-        }
-
-        .copy-btn {
-            margin-top: 17px;
-
-            height: 42px;
-
-            padding: 0 18px;
-
-            border: 1px solid rgba(255,255,255,.1);
-
-            border-radius: 10px;
-
-            background: rgba(255,255,255,.05);
-
-            color: #fff;
-
-            font-size: 12px;
-            font-weight: 800;
-
-            cursor: pointer;
-
-            transition: .18s;
-        }
-
-        .copy-btn:hover {
-            background: rgba(255,255,255,.1);
         }
 
         /* ================= REWARD ================= */
@@ -405,56 +400,62 @@
         }
 
         .reward {
-            padding: 20px;
+            padding: 18px;
 
             border-radius: 15px;
 
             border:
-                1px solid rgba(255,255,255,.08);
+                1px solid rgba(255,255,255,.07);
 
             background:
                 rgba(255,255,255,.025);
-
-            display: flex;
-            align-items: center;
-
-            gap: 15px;
         }
 
         .reward-icon {
-            width: 48px;
-            height: 48px;
-
-            flex-shrink: 0;
+            width: 40px;
+            height: 40px;
 
             display: flex;
             align-items: center;
             justify-content: center;
 
-            border-radius: 14px;
+            margin-bottom: 12px;
 
-            background: rgba(255,255,255,.06);
+            border-radius: 11px;
 
-            font-size: 22px;
+            background:
+                rgba(255,255,255,.05);
+
+            font-size: 19px;
         }
 
         .reward-title {
-            color: rgba(255,255,255,.42);
+            color:
+                rgba(255,255,255,.48);
 
-            font-size: 11px;
+            font-size: 12px;
         }
 
         .reward-value {
-            margin-top: 4px;
+            margin-top: 5px;
 
             font-size: 19px;
             font-weight: 900;
         }
 
-        /* ================= CLAIM ================= */
+        .money .reward-value {
+            color: #ffd34d;
+        }
 
-        .claim {
+        .shard .reward-value {
+            color: #6ddcff;
+        }
+
+        /* ================= RECEIVE ================= */
+
+        .receive {
             width: 100%;
+
             height: 52px;
 
             margin-top: 20px;
@@ -463,14 +464,14 @@
 
             border-radius: 13px;
 
+            color: white;
+
             background:
                 linear-gradient(
                     135deg,
-                    #ff3b3b,
-                    #c50000
+                    #ff3d3d,
+                    #c70000
                 );
-
-            color: #fff;
 
             font-size: 13px;
             font-weight: 900;
@@ -478,47 +479,160 @@
             cursor: pointer;
 
             box-shadow:
-                0 12px 30px rgba(255,0,0,.18);
+                0 12px 30px
+                rgba(255,0,0,.18);
 
-            transition: .18s;
+            transition: .18s ease;
         }
 
-        .claim:hover:not(:disabled) {
+        .receive:hover {
             transform: translateY(-2px);
 
             box-shadow:
-                0 16px 35px rgba(255,0,0,.25);
+                0 16px 35px
+                rgba(255,0,0,.26);
         }
 
-        .claim:disabled {
+        .receive:disabled {
             cursor: not-allowed;
 
             opacity: .45;
 
-            background: #333;
+            transform: none;
 
             box-shadow: none;
         }
 
-        /* ================= INFO ================= */
+        /* ================= SIDE ================= */
+
+        .side {
+            position: sticky;
+            top: 95px;
+        }
+
+        .side-top {
+            padding: 23px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,48,48,.12),
+                    transparent
+                );
+
+            border-bottom:
+                1px solid rgba(255,255,255,.07);
+        }
+
+        .side-icon {
+            width: 45px;
+            height: 45px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            margin-bottom: 14px;
+
+            border-radius: 14px;
+
+            background:
+                rgba(255,48,48,.1);
+
+            font-size: 20px;
+        }
+
+        .side h2 {
+            font-size: 17px;
+        }
+
+        .side p {
+            margin-top: 5px;
+
+            color:
+                rgba(255,255,255,.4);
+
+            font-size: 12px;
+            line-height: 1.5;
+        }
+
+        .side-body {
+            padding: 20px;
+        }
 
         .info {
-            margin-top: 15px;
+            display: flex;
+
+            justify-content: space-between;
+
+            padding: 12px 0;
+
+            border-bottom:
+                1px solid rgba(255,255,255,.06);
+
+            font-size: 12px;
+        }
+
+        .info span {
+            color:
+                rgba(255,255,255,.4);
+        }
+
+        .info strong {
+            text-align: right;
+        }
+
+        .timer {
+            margin-top: 18px;
 
             padding: 15px;
 
-            border-radius: 12px;
+            border-radius: 13px;
 
-            background: rgba(255,190,0,.05);
+            text-align: center;
+
+            background:
+                rgba(255,255,255,.025);
+
+            border:
+                1px solid rgba(255,255,255,.07);
+        }
+
+        .timer-label {
+            color:
+                rgba(255,255,255,.4);
+
+            font-size: 11px;
+        }
+
+        .timer-value {
+            margin-top: 5px;
+
+            color: #ff5555;
+
+            font-size: 22px;
+            font-weight: 900;
+        }
+
+        .note {
+            margin-top: 15px;
+
+            padding: 12px;
+
+            border-radius: 11px;
+
+            background:
+                rgba(255,190,0,.05);
 
             border:
                 1px solid rgba(255,190,0,.1);
 
-            color: rgba(255,255,255,.48);
+            color:
+                rgba(255,255,255,.42);
 
             font-size: 11px;
 
-            line-height: 1.7;
+            line-height: 1.6;
         }
 
         /* ================= TOAST ================= */
@@ -529,6 +643,8 @@
             left: 50%;
             bottom: 25px;
 
+            z-index: 999;
+
             transform:
                 translate(-50%, 20px);
 
@@ -536,7 +652,8 @@
 
             pointer-events: none;
 
-            padding: 13px 18px;
+            padding:
+                13px 18px;
 
             border-radius: 12px;
 
@@ -546,14 +663,13 @@
                 1px solid rgba(255,255,255,.1);
 
             box-shadow:
-                0 15px 45px rgba(0,0,0,.4);
+                0 15px 45px
+                rgba(0,0,0,.4);
 
             font-size: 13px;
             font-weight: 700;
 
-            transition: .25s;
-
-            z-index: 999;
+            transition: .25s ease;
         }
 
         .toast.show {
@@ -565,22 +681,32 @@
 
         /* ================= MOBILE ================= */
 
-        @media (max-width: 700px) {
+        @media(max-width: 800px) {
+
+            .layout {
+                grid-template-columns: 1fr;
+            }
+
+            .side {
+                position: static;
+            }
+
+        }
+
+        @media(max-width: 620px) {
 
             .navbar {
-                height: auto;
-
-                padding: 14px;
-
                 flex-direction: column;
 
-                gap: 10px;
+                padding: 14px 15px;
             }
 
             nav {
                 width: 100%;
 
                 overflow-x: auto;
+
+                justify-content: flex-start;
             }
 
             nav a {
@@ -592,10 +718,10 @@
             }
 
             main {
-                padding: 35px 14px 60px;
+                padding-top: 35px;
             }
 
-            .title h1 {
+            .hero h1 {
                 font-size: 28px;
             }
 
@@ -603,15 +729,14 @@
                 grid-template-columns: 1fr;
             }
 
-            .content {
+            .card-body {
                 padding: 18px;
             }
 
-            .code {
-                font-size: 21px;
-            }
         }
+
     </style>
+
 </head>
 
 <body>
@@ -659,9 +784,9 @@
 
 <main>
 
-    <div class="title">
+    <div class="hero">
 
-        <div class="title-icon">
+        <div class="hero-icon">
             🎁
         </div>
 
@@ -676,159 +801,116 @@
     </div>
 
 
-    <div class="card">
-
-        <div class="card-header">
-
-            <h2>
-                🎁 Nhận phần thưởng
-            </h2>
-
-            <p>
-                Nhập username để nhận code hôm nay.
-            </p>
-
-        </div>
+    <div class="status">
+        🟢 CODE ĐANG HOẠT ĐỘNG
+    </div>
 
 
-        <div class="content">
+    <div class="layout">
 
 
-            <!-- ================= STEP 1 ================= -->
+        <!-- ================= LEFT ================= -->
 
-            <div class="step">
+        <section class="card">
 
-                <div class="step-title">
+            <div class="card-header">
 
-                    <div class="number">
-                        01
-                    </div>
+                <h2>
+                    🎁 Nhận phần thưởng
+                </h2>
 
-                    <div>
-
-                        <h3>
-                            👤 Tên tài khoản Minecraft
-                        </h3>
-
-                        <p>
-                            Bắt buộc phải nhập username trước.
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-                <label for="username">
-                    Username Minecraft
-                </label>
-
-                <input
-                    id="username"
-                    class="input"
-                    type="text"
-                    placeholder="Ví dụ: khanhk360"
-                    autocomplete="off"
-                >
-
-
-                <div
-                    id="userStatus"
-                    class="user-status"
-                >
-                    ✅ Username hợp lệ
-                </div>
+                <p>
+                    Nhập username trước khi nhận phần thưởng.
+                </p>
 
             </div>
 
 
-            <!-- ================= STEP 2 ================= -->
-
-            <div class="step">
-
-                <div class="step-title">
-
-                    <div class="number">
-                        02
-                    </div>
-
-                    <div>
-
-                        <h3>
-                            🎁 Code hôm nay
-                        </h3>
-
-                        <p>
-                            Code được hệ thống tự động cung cấp.
-                        </p>
-
-                    </div>
-
-                </div>
+            <div class="card-body">
 
 
-                <div class="code-box">
+                <!-- USERNAME -->
 
-                    <div class="code-label">
-                        MÃ PHẦN THƯỞNG HÔM NAY
-                    </div>
+                <div class="step">
 
-                    <div
-                        class="code"
-                        id="dailyCode"
-                    >
-                        BXP-7K2M-91QX
-                    </div>
+                    <div class="step-head">
 
-                    <button
-                        class="copy-btn"
-                        id="copyCode"
-                    >
-                        📋 SAO CHÉP CODE
-                    </button>
-
-                </div>
-
-            </div>
-
-
-            <!-- ================= STEP 3 ================= -->
-
-            <div class="step">
-
-                <div class="step-title">
-
-                    <div class="number">
-                        03
-                    </div>
-
-                    <div>
-
-                        <h3>
-                            🎁 Phần thưởng
-                        </h3>
-
-                        <p>
-                            Phần thưởng sẽ được cộng cho username.
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-                <div class="rewards">
-
-                    <div class="reward">
-
-                        <div class="reward-icon">
-                            💰
+                        <div class="number">
+                            01
                         </div>
 
                         <div>
 
+                            <h3>
+                                👤 Tên tài khoản Minecraft
+                            </h3>
+
+                            <p>
+                                Nhập username Minecraft của bạn.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <label for="username">
+                        Username
+                    </label>
+
+                    <input
+                        id="username"
+                        type="text"
+                        placeholder="Ví dụ: khanhk360"
+                        autocomplete="off"
+                        maxlength="16"
+                    >
+
+                    <div
+                        id="usernameStatus"
+                        class="username-status"
+                    >
+                        ✅ Username hợp lệ
+                    </div>
+
+                </div>
+
+
+                <!-- REWARD -->
+
+                <div class="step">
+
+                    <div class="step-head">
+
+                        <div class="number">
+                            02
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                🎁 Phần thưởng hôm nay
+                            </h3>
+
+                            <p>
+                                Phần thưởng được hệ thống tự động xác định.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="rewards">
+
+                        <div class="reward money">
+
+                            <div class="reward-icon">
+                                💰
+                            </div>
+
                             <div class="reward-title">
-                                TIỀN TRONG SERVER
+                                Tiền trong server
                             </div>
 
                             <div class="reward-value">
@@ -837,19 +919,15 @@
 
                         </div>
 
-                    </div>
 
+                        <div class="reward shard">
 
-                    <div class="reward">
-
-                        <div class="reward-icon">
-                            💠
-                        </div>
-
-                        <div>
+                            <div class="reward-icon">
+                                💠
+                            </div>
 
                             <div class="reward-title">
-                                SHARD
+                                Shard
                             </div>
 
                             <div class="reward-value">
@@ -860,33 +938,126 @@
 
                     </div>
 
+
+                    <button
+                        id="receiveButton"
+                        class="receive"
+                        disabled
+                    >
+                        🎁 NHẬN THƯỞNG
+                    </button>
+
                 </div>
 
 
-                <button
-                    class="claim"
-                    id="claimButton"
-                    disabled
-                >
-                    🔒 NHẬP USERNAME ĐỂ NHẬN
-                </button>
+            </div>
+
+        </section>
+
+
+        <!-- ================= RIGHT ================= -->
+
+        <aside class="card side">
+
+            <div class="side-top">
+
+                <div class="side-icon">
+                    ⏰
+                </div>
+
+                <h2>
+                    Code hàng ngày
+                </h2>
+
+                <p>
+                    Phần thưởng mới được cập nhật
+                    mỗi ngày lúc 12:00.
+                </p>
+
+            </div>
+
+
+            <div class="side-body">
+
+                <div class="info">
+
+                    <span>
+                        Tài khoản
+                    </span>
+
+                    <strong id="sideUsername">
+                        Chưa nhập
+                    </strong>
+
+                </div>
 
 
                 <div class="info">
 
-                    ⚠️ <strong>Lưu ý:</strong><br>
+                    <span>
+                        Phần thưởng
+                    </span>
 
-                    Mỗi tài khoản Minecraft chỉ được nhận
-                    phần thưởng <strong>1 lần mỗi ngày</strong>.<br>
+                    <strong>
+                        +500 Money
+                    </strong>
 
-                    Code mới được cập nhật lúc
-                    <strong>12:00</strong> mỗi ngày.
+                </div>
+
+
+                <div class="info">
+
+                    <span>
+                        Shard
+                    </span>
+
+                    <strong>
+                        +10
+                    </strong>
+
+                </div>
+
+
+                <div class="info">
+
+                    <span>
+                        Trạng thái
+                    </span>
+
+                    <strong style="color:#72ff9a;">
+                        🟢 Hoạt động
+                    </strong>
+
+                </div>
+
+
+                <div class="timer">
+
+                    <div class="timer-label">
+                        CODE MỚI SAU
+                    </div>
+
+                    <div
+                        class="timer-value"
+                        id="timer"
+                    >
+                        00:00:00
+                    </div>
+
+                </div>
+
+
+                <div class="note">
+
+                    ⚠️ Mỗi tài khoản chỉ được
+                    nhận phần thưởng một lần
+                    trong ngày.
 
                 </div>
 
             </div>
 
-        </div>
+        </aside>
 
     </div>
 
@@ -901,34 +1072,23 @@
 
 <script>
 
-    /* ================= DATA ================= */
-
-    const DAILY_CODE = "BXP-7K2M-91QX";
-
-    const REWARD_MONEY = 500;
-
-    const REWARD_SHARD = 10;
-
-
-    /* ================= ELEMENTS ================= */
-
     const usernameInput =
         document.getElementById("username");
 
-    const userStatus =
-        document.getElementById("userStatus");
+    const usernameStatus =
+        document.getElementById("usernameStatus");
 
-    const claimButton =
-        document.getElementById("claimButton");
+    const receiveButton =
+        document.getElementById("receiveButton");
 
-    const copyCode =
-        document.getElementById("copyCode");
-
-    const dailyCode =
-        document.getElementById("dailyCode");
+    const sideUsername =
+        document.getElementById("sideUsername");
 
     const toast =
         document.getElementById("toast");
+
+
+    let validUsername = false;
 
 
     /* ================= TOAST ================= */
@@ -946,7 +1106,7 @@
 
                 toast.classList.remove("show");
 
-            }, 2600);
+            }, 3000);
 
     }
 
@@ -961,57 +1121,38 @@
                 usernameInput.value.trim();
 
 
-            if (!username) {
+            sideUsername.textContent =
+                username || "Chưa nhập";
 
-                userStatus.classList.remove(
+
+            /*
+             * Minecraft username:
+             * 3 - 16 ký tự
+             * chỉ chữ, số và _
+             */
+
+            validUsername =
+                /^[A-Za-z0-9_]{3,16}$/
+                .test(username);
+
+
+            if (validUsername) {
+
+                usernameStatus.classList.add(
                     "show"
                 );
 
-                claimButton.disabled = true;
+                receiveButton.disabled =
+                    false;
 
-                claimButton.textContent =
-                    "🔒 NHẬP USERNAME ĐỂ NHẬN";
+            } else {
 
-                return;
-
-            }
-
-
-            userStatus.classList.add(
-                "show"
-            );
-
-
-            claimButton.disabled = false;
-
-            claimButton.textContent =
-                "🎁 NHẬN THƯỞNG";
-
-        }
-    );
-
-
-    /* ================= COPY ================= */
-
-    copyCode.addEventListener(
-        "click",
-        async () => {
-
-            try {
-
-                await navigator.clipboard.writeText(
-                    DAILY_CODE
+                usernameStatus.classList.remove(
+                    "show"
                 );
 
-                showToast(
-                    "📋 Đã sao chép code!"
-                );
-
-            } catch {
-
-                showToast(
-                    `🎁 Code: ${DAILY_CODE}`
-                );
+                receiveButton.disabled =
+                    true;
 
             }
 
@@ -1019,9 +1160,26 @@
     );
 
 
-    /* ================= CLAIM ================= */
+    /* ================= DAILY CLAIM ================= */
 
-    claimButton.addEventListener(
+    function claimKey(username) {
+
+        const today =
+            new Date()
+                .toLocaleDateString(
+                    "sv-SE",
+                    {
+                        timeZone:
+                            "Asia/Ho_Chi_Minh"
+                    }
+                );
+
+        return `boxpvp_code_claim_${today}_${username.toLowerCase()}`;
+
+    }
+
+
+    receiveButton.addEventListener(
         "click",
         () => {
 
@@ -1029,10 +1187,10 @@
                 usernameInput.value.trim();
 
 
-            if (!username) {
+            if (!validUsername) {
 
                 showToast(
-                    "⚠️ Hãy nhập username trước."
+                    "⚠️ Hãy nhập username Minecraft hợp lệ."
                 );
 
                 return;
@@ -1040,59 +1198,136 @@
             }
 
 
-            const today =
-                new Date()
-                    .toISOString()
-                    .slice(0, 10);
+            const key =
+                claimKey(username);
 
 
-            const claimKey =
-                `boxpvp_code_${username}_${today}`;
-
-
-            /* ĐÃ NHẬN */
+            /*
+             * DEMO chống nhận nhiều lần
+             * trong cùng một ngày.
+             *
+             * Sau này backend Minecraft
+             * sẽ thay phần này.
+             */
 
             if (
-                localStorage.getItem(
-                    claimKey
-                )
+                localStorage.getItem(key)
             ) {
 
                 showToast(
-                    "⚠️ Tài khoản này đã nhận code hôm nay."
+                    "⚠️ Tài khoản này đã nhận phần thưởng hôm nay."
                 );
-
-                claimButton.disabled = true;
-
-                claimButton.textContent =
-                    "✓ ĐÃ NHẬN HÔM NAY";
 
                 return;
 
             }
 
 
-            /* LƯU TRẠNG THÁI */
-
             localStorage.setItem(
-                claimKey,
+                key,
                 "claimed"
             );
 
 
-            /* THÔNG BÁO */
+            receiveButton.disabled =
+                true;
+
+            receiveButton.textContent =
+                "✓ ĐÃ NHẬN HÔM NAY";
+
 
             showToast(
-                `🎉 ${username} nhận +500 Money và +10 Shard!`
+                `🎁 ${username} đã nhận +500 Money và +10 Shard!`
+            );
+
+        }
+    );
+
+
+    /* ================= COUNTDOWN ================= */
+
+    function updateTimer() {
+
+        const now =
+            new Date();
+
+
+        const vietnamNow =
+            new Date(
+                now.toLocaleString(
+                    "en-US",
+                    {
+                        timeZone:
+                            "Asia/Ho_Chi_Minh"
+                    }
+                )
             );
 
 
-            claimButton.disabled = true;
+        const next =
+            new Date(
+                vietnamNow
+            );
 
-            claimButton.textContent =
-                "✓ ĐÃ NHẬN HÔM NAY";
+
+        next.setHours(
+            12,
+            0,
+            0,
+            0
+        );
+
+
+        if (
+            vietnamNow >= next
+        ) {
+
+            next.setDate(
+                next.getDate() + 1
+            );
 
         }
+
+
+        const diff =
+            next - vietnamNow;
+
+
+        const hours =
+            Math.floor(
+                diff / 3600000
+            );
+
+
+        const minutes =
+            Math.floor(
+                (diff % 3600000) /
+                60000
+            );
+
+
+        const seconds =
+            Math.floor(
+                (diff % 60000) /
+                1000
+            );
+
+
+        document.getElementById(
+            "timer"
+        ).textContent =
+            `${String(hours).padStart(2,"0")}:` +
+            `${String(minutes).padStart(2,"0")}:` +
+            `${String(seconds).padStart(2,"0")}`;
+
+    }
+
+
+    updateTimer();
+
+    setInterval(
+        updateTimer,
+        1000
     );
 
 </script>
