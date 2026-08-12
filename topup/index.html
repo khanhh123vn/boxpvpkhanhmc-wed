@@ -1,15 +1,9 @@
-```html
 <!DOCTYPE html>
 <html lang="vi">
 
 <head>
-
     <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Nạp Coin | BOXPVP</title>
 
@@ -26,6 +20,16 @@
             padding: 0;
         }
 
+        :root {
+            --red: #ff3030;
+            --red-dark: #b90000;
+            --bg: #070707;
+            --card: #101010;
+            --border: rgba(255,255,255,.08);
+            --text: #ffffff;
+            --muted: rgba(255,255,255,.48);
+        }
+
         body {
             font-family:
                 Inter,
@@ -37,78 +41,75 @@
 
             background:
                 radial-gradient(
-                    circle at 50% -20%,
-                    rgba(255, 40, 40, .15),
+                    circle at 50% -15%,
+                    rgba(255,40,40,.20),
                     transparent 38%
                 ),
-                #080808;
+                radial-gradient(
+                    circle at 100% 50%,
+                    rgba(255,0,0,.06),
+                    transparent 30%
+                ),
+                var(--bg);
 
-            color: #fff;
+            color: var(--text);
             min-height: 100vh;
         }
 
 
-        /* =====================================================
+        /* =========================
            HEADER
-        ===================================================== */
+        ========================= */
 
         header {
             position: sticky;
             top: 0;
             z-index: 100;
 
-            width: 100%;
-
-            border-bottom:
-                1px solid rgba(255,255,255,.08);
-
             background:
-                rgba(8,8,8,.88);
+                rgba(7,7,7,.86);
 
             backdrop-filter:
                 blur(18px);
-        }
 
+            border-bottom:
+                1px solid var(--border);
+        }
 
         .navbar {
             max-width: 1180px;
-            margin: auto;
-
             height: 72px;
+
+            margin: auto;
+            padding: 0 22px;
 
             display: flex;
             align-items: center;
             justify-content: space-between;
-
-            padding: 0 22px;
         }
-
 
         .logo {
             color: white;
             text-decoration: none;
 
             font-size: 21px;
-            font-weight: 900;
+            font-weight: 950;
 
-            letter-spacing: -.5px;
+            letter-spacing: -.7px;
         }
-
 
         .logo span {
-            color: #ff3030;
+            color: var(--red);
         }
-
 
         nav {
             display: flex;
+            gap: 6px;
             align-items: center;
-            gap: 7px;
         }
 
-
         nav a {
-            color: rgba(255,255,255,.62);
+            color: rgba(255,255,255,.58);
 
             text-decoration: none;
 
@@ -116,21 +117,16 @@
 
             border-radius: 10px;
 
-            font-size: 14px;
-            font-weight: 700;
+            font-size: 13px;
+            font-weight: 750;
 
-            transition:
-                .18s ease;
+            transition: .2s ease;
         }
-
 
         nav a:hover {
             color: white;
-
-            background:
-                rgba(255,255,255,.06);
+            background: rgba(255,255,255,.06);
         }
-
 
         nav a.active {
             color: white;
@@ -139,80 +135,79 @@
                 rgba(255,48,48,.12);
 
             border:
-                1px solid rgba(255,48,48,.2);
+                1px solid
+                rgba(255,48,48,.22);
         }
 
 
-        /* =====================================================
+        /* =========================
            MAIN
-        ===================================================== */
+        ========================= */
 
         main {
-            max-width: 1050px;
+            max-width: 1080px;
 
             margin: auto;
 
             padding:
-                55px 20px 80px;
+                55px 20px 90px;
         }
 
+
+        /* =========================
+           TITLE
+        ========================= */
 
         .page-title {
             text-align: center;
 
-            margin-bottom: 45px;
+            margin-bottom: 42px;
         }
 
+        .title-icon {
+            width: 68px;
+            height: 68px;
 
-        .page-title .icon {
-            width: 65px;
-            height: 65px;
-
-            margin: 0 auto 18px;
+            margin: 0 auto 17px;
 
             display: flex;
             align-items: center;
             justify-content: center;
 
-            border-radius: 20px;
+            border-radius: 21px;
 
             background:
                 linear-gradient(
                     135deg,
-                    #ff3030,
+                    #ff3b3b,
                     #9e0000
                 );
 
             box-shadow:
-                0 15px 40px
-                rgba(255,0,0,.22);
+                0 18px 45px
+                rgba(255,0,0,.25);
 
             font-size: 29px;
         }
 
-
         .page-title h1 {
-            font-size: 34px;
-
-            font-weight: 900;
-
-            letter-spacing: -.8px;
+            font-size: 35px;
+            font-weight: 950;
+            letter-spacing: -.9px;
         }
-
 
         .page-title p {
             margin-top: 9px;
 
-            color:
-                rgba(255,255,255,.48);
+            color: var(--muted);
 
             font-size: 14px;
         }
 
 
-        /* =====================================================
+        /* =========================
            LAYOUT
-        ===================================================== */
+        ========================= */
 
         .layout {
             display: grid;
@@ -227,16 +222,11 @@
         }
 
 
-        /* =====================================================
-           CARD
-        ===================================================== */
+        /* =========================
+           BOX
+        ========================= */
 
         .box {
-            border:
-                1px solid rgba(255,255,255,.08);
-
-            border-radius: 20px;
-
             background:
                 linear-gradient(
                     180deg,
@@ -244,69 +234,68 @@
                     rgba(255,255,255,.018)
                 );
 
+            border:
+                1px solid var(--border);
+
+            border-radius: 21px;
+
             box-shadow:
-                0 20px 60px
-                rgba(0,0,0,.25);
+                0 25px 70px
+                rgba(0,0,0,.28);
 
             overflow: hidden;
         }
 
-
         .box-header {
-            padding: 23px 24px;
+            padding: 23px 25px;
 
             border-bottom:
-                1px solid rgba(255,255,255,.07);
+                1px solid var(--border);
         }
-
 
         .box-header h2 {
             font-size: 17px;
+            font-weight: 850;
         }
-
 
         .box-header p {
             margin-top: 5px;
 
-            color:
-                rgba(255,255,255,.4);
+            color: var(--muted);
 
-            font-size: 13px;
+            font-size: 12px;
         }
-
 
         .box-content {
-            padding: 24px;
+            padding: 25px;
         }
 
 
-        /* =====================================================
+        /* =========================
            STEP
-        ===================================================== */
+        ========================= */
 
         .step {
-            margin-bottom: 31px;
+            margin-bottom: 34px;
         }
-
 
         .step:last-child {
             margin-bottom: 0;
         }
 
-
         .step-head {
             display: flex;
+
             align-items: center;
 
             gap: 12px;
 
-            margin-bottom: 16px;
+            margin-bottom: 17px;
         }
 
-
         .step-number {
-            width: 32px;
-            height: 32px;
+            width: 34px;
+            height: 34px;
 
             flex-shrink: 0;
 
@@ -314,41 +303,38 @@
             align-items: center;
             justify-content: center;
 
-            border-radius: 10px;
+            border-radius: 11px;
 
             background:
-                rgba(255,48,48,.13);
-
-            color:
-                #ff4b4b;
-
-            font-size: 13px;
-            font-weight: 900;
+                rgba(255,48,48,.12);
 
             border:
                 1px solid
-                rgba(255,48,48,.2);
-        }
+                rgba(255,48,48,.22);
 
+            color: #ff5050;
+
+            font-size: 12px;
+            font-weight: 950;
+        }
 
         .step-head h3 {
             font-size: 15px;
+            font-weight: 850;
         }
-
 
         .step-head p {
             margin-top: 3px;
 
-            color:
-                rgba(255,255,255,.4);
+            color: var(--muted);
 
             font-size: 12px;
         }
 
 
-        /* =====================================================
-           USERNAME
-        ===================================================== */
+        /* =========================
+           INPUT
+        ========================= */
 
         .input-label {
             display: block;
@@ -356,57 +342,95 @@
             margin-bottom: 8px;
 
             color:
-                rgba(255,255,255,.65);
+                rgba(255,255,255,.66);
 
             font-size: 12px;
-            font-weight: 700;
+            font-weight: 750;
         }
-
 
         .input {
             width: 100%;
-
-            height: 48px;
+            height: 50px;
 
             padding: 0 15px;
 
-            border-radius: 12px;
+            border-radius: 13px;
 
             border:
-                1px solid rgba(255,255,255,.09);
+                1px solid
+                rgba(255,255,255,.09);
 
             outline: none;
 
             background:
-                rgba(0,0,0,.28);
+                rgba(0,0,0,.30);
 
             color: white;
 
             font-size: 14px;
 
-            transition: .18s ease;
+            transition: .2s ease;
         }
-
 
         .input::placeholder {
             color:
                 rgba(255,255,255,.25);
         }
 
-
         .input:focus {
             border-color:
-                rgba(255,48,48,.65);
+                rgba(255,48,48,.7);
 
             box-shadow:
                 0 0 0 3px
-                rgba(255,48,48,.08);
+                rgba(255,48,48,.09);
         }
 
 
-        /* =====================================================
-           COIN PACKAGES
-        ===================================================== */
+        /* =========================
+           DISABLED AREA
+        ========================= */
+
+        .locked {
+            opacity: .45;
+
+            filter: saturate(.5);
+
+            pointer-events: none;
+
+            user-select: none;
+        }
+
+        .lock-message {
+            display: flex;
+
+            align-items: center;
+
+            gap: 9px;
+
+            margin-bottom: 13px;
+
+            padding: 11px 13px;
+
+            border-radius: 11px;
+
+            background:
+                rgba(255,190,0,.06);
+
+            border:
+                1px solid
+                rgba(255,190,0,.10);
+
+            color:
+                rgba(255,255,255,.55);
+
+            font-size: 11px;
+        }
+
+
+        /* =========================
+           PACKAGES
+        ========================= */
 
         .packages {
             display: grid;
@@ -417,53 +441,51 @@
             gap: 12px;
         }
 
-
         .package {
             position: relative;
 
             padding: 18px;
 
+            min-height: 125px;
+
             border-radius: 15px;
 
             border:
-                1px solid rgba(255,255,255,.08);
+                1px solid
+                rgba(255,255,255,.08);
 
             background:
                 rgba(255,255,255,.025);
 
             cursor: pointer;
 
-            transition:
-                transform .18s ease,
-                border-color .18s ease,
-                background .18s ease;
+            transition: .2s ease;
         }
-
 
         .package:hover {
             transform:
                 translateY(-2px);
 
+            background:
+                rgba(255,255,255,.045);
+
             border-color:
                 rgba(255,255,255,.18);
-
-            background:
-                rgba(255,255,255,.05);
         }
-
 
         .package.selected {
             border-color:
-                #ff3030;
+                var(--red);
 
             background:
                 rgba(255,48,48,.09);
 
             box-shadow:
                 0 0 0 1px
-                rgba(255,48,48,.12);
+                rgba(255,48,48,.15),
+                0 12px 35px
+                rgba(255,0,0,.08);
         }
-
 
         .package-icon {
             width: 38px;
@@ -476,39 +498,35 @@
             border-radius: 11px;
 
             background:
-                rgba(255,185,0,.1);
+                rgba(255,190,0,.09);
+
+            margin-bottom: 12px;
 
             font-size: 18px;
-
-            margin-bottom: 13px;
         }
-
 
         .package-name {
             font-size: 14px;
-            font-weight: 800;
+            font-weight: 850;
         }
-
 
         .package-price {
             margin-top: 6px;
 
-            color:
-                #ff5252;
+            color: #ff5050;
 
             font-size: 13px;
-            font-weight: 800;
+            font-weight: 850;
         }
-
 
         .package-check {
             position: absolute;
 
-            top: 14px;
-            right: 14px;
+            right: 13px;
+            top: 13px;
 
-            width: 22px;
-            height: 22px;
+            width: 23px;
+            height: 23px;
 
             display: none;
 
@@ -518,21 +536,19 @@
             border-radius: 50%;
 
             background:
-                #ff3030;
+                var(--red);
 
             font-size: 12px;
         }
 
-
-        .package.selected
-        .package-check {
+        .package.selected .package-check {
             display: flex;
         }
 
 
-        /* =====================================================
-           PAYMENT METHODS
-        ===================================================== */
+        /* =========================
+           PAYMENT
+        ========================= */
 
         .payments {
             display: grid;
@@ -543,14 +559,14 @@
             gap: 9px;
         }
 
-
         .payment {
-            min-height: 70px;
+            min-height: 73px;
 
             border-radius: 13px;
 
             border:
-                1px solid rgba(255,255,255,.08);
+                1px solid
+                rgba(255,255,255,.08);
 
             background:
                 rgba(255,255,255,.025);
@@ -560,34 +576,33 @@
             cursor: pointer;
 
             display: flex;
+
             flex-direction: column;
 
             align-items: center;
+
             justify-content: center;
 
             gap: 7px;
 
-            font-size: 11px;
-            font-weight: 700;
+            font-size: 10px;
+            font-weight: 800;
 
-            transition: .18s ease;
+            transition: .2s ease;
         }
-
 
         .payment:hover {
             background:
                 rgba(255,255,255,.055);
         }
 
-
         .payment.selected {
             border-color:
-                #ff3030;
+                var(--red);
 
             background:
-                rgba(255,48,48,.1);
+                rgba(255,48,48,.10);
         }
-
 
         .payment-icon {
             width: 30px;
@@ -602,19 +617,19 @@
             background:
                 rgba(255,255,255,.07);
 
-            font-size: 11px;
-            font-weight: 900;
+            font-size: 10px;
+            font-weight: 950;
         }
 
 
-        /* =====================================================
-           CARD DEMO FORM
-        ===================================================== */
+        /* =========================
+           CARD FORM
+        ========================= */
 
         .card-demo {
             display: none;
 
-            margin-top: 15px;
+            margin-top: 16px;
 
             padding: 18px;
 
@@ -624,29 +639,44 @@
                 rgba(255,255,255,.025);
 
             border:
-                1px solid rgba(255,255,255,.07);
+                1px solid
+                rgba(255,255,255,.08);
         }
-
 
         .card-demo.show {
             display: block;
+
+            animation:
+                cardIn .2s ease;
         }
 
+        @keyframes cardIn {
 
-        .card-demo-title {
+            from {
+                opacity: 0;
+                transform: translateY(-5px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+        .card-title {
             display: flex;
 
             align-items: center;
 
             gap: 10px;
 
-            margin-bottom: 15px;
+            margin-bottom: 16px;
         }
 
-
-        .card-demo-title-icon {
-            width: 36px;
-            height: 36px;
+        .card-title-icon {
+            width: 37px;
+            height: 37px;
 
             display: flex;
             align-items: center;
@@ -655,26 +685,22 @@
             border-radius: 10px;
 
             background:
-                rgba(255,48,48,.1);
+                rgba(255,48,48,.11);
         }
 
-
-        .card-demo-title strong {
+        .card-title strong {
             font-size: 13px;
         }
 
-
-        .card-demo-title span {
+        .card-title span {
             display: block;
 
             margin-top: 3px;
 
-            color:
-                rgba(255,255,255,.4);
+            color: var(--muted);
 
             font-size: 11px;
         }
-
 
         .demo-grid {
             display: grid;
@@ -686,15 +712,15 @@
         }
 
 
-        /* =====================================================
-           ORDER
-        ===================================================== */
+        /* =========================
+           SUMMARY
+        ========================= */
 
         .summary {
             position: sticky;
+
             top: 95px;
         }
-
 
         .summary-top {
             padding: 25px;
@@ -702,18 +728,17 @@
             background:
                 linear-gradient(
                     145deg,
-                    rgba(255,48,48,.12),
+                    rgba(255,48,48,.13),
                     transparent
                 );
 
             border-bottom:
-                1px solid rgba(255,255,255,.07);
+                1px solid var(--border);
         }
 
-
         .summary-icon {
-            width: 45px;
-            height: 45px;
+            width: 46px;
+            height: 46px;
 
             display: flex;
             align-items: center;
@@ -729,26 +754,22 @@
             font-size: 20px;
         }
 
-
         .summary-top h2 {
             font-size: 18px;
+            font-weight: 900;
         }
-
 
         .summary-top p {
             margin-top: 5px;
 
-            color:
-                rgba(255,255,255,.4);
+            color: var(--muted);
 
             font-size: 12px;
         }
 
-
         .summary-body {
             padding: 23px;
         }
-
 
         .summary-row {
             display: flex;
@@ -757,7 +778,7 @@
 
             gap: 15px;
 
-            padding: 13px 0;
+            padding: 14px 0;
 
             border-bottom:
                 1px solid
@@ -766,22 +787,14 @@
             font-size: 13px;
         }
 
-
-        .summary-row:last-of-type {
-            border-bottom: 0;
-        }
-
-
-        .summary-row span:first-child {
+        .summary-row span {
             color:
-                rgba(255,255,255,.43);
+                rgba(255,255,255,.42);
         }
-
 
         .summary-row strong {
             text-align: right;
         }
-
 
         .total {
             margin-top: 13px;
@@ -790,36 +803,30 @@
 
             border-top:
                 1px solid
-                rgba(255,255,255,.08);
+                rgba(255,255,255,.09);
 
             display: flex;
 
-            align-items: center;
-
             justify-content: space-between;
+
+            align-items: center;
         }
 
-
         .total span {
-            color:
-                rgba(255,255,255,.5);
+            color: var(--muted);
 
             font-size: 13px;
         }
 
-
         .total strong {
-            color:
-                #ff4747;
+            color: #ff4d4d;
 
             font-size: 21px;
         }
 
-
         .continue {
             width: 100%;
-
-            height: 50px;
+            height: 51px;
 
             margin-top: 20px;
 
@@ -830,14 +837,14 @@
             background:
                 linear-gradient(
                     135deg,
-                    #ff3b3b,
-                    #c80000
+                    #ff4141,
+                    #c60000
                 );
 
             color: white;
 
             font-size: 13px;
-            font-weight: 900;
+            font-weight: 950;
 
             cursor: pointer;
 
@@ -845,30 +852,22 @@
                 0 12px 30px
                 rgba(255,0,0,.18);
 
-            transition: .18s ease;
+            transition: .2s ease;
         }
-
 
         .continue:hover {
             transform:
                 translateY(-2px);
 
             box-shadow:
-                0 16px 35px
-                rgba(255,0,0,.25);
+                0 16px 38px
+                rgba(255,0,0,.28);
         }
-
-
-        .continue:active {
-            transform:
-                translateY(0);
-        }
-
 
         .warning {
             margin-top: 15px;
 
-            padding: 12px;
+            padding: 13px;
 
             border-radius: 11px;
 
@@ -877,7 +876,7 @@
 
             border:
                 1px solid
-                rgba(255,190,0,.1);
+                rgba(255,190,0,.10);
 
             color:
                 rgba(255,255,255,.45);
@@ -888,9 +887,9 @@
         }
 
 
-        /* =====================================================
+        /* =========================
            TOAST
-        ===================================================== */
+        ========================= */
 
         .toast {
             position: fixed;
@@ -906,28 +905,28 @@
             pointer-events: none;
 
             padding:
-                13px 18px;
+                13px 19px;
 
             border-radius: 12px;
 
             background:
-                #181818;
+                #171717;
 
             border:
-                1px solid rgba(255,255,255,.1);
+                1px solid
+                rgba(255,255,255,.1);
 
             box-shadow:
                 0 15px 45px
-                rgba(0,0,0,.4);
+                rgba(0,0,0,.45);
 
             font-size: 13px;
-            font-weight: 700;
+            font-weight: 750;
 
             transition: .25s ease;
 
             z-index: 999;
         }
-
 
         .toast.show {
             opacity: 1;
@@ -937,16 +936,11 @@
         }
 
 
-        /* =====================================================
+        /* =========================
            MOBILE
-        ===================================================== */
+        ========================= */
 
         @media (max-width: 850px) {
-
-            nav a {
-                padding: 8px 7px;
-                font-size: 12px;
-            }
 
             .layout {
                 grid-template-columns: 1fr;
@@ -954,6 +948,11 @@
 
             .summary {
                 position: static;
+            }
+
+            nav a {
+                padding: 8px 8px;
+                font-size: 12px;
             }
 
         }
@@ -971,9 +970,8 @@
                 gap: 10px;
 
                 padding:
-                    14px 15px;
+                    14px 12px;
             }
-
 
             nav {
                 width: 100%;
@@ -981,42 +979,33 @@
                 overflow-x: auto;
 
                 justify-content: flex-start;
-
-                padding-bottom: 2px;
             }
-
 
             nav a {
                 white-space: nowrap;
             }
 
-
             main {
                 padding:
-                    35px 14px 60px;
+                    35px 13px 65px;
             }
-
 
             .page-title h1 {
-                font-size: 27px;
+                font-size: 28px;
             }
-
 
             .packages {
                 grid-template-columns: 1fr;
             }
-
 
             .payments {
                 grid-template-columns:
                     repeat(2, 1fr);
             }
 
-
             .demo-grid {
                 grid-template-columns: 1fr;
             }
-
 
             .box-content {
                 padding: 18px;
@@ -1032,10 +1021,6 @@
 <body>
 
 
-<!-- =====================================================
-     HEADER
-===================================================== -->
-
 <header>
 
     <div class="navbar">
@@ -1046,7 +1031,6 @@
         >
             ⚔️ <span>BOX</span>PVP
         </a>
-
 
         <nav>
 
@@ -1084,16 +1068,12 @@
 </header>
 
 
-<!-- =====================================================
-     MAIN
-===================================================== -->
-
 <main>
 
 
-    <div class="page-title">
+    <section class="page-title">
 
-        <div class="icon">
+        <div class="title-icon">
             🛒
         </div>
 
@@ -1102,20 +1082,20 @@
         </h1>
 
         <p>
-            Chọn tài khoản, gói Coin và phương thức thanh toán.
+            Nạp Coin nhanh chóng và an toàn cho tài khoản Minecraft.
         </p>
 
-    </div>
+    </section>
 
 
     <div class="layout">
 
 
-        <!-- =================================================
+        <!-- =========================
              LEFT
-        ================================================== -->
+        ========================= -->
 
-        <div class="box">
+        <section class="box">
 
             <div class="box-header">
 
@@ -1133,9 +1113,7 @@
             <div class="box-content">
 
 
-                <!-- =========================================
-                     STEP 1
-                ========================================== -->
+                <!-- STEP 01 -->
 
                 <div class="step">
 
@@ -1152,7 +1130,7 @@
                             </h3>
 
                             <p>
-                                Nhập tên Minecraft của bạn
+                                Nhập đúng username Minecraft.
                             </p>
 
                         </div>
@@ -1179,11 +1157,12 @@
                 </div>
 
 
-                <!-- =========================================
-                     STEP 2
-                ========================================== -->
+                <!-- STEP 02 -->
 
-                <div class="step">
+                <div
+                    class="step"
+                    id="packageStep"
+                >
 
                     <div class="step-head">
 
@@ -1198,7 +1177,7 @@
                             </h3>
 
                             <p>
-                                Chọn số Coin muốn nạp
+                                Chọn số Coin muốn nạp.
                             </p>
 
                         </div>
@@ -1206,8 +1185,18 @@
                     </div>
 
 
-                    <div class="packages">
+                    <div
+                        class="lock-message"
+                        id="packageLock"
+                    >
+                        🔒 Nhập username trước để mở phần này.
+                    </div>
 
+
+                    <div
+                        class="packages locked"
+                        id="packages"
+                    >
 
                         <div
                             class="package"
@@ -1308,17 +1297,17 @@
 
                         </div>
 
-
                     </div>
 
                 </div>
 
 
-                <!-- =========================================
-                     STEP 3
-                ========================================== -->
+                <!-- STEP 03 -->
 
-                <div class="step">
+                <div
+                    class="step"
+                    id="paymentStep"
+                >
 
                     <div class="step-head">
 
@@ -1333,7 +1322,7 @@
                             </h3>
 
                             <p>
-                                Chọn phương thức bạn muốn sử dụng
+                                Chọn phương thức bạn muốn sử dụng.
                             </p>
 
                         </div>
@@ -1341,134 +1330,127 @@
                     </div>
 
 
-                    <div class="payments">
+                    <div
+                        class="lock-message"
+                        id="paymentLock"
+                    >
+                        🔒 Nhập username và chọn gói trước.
+                    </div>
 
+
+                    <div
+                        class="payments locked"
+                        id="payments"
+                    >
 
                         <button
+                            type="button"
                             class="payment"
                             data-method="ZingCard"
                         >
-
                             <span class="payment-icon">
                                 Z
                             </span>
-
                             ZingCard
-
                         </button>
 
 
                         <button
+                            type="button"
                             class="payment"
                             data-method="ZaloPay"
                         >
-
                             <span class="payment-icon">
                                 Z
                             </span>
-
                             ZaloPay
-
                         </button>
 
 
                         <button
+                            type="button"
                             class="payment"
                             data-method="VietQR"
                         >
-
                             <span class="payment-icon">
                                 QR
                             </span>
-
                             VietQR
-
                         </button>
 
 
                         <button
+                            type="button"
                             class="payment"
                             data-method="ATM"
                         >
-
                             <span class="payment-icon">
                                 ATM
                             </span>
-
                             ATM
-
                         </button>
 
 
                         <button
+                            type="button"
                             class="payment"
                             data-method="Credit Card"
                         >
-
                             <span class="payment-icon">
                                 💳
                             </span>
-
                             Credit Card
-
                         </button>
 
 
                         <button
+                            type="button"
                             class="payment"
                             data-method="Viettel"
                         >
-
                             <span class="payment-icon">
                                 V
                             </span>
-
                             Viettel
-
                         </button>
 
 
                         <button
+                            type="button"
                             class="payment"
                             data-method="Vinaphone"
                         >
-
                             <span class="payment-icon">
                                 V
                             </span>
-
                             Vinaphone
-
                         </button>
 
 
                         <button
+                            type="button"
                             class="payment"
                             data-method="Mobifone"
                         >
-
                             <span class="payment-icon">
                                 M
                             </span>
-
                             Mobifone
-
                         </button>
-
 
                     </div>
 
 
-                    <!-- FORM DEMO -->
+                    <!-- CARD INPUT -->
 
                     <div
-                        id="cardDemo"
                         class="card-demo"
+                        id="cardDemo"
                     >
 
-                        <div class="card-demo-title">
+                        <div class="card-title">
 
-                            <div class="card-demo-title-icon">
+                            <div class="card-title-icon">
                                 🎫
                             </div>
 
@@ -1479,7 +1461,7 @@
                                 </strong>
 
                                 <span>
-                                    Giao diện mô phỏng
+                                    Nhập Serial và mã thẻ.
                                 </span>
 
                             </div>
@@ -1489,11 +1471,11 @@
 
                         <div class="demo-grid">
 
-
                             <div>
 
                                 <label
                                     class="input-label"
+                                    for="serial"
                                 >
                                     Serial
                                 </label>
@@ -1502,7 +1484,7 @@
                                     class="input"
                                     id="serial"
                                     type="text"
-                                    placeholder="Serial demo"
+                                    placeholder="Nhập Serial"
                                     autocomplete="off"
                                 >
 
@@ -1513,6 +1495,7 @@
 
                                 <label
                                     class="input-label"
+                                    for="cardCode"
                                 >
                                     Mã thẻ
                                 </label>
@@ -1521,12 +1504,11 @@
                                     class="input"
                                     id="cardCode"
                                     type="text"
-                                    placeholder="Mã demo"
+                                    placeholder="Nhập mã thẻ"
                                     autocomplete="off"
                                 >
 
                             </div>
-
 
                         </div>
 
@@ -1534,18 +1516,16 @@
 
                 </div>
 
-
             </div>
 
-        </div>
+        </section>
 
 
-        <!-- =================================================
-             RIGHT SUMMARY
-        ================================================== -->
+        <!-- =========================
+             SUMMARY
+        ========================= -->
 
         <aside class="box summary">
-
 
             <div class="summary-top">
 
@@ -1565,7 +1545,6 @@
 
 
             <div class="summary-body">
-
 
                 <div class="summary-row">
 
@@ -1622,6 +1601,7 @@
                 <button
                     class="continue"
                     id="continueButton"
+                    type="button"
                 >
                     TIẾP TỤC →
                 </button>
@@ -1631,26 +1611,19 @@
 
                     ⚠️ <strong>Chế độ thử nghiệm</strong><br>
 
-                    Trang này hiện chỉ mô phỏng giao diện.
-                    Không thực hiện giao dịch hoặc gửi thông tin
-                    thanh toán thật.
+                    Trang hiện chỉ mô phỏng giao diện.
+                    Không thực hiện giao dịch hoặc thu tiền thật.
 
                 </div>
-
 
             </div>
 
         </aside>
 
-
     </div>
 
 </main>
 
-
-<!-- =====================================================
-     TOAST
-===================================================== -->
 
 <div
     class="toast"
@@ -1661,21 +1634,66 @@
 <script>
 
     /* =====================================================
-       DATA
+       VARIABLES
     ===================================================== */
 
     let selectedPackage = null;
-
     let selectedPayment = null;
+
+
+    /* =====================================================
+       ELEMENTS
+    ===================================================== */
+
+    const usernameInput =
+        document.getElementById("username");
+
+    const summaryUser =
+        document.getElementById("summaryUser");
+
+    const summaryPackage =
+        document.getElementById("summaryPackage");
+
+    const summaryPayment =
+        document.getElementById("summaryPayment");
+
+    const summaryPrice =
+        document.getElementById("summaryPrice");
+
+    const packages =
+        document.querySelectorAll(".package");
+
+    const paymentButtons =
+        document.querySelectorAll(".payment");
+
+    const packagesBox =
+        document.getElementById("packages");
+
+    const paymentsBox =
+        document.getElementById("payments");
+
+    const packageLock =
+        document.getElementById("packageLock");
+
+    const paymentLock =
+        document.getElementById("paymentLock");
+
+    const cardDemo =
+        document.getElementById("cardDemo");
+
+    const cardTitle =
+        document.getElementById("cardTitle");
+
+    const continueButton =
+        document.getElementById("continueButton");
+
+    const toast =
+        document.getElementById("toast");
 
 
     /* =====================================================
        TOAST
     ===================================================== */
-
-    const toast =
-        document.getElementById("toast");
-
 
     function showToast(message) {
 
@@ -1683,9 +1701,7 @@
 
         toast.classList.add("show");
 
-        clearTimeout(
-            window.toastTimer
-        );
+        clearTimeout(window.toastTimer);
 
         window.toastTimer =
             setTimeout(() => {
@@ -1698,53 +1714,99 @@
 
 
     /* =====================================================
-       USERNAME
+       KIỂM TRA USERNAME
     ===================================================== */
 
-    const usernameInput =
-        document.getElementById("username");
+    function hasUsername() {
+
+        return usernameInput.value.trim().length > 0;
+
+    }
 
 
-    const summaryUser =
-        document.getElementById("summaryUser");
+    /* =====================================================
+       CẬP NHẬT KHÓA / MỞ
+    ===================================================== */
 
+    function updateLocks() {
+
+        const usernameOK =
+            hasUsername();
+
+        const packageOK =
+            selectedPackage !== null;
+
+
+        /* =====================
+           PACKAGE
+        ===================== */
+
+        if (usernameOK) {
+
+            packagesBox.classList.remove("locked");
+
+            packageLock.style.display = "none";
+
+        } else {
+
+            packagesBox.classList.add("locked");
+
+            packageLock.style.display = "flex";
+
+        }
+
+
+        /* =====================
+           PAYMENT
+        ===================== */
+
+        if (
+            usernameOK &&
+            packageOK
+        ) {
+
+            paymentsBox.classList.remove("locked");
+
+            paymentLock.style.display = "none";
+
+        } else {
+
+            paymentsBox.classList.add("locked");
+
+            paymentLock.style.display = "flex";
+
+        }
+
+    }
+
+
+    /* =====================================================
+       USERNAME
+    ===================================================== */
 
     usernameInput.addEventListener(
         "input",
         () => {
 
-            const name =
+            const username =
                 usernameInput.value.trim();
 
 
             summaryUser.textContent =
-                name || "Chưa nhập";
-
-        }
-    );
+                username || "Chưa nhập";
 
 
-    /* =====================================================
-       PACKAGE
-    ===================================================== */
+            /*
+             * Nếu username bị xóa,
+             * reset toàn bộ lựa chọn.
+             */
 
-    const packages =
-        document.querySelectorAll(".package");
+            if (!username) {
 
+                selectedPackage = null;
 
-    const summaryPackage =
-        document.getElementById("summaryPackage");
+                selectedPayment = null;
 
-
-    const summaryPrice =
-        document.getElementById("summaryPrice");
-
-
-    packages.forEach(packageElement => {
-
-        packageElement.addEventListener(
-            "click",
-            () => {
 
                 packages.forEach(item => {
 
@@ -1755,58 +1817,134 @@
                 });
 
 
-                packageElement.classList.add(
-                    "selected"
-                );
+                paymentButtons.forEach(item => {
 
+                    item.classList.remove(
+                        "selected"
+                    );
 
-                selectedPackage = {
-
-                    coins:
-                        packageElement.dataset.coins,
-
-                    price:
-                        Number(
-                            packageElement.dataset.price
-                        )
-
-                };
+                });
 
 
                 summaryPackage.textContent =
-                    `${selectedPackage.coins} Coin`;
+                    "Chưa chọn";
+
+
+                summaryPayment.textContent =
+                    "Chưa chọn";
 
 
                 summaryPrice.textContent =
-                    selectedPackage.price
-                        .toLocaleString("vi-VN")
-                        + " VND";
+                    "0 VND";
+
+
+                cardDemo.classList.remove(
+                    "show"
+                );
 
             }
-        );
 
-    });
+
+            updateLocks();
+
+        }
+    );
+
+
+    /* =====================================================
+       PACKAGE
+    ===================================================== */
+
+    packages.forEach(
+        packageElement => {
+
+            packageElement.addEventListener(
+                "click",
+                () => {
+
+                    if (!hasUsername()) {
+
+                        showToast(
+                            "⚠️ Hãy nhập username trước."
+                        );
+
+                        usernameInput.focus();
+
+                        return;
+
+                    }
+
+
+                    packages.forEach(item => {
+
+                        item.classList.remove(
+                            "selected"
+                        );
+
+                    });
+
+
+                    packageElement.classList.add(
+                        "selected"
+                    );
+
+
+                    selectedPackage = {
+
+                        coins:
+                            packageElement.dataset.coins,
+
+                        price:
+                            Number(
+                                packageElement.dataset.price
+                            )
+
+                    };
+
+
+                    selectedPayment = null;
+
+
+                    paymentButtons.forEach(item => {
+
+                        item.classList.remove(
+                            "selected"
+                        );
+
+                    });
+
+
+                    summaryPackage.textContent =
+                        `${selectedPackage.coins} Coin`;
+
+
+                    summaryPayment.textContent =
+                        "Chưa chọn";
+
+
+                    summaryPrice.textContent =
+                        selectedPackage.price
+                            .toLocaleString("vi-VN")
+                            + " VND";
+
+
+                    cardDemo.classList.remove(
+                        "show"
+                    );
+
+
+                    updateLocks();
+
+                }
+            );
+
+        }
+    );
 
 
     /* =====================================================
        PAYMENT
     ===================================================== */
-
-    const paymentButtons =
-        document.querySelectorAll(".payment");
-
-
-    const summaryPayment =
-        document.getElementById("summaryPayment");
-
-
-    const cardDemo =
-        document.getElementById("cardDemo");
-
-
-    const cardTitle =
-        document.getElementById("cardTitle");
-
 
     const cardMethods = [
 
@@ -1818,76 +1956,95 @@
     ];
 
 
-    paymentButtons.forEach(button => {
+    paymentButtons.forEach(
+        button => {
 
-        button.addEventListener(
-            "click",
-            () => {
+            button.addEventListener(
+                "click",
+                () => {
 
-                paymentButtons.forEach(item => {
+                    if (!hasUsername()) {
 
-                    item.classList.remove(
+                        showToast(
+                            "⚠️ Hãy nhập username trước."
+                        );
+
+                        usernameInput.focus();
+
+                        return;
+
+                    }
+
+
+                    if (!selectedPackage) {
+
+                        showToast(
+                            "⚠️ Hãy chọn gói Coin trước."
+                        );
+
+                        return;
+
+                    }
+
+
+                    paymentButtons.forEach(item => {
+
+                        item.classList.remove(
+                            "selected"
+                        );
+
+                    });
+
+
+                    button.classList.add(
                         "selected"
                     );
 
-                });
+
+                    selectedPayment =
+                        button.dataset.method;
 
 
-                button.classList.add(
-                    "selected"
-                );
+                    summaryPayment.textContent =
+                        selectedPayment;
 
 
-                selectedPayment =
-                    button.dataset.method;
+                    /*
+                     * Thẻ cào
+                     */
+
+                    if (
+                        cardMethods.includes(
+                            selectedPayment
+                        )
+                    ) {
+
+                        cardDemo.classList.add(
+                            "show"
+                        );
 
 
-                summaryPayment.textContent =
-                    selectedPayment;
+                        cardTitle.textContent =
+                            `${selectedPayment} - Thông tin thẻ`;
 
+                    } else {
 
-                /*
-                 * Chỉ hiển thị form mô phỏng
-                 * cho các loại thẻ cào.
-                 */
+                        cardDemo.classList.remove(
+                            "show"
+                        );
 
-                if (
-                    cardMethods.includes(
-                        selectedPayment
-                    )
-                ) {
-
-                    cardDemo.classList.add(
-                        "show"
-                    );
-
-
-                    cardTitle.textContent =
-                        `${selectedPayment} - Demo`;
-
-                } else {
-
-                    cardDemo.classList.remove(
-                        "show"
-                    );
+                    }
 
                 }
+            );
 
-            }
-        );
-
-    });
+        }
+    );
 
 
     /* =====================================================
        CONTINUE
     ===================================================== */
-
-    const continueButton =
-        document.getElementById(
-            "continueButton"
-        );
-
 
     continueButton.addEventListener(
         "click",
@@ -1932,12 +2089,73 @@
             }
 
 
+            /*
+             * Kiểm tra thẻ cào
+             */
+
+            if (
+                cardMethods.includes(
+                    selectedPayment
+                )
+            ) {
+
+                const serial =
+                    document
+                        .getElementById("serial")
+                        .value.trim();
+
+
+                const cardCode =
+                    document
+                        .getElementById("cardCode")
+                        .value.trim();
+
+
+                if (!serial) {
+
+                    showToast(
+                        "⚠️ Hãy nhập Serial thẻ."
+                    );
+
+                    document
+                        .getElementById("serial")
+                        .focus();
+
+                    return;
+
+                }
+
+
+                if (!cardCode) {
+
+                    showToast(
+                        "⚠️ Hãy nhập mã thẻ."
+                    );
+
+                    document
+                        .getElementById("cardCode")
+                        .focus();
+
+                    return;
+
+                }
+
+            }
+
+
             showToast(
-                `✅ Đã chọn ${selectedPackage.coins} Coin - ${selectedPayment}. Đây là giao diện demo.`
+                `✅ Đơn hàng ${selectedPackage.coins} Coin đã được tạo cho ${username}.`
             );
 
         }
     );
+
+
+    /* =====================================================
+       KHỞI ĐỘNG
+    ===================================================== */
+
+    updateLocks();
 
 </script>
 
@@ -1945,4 +2163,3 @@
 </body>
 
 </html>
-```
