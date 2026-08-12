@@ -1,0 +1,1098 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Code | BOXPVP</title>
+    <meta
+        name="description"
+        content="Code hàng ngày BOXPVP"
+    >
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family:
+                Inter,
+                system-ui,
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                sans-serif;
+
+            min-height: 100vh;
+
+            color: #fff;
+
+            background:
+                radial-gradient(
+                    circle at 50% -15%,
+                    rgba(255, 40, 40, .18),
+                    transparent 38%
+                ),
+                #080808;
+        }
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+
+            border-bottom:
+                1px solid rgba(255,255,255,.08);
+
+            background:
+                rgba(8,8,8,.88);
+
+            backdrop-filter:
+                blur(18px);
+        }
+
+        .navbar {
+            max-width: 1180px;
+            min-height: 72px;
+
+            margin: auto;
+            padding: 0 22px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 20px;
+        }
+
+        .logo {
+            color: #fff;
+            text-decoration: none;
+
+            font-size: 21px;
+            font-weight: 900;
+
+            white-space: nowrap;
+        }
+
+        .logo span {
+            color: #ff3030;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        nav a {
+            color: rgba(255,255,255,.62);
+            text-decoration: none;
+
+            padding: 10px 13px;
+
+            border-radius: 10px;
+
+            font-size: 14px;
+            font-weight: 700;
+
+            transition: .18s ease;
+        }
+
+        nav a:hover {
+            color: #fff;
+            background:
+                rgba(255,255,255,.06);
+        }
+
+        nav a.active {
+            color: #fff;
+
+            background:
+                rgba(255,48,48,.12);
+
+            border:
+                1px solid
+                rgba(255,48,48,.22);
+        }
+
+        /* =========================
+           MAIN
+        ========================= */
+
+        main {
+            max-width: 1050px;
+
+            margin: auto;
+
+            padding:
+                55px 20px 80px;
+        }
+
+        .page-title {
+            text-align: center;
+
+            margin-bottom: 35px;
+        }
+
+        .page-icon {
+            width: 68px;
+            height: 68px;
+
+            margin:
+                0 auto 18px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 20px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #ff3030,
+                    #9e0000
+                );
+
+            box-shadow:
+                0 15px 40px
+                rgba(255,0,0,.22);
+
+            font-size: 30px;
+        }
+
+        .page-title h1 {
+            font-size: 35px;
+            font-weight: 900;
+
+            letter-spacing: -.8px;
+        }
+
+        .page-title p {
+            margin-top: 9px;
+
+            color:
+                rgba(255,255,255,.45);
+
+            font-size: 14px;
+        }
+
+        /* =========================
+           GRID
+        ========================= */
+
+        .layout {
+            display: grid;
+
+            grid-template-columns:
+                minmax(0, 1fr)
+                320px;
+
+            gap: 22px;
+
+            align-items: start;
+        }
+
+        .box {
+            overflow: hidden;
+
+            border:
+                1px solid rgba(255,255,255,.08);
+
+            border-radius: 20px;
+
+            background:
+                linear-gradient(
+                    180deg,
+                    rgba(255,255,255,.045),
+                    rgba(255,255,255,.018)
+                );
+
+            box-shadow:
+                0 20px 60px
+                rgba(0,0,0,.25);
+        }
+
+        .box-header {
+            padding: 23px 24px;
+
+            border-bottom:
+                1px solid
+                rgba(255,255,255,.07);
+        }
+
+        .box-header h2 {
+            font-size: 17px;
+        }
+
+        .box-header p {
+            margin-top: 5px;
+
+            color:
+                rgba(255,255,255,.4);
+
+            font-size: 13px;
+        }
+
+        .box-content {
+            padding: 24px;
+        }
+
+        /* =========================
+           CODE CARD
+        ========================= */
+
+        .code-card {
+            position: relative;
+
+            padding: 30px;
+
+            border-radius: 18px;
+
+            border:
+                1px solid
+                rgba(255,48,48,.18);
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(255,48,48,.12),
+                    rgba(255,255,255,.025)
+                );
+
+            text-align: center;
+
+            overflow: hidden;
+        }
+
+        .code-card::before {
+            content: "";
+
+            position: absolute;
+
+            width: 220px;
+            height: 220px;
+
+            right: -100px;
+            top: -100px;
+
+            border-radius: 50%;
+
+            background:
+                rgba(255,0,0,.12);
+
+            filter: blur(5px);
+        }
+
+        .code-icon {
+            position: relative;
+
+            width: 58px;
+            height: 58px;
+
+            margin: auto;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 17px;
+
+            background:
+                rgba(255,48,48,.15);
+
+            border:
+                1px solid
+                rgba(255,48,48,.22);
+
+            font-size: 27px;
+        }
+
+        .code-label {
+            position: relative;
+
+            margin-top: 20px;
+
+            color:
+                rgba(255,255,255,.45);
+
+            font-size: 12px;
+
+            font-weight: 800;
+
+            letter-spacing: 1.5px;
+        }
+
+        .code-value {
+            position: relative;
+
+            margin-top: 12px;
+
+            padding: 18px;
+
+            border-radius: 13px;
+
+            background:
+                rgba(0,0,0,.35);
+
+            border:
+                1px solid
+                rgba(255,255,255,.08);
+
+            color: #fff;
+
+            font-size: 24px;
+
+            font-weight: 900;
+
+            letter-spacing: 2px;
+        }
+
+        .copy-button {
+            position: relative;
+
+            width: 100%;
+
+            height: 48px;
+
+            margin-top: 14px;
+
+            border: 0;
+
+            border-radius: 12px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #ff3b3b,
+                    #c80000
+                );
+
+            color: #fff;
+
+            font-size: 13px;
+
+            font-weight: 900;
+
+            cursor: pointer;
+
+            transition: .18s ease;
+
+            box-shadow:
+                0 12px 30px
+                rgba(255,0,0,.18);
+        }
+
+        .copy-button:hover {
+            transform:
+                translateY(-2px);
+
+            box-shadow:
+                0 16px 35px
+                rgba(255,0,0,.25);
+        }
+
+        /* =========================
+           REWARDS
+        ========================= */
+
+        .rewards {
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 12px;
+
+            margin-top: 18px;
+        }
+
+        .reward {
+            padding: 17px;
+
+            border-radius: 14px;
+
+            background:
+                rgba(255,255,255,.025);
+
+            border:
+                1px solid
+                rgba(255,255,255,.07);
+        }
+
+        .reward-icon {
+            font-size: 22px;
+        }
+
+        .reward-name {
+            margin-top: 9px;
+
+            font-size: 13px;
+
+            color:
+                rgba(255,255,255,.5);
+        }
+
+        .reward-value {
+            margin-top: 4px;
+
+            font-size: 18px;
+
+            font-weight: 900;
+        }
+
+        /* =========================
+           RIGHT
+        ========================= */
+
+        .side {
+            position: sticky;
+            top: 95px;
+        }
+
+        .side-top {
+            padding: 25px;
+
+            border-bottom:
+                1px solid
+                rgba(255,255,255,.07);
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,48,48,.12),
+                    transparent
+                );
+        }
+
+        .side-icon {
+            width: 46px;
+            height: 46px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 14px;
+
+            background:
+                rgba(255,48,48,.12);
+
+            margin-bottom: 15px;
+
+            font-size: 20px;
+        }
+
+        .side-top h2 {
+            font-size: 18px;
+        }
+
+        .side-top p {
+            margin-top: 5px;
+
+            color:
+                rgba(255,255,255,.4);
+
+            font-size: 12px;
+
+            line-height: 1.5;
+        }
+
+        .side-body {
+            padding: 23px;
+        }
+
+        .info-row {
+            display: flex;
+
+            justify-content: space-between;
+
+            gap: 15px;
+
+            padding: 13px 0;
+
+            border-bottom:
+                1px solid
+                rgba(255,255,255,.06);
+
+            font-size: 13px;
+        }
+
+        .info-row:last-child {
+            border-bottom: 0;
+        }
+
+        .info-row span {
+            color:
+                rgba(255,255,255,.43);
+        }
+
+        .info-row strong {
+            text-align: right;
+        }
+
+        .timer {
+            margin-top: 18px;
+
+            padding: 17px;
+
+            border-radius: 14px;
+
+            background:
+                rgba(255,255,255,.025);
+
+            border:
+                1px solid
+                rgba(255,255,255,.07);
+
+            text-align: center;
+        }
+
+        .timer-label {
+            color:
+                rgba(255,255,255,.42);
+
+            font-size: 11px;
+
+            font-weight: 800;
+        }
+
+        .timer-value {
+            margin-top: 7px;
+
+            font-size: 22px;
+
+            font-weight: 900;
+
+            color: #ff4b4b;
+        }
+
+        .note {
+            margin-top: 15px;
+
+            padding: 13px;
+
+            border-radius: 11px;
+
+            background:
+                rgba(255,190,0,.05);
+
+            border:
+                1px solid
+                rgba(255,190,0,.1);
+
+            color:
+                rgba(255,255,255,.45);
+
+            font-size: 11px;
+
+            line-height: 1.6;
+        }
+
+        /* =========================
+           TOAST
+        ========================= */
+
+        .toast {
+            position: fixed;
+
+            left: 50%;
+            bottom: 25px;
+
+            transform:
+                translate(-50%, 20px);
+
+            opacity: 0;
+
+            pointer-events: none;
+
+            padding:
+                13px 18px;
+
+            border-radius: 12px;
+
+            background: #181818;
+
+            border:
+                1px solid
+                rgba(255,255,255,.1);
+
+            box-shadow:
+                0 15px 45px
+                rgba(0,0,0,.4);
+
+            font-size: 13px;
+
+            font-weight: 700;
+
+            transition: .25s ease;
+
+            z-index: 999;
+        }
+
+        .toast.show {
+            opacity: 1;
+
+            transform:
+                translate(-50%, 0);
+        }
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 850px) {
+
+            .layout {
+                grid-template-columns: 1fr;
+            }
+
+            .side {
+                position: static;
+            }
+
+            nav a {
+                padding: 8px 8px;
+                font-size: 12px;
+            }
+        }
+
+        @media (max-width: 620px) {
+
+            .navbar {
+                min-height: 70px;
+
+                flex-direction: column;
+
+                padding: 14px 15px;
+
+                gap: 10px;
+            }
+
+            nav {
+                width: 100%;
+
+                overflow-x: auto;
+
+                justify-content: flex-start;
+            }
+
+            nav a {
+                white-space: nowrap;
+            }
+
+            main {
+                padding:
+                    35px 14px 60px;
+            }
+
+            .page-title h1 {
+                font-size: 28px;
+            }
+
+            .box-content {
+                padding: 18px;
+            }
+
+            .code-card {
+                padding: 22px 17px;
+            }
+
+            .code-value {
+                font-size: 19px;
+
+                letter-spacing: 1px;
+            }
+
+            .rewards {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+
+    <div class="navbar">
+
+        <a
+            href="../index.html"
+            class="logo"
+        >
+            ⚔️ <span>BOX</span>PVP
+        </a>
+
+        <nav>
+
+            <a href="../index.html">
+                🏠 Trang chủ
+            </a>
+
+            <a href="../topup/">
+                🛒 Nạp
+            </a>
+
+            <a
+                href="../code/"
+                class="active"
+            >
+                🎁 Code
+            </a>
+
+            <a href="../account/">
+                👤 Tài khoản
+            </a>
+
+            <a href="../skin/">
+                👕 Skin
+            </a>
+
+            <a href="../ranking/">
+                🏆 BXH
+            </a>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+<main>
+
+    <div class="page-title">
+
+        <div class="page-icon">
+            🎁
+        </div>
+
+        <h1>
+            Code BOXPVP
+        </h1>
+
+        <p>
+            Nhận mã phần thưởng hàng ngày.
+        </p>
+
+    </div>
+
+
+    <div class="layout">
+
+
+        <!-- LEFT -->
+
+        <section class="box">
+
+            <div class="box-header">
+
+                <h2>
+                    🎁 Mã hàng ngày
+                </h2>
+
+                <p>
+                    Mỗi ngày một mã mới.
+                </p>
+
+            </div>
+
+
+            <div class="box-content">
+
+                <div class="code-card">
+
+                    <div class="code-icon">
+                        🎁
+                    </div>
+
+                    <div class="code-label">
+                        MÃ PHẦN THƯỞNG HÔM NAY
+                    </div>
+
+                    <div
+                        class="code-value"
+                        id="codeValue"
+                    >
+                        BXP-7K2M-91QX
+                    </div>
+
+                    <button
+                        class="copy-button"
+                        id="copyCode"
+                    >
+                        📋 SAO CHÉP CODE
+                    </button>
+
+                </div>
+
+
+                <div class="rewards">
+
+                    <div class="reward">
+
+                        <div class="reward-icon">
+                            💰
+                        </div>
+
+                        <div class="reward-name">
+                            Phần thưởng
+                        </div>
+
+                        <div class="reward-value">
+                            +500 Coin
+                        </div>
+
+                    </div>
+
+
+                    <div class="reward">
+
+                        <div class="reward-icon">
+                            💠
+                        </div>
+
+                        <div class="reward-name">
+                            Phần thưởng
+                        </div>
+
+                        <div class="reward-value">
+                            +10 Shard
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- RIGHT -->
+
+        <aside class="box side">
+
+            <div class="side-top">
+
+                <div class="side-icon">
+                    ⏰
+                </div>
+
+                <h2>
+                    Code hàng ngày
+                </h2>
+
+                <p>
+                    Code mới được cập nhật
+                    mỗi ngày lúc 12:00.
+                </p>
+
+            </div>
+
+
+            <div class="side-body">
+
+                <div class="info-row">
+
+                    <span>
+                        Trạng thái
+                    </span>
+
+                    <strong>
+                        🟢 Đang hoạt động
+                    </strong>
+
+                </div>
+
+
+                <div class="info-row">
+
+                    <span>
+                        Coin
+                    </span>
+
+                    <strong>
+                        +500
+                    </strong>
+
+                </div>
+
+
+                <div class="info-row">
+
+                    <span>
+                        Shard
+                    </span>
+
+                    <strong>
+                        +10
+                    </strong>
+
+                </div>
+
+
+                <div class="timer">
+
+                    <div class="timer-label">
+                        CODE MỚI SAU
+                    </div>
+
+                    <div
+                        class="timer-value"
+                        id="timer"
+                    >
+                        00:00:00
+                    </div>
+
+                </div>
+
+
+                <div class="note">
+
+                    ⚠️ Mỗi tài khoản chỉ nên
+                    nhận code một lần mỗi ngày.
+
+                </div>
+
+            </div>
+
+        </aside>
+
+    </div>
+
+</main>
+
+
+<div
+    class="toast"
+    id="toast"
+></div>
+
+
+<script>
+
+    const code =
+        document.getElementById("codeValue");
+
+    const copyButton =
+        document.getElementById("copyCode");
+
+    const toast =
+        document.getElementById("toast");
+
+    const timer =
+        document.getElementById("timer");
+
+
+    function showToast(message) {
+
+        toast.textContent = message;
+
+        toast.classList.add("show");
+
+        clearTimeout(window.toastTimer);
+
+        window.toastTimer =
+            setTimeout(() => {
+
+                toast.classList.remove("show");
+
+            }, 2600);
+    }
+
+
+    copyButton.addEventListener(
+        "click",
+        async () => {
+
+            const value =
+                code.textContent.trim();
+
+            try {
+
+                await navigator.clipboard.writeText(
+                    value
+                );
+
+                showToast(
+                    "📋 Đã sao chép code: " + value
+                );
+
+            } catch {
+
+                showToast(
+                    "🎁 Code: " + value
+                );
+            }
+        }
+    );
+
+
+    function updateTimer() {
+
+        const now = new Date();
+
+        const next =
+            new Date(now);
+
+        next.setHours(12, 0, 0, 0);
+
+
+        if (now >= next) {
+
+            next.setDate(
+                next.getDate() + 1
+            );
+        }
+
+
+        const diff =
+            next - now;
+
+
+        const hours =
+            Math.floor(
+                diff / 3600000
+            );
+
+        const minutes =
+            Math.floor(
+                (diff % 3600000) / 60000
+            );
+
+        const seconds =
+            Math.floor(
+                (diff % 60000) / 1000
+            );
+
+
+        timer.textContent =
+            String(hours).padStart(2, "0")
+            + ":"
+            + String(minutes).padStart(2, "0")
+            + ":"
+            + String(seconds).padStart(2, "0");
+    }
+
+
+    updateTimer();
+
+    setInterval(
+        updateTimer,
+        1000
+    );
+
+</script>
+
+</body>
+</html>
