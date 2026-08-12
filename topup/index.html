@@ -1,282 +1,186 @@
 <!DOCTYPE html>
 <html lang="vi">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Nạp Coin | BOXPVP</title>
 
-    <meta
-        name="description"
-        content="Nạp Coin BOXPVP"
-    >
-
     <style>
-
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
         }
 
-        :root {
-            --red: #ff3030;
-            --red-dark: #b90000;
-            --bg: #070707;
-            --card: #101010;
-            --border: rgba(255,255,255,.08);
-            --text: #ffffff;
-            --muted: rgba(255,255,255,.48);
-        }
-
         body {
-            font-family:
-                Inter,
-                system-ui,
-                -apple-system,
-                BlinkMacSystemFont,
-                "Segoe UI",
-                sans-serif;
-
+            font-family: Inter, system-ui, Arial, sans-serif;
             background:
-                radial-gradient(
-                    circle at 50% -15%,
-                    rgba(255,40,40,.20),
-                    transparent 38%
-                ),
-                radial-gradient(
-                    circle at 100% 50%,
-                    rgba(255,0,0,.06),
-                    transparent 30%
-                ),
-                var(--bg);
-
-            color: var(--text);
+                radial-gradient(circle at 50% -10%, rgba(255, 35, 35, .18), transparent 40%),
+                #080808;
+            color: #fff;
             min-height: 100vh;
         }
 
-
-        /* =========================
-           HEADER
-        ========================= */
+        /* ================= HEADER ================= */
 
         header {
             position: sticky;
             top: 0;
             z-index: 100;
-
-            background:
-                rgba(7,7,7,.86);
-
-            backdrop-filter:
-                blur(18px);
-
-            border-bottom:
-                1px solid var(--border);
+            border-bottom: 1px solid rgba(255,255,255,.08);
+            background: rgba(8,8,8,.88);
+            backdrop-filter: blur(18px);
         }
 
         .navbar {
             max-width: 1180px;
-            height: 72px;
-
+            min-height: 72px;
             margin: auto;
-            padding: 0 22px;
+            padding: 12px 22px;
 
             display: flex;
             align-items: center;
             justify-content: space-between;
+            gap: 20px;
         }
 
         .logo {
-            color: white;
+            color: #fff;
             text-decoration: none;
-
             font-size: 21px;
-            font-weight: 950;
-
-            letter-spacing: -.7px;
+            font-weight: 900;
+            white-space: nowrap;
         }
 
         .logo span {
-            color: var(--red);
+            color: #ff3030;
         }
 
         nav {
             display: flex;
             gap: 6px;
-            align-items: center;
+            overflow-x: auto;
         }
 
         nav a {
-            color: rgba(255,255,255,.58);
-
+            color: rgba(255,255,255,.6);
             text-decoration: none;
-
             padding: 10px 13px;
-
             border-radius: 10px;
-
             font-size: 13px;
-            font-weight: 750;
-
-            transition: .2s ease;
+            font-weight: 700;
+            white-space: nowrap;
+            transition: .2s;
         }
 
         nav a:hover {
-            color: white;
+            color: #fff;
             background: rgba(255,255,255,.06);
         }
 
         nav a.active {
-            color: white;
-
-            background:
-                rgba(255,48,48,.12);
-
-            border:
-                1px solid
-                rgba(255,48,48,.22);
+            color: #fff;
+            background: rgba(255,45,45,.13);
+            border: 1px solid rgba(255,45,45,.25);
         }
 
-
-        /* =========================
-           MAIN
-        ========================= */
+        /* ================= MAIN ================= */
 
         main {
             max-width: 1080px;
-
             margin: auto;
-
-            padding:
-                55px 20px 90px;
+            padding: 55px 20px 80px;
         }
-
-
-        /* =========================
-           TITLE
-        ========================= */
 
         .page-title {
             text-align: center;
-
             margin-bottom: 42px;
         }
 
-        .title-icon {
-            width: 68px;
-            height: 68px;
-
+        .page-icon {
+            width: 65px;
+            height: 65px;
             margin: 0 auto 17px;
 
             display: flex;
             align-items: center;
             justify-content: center;
 
-            border-radius: 21px;
+            border-radius: 20px;
 
-            background:
-                linear-gradient(
-                    135deg,
-                    #ff3b3b,
-                    #9e0000
-                );
+            background: linear-gradient(
+                135deg,
+                #ff3535,
+                #a80000
+            );
 
             box-shadow:
-                0 18px 45px
-                rgba(255,0,0,.25);
+                0 15px 45px rgba(255,0,0,.22);
 
-            font-size: 29px;
+            font-size: 28px;
         }
 
         .page-title h1 {
             font-size: 35px;
-            font-weight: 950;
-            letter-spacing: -.9px;
+            font-weight: 900;
         }
 
         .page-title p {
             margin-top: 9px;
-
-            color: var(--muted);
-
+            color: rgba(255,255,255,.45);
             font-size: 14px;
         }
 
-
-        /* =========================
-           LAYOUT
-        ========================= */
+        /* ================= LAYOUT ================= */
 
         .layout {
             display: grid;
-
-            grid-template-columns:
-                minmax(0, 1fr)
-                340px;
-
+            grid-template-columns: minmax(0, 1fr) 340px;
             gap: 22px;
-
             align-items: start;
         }
-
-
-        /* =========================
-           BOX
-        ========================= */
 
         .box {
             background:
                 linear-gradient(
                     180deg,
                     rgba(255,255,255,.045),
-                    rgba(255,255,255,.018)
+                    rgba(255,255,255,.015)
                 );
 
-            border:
-                1px solid var(--border);
-
-            border-radius: 21px;
-
-            box-shadow:
-                0 25px 70px
-                rgba(0,0,0,.28);
+            border: 1px solid rgba(255,255,255,.08);
+            border-radius: 20px;
 
             overflow: hidden;
+
+            box-shadow:
+                0 20px 60px rgba(0,0,0,.28);
         }
 
         .box-header {
-            padding: 23px 25px;
-
-            border-bottom:
-                1px solid var(--border);
+            padding: 23px 24px;
+            border-bottom: 1px solid rgba(255,255,255,.07);
         }
 
         .box-header h2 {
             font-size: 17px;
-            font-weight: 850;
         }
 
         .box-header p {
             margin-top: 5px;
-
-            color: var(--muted);
-
-            font-size: 12px;
+            color: rgba(255,255,255,.4);
+            font-size: 13px;
         }
 
         .box-content {
-            padding: 25px;
+            padding: 24px;
         }
 
-
-        /* =========================
-           STEP
-        ========================= */
+        /* ================= STEP ================= */
 
         .step {
-            margin-bottom: 34px;
+            margin-bottom: 32px;
         }
 
         .step:last-child {
@@ -285,159 +189,88 @@
 
         .step-head {
             display: flex;
-
             align-items: center;
-
             gap: 12px;
-
-            margin-bottom: 17px;
+            margin-bottom: 16px;
         }
 
         .step-number {
             width: 34px;
             height: 34px;
-
             flex-shrink: 0;
 
             display: flex;
             align-items: center;
             justify-content: center;
 
-            border-radius: 11px;
+            border-radius: 10px;
 
-            background:
-                rgba(255,48,48,.12);
+            background: rgba(255,45,45,.12);
+            border: 1px solid rgba(255,45,45,.2);
 
-            border:
-                1px solid
-                rgba(255,48,48,.22);
-
-            color: #ff5050;
-
+            color: #ff4c4c;
             font-size: 12px;
-            font-weight: 950;
+            font-weight: 900;
         }
 
         .step-head h3 {
             font-size: 15px;
-            font-weight: 850;
         }
 
         .step-head p {
             margin-top: 3px;
-
-            color: var(--muted);
-
+            color: rgba(255,255,255,.4);
             font-size: 12px;
         }
 
-
-        /* =========================
-           INPUT
-        ========================= */
+        /* ================= INPUT ================= */
 
         .input-label {
             display: block;
-
             margin-bottom: 8px;
 
-            color:
-                rgba(255,255,255,.66);
+            color: rgba(255,255,255,.65);
 
             font-size: 12px;
-            font-weight: 750;
+            font-weight: 700;
         }
 
         .input {
             width: 100%;
-            height: 50px;
+            height: 49px;
 
             padding: 0 15px;
 
-            border-radius: 13px;
+            border-radius: 12px;
 
-            border:
-                1px solid
-                rgba(255,255,255,.09);
+            border: 1px solid rgba(255,255,255,.09);
 
             outline: none;
 
-            background:
-                rgba(0,0,0,.30);
-
-            color: white;
+            background: rgba(0,0,0,.3);
+            color: #fff;
 
             font-size: 14px;
 
-            transition: .2s ease;
+            transition: .2s;
         }
 
         .input::placeholder {
-            color:
-                rgba(255,255,255,.25);
+            color: rgba(255,255,255,.25);
         }
 
         .input:focus {
-            border-color:
-                rgba(255,48,48,.7);
+            border-color: rgba(255,45,45,.7);
 
             box-shadow:
-                0 0 0 3px
-                rgba(255,48,48,.09);
+                0 0 0 3px rgba(255,45,45,.08);
         }
 
-
-        /* =========================
-           DISABLED AREA
-        ========================= */
-
-        .locked {
-            opacity: .45;
-
-            filter: saturate(.5);
-
-            pointer-events: none;
-
-            user-select: none;
-        }
-
-        .lock-message {
-            display: flex;
-
-            align-items: center;
-
-            gap: 9px;
-
-            margin-bottom: 13px;
-
-            padding: 11px 13px;
-
-            border-radius: 11px;
-
-            background:
-                rgba(255,190,0,.06);
-
-            border:
-                1px solid
-                rgba(255,190,0,.10);
-
-            color:
-                rgba(255,255,255,.55);
-
-            font-size: 11px;
-        }
-
-
-        /* =========================
-           PACKAGES
-        ========================= */
+        /* ================= PACKAGES ================= */
 
         .packages {
             display: grid;
-
-            grid-template-columns:
-                repeat(2, 1fr);
-
+            grid-template-columns: repeat(2, 1fr);
             gap: 12px;
         }
 
@@ -446,50 +279,40 @@
 
             padding: 18px;
 
-            min-height: 125px;
-
             border-radius: 15px;
 
-            border:
-                1px solid
-                rgba(255,255,255,.08);
+            border: 1px solid rgba(255,255,255,.08);
 
-            background:
-                rgba(255,255,255,.025);
+            background: rgba(255,255,255,.025);
 
             cursor: pointer;
 
-            transition: .2s ease;
+            transition: .2s;
         }
 
-        .package:hover {
-            transform:
-                translateY(-2px);
-
-            background:
-                rgba(255,255,255,.045);
-
-            border-color:
-                rgba(255,255,255,.18);
+        .package:hover:not(.disabled) {
+            transform: translateY(-2px);
+            background: rgba(255,255,255,.05);
+            border-color: rgba(255,255,255,.2);
         }
 
         .package.selected {
-            border-color:
-                var(--red);
-
-            background:
-                rgba(255,48,48,.09);
+            border-color: #ff3030;
+            background: rgba(255,48,48,.09);
 
             box-shadow:
-                0 0 0 1px
-                rgba(255,48,48,.15),
-                0 12px 35px
-                rgba(255,0,0,.08);
+                0 0 0 1px rgba(255,48,48,.12);
+        }
+
+        .package.disabled {
+            opacity: .35;
+            cursor: not-allowed;
+            filter: grayscale(.6);
         }
 
         .package-icon {
-            width: 38px;
-            height: 38px;
+            width: 39px;
+            height: 39px;
 
             display: flex;
             align-items: center;
@@ -497,36 +320,34 @@
 
             border-radius: 11px;
 
-            background:
-                rgba(255,190,0,.09);
-
-            margin-bottom: 12px;
+            background: rgba(255,190,0,.1);
 
             font-size: 18px;
+
+            margin-bottom: 12px;
         }
 
         .package-name {
             font-size: 14px;
-            font-weight: 850;
+            font-weight: 800;
         }
 
         .package-price {
             margin-top: 6px;
 
-            color: #ff5050;
+            color: #ff5252;
 
             font-size: 13px;
-            font-weight: 850;
+            font-weight: 800;
         }
 
         .package-check {
             position: absolute;
+            top: 14px;
+            right: 14px;
 
-            right: 13px;
-            top: 13px;
-
-            width: 23px;
-            height: 23px;
+            width: 22px;
+            height: 22px;
 
             display: none;
 
@@ -535,8 +356,7 @@
 
             border-radius: 50%;
 
-            background:
-                var(--red);
+            background: #ff3030;
 
             font-size: 12px;
         }
@@ -545,68 +365,59 @@
             display: flex;
         }
 
-
-        /* =========================
-           PAYMENT
-        ========================= */
+        /* ================= PAYMENT ================= */
 
         .payments {
             display: grid;
-
-            grid-template-columns:
-                repeat(4, 1fr);
-
+            grid-template-columns: repeat(4, 1fr);
             gap: 9px;
         }
 
         .payment {
-            min-height: 73px;
+            min-height: 72px;
 
             border-radius: 13px;
 
-            border:
-                1px solid
-                rgba(255,255,255,.08);
+            border: 1px solid rgba(255,255,255,.08);
 
-            background:
-                rgba(255,255,255,.025);
+            background: rgba(255,255,255,.025);
 
-            color: white;
+            color: #fff;
 
             cursor: pointer;
 
             display: flex;
-
             flex-direction: column;
-
             align-items: center;
-
             justify-content: center;
 
             gap: 7px;
 
-            font-size: 10px;
-            font-weight: 800;
+            font-size: 11px;
+            font-weight: 700;
 
-            transition: .2s ease;
+            transition: .2s;
         }
 
-        .payment:hover {
-            background:
-                rgba(255,255,255,.055);
+        .payment:hover:not(.disabled) {
+            background: rgba(255,255,255,.06);
+            border-color: rgba(255,255,255,.18);
         }
 
         .payment.selected {
-            border-color:
-                var(--red);
+            border-color: #ff3030;
+            background: rgba(255,48,48,.1);
+        }
 
-            background:
-                rgba(255,48,48,.10);
+        .payment.disabled {
+            opacity: .35;
+            cursor: not-allowed;
+            filter: grayscale(.7);
         }
 
         .payment-icon {
-            width: 30px;
-            height: 30px;
+            width: 31px;
+            height: 31px;
 
             display: flex;
             align-items: center;
@@ -614,64 +425,37 @@
 
             border-radius: 8px;
 
-            background:
-                rgba(255,255,255,.07);
+            background: rgba(255,255,255,.07);
 
             font-size: 10px;
-            font-weight: 950;
+            font-weight: 900;
         }
 
-
-        /* =========================
-           CARD FORM
-        ========================= */
+        /* ================= CARD FORM ================= */
 
         .card-demo {
             display: none;
 
-            margin-top: 16px;
-
+            margin-top: 15px;
             padding: 18px;
 
             border-radius: 15px;
 
-            background:
-                rgba(255,255,255,.025);
+            background: rgba(255,255,255,.025);
 
-            border:
-                1px solid
-                rgba(255,255,255,.08);
+            border: 1px solid rgba(255,255,255,.07);
         }
 
         .card-demo.show {
             display: block;
-
-            animation:
-                cardIn .2s ease;
-        }
-
-        @keyframes cardIn {
-
-            from {
-                opacity: 0;
-                transform: translateY(-5px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-
         }
 
         .card-title {
             display: flex;
-
             align-items: center;
-
             gap: 10px;
 
-            margin-bottom: 16px;
+            margin-bottom: 15px;
         }
 
         .card-title-icon {
@@ -684,8 +468,7 @@
 
             border-radius: 10px;
 
-            background:
-                rgba(255,48,48,.11);
+            background: rgba(255,48,48,.1);
         }
 
         .card-title strong {
@@ -697,28 +480,21 @@
 
             margin-top: 3px;
 
-            color: var(--muted);
+            color: rgba(255,255,255,.4);
 
             font-size: 11px;
         }
 
         .demo-grid {
             display: grid;
-
-            grid-template-columns:
-                1fr 1fr;
-
+            grid-template-columns: 1fr 1fr;
             gap: 12px;
         }
 
-
-        /* =========================
-           SUMMARY
-        ========================= */
+        /* ================= SUMMARY ================= */
 
         .summary {
             position: sticky;
-
             top: 95px;
         }
 
@@ -728,12 +504,11 @@
             background:
                 linear-gradient(
                     145deg,
-                    rgba(255,48,48,.13),
+                    rgba(255,48,48,.12),
                     transparent
                 );
 
-            border-bottom:
-                1px solid var(--border);
+            border-bottom: 1px solid rgba(255,255,255,.07);
         }
 
         .summary-icon {
@@ -746,8 +521,7 @@
 
             border-radius: 14px;
 
-            background:
-                rgba(255,48,48,.12);
+            background: rgba(255,48,48,.12);
 
             margin-bottom: 15px;
 
@@ -756,14 +530,11 @@
 
         .summary-top h2 {
             font-size: 18px;
-            font-weight: 900;
         }
 
         .summary-top p {
             margin-top: 5px;
-
-            color: var(--muted);
-
+            color: rgba(255,255,255,.4);
             font-size: 12px;
         }
 
@@ -773,23 +544,18 @@
 
         .summary-row {
             display: flex;
-
             justify-content: space-between;
-
             gap: 15px;
 
-            padding: 14px 0;
+            padding: 13px 0;
 
-            border-bottom:
-                1px solid
-                rgba(255,255,255,.06);
+            border-bottom: 1px solid rgba(255,255,255,.06);
 
             font-size: 13px;
         }
 
         .summary-row span {
-            color:
-                rgba(255,255,255,.42);
+            color: rgba(255,255,255,.43);
         }
 
         .summary-row strong {
@@ -798,98 +564,76 @@
 
         .total {
             margin-top: 13px;
-
             padding-top: 18px;
 
-            border-top:
-                1px solid
-                rgba(255,255,255,.09);
+            border-top: 1px solid rgba(255,255,255,.08);
 
             display: flex;
-
-            justify-content: space-between;
-
             align-items: center;
+            justify-content: space-between;
         }
 
         .total span {
-            color: var(--muted);
-
+            color: rgba(255,255,255,.5);
             font-size: 13px;
         }
 
         .total strong {
-            color: #ff4d4d;
-
+            color: #ff4747;
             font-size: 21px;
         }
 
         .continue {
             width: 100%;
-            height: 51px;
+            height: 50px;
 
             margin-top: 20px;
 
             border: 0;
-
             border-radius: 13px;
 
             background:
                 linear-gradient(
                     135deg,
-                    #ff4141,
-                    #c60000
+                    #ff3b3b,
+                    #c80000
                 );
 
-            color: white;
+            color: #fff;
 
             font-size: 13px;
-            font-weight: 950;
+            font-weight: 900;
 
             cursor: pointer;
 
-            box-shadow:
-                0 12px 30px
-                rgba(255,0,0,.18);
-
-            transition: .2s ease;
+            transition: .2s;
         }
 
         .continue:hover {
-            transform:
-                translateY(-2px);
+            transform: translateY(-2px);
 
             box-shadow:
-                0 16px 38px
-                rgba(255,0,0,.28);
+                0 15px 35px rgba(255,0,0,.25);
         }
 
         .warning {
             margin-top: 15px;
 
-            padding: 13px;
+            padding: 12px;
 
             border-radius: 11px;
 
-            background:
-                rgba(255,190,0,.05);
+            background: rgba(255,190,0,.05);
 
-            border:
-                1px solid
-                rgba(255,190,0,.10);
+            border: 1px solid rgba(255,190,0,.1);
 
-            color:
-                rgba(255,255,255,.45);
+            color: rgba(255,255,255,.45);
 
             font-size: 11px;
-
             line-height: 1.6;
         }
 
-
-        /* =========================
-           TOAST
-        ========================= */
+        /* ================= TOAST ================= */
 
         .toast {
             position: fixed;
@@ -897,48 +641,36 @@
             left: 50%;
             bottom: 25px;
 
-            transform:
-                translate(-50%, 20px);
+            transform: translate(-50%, 20px);
 
             opacity: 0;
-
             pointer-events: none;
 
-            padding:
-                13px 19px;
+            padding: 13px 18px;
 
             border-radius: 12px;
 
-            background:
-                #171717;
+            background: #181818;
 
-            border:
-                1px solid
-                rgba(255,255,255,.1);
+            border: 1px solid rgba(255,255,255,.1);
 
             box-shadow:
-                0 15px 45px
-                rgba(0,0,0,.45);
+                0 15px 45px rgba(0,0,0,.4);
 
             font-size: 13px;
-            font-weight: 750;
+            font-weight: 700;
 
-            transition: .25s ease;
+            transition: .25s;
 
             z-index: 999;
         }
 
         .toast.show {
             opacity: 1;
-
-            transform:
-                translate(-50%, 0);
+            transform: translate(-50%, 0);
         }
 
-
-        /* =========================
-           MOBILE
-        ========================= */
+        /* ================= MOBILE ================= */
 
         @media (max-width: 850px) {
 
@@ -950,48 +682,28 @@
                 position: static;
             }
 
-            nav a {
-                padding: 8px 8px;
-                font-size: 12px;
+            .payments {
+                grid-template-columns: repeat(4, 1fr);
             }
-
         }
-
 
         @media (max-width: 620px) {
 
             .navbar {
-                height: auto;
-
-                min-height: 70px;
-
                 flex-direction: column;
-
-                gap: 10px;
-
-                padding:
-                    14px 12px;
+                padding: 14px;
             }
 
             nav {
                 width: 100%;
-
-                overflow-x: auto;
-
-                justify-content: flex-start;
-            }
-
-            nav a {
-                white-space: nowrap;
             }
 
             main {
-                padding:
-                    35px 13px 65px;
+                padding: 35px 14px 60px;
             }
 
             .page-title h1 {
-                font-size: 28px;
+                font-size: 27px;
             }
 
             .packages {
@@ -999,8 +711,7 @@
             }
 
             .payments {
-                grid-template-columns:
-                    repeat(2, 1fr);
+                grid-template-columns: repeat(2, 1fr);
             }
 
             .demo-grid {
@@ -1010,25 +721,17 @@
             .box-content {
                 padding: 18px;
             }
-
         }
-
     </style>
-
 </head>
 
-
 <body>
-
 
 <header>
 
     <div class="navbar">
 
-        <a
-            href="../index.html"
-            class="logo"
-        >
+        <a href="../index.html" class="logo">
             ⚔️ <span>BOX</span>PVP
         </a>
 
@@ -1038,10 +741,7 @@
                 🏠 Trang chủ
             </a>
 
-            <a
-                href="../topup/"
-                class="active"
-            >
+            <a href="../topup/" class="active">
                 🛒 Nạp
             </a>
 
@@ -1067,13 +767,11 @@
 
 </header>
 
-
 <main>
 
+    <div class="page-title">
 
-    <section class="page-title">
-
-        <div class="title-icon">
+        <div class="page-icon">
             🛒
         </div>
 
@@ -1082,20 +780,16 @@
         </h1>
 
         <p>
-            Nạp Coin nhanh chóng và an toàn cho tài khoản Minecraft.
+            Nhập username trước, sau đó chọn gói Coin và phương thức thanh toán.
         </p>
 
-    </section>
-
+    </div>
 
     <div class="layout">
 
+        <!-- ================= LEFT ================= -->
 
-        <!-- =========================
-             LEFT
-        ========================= -->
-
-        <section class="box">
+        <div class="box">
 
             <div class="box-header">
 
@@ -1109,11 +803,9 @@
 
             </div>
 
-
             <div class="box-content">
 
-
-                <!-- STEP 01 -->
+                <!-- STEP 1 -->
 
                 <div class="step">
 
@@ -1130,21 +822,16 @@
                             </h3>
 
                             <p>
-                                Nhập đúng username Minecraft.
+                                Bắt buộc nhập username trước
                             </p>
 
                         </div>
 
                     </div>
 
-
-                    <label
-                        class="input-label"
-                        for="username"
-                    >
+                    <label class="input-label">
                         Tên tài khoản Minecraft
                     </label>
-
 
                     <input
                         class="input"
@@ -1156,13 +843,9 @@
 
                 </div>
 
+                <!-- STEP 2 -->
 
-                <!-- STEP 02 -->
-
-                <div
-                    class="step"
-                    id="packageStep"
-                >
+                <div class="step">
 
                     <div class="step-head">
 
@@ -1177,137 +860,112 @@
                             </h3>
 
                             <p>
-                                Chọn số Coin muốn nạp.
+                                Nhập username trước khi chọn
                             </p>
 
                         </div>
 
                     </div>
 
-
-                    <div
-                        class="lock-message"
-                        id="packageLock"
-                    >
-                        🔒 Nhập username trước để mở phần này.
-                    </div>
-
-
-                    <div
-                        class="packages locked"
-                        id="packages"
-                    >
+                    <div class="packages">
 
                         <div
-                            class="package"
+                            class="package disabled"
                             data-coins="10"
                             data-price="10000"
                         >
-
-                            <div class="package-icon">
-                                💰
-                            </div>
-
+                            <div class="package-icon">💰</div>
                             <div class="package-name">
                                 Gói 10 Coin
                             </div>
-
                             <div class="package-price">
                                 10.000 VND
                             </div>
-
-                            <div class="package-check">
-                                ✓
-                            </div>
-
+                            <div class="package-check">✓</div>
                         </div>
 
-
                         <div
-                            class="package"
+                            class="package disabled"
                             data-coins="20"
                             data-price="20000"
                         >
-
-                            <div class="package-icon">
-                                💰
-                            </div>
-
+                            <div class="package-icon">💰</div>
                             <div class="package-name">
                                 Gói 20 Coin
                             </div>
-
                             <div class="package-price">
                                 20.000 VND
                             </div>
-
-                            <div class="package-check">
-                                ✓
-                            </div>
-
+                            <div class="package-check">✓</div>
                         </div>
 
-
                         <div
-                            class="package"
+                            class="package disabled"
                             data-coins="50"
                             data-price="50000"
                         >
-
-                            <div class="package-icon">
-                                💰
-                            </div>
-
+                            <div class="package-icon">💰</div>
                             <div class="package-name">
                                 Gói 50 Coin
                             </div>
-
                             <div class="package-price">
                                 50.000 VND
                             </div>
-
-                            <div class="package-check">
-                                ✓
-                            </div>
-
+                            <div class="package-check">✓</div>
                         </div>
 
-
                         <div
-                            class="package"
+                            class="package disabled"
                             data-coins="100"
                             data-price="100000"
                         >
-
-                            <div class="package-icon">
-                                💰
-                            </div>
-
+                            <div class="package-icon">💰</div>
                             <div class="package-name">
                                 Gói 100 Coin
                             </div>
-
                             <div class="package-price">
                                 100.000 VND
                             </div>
+                            <div class="package-check">✓</div>
+                        </div>
 
-                            <div class="package-check">
-                                ✓
+                        <div
+                            class="package disabled"
+                            data-coins="200"
+                            data-price="200000"
+                        >
+                            <div class="package-icon">💰</div>
+                            <div class="package-name">
+                                Gói 200 Coin
                             </div>
+                            <div class="package-price">
+                                200.000 VND
+                            </div>
+                            <div class="package-check">✓</div>
+                        </div>
 
+                        <div
+                            class="package disabled"
+                            data-coins="500"
+                            data-price="500000"
+                        >
+                            <div class="package-icon">💰</div>
+                            <div class="package-name">
+                                Gói 500 Coin
+                            </div>
+                            <div class="package-price">
+                                500.000 VND
+                            </div>
+                            <div class="package-check">✓</div>
                         </div>
 
                     </div>
 
                 </div>
 
+                <!-- STEP 3 -->
 
-                <!-- STEP 03 -->
-
-                <div
-                    class="step"
-                    id="paymentStep"
-                >
+                <div class="step">
 
                     <div class="step-head">
 
@@ -1322,126 +980,90 @@
                             </h3>
 
                             <p>
-                                Chọn phương thức bạn muốn sử dụng.
+                                Chọn sau khi đã nhập username và gói Coin
                             </p>
 
                         </div>
 
                     </div>
 
-
-                    <div
-                        class="lock-message"
-                        id="paymentLock"
-                    >
-                        🔒 Nhập username và chọn gói trước.
-                    </div>
-
-
-                    <div
-                        class="payments locked"
-                        id="payments"
-                    >
+                    <div class="payments">
 
                         <button
-                            type="button"
-                            class="payment"
+                            class="payment disabled"
                             data-method="ZingCard"
+                            type="button"
                         >
-                            <span class="payment-icon">
-                                Z
-                            </span>
+                            <span class="payment-icon">Z</span>
                             ZingCard
                         </button>
 
-
                         <button
-                            type="button"
-                            class="payment"
+                            class="payment disabled"
                             data-method="ZaloPay"
+                            type="button"
                         >
-                            <span class="payment-icon">
-                                Z
-                            </span>
+                            <span class="payment-icon">Z</span>
                             ZaloPay
                         </button>
 
-
                         <button
-                            type="button"
-                            class="payment"
+                            class="payment disabled"
                             data-method="VietQR"
+                            type="button"
                         >
-                            <span class="payment-icon">
-                                QR
-                            </span>
+                            <span class="payment-icon">QR</span>
                             VietQR
                         </button>
 
-
                         <button
-                            type="button"
-                            class="payment"
+                            class="payment disabled"
                             data-method="ATM"
+                            type="button"
                         >
-                            <span class="payment-icon">
-                                ATM
-                            </span>
+                            <span class="payment-icon">ATM</span>
                             ATM
                         </button>
 
-
                         <button
-                            type="button"
-                            class="payment"
+                            class="payment disabled"
                             data-method="Credit Card"
+                            type="button"
                         >
-                            <span class="payment-icon">
-                                💳
-                            </span>
+                            <span class="payment-icon">💳</span>
                             Credit Card
                         </button>
 
-
                         <button
-                            type="button"
-                            class="payment"
+                            class="payment disabled"
                             data-method="Viettel"
+                            type="button"
                         >
-                            <span class="payment-icon">
-                                V
-                            </span>
+                            <span class="payment-icon">V</span>
                             Viettel
                         </button>
 
-
                         <button
-                            type="button"
-                            class="payment"
+                            class="payment disabled"
                             data-method="Vinaphone"
+                            type="button"
                         >
-                            <span class="payment-icon">
-                                V
-                            </span>
+                            <span class="payment-icon">V</span>
                             Vinaphone
                         </button>
 
-
                         <button
-                            type="button"
-                            class="payment"
+                            class="payment disabled"
                             data-method="Mobifone"
+                            type="button"
                         >
-                            <span class="payment-icon">
-                                M
-                            </span>
+                            <span class="payment-icon">M</span>
                             Mobifone
                         </button>
 
                     </div>
 
-
-                    <!-- CARD INPUT -->
+                    <!-- FORM DEMO -->
 
                     <div
                         class="card-demo"
@@ -1461,22 +1083,18 @@
                                 </strong>
 
                                 <span>
-                                    Nhập Serial và mã thẻ.
+                                    Nhập Serial và Mã thẻ
                                 </span>
 
                             </div>
 
                         </div>
 
-
                         <div class="demo-grid">
 
                             <div>
 
-                                <label
-                                    class="input-label"
-                                    for="serial"
-                                >
+                                <label class="input-label">
                                     Serial
                                 </label>
 
@@ -1490,13 +1108,9 @@
 
                             </div>
 
-
                             <div>
 
-                                <label
-                                    class="input-label"
-                                    for="cardCode"
-                                >
+                                <label class="input-label">
                                     Mã thẻ
                                 </label>
 
@@ -1518,12 +1132,9 @@
 
             </div>
 
-        </section>
+        </div>
 
-
-        <!-- =========================
-             SUMMARY
-        ========================= -->
+        <!-- ================= SUMMARY ================= -->
 
         <aside class="box summary">
 
@@ -1543,7 +1154,6 @@
 
             </div>
 
-
             <div class="summary-body">
 
                 <div class="summary-row">
@@ -1558,7 +1168,6 @@
 
                 </div>
 
-
                 <div class="summary-row">
 
                     <span>
@@ -1570,7 +1179,6 @@
                     </strong>
 
                 </div>
-
 
                 <div class="summary-row">
 
@@ -1584,7 +1192,6 @@
 
                 </div>
 
-
                 <div class="total">
 
                     <span>
@@ -1597,7 +1204,6 @@
 
                 </div>
 
-
                 <button
                     class="continue"
                     id="continueButton"
@@ -1606,13 +1212,13 @@
                     TIẾP TỤC →
                 </button>
 
-
                 <div class="warning">
 
                     ⚠️ <strong>Chế độ thử nghiệm</strong><br>
 
                     Trang hiện chỉ mô phỏng giao diện.
-                    Không thực hiện giao dịch hoặc thu tiền thật.
+                    Không thực hiện giao dịch hoặc xử lý
+                    thanh toán thật.
 
                 </div>
 
@@ -1624,26 +1230,15 @@
 
 </main>
 
-
 <div
     class="toast"
     id="toast"
 ></div>
 
-
 <script>
-
-    /* =====================================================
-       VARIABLES
-    ===================================================== */
 
     let selectedPackage = null;
     let selectedPayment = null;
-
-
-    /* =====================================================
-       ELEMENTS
-    ===================================================== */
 
     const usernameInput =
         document.getElementById("username");
@@ -1666,34 +1261,15 @@
     const paymentButtons =
         document.querySelectorAll(".payment");
 
-    const packagesBox =
-        document.getElementById("packages");
-
-    const paymentsBox =
-        document.getElementById("payments");
-
-    const packageLock =
-        document.getElementById("packageLock");
-
-    const paymentLock =
-        document.getElementById("paymentLock");
-
     const cardDemo =
         document.getElementById("cardDemo");
 
     const cardTitle =
         document.getElementById("cardTitle");
 
-    const continueButton =
-        document.getElementById("continueButton");
-
     const toast =
         document.getElementById("toast");
 
-
-    /* =====================================================
-       TOAST
-    ===================================================== */
 
     function showToast(message) {
 
@@ -1703,19 +1279,13 @@
 
         clearTimeout(window.toastTimer);
 
-        window.toastTimer =
-            setTimeout(() => {
+        window.toastTimer = setTimeout(() => {
 
-                toast.classList.remove("show");
+            toast.classList.remove("show");
 
-            }, 2600);
-
+        }, 2600);
     }
 
-
-    /* =====================================================
-       KIỂM TRA USERNAME
-    ===================================================== */
 
     function hasUsername() {
 
@@ -1724,65 +1294,30 @@
     }
 
 
-    /* =====================================================
-       CẬP NHẬT KHÓA / MỞ
-    ===================================================== */
+    function updateLockedState() {
 
-    function updateLocks() {
+        const usernameOK = hasUsername();
 
-        const usernameOK =
-            hasUsername();
+        packages.forEach(item => {
 
-        const packageOK =
-            selectedPackage !== null;
+            item.classList.toggle(
+                "disabled",
+                !usernameOK
+            );
 
+        });
 
-        /* =====================
-           PACKAGE
-        ===================== */
+        paymentButtons.forEach(item => {
 
-        if (usernameOK) {
+            item.classList.toggle(
+                "disabled",
+                !usernameOK || !selectedPackage
+            );
 
-            packagesBox.classList.remove("locked");
-
-            packageLock.style.display = "none";
-
-        } else {
-
-            packagesBox.classList.add("locked");
-
-            packageLock.style.display = "flex";
-
-        }
-
-
-        /* =====================
-           PAYMENT
-        ===================== */
-
-        if (
-            usernameOK &&
-            packageOK
-        ) {
-
-            paymentsBox.classList.remove("locked");
-
-            paymentLock.style.display = "none";
-
-        } else {
-
-            paymentsBox.classList.add("locked");
-
-            paymentLock.style.display = "flex";
-
-        }
+        });
 
     }
 
-
-    /* =====================================================
-       USERNAME
-    ===================================================== */
 
     usernameInput.addEventListener(
         "input",
@@ -1791,21 +1326,57 @@
             const username =
                 usernameInput.value.trim();
 
-
             summaryUser.textContent =
                 username || "Chưa nhập";
 
 
-            /*
-             * Nếu username bị xóa,
-             * reset toàn bộ lựa chọn.
-             */
-
             if (!username) {
 
                 selectedPackage = null;
-
                 selectedPayment = null;
+
+                packages.forEach(item => {
+                    item.classList.remove("selected");
+                });
+
+                paymentButtons.forEach(item => {
+                    item.classList.remove("selected");
+                });
+
+                summaryPackage.textContent =
+                    "Chưa chọn";
+
+                summaryPayment.textContent =
+                    "Chưa chọn";
+
+                summaryPrice.textContent =
+                    "0 VND";
+
+                cardDemo.classList.remove("show");
+            }
+
+            updateLockedState();
+
+        }
+    );
+
+
+    packages.forEach(packageElement => {
+
+        packageElement.addEventListener(
+            "click",
+            () => {
+
+                if (!hasUsername()) {
+
+                    showToast(
+                        "⚠️ Hãy nhập username Minecraft trước."
+                    );
+
+                    usernameInput.focus();
+
+                    return;
+                }
 
 
                 packages.forEach(item => {
@@ -1817,6 +1388,91 @@
                 });
 
 
+                packageElement.classList.add(
+                    "selected"
+                );
+
+
+                selectedPackage = {
+
+                    coins:
+                        Number(
+                            packageElement.dataset.coins
+                        ),
+
+                    price:
+                        Number(
+                            packageElement.dataset.price
+                        )
+
+                };
+
+
+                summaryPackage.textContent =
+                    `${selectedPackage.coins} Coin`;
+
+
+                summaryPrice.textContent =
+                    selectedPackage.price
+                        .toLocaleString("vi-VN")
+                        + " VND";
+
+
+                selectedPayment = null;
+
+                paymentButtons.forEach(item => {
+
+                    item.classList.remove(
+                        "selected"
+                    );
+
+                });
+
+                summaryPayment.textContent =
+                    "Chưa chọn";
+
+
+                cardDemo.classList.remove(
+                    "show"
+                );
+
+
+                updateLockedState();
+
+            }
+        );
+
+    });
+
+
+    paymentButtons.forEach(button => {
+
+        button.addEventListener(
+            "click",
+            () => {
+
+                if (!hasUsername()) {
+
+                    showToast(
+                        "⚠️ Hãy nhập username Minecraft trước."
+                    );
+
+                    usernameInput.focus();
+
+                    return;
+                }
+
+
+                if (!selectedPackage) {
+
+                    showToast(
+                        "⚠️ Hãy chọn gói Coin trước."
+                    );
+
+                    return;
+                }
+
+
                 paymentButtons.forEach(item => {
 
                     item.classList.remove(
@@ -1826,340 +1482,107 @@
                 });
 
 
-                summaryPackage.textContent =
-                    "Chưa chọn";
+                button.classList.add(
+                    "selected"
+                );
+
+
+                selectedPayment =
+                    button.dataset.method;
 
 
                 summaryPayment.textContent =
-                    "Chưa chọn";
+                    selectedPayment;
 
 
-                summaryPrice.textContent =
-                    "0 VND";
+                const cardMethods = [
+                    "ZingCard",
+                    "Viettel",
+                    "Vinaphone",
+                    "Mobifone"
+                ];
 
 
-                cardDemo.classList.remove(
-                    "show"
-                );
+                if (
+                    cardMethods.includes(
+                        selectedPayment
+                    )
+                ) {
 
-            }
-
-
-            updateLocks();
-
-        }
-    );
-
-
-    /* =====================================================
-       PACKAGE
-    ===================================================== */
-
-    packages.forEach(
-        packageElement => {
-
-            packageElement.addEventListener(
-                "click",
-                () => {
-
-                    if (!hasUsername()) {
-
-                        showToast(
-                            "⚠️ Hãy nhập username trước."
-                        );
-
-                        usernameInput.focus();
-
-                        return;
-
-                    }
-
-
-                    packages.forEach(item => {
-
-                        item.classList.remove(
-                            "selected"
-                        );
-
-                    });
-
-
-                    packageElement.classList.add(
-                        "selected"
+                    cardDemo.classList.add(
+                        "show"
                     );
 
+                    cardTitle.textContent =
+                        `${selectedPayment} - Thông tin thẻ`;
 
-                    selectedPackage = {
-
-                        coins:
-                            packageElement.dataset.coins,
-
-                        price:
-                            Number(
-                                packageElement.dataset.price
-                            )
-
-                    };
-
-
-                    selectedPayment = null;
-
-
-                    paymentButtons.forEach(item => {
-
-                        item.classList.remove(
-                            "selected"
-                        );
-
-                    });
-
-
-                    summaryPackage.textContent =
-                        `${selectedPackage.coins} Coin`;
-
-
-                    summaryPayment.textContent =
-                        "Chưa chọn";
-
-
-                    summaryPrice.textContent =
-                        selectedPackage.price
-                            .toLocaleString("vi-VN")
-                            + " VND";
-
+                } else {
 
                     cardDemo.classList.remove(
                         "show"
                     );
 
-
-                    updateLocks();
-
                 }
-            );
-
-        }
-    );
-
-
-    /* =====================================================
-       PAYMENT
-    ===================================================== */
-
-    const cardMethods = [
-
-        "ZingCard",
-        "Viettel",
-        "Vinaphone",
-        "Mobifone"
-
-    ];
-
-
-    paymentButtons.forEach(
-        button => {
-
-            button.addEventListener(
-                "click",
-                () => {
-
-                    if (!hasUsername()) {
-
-                        showToast(
-                            "⚠️ Hãy nhập username trước."
-                        );
-
-                        usernameInput.focus();
-
-                        return;
-
-                    }
-
-
-                    if (!selectedPackage) {
-
-                        showToast(
-                            "⚠️ Hãy chọn gói Coin trước."
-                        );
-
-                        return;
-
-                    }
-
-
-                    paymentButtons.forEach(item => {
-
-                        item.classList.remove(
-                            "selected"
-                        );
-
-                    });
-
-
-                    button.classList.add(
-                        "selected"
-                    );
-
-
-                    selectedPayment =
-                        button.dataset.method;
-
-
-                    summaryPayment.textContent =
-                        selectedPayment;
-
-
-                    /*
-                     * Thẻ cào
-                     */
-
-                    if (
-                        cardMethods.includes(
-                            selectedPayment
-                        )
-                    ) {
-
-                        cardDemo.classList.add(
-                            "show"
-                        );
-
-
-                        cardTitle.textContent =
-                            `${selectedPayment} - Thông tin thẻ`;
-
-                    } else {
-
-                        cardDemo.classList.remove(
-                            "show"
-                        );
-
-                    }
-
-                }
-            );
-
-        }
-    );
-
-
-    /* =====================================================
-       CONTINUE
-    ===================================================== */
-
-    continueButton.addEventListener(
-        "click",
-        () => {
-
-            const username =
-                usernameInput.value.trim();
-
-
-            if (!username) {
-
-                showToast(
-                    "⚠️ Hãy nhập tên tài khoản Minecraft."
-                );
-
-                usernameInput.focus();
-
-                return;
 
             }
+        );
+
+    });
 
 
-            if (!selectedPackage) {
+    document
+        .getElementById("continueButton")
+        .addEventListener(
+            "click",
+            () => {
 
-                showToast(
-                    "⚠️ Hãy chọn gói Coin."
-                );
-
-                return;
-
-            }
-
-
-            if (!selectedPayment) {
-
-                showToast(
-                    "⚠️ Hãy chọn phương thức thanh toán."
-                );
-
-                return;
-
-            }
+                const username =
+                    usernameInput.value.trim();
 
 
-            /*
-             * Kiểm tra thẻ cào
-             */
-
-            if (
-                cardMethods.includes(
-                    selectedPayment
-                )
-            ) {
-
-                const serial =
-                    document
-                        .getElementById("serial")
-                        .value.trim();
-
-
-                const cardCode =
-                    document
-                        .getElementById("cardCode")
-                        .value.trim();
-
-
-                if (!serial) {
+                if (!username) {
 
                     showToast(
-                        "⚠️ Hãy nhập Serial thẻ."
+                        "⚠️ Hãy nhập username Minecraft."
                     );
 
-                    document
-                        .getElementById("serial")
-                        .focus();
+                    usernameInput.focus();
 
                     return;
-
                 }
 
 
-                if (!cardCode) {
+                if (!selectedPackage) {
 
                     showToast(
-                        "⚠️ Hãy nhập mã thẻ."
+                        "⚠️ Hãy chọn gói Coin."
                     );
 
-                    document
-                        .getElementById("cardCode")
-                        .focus();
-
                     return;
-
                 }
 
+
+                if (!selectedPayment) {
+
+                    showToast(
+                        "⚠️ Hãy chọn phương thức thanh toán."
+                    );
+
+                    return;
+                }
+
+
+                showToast(
+                    `✅ Đã chọn ${selectedPackage.coins} Coin bằng ${selectedPayment}.`
+                );
+
             }
+        );
 
 
-            showToast(
-                `✅ Đơn hàng ${selectedPackage.coins} Coin đã được tạo cho ${username}.`
-            );
-
-        }
-    );
-
-
-    /* =====================================================
-       KHỞI ĐỘNG
-    ===================================================== */
-
-    updateLocks();
+    updateLockedState();
 
 </script>
 
-
 </body>
-
 </html>
