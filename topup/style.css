@@ -1,274 +1,237 @@
-/* =========================================================
-   BOXPVP TOPUP - FINAL UI
-   ========================================================= */
+/* =====================================================
+   BOXPVP TOPUP
+===================================================== */
+
+:root {
+    --bg: #08090d;
+    --panel: #101218;
+    --panel-2: #151820;
+    --border: rgba(255,255,255,.08);
+    --text: #f5f5f5;
+    --muted: #8d929d;
+    --red: #ff3347;
+    --red-dark: #c9142b;
+    --green: #32d583;
+}
+
+
+/* =====================================================
+   RESET
+===================================================== */
 
 * {
-    margin: 0;
-    padding: 0;
     box-sizing: border-box;
 }
 
-:root {
-    --bg: #07090f;
-    --panel: #0d111a;
-    --panel-2: #111722;
-    --border: rgba(255,255,255,.08);
-    --text: #f5f7fb;
-    --muted: #858d9d;
-    --red: #ff3434;
-    --red-dark: #c51f2b;
-    --green: #39d98a;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
 body {
-    min-height: 100vh;
+    margin: 0;
     background:
         radial-gradient(
             circle at 50% -10%,
-            rgba(255,45,55,.16),
-            transparent 35%
-        ),
-        radial-gradient(
-            circle at 0% 50%,
-            rgba(255,70,30,.05),
-            transparent 30%
+            rgba(255, 40, 60, .14),
+            transparent 40%
         ),
         var(--bg);
 
     color: var(--text);
 
     font-family:
-        Inter,
-        "Segoe UI",
         Arial,
+        Helvetica,
         sans-serif;
-
-    line-height: 1.5;
 }
 
-/* =========================================================
-   NAVBAR
-   ========================================================= */
 
-.navbar {
+/* =====================================================
+   HEADER
+===================================================== */
+
+.topup-header {
     position: sticky;
     top: 0;
-    z-index: 1000;
+    z-index: 100;
 
-    width: 100%;
-
-    background: rgba(7,9,15,.88);
+    background: rgba(8,9,13,.88);
 
     border-bottom:
-        1px solid rgba(255,255,255,.07);
+        1px solid var(--border);
 
     backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
 }
 
-.nav-container {
+.topup-container {
     width: min(1180px, calc(100% - 32px));
-
-    min-height: 70px;
-
     margin: auto;
+}
+
+.header-inner {
+    min-height: 72px;
 
     display: flex;
     align-items: center;
     justify-content: space-between;
 
-    gap: 20px;
+    gap: 30px;
 }
 
 .logo {
-    color: #fff;
+    color: white;
     text-decoration: none;
 
-    font-size: 21px;
-    font-weight: 950;
+    font-size: 22px;
+    font-weight: 900;
+
+    letter-spacing: .5px;
 
     white-space: nowrap;
-
-    letter-spacing: -.5px;
 }
 
-.logo::first-letter {
-    color: #ff3838;
+.logo span {
+    color: #fff;
 }
 
-#nav {
+nav {
     display: flex;
     align-items: center;
-
-    gap: 4px;
+    gap: 6px;
 }
 
-#nav a {
-    padding: 10px 13px;
-
-    color: #9299a8;
+nav a {
+    color: #aeb3bd;
 
     text-decoration: none;
 
-    border-radius: 10px;
+    padding: 10px 13px;
 
-    font-size: 13px;
-    font-weight: 750;
+    border-radius: 9px;
 
-    transition: .2s ease;
+    font-size: 14px;
+    font-weight: 700;
+
+    transition: .2s;
 }
 
-#nav a:hover {
-    color: #fff;
-
-    background:
-        rgba(255,255,255,.06);
-
-    transform: translateY(-1px);
+nav a:hover,
+nav a.active {
+    color: white;
+    background: rgba(255,255,255,.07);
 }
 
-#nav a[href="index.html"] {
-    color: #fff;
-
-    background:
-        rgba(255,48,55,.12);
-
-    border:
-        1px solid rgba(255,48,55,.2);
+nav a.active {
+    color: #ff4758;
 }
 
 .menu-toggle {
     display: none;
 
-    width: 42px;
-    height: 42px;
+    border: 0;
 
-    border: 1px solid var(--border);
-    border-radius: 10px;
+    color: white;
+    background: transparent;
 
-    background: var(--panel);
-
-    color: #fff;
-
-    font-size: 20px;
+    font-size: 25px;
 
     cursor: pointer;
 }
 
-/* =========================================================
-   MAIN
-   ========================================================= */
+
+/* =====================================================
+   PAGE
+===================================================== */
 
 .topup-page {
-    width: min(1180px, calc(100% - 32px));
-
-    margin: auto;
-
     padding:
-        58px 0 90px;
+        55px 0 90px;
 }
 
-/* =========================================================
-   HEADER
-   ========================================================= */
 
-.topup-header {
-    text-align: center;
+/* =====================================================
+   HERO
+===================================================== */
 
-    margin-bottom: 42px;
-}
-
-.topup-icon {
-    width: 74px;
-    height: 74px;
-
-    margin:
-        0 auto 20px;
-
+.topup-hero {
     display: flex;
     align-items: center;
-    justify-content: center;
 
-    border-radius: 22px;
+    gap: 20px;
+
+    margin-bottom: 35px;
+}
+
+.hero-icon {
+    width: 68px;
+    height: 68px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 18px;
 
     background:
         linear-gradient(
-            145deg,
-            rgba(255,52,52,.20),
-            rgba(255,52,52,.05)
+            135deg,
+            #ff3449,
+            #9e0d20
         );
 
-    border:
-        1px solid rgba(255,60,60,.25);
-
     box-shadow:
-        0 15px 45px rgba(255,40,40,.10);
+        0 15px 40px
+        rgba(255,40,60,.22);
 
-    font-size: 34px;
+    font-size: 30px;
 }
 
-.topup-header h1 {
-    margin-bottom: 9px;
+.hero-label {
+    color: #ff4658;
 
-    font-size:
-        clamp(32px, 5vw, 48px);
+    font-size: 12px;
+    font-weight: 900;
 
-    line-height: 1.05;
+    letter-spacing: 2px;
 
-    font-weight: 950;
+    margin-bottom: 5px;
+}
+
+.topup-hero h1 {
+    margin: 0;
+
+    font-size: clamp(32px, 5vw, 50px);
 
     letter-spacing: -1.5px;
 }
 
-.topup-header h1::first-letter {
-    color: #ff3b3b;
-}
+.topup-hero p {
+    margin: 7px 0 0;
 
-.topup-header p {
     color: var(--muted);
 
-    font-size: 14px;
+    font-size: 15px;
 }
 
-/* =========================================================
+
+/* =====================================================
    LAYOUT
-   ========================================================= */
+===================================================== */
 
 .topup-layout {
     display: grid;
 
     grid-template-columns:
         minmax(0, 1fr)
-        370px;
+        360px;
 
     gap: 24px;
 
     align-items: start;
 }
 
-/* =========================================================
-   LEFT STACK
-   ========================================================= */
 
-.topup-layout > div:first-child {
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 18px;
-}
-
-/* =========================================================
+/* =====================================================
    CARD
-   ========================================================= */
+===================================================== */
 
-.topup-card {
-    padding: 25px;
-
+.topup-card,
+.order-card {
     background:
         linear-gradient(
             145deg,
@@ -282,137 +245,140 @@ body {
     border-radius: 18px;
 
     box-shadow:
-        0 15px 45px rgba(0,0,0,.18);
+        0 15px 50px
+        rgba(0,0,0,.25);
 }
 
-.topup-card:hover {
-    border-color:
-        rgba(255,55,55,.18);
+.topup-card {
+    padding: 25px;
+
+    margin-bottom: 18px;
 }
 
-/* =========================================================
+
+/* =====================================================
    STEP TITLE
-   ========================================================= */
+===================================================== */
 
 .step-title {
     display: flex;
 
     align-items: center;
 
-    gap: 13px;
+    gap: 15px;
 
-    margin-bottom: 21px;
+    margin-bottom: 24px;
 }
 
-.step-title > span {
-    width: 38px;
-    height: 38px;
+.step-number {
+    width: 42px;
+    height: 42px;
 
-    flex-shrink: 0;
+    display: grid;
+    place-items: center;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    flex: 0 0 auto;
 
     border-radius: 12px;
 
     background:
-        linear-gradient(
-            135deg,
-            #ff4141,
-            #c51e2c
-        );
+        rgba(255,51,71,.12);
 
-    color: #fff;
+    border:
+        1px solid rgba(255,51,71,.25);
 
-    font-size: 15px;
-    font-weight: 950;
+    color: #ff4658;
 
-    box-shadow:
-        0 8px 25px rgba(255,45,45,.20);
+    font-size: 12px;
+    font-weight: 900;
 }
 
 .step-title h2 {
-    color: #fff;
+    margin: 0;
 
-    font-size: 16px;
-    font-weight: 900;
-
-    line-height: 1.2;
+    font-size: 18px;
 }
 
 .step-title p {
-    margin-top: 4px;
+    margin: 5px 0 0;
 
-    color: #737b8b;
+    color: var(--muted);
 
-    font-size: 12px;
+    font-size: 13px;
 }
 
-/* =========================================================
-   LABEL
-   ========================================================= */
 
-.topup-card > label,
-.card-input-area label {
+/* =====================================================
+   INPUT
+===================================================== */
+
+label {
     display: block;
 
-    margin-bottom: 8px;
+    margin-bottom: 9px;
 
-    color: #b9bfcb;
+    color: #c5c8ce;
 
-    font-size: 12px;
-    font-weight: 800;
+    font-size: 13px;
+    font-weight: 700;
 }
 
-/* =========================================================
-   INPUT
-   ========================================================= */
+.input-box {
+    height: 52px;
 
-.topup-card input {
-    width: 100%;
+    display: flex;
 
-    height: 48px;
+    align-items: center;
 
-    padding:
-        0 15px;
+    gap: 12px;
+
+    padding: 0 15px;
+
+    background:
+        rgba(0,0,0,.24);
 
     border:
-        1px solid rgba(255,255,255,.09);
-
-    outline: none;
+        1px solid var(--border);
 
     border-radius: 11px;
 
-    background:
-        rgba(0,0,0,.25);
-
-    color: #fff;
-
-    font-size: 14px;
-
-    transition: .2s ease;
+    transition: .2s;
 }
 
-.topup-card input::placeholder {
-    color: #555d6c;
-}
-
-.topup-card input:focus {
+.input-box:focus-within {
     border-color:
-        rgba(255,55,55,.75);
-
-    background:
-        rgba(0,0,0,.34);
+        rgba(255,51,71,.65);
 
     box-shadow:
         0 0 0 3px
-        rgba(255,50,50,.08);
+        rgba(255,51,71,.08);
 }
 
-/* =========================================================
-   PACKAGE GRID
-   ========================================================= */
+.input-box span {
+    opacity: .7;
+}
+
+.input-box input {
+    width: 100%;
+
+    border: 0;
+    outline: 0;
+
+    background: transparent;
+
+    color: white;
+
+    font-size: 15px;
+}
+
+.input-box input::placeholder {
+    color: #626772;
+}
+
+
+/* =====================================================
+   PACKAGES
+===================================================== */
 
 .package-grid {
     display: grid;
@@ -420,115 +386,133 @@ body {
     grid-template-columns:
         repeat(2, 1fr);
 
-    gap: 13px;
+    gap: 12px;
 }
 
 .package {
     position: relative;
 
-    min-height: 142px;
-
-    padding: 18px;
-
     display: flex;
+    align-items: center;
 
-    flex-direction: column;
+    gap: 13px;
 
-    align-items: flex-start;
+    min-height: 82px;
 
-    justify-content: space-between;
+    padding: 14px;
 
     border:
-        1px solid rgba(255,255,255,.08);
+        1px solid var(--border);
 
-    border-radius: 15px;
+    border-radius: 13px;
 
     background:
-        linear-gradient(
-            145deg,
-            rgba(255,255,255,.035),
-            rgba(255,255,255,.012)
-        );
+        rgba(255,255,255,.025);
 
-    color: #fff;
-
-    cursor: pointer;
+    color: white;
 
     text-align: left;
 
+    cursor: pointer;
+
     transition:
-        .2s ease;
+        transform .2s,
+        border .2s,
+        background .2s;
 }
 
 .package:hover {
-    transform:
-        translateY(-3px);
+    transform: translateY(-2px);
 
     border-color:
-        rgba(255,60,60,.5);
+        rgba(255,51,71,.4);
 
     background:
-        linear-gradient(
-            145deg,
-            rgba(255,50,50,.10),
-            rgba(255,255,255,.02)
-        );
+        rgba(255,51,71,.05);
 }
 
 .package.selected {
     border-color:
-        #ff3b3b;
+        var(--red);
 
     background:
-        linear-gradient(
-            145deg,
-            rgba(255,50,50,.16),
-            rgba(255,50,50,.04)
-        );
+        rgba(255,51,71,.09);
 
     box-shadow:
-        0 0 0 2px
-        rgba(255,50,50,.06),
-
-        0 15px 35px
-        rgba(255,40,40,.10);
+        0 0 0 1px
+        rgba(255,51,71,.12);
 }
 
 .package-icon {
-    width: 43px;
-    height: 43px;
+    width: 44px;
+    height: 44px;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: grid;
+    place-items: center;
 
-    border-radius: 12px;
+    border-radius: 11px;
 
     background:
-        rgba(255,184,0,.10);
+        rgba(255,51,71,.12);
 
-    font-size: 21px;
+    font-size: 20px;
 }
 
-.package strong {
-    margin-top: 14px;
+.package-info {
+    display: flex;
 
-    color: #fff;
+    flex-direction: column;
 
+    gap: 5px;
+}
+
+.package-info strong {
     font-size: 15px;
-    font-weight: 900;
 }
 
-.package > span {
-    color: #ff5c5c;
+.package-info span {
+    color: #8f949f;
 
     font-size: 13px;
-    font-weight: 850;
 }
 
-/* =========================================================
+.package-check {
+    position: absolute;
+
+    right: 13px;
+    top: 13px;
+
+    width: 20px;
+    height: 20px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 50%;
+
+    background: var(--red);
+
+    color: white;
+
+    font-size: 11px;
+
+    opacity: 0;
+
+    transform: scale(.6);
+
+    transition: .2s;
+}
+
+.package.selected .package-check {
+    opacity: 1;
+
+    transform: scale(1);
+}
+
+
+/* =====================================================
    PAYMENT
-   ========================================================= */
+===================================================== */
 
 .payment-grid {
     display: grid;
@@ -540,331 +524,349 @@ body {
 }
 
 .payment {
-    min-height: 76px;
-
-    padding: 10px 7px;
+    min-height: 78px;
 
     display: flex;
 
     flex-direction: column;
 
-    align-items: center;
     justify-content: center;
 
-    gap: 6px;
+    align-items: center;
+
+    gap: 8px;
 
     border:
-        1px solid rgba(255,255,255,.08);
+        1px solid var(--border);
 
-    border-radius: 13px;
+    border-radius: 12px;
 
     background:
-        rgba(255,255,255,.018);
+        rgba(255,255,255,.025);
 
-    color: #9ea5b3;
+    color: #d8dae0;
 
     cursor: pointer;
 
-    font-size: 22px;
-
-    transition: .2s ease;
-}
-
-.payment span {
-    color: inherit;
-
-    font-size: 11px;
-    font-weight: 850;
+    transition: .2s;
 }
 
 .payment:hover {
-    color: #fff;
-
     border-color:
-        rgba(255,60,60,.45);
+        rgba(255,51,71,.45);
 
-    background:
-        rgba(255,50,50,.06);
-
-    transform:
-        translateY(-2px);
+    transform: translateY(-2px);
 }
 
 .payment.selected {
-    color: #fff;
-
     border-color:
-        #ff3b3b;
+        var(--red);
 
     background:
-        rgba(255,50,50,.12);
+        rgba(255,51,71,.08);
 
-    box-shadow:
-        0 0 0 2px
-        rgba(255,50,50,.05);
+    color: white;
 }
 
-/* =========================================================
-   CARD INPUT
-   ========================================================= */
+.payment-icon {
+    width: 31px;
+    height: 31px;
 
-.card-input-area {
-    margin-top: 20px;
+    display: grid;
+    place-items: center;
 
-    padding: 18px;
+    border-radius: 8px;
 
-    border:
-        1px solid rgba(255,255,255,.07);
-
-    border-radius: 14px;
-
-    background:
-        rgba(0,0,0,.18);
-}
-
-.card-input-title {
-    margin-bottom: 17px;
-
-    color: #fff;
-
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 900;
 }
 
-.card-input-area label {
-    margin-top: 13px;
+.zing {
+    background: #168cff;
 }
 
-/* =========================================================
-   ORDER CARD
-   ========================================================= */
+.zalo {
+    background: #00a5f0;
+}
+
+.qr {
+    background: #722cff;
+}
+
+.atm {
+    background: #42464f;
+}
+
+.card {
+    background: #31343c;
+}
+
+.mobile {
+    background: #262a31;
+}
+
+.payment > span:last-child {
+    font-size: 11px;
+    font-weight: 700;
+}
+
+
+/* =====================================================
+   CARD INFO
+===================================================== */
+
+.card-payment {
+    display: none;
+}
+
+.card-payment.show {
+    display: block;
+}
+
+.card-fields {
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 14px;
+}
+
+.card-fields input {
+    width: 100%;
+    height: 50px;
+
+    padding: 0 14px;
+
+    outline: 0;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 10px;
+
+    background:
+        rgba(0,0,0,.25);
+
+    color: white;
+
+    font-size: 14px;
+}
+
+.card-fields input:focus {
+    border-color:
+        rgba(255,51,71,.65);
+}
+
+
+/* =====================================================
+   ORDER
+===================================================== */
 
 .order-card {
     position: sticky;
 
     top: 92px;
 
-    overflow: hidden;
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(255,255,255,.055),
-            rgba(255,255,255,.018)
-        );
-
-    border:
-        1px solid rgba(255,255,255,.09);
-
-    border-radius: 20px;
-
-    box-shadow:
-        0 20px 60px rgba(0,0,0,.28);
+    padding: 24px;
 }
 
 .order-header {
-    padding: 22px 23px;
-
     display: flex;
 
     align-items: center;
 
     gap: 13px;
 
+    padding-bottom: 20px;
+
     border-bottom:
-        1px solid rgba(255,255,255,.07);
+        1px solid var(--border);
 }
 
-.order-header > span {
-    width: 43px;
-    height: 43px;
+.order-icon {
+    width: 45px;
+    height: 45px;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: grid;
+    place-items: center;
 
     border-radius: 12px;
 
     background:
-        rgba(255,50,50,.10);
+        rgba(255,51,71,.1);
 
-    font-size: 21px;
+    font-size: 20px;
 }
 
 .order-header h2 {
-    color: #fff;
+    margin: 0;
 
     font-size: 17px;
-    font-weight: 900;
 }
 
 .order-header p {
-    margin-top: 3px;
+    margin: 5px 0 0;
 
-    color: #747c8c;
-
-    font-size: 11px;
-}
-
-.order-content {
-    padding: 21px 23px 23px;
-}
-
-.order-row {
-    min-height: 52px;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: space-between;
-
-    gap: 15px;
-
-    border-bottom:
-        1px solid rgba(255,255,255,.055);
-}
-
-.order-row span {
-    color: #777f8e;
+    color: var(--muted);
 
     font-size: 12px;
 }
 
-.order-row strong {
-    max-width: 58%;
+.order-info {
+    padding: 20px 0;
 
-    color: #f3f4f7;
+    border-bottom:
+        1px solid var(--border);
+}
+
+.order-row {
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    margin-bottom: 15px;
+}
+
+.order-row:last-child {
+    margin-bottom: 0;
+}
+
+.order-row span {
+    color: #858a95;
 
     font-size: 13px;
-    font-weight: 850;
+}
+
+.order-row strong {
+    color: #f2f2f2;
+
+    font-size: 13px;
 
     text-align: right;
-
-    overflow-wrap: anywhere;
 }
 
 .order-total {
-    padding:
-        19px 0 4px;
-
     display: flex;
 
-    align-items: center;
     justify-content: space-between;
+
+    align-items: center;
+
+    padding: 20px 0;
 }
 
 .order-total span {
-    color: #b0b6c2;
+    color: #9a9fa9;
 
-    font-size: 13px;
-    font-weight: 800;
+    font-size: 14px;
 }
 
 .order-total strong {
-    color: #ff4b4b;
+    color: #ff4658;
 
-    font-size: 23px;
-    font-weight: 950;
+    font-size: 22px;
 }
-
-/* =========================================================
-   CONTINUE
-   ========================================================= */
 
 .continue-button {
     width: 100%;
-
-    height: 50px;
-
-    margin-top: 16px;
-
-    border: 0;
-
-    border-radius: 12px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #ff4141,
-            #c81f2c
-        );
-
-    color: #fff;
-
-    cursor: pointer;
-
-    font-size: 13px;
-    font-weight: 950;
-
-    box-shadow:
-        0 12px 30px
-        rgba(255,40,40,.17);
-
-    transition: .2s ease;
-}
-
-.continue-button:hover {
-    transform:
-        translateY(-2px);
-
-    filter:
-        brightness(1.08);
-
-    box-shadow:
-        0 16px 38px
-        rgba(255,40,40,.24);
-}
-
-.continue-button:active {
-    transform:
-        translateY(0);
-}
-
-/* =========================================================
-   WARNING
-   ========================================================= */
-
-.demo-warning {
-    margin-top: 13px;
-
-    padding: 13px;
+    height: 52px;
 
     display: flex;
 
-    gap: 10px;
+    justify-content: center;
+    align-items: center;
 
-    border:
-        1px solid rgba(255,184,0,.13);
+    gap: 12px;
+
+    border: 0;
 
     border-radius: 11px;
 
     background:
-        rgba(255,184,0,.045);
+        linear-gradient(
+            135deg,
+            #ff3347,
+            #c9152c
+        );
+
+    color: white;
+
+    font-size: 14px;
+    font-weight: 900;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 10px 25px
+        rgba(255,51,71,.18);
+
+    transition: .2s;
 }
 
-.demo-warning > div:first-child {
-    font-size: 16px;
+.continue-button:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 15px 35px
+        rgba(255,51,71,.25);
 }
 
-.demo-warning strong {
-    color: #e5c978;
+.continue-button span {
+    font-size: 18px;
+}
+
+.secure-note {
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    margin-top: 15px;
+
+    color: #7e838e;
 
     font-size: 11px;
 }
 
-.demo-warning p {
-    margin-top: 2px;
+.test-warning {
+    margin-top: 18px;
 
-    color: #777e8b;
+    padding: 13px;
 
-    font-size: 10px;
+    border-radius: 10px;
 
-    line-height: 1.45;
+    background:
+        rgba(255,180,0,.05);
+
+    border:
+        1px solid
+        rgba(255,180,0,.12);
 }
 
-/* =========================================================
+.test-warning strong {
+    color: #eabf55;
+
+    font-size: 12px;
+}
+
+.test-warning p {
+    margin: 7px 0 0;
+
+    color: #777c86;
+
+    font-size: 11px;
+
+    line-height: 1.5;
+}
+
+
+/* =====================================================
    TOAST
-   ========================================================= */
+===================================================== */
 
 .toast {
     position: fixed;
@@ -872,73 +874,51 @@ body {
     left: 50%;
     bottom: 25px;
 
-    z-index: 9999;
+    z-index: 999;
 
-    max-width:
-        calc(100% - 30px);
-
-    padding:
-        12px 17px;
-
-    border:
-        1px solid rgba(255,255,255,.10);
-
-    border-radius: 11px;
-
-    background:
-        rgba(17,19,26,.97);
-
-    color: #fff;
-
-    font-size: 13px;
-    font-weight: 750;
-
-    box-shadow:
-        0 15px 45px
-        rgba(0,0,0,.4);
+    transform:
+        translate(-50%, 20px);
 
     opacity: 0;
 
     pointer-events: none;
 
-    transform:
-        translate(-50%, 20px);
+    padding: 13px 18px;
 
-    transition: .25s ease;
+    max-width:
+        calc(100% - 30px);
+
+    border:
+        1px solid
+        rgba(255,255,255,.1);
+
+    border-radius: 10px;
+
+    background:
+        rgba(18,19,24,.96);
+
+    color: white;
+
+    font-size: 13px;
+
+    box-shadow:
+        0 15px 40px
+        rgba(0,0,0,.4);
+
+    transition: .25s;
 }
 
 .toast.show {
-    opacity: 1;
-
     transform:
         translate(-50%, 0);
+
+    opacity: 1;
 }
 
-/* =========================================================
-   SCROLLBAR
-   ========================================================= */
 
-::-webkit-scrollbar {
-    width: 8px;
-}
-
-::-webkit-scrollbar-track {
-    background: #07090f;
-}
-
-::-webkit-scrollbar-thumb {
-    background: #282d38;
-
-    border-radius: 20px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: #383f4d;
-}
-
-/* =========================================================
+/* =====================================================
    MOBILE
-   ========================================================= */
+===================================================== */
 
 @media (max-width: 900px) {
 
@@ -952,35 +932,70 @@ body {
 
 }
 
+
 @media (max-width: 700px) {
 
-    .nav-container {
+    .header-inner {
         min-height: 62px;
-
-        width:
-            calc(100% - 20px);
     }
 
-    #nav {
-        gap: 1px;
+    .menu-toggle {
+        display: block;
     }
 
-    #nav a {
-        padding:
-            8px 7px;
+    nav {
+        display: none;
 
-        font-size: 10px;
+        position: absolute;
+
+        top: 62px;
+        left: 16px;
+        right: 16px;
+
+        padding: 10px;
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+        background:
+            #111319;
+
+        border:
+            1px solid var(--border);
+
+        border-radius: 12px;
+
+        box-shadow:
+            0 20px 50px
+            rgba(0,0,0,.4);
+    }
+
+    nav.open {
+        display: flex;
+    }
+
+    nav a {
+        padding: 13px;
     }
 
     .topup-page {
-        width:
-            calc(100% - 20px);
-
         padding-top: 35px;
     }
 
-    .topup-card {
-        padding: 18px;
+    .topup-hero {
+        align-items: flex-start;
+    }
+
+    .hero-icon {
+        width: 55px;
+        height: 55px;
+
+        font-size: 24px;
+    }
+
+    .package-grid {
+        grid-template-columns: 1fr;
     }
 
     .payment-grid {
@@ -988,48 +1003,27 @@ body {
             repeat(2, 1fr);
     }
 
-}
-
-@media (max-width: 500px) {
-
-    .nav-container {
-        flex-wrap: wrap;
-    }
-
-    #nav {
-        width: 100%;
-
-        justify-content: center;
-
-        flex-wrap: wrap;
-    }
-
-    .topup-header h1 {
-        font-size: 31px;
-    }
-
-    .topup-icon {
-        width: 62px;
-        height: 62px;
-
-        font-size: 28px;
-    }
-
-    .package-grid {
+    .card-fields {
         grid-template-columns: 1fr;
     }
 
-    .package {
-        min-height: 125px;
+}
+
+
+@media (max-width: 450px) {
+
+    .topup-container {
+        width:
+            calc(100% - 20px);
     }
 
-    .step-title h2 {
-        font-size: 14px;
+    .topup-card,
+    .order-card {
+        padding: 18px;
     }
 
-    .order-content {
-        padding:
-            18px;
+    .topup-hero h1 {
+        font-size: 31px;
     }
 
 }
