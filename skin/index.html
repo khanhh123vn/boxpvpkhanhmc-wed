@@ -36,12 +36,11 @@
             background:
                 radial-gradient(
                     circle at 50% -10%,
-                    rgba(255, 40, 40, .16),
-                    transparent 35%
+                    rgba(255, 35, 35, .18),
+                    transparent 38%
                 ),
-                #080808;
+                #070707;
         }
-
 
         /* =========================
            HEADER
@@ -52,90 +51,67 @@
             top: 0;
             z-index: 100;
 
-            background:
-                rgba(8, 8, 8, .88);
-
-            backdrop-filter: blur(18px);
-
             border-bottom:
                 1px solid rgba(255,255,255,.08);
-        }
 
+            background:
+                rgba(7,7,7,.88);
+
+            backdrop-filter: blur(18px);
+        }
 
         .navbar {
             max-width: 1180px;
-
-            height: 72px;
+            min-height: 72px;
 
             margin: auto;
-
             padding: 0 22px;
 
             display: flex;
-
             align-items: center;
-
             justify-content: space-between;
+            gap: 20px;
         }
 
-
         .logo {
-            color: white;
-
+            color: #fff;
             text-decoration: none;
 
             font-size: 21px;
-
             font-weight: 900;
-
-            white-space: nowrap;
         }
-
 
         .logo span {
             color: #ff3030;
         }
 
-
         nav {
             display: flex;
-
             align-items: center;
-
             gap: 6px;
         }
 
-
         nav a {
-            color:
-                rgba(255,255,255,.58);
-
+            color: rgba(255,255,255,.6);
             text-decoration: none;
 
-            padding: 10px 12px;
+            padding: 10px 13px;
 
             border-radius: 10px;
 
-            font-size: 14px;
-
+            font-size: 13px;
             font-weight: 700;
 
             transition: .18s ease;
-
-            white-space: nowrap;
         }
-
 
         nav a:hover {
-            color: white;
-
-            background:
-                rgba(255,255,255,.06);
+            color: #fff;
+            background: rgba(255,255,255,.06);
         }
 
-
         nav a.active {
-            color: white;
+            color: #fff;
 
             background:
                 rgba(255,48,48,.12);
@@ -144,13 +120,12 @@
                 1px solid rgba(255,48,48,.22);
         }
 
-
         /* =========================
            MAIN
         ========================= */
 
         main {
-            max-width: 1050px;
+            max-width: 1000px;
 
             margin: auto;
 
@@ -158,25 +133,20 @@
                 55px 20px 80px;
         }
 
-
-        .title {
+        .hero {
             text-align: center;
 
-            margin-bottom: 40px;
+            margin-bottom: 35px;
         }
 
-
-        .title-icon {
+        .hero-icon {
             width: 68px;
             height: 68px;
 
-            margin:
-                0 auto 18px;
+            margin: 0 auto 18px;
 
             display: flex;
-
             align-items: center;
-
             justify-content: center;
 
             border-radius: 20px;
@@ -184,27 +154,24 @@
             background:
                 linear-gradient(
                     135deg,
-                    #ff3030,
-                    #a40000
+                    #ff3636,
+                    #9d0000
                 );
 
             box-shadow:
                 0 15px 45px
-                rgba(255,0,0,.2);
+                rgba(255,0,0,.22);
 
             font-size: 30px;
         }
 
-
-        .title h1 {
+        .hero h1 {
             font-size: 34px;
-
             font-weight: 900;
         }
 
-
-        .title p {
-            margin-top: 9px;
+        .hero p {
+            margin-top: 8px;
 
             color:
                 rgba(255,255,255,.45);
@@ -212,28 +179,29 @@
             font-size: 14px;
         }
 
-
         /* =========================
-           LAYOUT
+           GRID
         ========================= */
 
-        .layout {
+        .grid {
             display: grid;
 
             grid-template-columns:
-                1fr 340px;
+                1fr 350px;
 
             gap: 22px;
 
             align-items: start;
         }
 
-
-        /* =========================
-           CARD
-        ========================= */
-
         .card {
+            overflow: hidden;
+
+            border:
+                1px solid rgba(255,255,255,.08);
+
+            border-radius: 20px;
+
             background:
                 linear-gradient(
                     180deg,
@@ -241,31 +209,21 @@
                     rgba(255,255,255,.018)
                 );
 
-            border:
-                1px solid rgba(255,255,255,.08);
-
-            border-radius: 20px;
-
-            overflow: hidden;
-
             box-shadow:
                 0 20px 60px
-                rgba(0,0,0,.28);
+                rgba(0,0,0,.3);
         }
 
-
         .card-header {
-            padding: 23px 24px;
+            padding: 23px;
 
             border-bottom:
                 1px solid rgba(255,255,255,.07);
         }
 
-
         .card-header h2 {
             font-size: 17px;
         }
-
 
         .card-header p {
             margin-top: 5px;
@@ -273,20 +231,26 @@
             color:
                 rgba(255,255,255,.4);
 
-            font-size: 13px;
+            font-size: 12px;
         }
-
 
         .card-body {
             padding: 24px;
         }
 
-
         /* =========================
-           USERNAME
+           FORM
         ========================= */
 
-        .label {
+        .field {
+            margin-bottom: 20px;
+        }
+
+        .field:last-child {
+            margin-bottom: 0;
+        }
+
+        label {
             display: block;
 
             margin-bottom: 8px;
@@ -295,36 +259,31 @@
                 rgba(255,255,255,.65);
 
             font-size: 12px;
-
-            font-weight: 700;
+            font-weight: 800;
         }
-
 
         .input {
             width: 100%;
+            height: 49px;
 
-            height: 50px;
+            padding: 0 15px;
 
-            padding:
-                0 15px;
+            outline: none;
 
-            border-radius: 12px;
+            color: #fff;
 
             border:
                 1px solid rgba(255,255,255,.09);
 
-            outline: none;
+            border-radius: 12px;
 
             background:
                 rgba(0,0,0,.3);
-
-            color: white;
 
             font-size: 14px;
 
             transition: .18s ease;
         }
-
 
         .input:focus {
             border-color:
@@ -335,244 +294,66 @@
                 rgba(255,48,48,.08);
         }
 
-
         .input::placeholder {
             color:
-                rgba(255,255,255,.25);
+                rgba(255,255,255,.23);
         }
 
-
-        .username-status {
-            margin-top: 9px;
-
-            color:
-                rgba(255,255,255,.35);
-
-            font-size: 12px;
-        }
-
-
-        .username-status.valid {
-            color: #53e68a;
-        }
-
-
-        /* =========================
-           SKIN PREVIEW
-        ========================= */
-
-        .skin-preview {
-            margin-top: 25px;
-
-            min-height: 300px;
-
-            border-radius: 18px;
-
-            border:
-                1px solid rgba(255,255,255,.07);
-
-            background:
-                radial-gradient(
-                    circle at center,
-                    rgba(255,48,48,.09),
-                    transparent 55%
-                ),
-                rgba(255,255,255,.02);
-
+        .code-box {
             display: flex;
-
-            flex-direction: column;
-
-            align-items: center;
-
-            justify-content: center;
+            gap: 10px;
         }
 
-
-        .minecraft-character {
-            position: relative;
-
-            width: 110px;
-
-            height: 170px;
-
-            margin-bottom: 20px;
+        .code-box .input {
+            flex: 1;
         }
 
+        .copy-btn {
+            width: 100px;
 
-        .head {
-            position: absolute;
+            border: 0;
+            border-radius: 12px;
 
-            width: 62px;
-
-            height: 62px;
-
-            left: 24px;
-
-            top: 0;
-
-            border-radius: 7px;
+            color: #fff;
 
             background:
-                linear-gradient(
-                    135deg,
-                    #b8794f,
-                    #754329
-                );
-
-            border:
-                3px solid #1b1b1b;
-
-            box-shadow:
-                inset -8px -8px 0
-                rgba(0,0,0,.12);
-        }
-
-
-        .head::before {
-            content: "";
-
-            position: absolute;
-
-            width: 8px;
-            height: 8px;
-
-            left: 13px;
-            top: 27px;
-
-            background: #171717;
-
-            box-shadow:
-                27px 0 #171717;
-        }
-
-
-        .body {
-            position: absolute;
-
-            width: 60px;
-
-            height: 70px;
-
-            left: 25px;
-
-            top: 66px;
-
-            border-radius: 5px;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    #333,
-                    #151515
-                );
-
-            border:
-                3px solid #1b1b1b;
-        }
-
-
-        .arm {
-            position: absolute;
-
-            width: 22px;
-
-            height: 65px;
-
-            top: 68px;
-
-            border-radius: 5px;
-
-            background:
-                #333;
-
-            border:
-                3px solid #1b1b1b;
-        }
-
-
-        .arm.left {
-            left: 2px;
-        }
-
-
-        .arm.right {
-            right: 2px;
-        }
-
-
-        .leg {
-            position: absolute;
-
-            width: 25px;
-
-            height: 58px;
-
-            top: 137px;
-
-            border-radius: 5px;
-
-            background:
-                #222;
-
-            border:
-                3px solid #1b1b1b;
-        }
-
-
-        .leg.left {
-            left: 25px;
-        }
-
-
-        .leg.right {
-            right: 25px;
-        }
-
-
-        .skin-name {
-            font-size: 15px;
+                rgba(255,255,255,.07);
 
             font-weight: 800;
+
+            cursor: pointer;
+
+            transition: .18s ease;
         }
 
-
-        .skin-subtitle {
-            margin-top: 5px;
-
-            color:
-                rgba(255,255,255,.38);
-
-            font-size: 12px;
+        .copy-btn:hover {
+            background:
+                rgba(255,48,48,.15);
         }
-
 
         /* =========================
            BUTTON
         ========================= */
 
-        .button {
+        .update-btn {
             width: 100%;
+            height: 51px;
 
-            height: 50px;
-
-            margin-top: 18px;
+            margin-top: 24px;
 
             border: 0;
-
             border-radius: 13px;
+
+            color: #fff;
 
             background:
                 linear-gradient(
                     135deg,
-                    #ff3b3b,
-                    #c80000
+                    #ff3939,
+                    #bd0000
                 );
 
-            color: white;
-
             font-size: 13px;
-
             font-weight: 900;
 
             cursor: pointer;
@@ -584,41 +365,30 @@
             transition: .18s ease;
         }
 
-
-        .button:hover {
-            transform:
-                translateY(-2px);
+        .update-btn:hover {
+            transform: translateY(-2px);
 
             box-shadow:
                 0 16px 35px
-                rgba(255,0,0,.25);
+                rgba(255,0,0,.28);
         }
-
-
-        .button:active {
-            transform:
-                translateY(0);
-        }
-
 
         /* =========================
-           RIGHT CARD
+           PREVIEW
         ========================= */
 
-        .info {
+        .preview {
             position: sticky;
-
             top: 95px;
         }
 
-
-        .info-top {
+        .preview-top {
             padding: 25px;
 
             background:
                 linear-gradient(
                     145deg,
-                    rgba(255,48,48,.12),
+                    rgba(255,48,48,.13),
                     transparent
                 );
 
@@ -626,15 +396,14 @@
                 1px solid rgba(255,255,255,.07);
         }
 
+        .preview-icon {
+            width: 48px;
+            height: 48px;
 
-        .info-icon {
-            width: 45px;
-            height: 45px;
+            margin-bottom: 15px;
 
             display: flex;
-
             align-items: center;
-
             justify-content: center;
 
             border-radius: 14px;
@@ -642,18 +411,14 @@
             background:
                 rgba(255,48,48,.12);
 
-            margin-bottom: 15px;
-
-            font-size: 21px;
+            font-size: 22px;
         }
 
-
-        .info-top h2 {
+        .preview-top h2 {
             font-size: 18px;
         }
 
-
-        .info-top p {
+        .preview-top p {
             margin-top: 5px;
 
             color:
@@ -662,98 +427,79 @@
             font-size: 12px;
         }
 
-
-        .info-body {
-            padding: 23px;
+        .preview-body {
+            padding: 24px;
         }
 
+        .skin-preview {
+            min-height: 230px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border:
+                1px solid rgba(255,255,255,.07);
+
+            border-radius: 16px;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(255,48,48,.12),
+                    transparent 60%
+                );
+
+            font-size: 85px;
+        }
+
+        .player-info {
+            margin-top: 18px;
+        }
 
         .info-row {
             display: flex;
 
             align-items: center;
+            justify-content: space-between;
 
-            gap: 12px;
-
-            padding: 14px 0;
+            padding: 13px 0;
 
             border-bottom:
-                1px solid
-                rgba(255,255,255,.06);
-        }
-
-
-        .info-row:last-child {
-            border-bottom: 0;
-        }
-
-
-        .info-row-icon {
-            width: 38px;
-            height: 38px;
-
-            flex-shrink: 0;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            border-radius: 11px;
-
-            background:
-                rgba(255,255,255,.05);
-
-            font-size: 17px;
-        }
-
-
-        .info-row strong {
-            display: block;
+                1px solid rgba(255,255,255,.06);
 
             font-size: 13px;
         }
 
-
         .info-row span {
-            display: block;
-
-            margin-top: 3px;
-
             color:
-                rgba(255,255,255,.38);
-
-            font-size: 11px;
+                rgba(255,255,255,.42);
         }
 
+        .info-row strong {
+            color: #fff;
+        }
 
-        /* =========================
-           WARNING
-        ========================= */
+        .status {
+            margin-top: 17px;
 
-        .warning {
-            margin-top: 18px;
+            padding: 12px;
 
-            padding: 13px;
-
-            border-radius: 12px;
+            border-radius: 11px;
 
             background:
-                rgba(255,190,0,.05);
+                rgba(0,255,120,.05);
 
             border:
-                1px solid
-                rgba(255,190,0,.1);
+                1px solid rgba(0,255,120,.1);
 
             color:
-                rgba(255,255,255,.45);
+                rgba(255,255,255,.55);
 
             font-size: 11px;
 
             line-height: 1.6;
         }
-
 
         /* =========================
            TOAST
@@ -763,10 +509,14 @@
             position: fixed;
 
             left: 50%;
-
             bottom: 25px;
 
-            z-index: 999;
+            transform:
+                translate(-50%, 20px);
+
+            opacity: 0;
+
+            pointer-events: none;
 
             padding:
                 13px 18px;
@@ -783,19 +533,12 @@
                 rgba(0,0,0,.4);
 
             font-size: 13px;
-
             font-weight: 700;
 
-            opacity: 0;
-
-            pointer-events: none;
-
-            transform:
-                translate(-50%, 20px);
-
             transition: .25s ease;
-        }
 
+            z-index: 999;
+        }
 
         .toast.show {
             opacity: 1;
@@ -804,67 +547,71 @@
                 translate(-50%, 0);
         }
 
-
         /* =========================
            MOBILE
         ========================= */
 
-        @media (max-width: 850px) {
+        @media (max-width: 820px) {
 
-            .layout {
+            .grid {
                 grid-template-columns: 1fr;
             }
 
-            .info {
+            .preview {
                 position: static;
             }
 
         }
 
-
-        @media (max-width: 650px) {
+        @media (max-width: 620px) {
 
             .navbar {
-                height: auto;
-
                 min-height: 70px;
+
+                padding:
+                    13px 15px;
 
                 flex-direction: column;
 
                 gap: 10px;
-
-                padding: 14px;
             }
-
 
             nav {
                 width: 100%;
 
                 overflow-x: auto;
-            }
 
+                justify-content: flex-start;
+            }
 
             nav a {
+                white-space: nowrap;
+
                 font-size: 12px;
 
-                padding:
-                    8px 9px;
+                padding: 8px 9px;
             }
-
 
             main {
                 padding:
                     35px 14px 60px;
             }
 
-
-            .title h1 {
+            .hero h1 {
                 font-size: 27px;
             }
 
-
             .card-body {
                 padding: 18px;
+            }
+
+            .code-box {
+                flex-direction: column;
+            }
+
+            .copy-btn {
+                width: 100%;
+                height: 45px;
             }
 
         }
@@ -873,48 +620,45 @@
 
 </head>
 
-
 <body>
-
 
 <header>
 
     <div class="navbar">
 
         <a
-            href="/"
+            href="../index.html"
             class="logo"
         >
             ⚔️ <span>BOX</span>PVP
         </a>
 
-
         <nav>
 
-            <a href="/">
+            <a href="../index.html">
                 🏠 Trang chủ
             </a>
 
-            <a href="/topup/">
+            <a href="../topup/">
                 🛒 Nạp
             </a>
 
-            <a href="/code/">
+            <a href="../code/">
                 🎁 Code
             </a>
 
-            <a href="/account/">
+            <a href="../account/">
                 👤 Tài khoản
             </a>
 
             <a
-                href="/skin/"
+                href="./"
                 class="active"
             >
                 👕 Skin
             </a>
 
-            <a href="/ranking/">
+            <a href="../ranking/">
                 🏆 BXH
             </a>
 
@@ -927,41 +671,39 @@
 
 <main>
 
+    <section class="hero">
 
-    <section class="title">
-
-        <div class="title-icon">
+        <div class="hero-icon">
             👕
         </div>
 
         <h1>
-            Skin Minecraft
+            Skin BOXPVP
         </h1>
 
         <p>
-            Nhập username để xem và cập nhật Skin BOXPVP.
+            Cập nhật Skin Minecraft cho tài khoản của bạn.
         </p>
 
     </section>
 
 
-    <div class="layout">
-
+    <div class="grid">
 
         <!-- =========================
-             LEFT
-        ========================= -->
+             FORM
+        ========================== -->
 
         <section class="card">
 
             <div class="card-header">
 
                 <h2>
-                    👤 Tài khoản Minecraft
+                    👤 Thông tin Skin
                 </h2>
 
                 <p>
-                    Nhập đúng username Minecraft của bạn.
+                    Nhập username và mã Skin của bạn.
                 </p>
 
             </div>
@@ -969,72 +711,59 @@
 
             <div class="card-body">
 
+                <div class="field">
 
-                <label
-                    class="label"
-                    for="username"
-                >
-                    Tên tài khoản Minecraft
-                </label>
+                    <label for="username">
+                        TÊN TÀI KHOẢN MINECRAFT
+                    </label>
+
+                    <input
+                        class="input"
+                        id="username"
+                        type="text"
+                        placeholder="Ví dụ: khanhk360"
+                        autocomplete="off"
+                    >
+
+                </div>
 
 
-                <input
-                    class="input"
-                    id="username"
-                    type="text"
-                    placeholder="Ví dụ: khanhk360"
-                    autocomplete="off"
-                >
+                <div class="field">
 
+                    <label for="skinCode">
+                        MÃ SKIN
+                    </label>
 
-                <div
-                    class="username-status"
-                    id="usernameStatus"
-                >
-                    ⚪ Chưa nhập username
+                    <div class="code-box">
+
+                        <input
+                            class="input"
+                            id="skinCode"
+                            type="text"
+                            placeholder="Nhập mã Skin"
+                            autocomplete="off"
+                        >
+
+                        <button
+                            class="copy-btn"
+                            id="copyCode"
+                            type="button"
+                        >
+                            📋 SAO CHÉP
+                        </button>
+
+                    </div>
+
                 </div>
 
 
                 <button
-                    class="button"
+                    class="update-btn"
                     id="updateSkin"
+                    type="button"
                 >
-                    👕 XEM SKIN
+                    👕 CẬP NHẬT SKIN
                 </button>
-
-
-                <div class="skin-preview">
-
-                    <div class="minecraft-character">
-
-                        <div class="head"></div>
-
-                        <div class="body"></div>
-
-                        <div class="arm left"></div>
-
-                        <div class="arm right"></div>
-
-                        <div class="leg left"></div>
-
-                        <div class="leg right"></div>
-
-                    </div>
-
-
-                    <div
-                        class="skin-name"
-                        id="skinName"
-                    >
-                        Username
-                    </div>
-
-
-                    <div class="skin-subtitle">
-                        Minecraft Skin Preview
-                    </div>
-
-                </div>
 
             </div>
 
@@ -1042,111 +771,93 @@
 
 
         <!-- =========================
-             RIGHT
-        ========================= -->
+             PREVIEW
+        ========================== -->
 
-        <aside class="card info">
+        <aside class="card preview">
 
+            <div class="preview-top">
 
-            <div class="info-top">
-
-                <div class="info-icon">
+                <div class="preview-icon">
                     👕
                 </div>
 
                 <h2>
-                    Thông tin Skin
+                    Skin Preview
                 </h2>
 
                 <p>
-                    Thông tin tài khoản của bạn.
+                    Thông tin Skin hiện tại.
                 </p>
 
             </div>
 
 
-            <div class="info-body">
+            <div class="preview-body">
+
+                <div
+                    class="skin-preview"
+                    id="skinPreview"
+                >
+                    🧍
+                </div>
 
 
-                <div class="info-row">
+                <div class="player-info">
 
-                    <div class="info-row-icon">
-                        👤
-                    </div>
+                    <div class="info-row">
 
-                    <div>
-
-                        <strong id="infoUsername">
+                        <span>
                             Username
-                        </strong>
-
-                        <span>
-                            Tài khoản Minecraft
                         </span>
 
-                    </div>
-
-                </div>
-
-
-                <div class="info-row">
-
-                    <div class="info-row-icon">
-                        👕
-                    </div>
-
-                    <div>
-
-                        <strong>
-                            Skin
+                        <strong id="previewUsername">
+                            Chưa nhập
                         </strong>
 
+                    </div>
+
+
+                    <div class="info-row">
+
                         <span>
-                            Minecraft Skin
+                            Mã Skin
                         </span>
 
+                        <strong id="previewCode">
+                            Chưa có
+                        </strong>
+
                     </div>
 
-                </div>
 
+                    <div class="info-row">
 
-                <div class="info-row">
-
-                    <div class="info-row-icon">
-                        🟢
-                    </div>
-
-                    <div>
-
-                        <strong>
+                        <span>
                             Trạng thái
-                        </strong>
-
-                        <span id="status">
-                            Chưa cập nhật
                         </span>
+
+                        <strong id="previewStatus">
+                            Chưa cập nhật
+                        </strong>
 
                     </div>
 
                 </div>
 
 
-                <div class="warning">
+                <div class="status">
 
-                    ⚠️
-                    <strong>Lưu ý</strong><br>
+                    🟢 <strong>Hệ thống Skin</strong><br>
 
-                    Hệ thống hiện sử dụng giao diện
-                    Skin Preview. Không yêu cầu đăng nhập
-                    tài khoản Microsoft.
+                    Username và mã Skin được lưu trên trình duyệt
+                    trong phiên bản hiện tại.
 
                 </div>
-
 
             </div>
 
         </aside>
-
 
     </div>
 
@@ -1161,31 +872,30 @@
 
 <script>
 
-    const usernameInput =
+    const username =
         document.getElementById("username");
 
-    const usernameStatus =
-        document.getElementById("usernameStatus");
+    const skinCode =
+        document.getElementById("skinCode");
+
+    const previewUsername =
+        document.getElementById("previewUsername");
+
+    const previewCode =
+        document.getElementById("previewCode");
+
+    const previewStatus =
+        document.getElementById("previewStatus");
 
     const updateSkin =
         document.getElementById("updateSkin");
 
-    const skinName =
-        document.getElementById("skinName");
-
-    const infoUsername =
-        document.getElementById("infoUsername");
-
-    const status =
-        document.getElementById("status");
+    const copyCode =
+        document.getElementById("copyCode");
 
     const toast =
         document.getElementById("toast");
 
-
-    /* =========================
-       TOAST
-    ========================= */
 
     function showToast(message) {
 
@@ -1206,79 +916,72 @@
 
 
     /* =========================
-       LOAD USERNAME
+       LOAD SAVED DATA
     ========================= */
 
-    function loadUsername() {
+    const savedUsername =
+        localStorage.getItem("boxpvp_username");
 
-        const saved =
-            localStorage.getItem(
-                "boxpvp_username"
-            );
+    const savedSkinCode =
+        localStorage.getItem("boxpvp_skin_code");
 
-        if (!saved) {
-            return;
-        }
 
-        usernameInput.value = saved;
+    if (savedUsername) {
 
-        updateUsername(saved);
+        username.value =
+            savedUsername;
+
+        previewUsername.textContent =
+            savedUsername;
+
+    }
+
+
+    if (savedSkinCode) {
+
+        skinCode.value =
+            savedSkinCode;
+
+        previewCode.textContent =
+            savedSkinCode;
+
+        previewStatus.textContent =
+            "Đã cập nhật";
 
     }
 
 
     /* =========================
-       UPDATE USERNAME
+       USERNAME PREVIEW
     ========================= */
 
-    function updateUsername(name) {
-
-        if (!name) {
-
-            usernameStatus.textContent =
-                "⚪ Chưa nhập username";
-
-            usernameStatus.classList.remove(
-                "valid"
-            );
-
-            infoUsername.textContent =
-                "Username";
-
-            return;
-        }
-
-
-        usernameStatus.textContent =
-            "🟢 Username hợp lệ";
-
-        usernameStatus.classList.add(
-            "valid"
-        );
-
-
-        infoUsername.textContent =
-            name;
-
-
-        skinName.textContent =
-            name;
-
-    }
-
-
-    /* =========================
-       INPUT
-    ========================= */
-
-    usernameInput.addEventListener(
+    username.addEventListener(
         "input",
         () => {
 
-            const name =
-                usernameInput.value.trim();
+            const value =
+                username.value.trim();
 
-            updateUsername(name);
+            previewUsername.textContent =
+                value || "Chưa nhập";
+
+        }
+    );
+
+
+    /* =========================
+       CODE PREVIEW
+    ========================= */
+
+    skinCode.addEventListener(
+        "input",
+        () => {
+
+            const value =
+                skinCode.value.trim();
+
+            previewCode.textContent =
+                value || "Chưa có";
 
         }
     );
@@ -1292,17 +995,33 @@
         "click",
         () => {
 
-            const name =
-                usernameInput.value.trim();
+            const user =
+                username.value.trim();
+
+            const code =
+                skinCode.value.trim();
 
 
-            if (!name) {
+            if (!user) {
 
                 showToast(
-                    "⚠️ Hãy nhập username Minecraft trước."
+                    "⚠️ Hãy nhập username Minecraft."
                 );
 
-                usernameInput.focus();
+                username.focus();
+
+                return;
+
+            }
+
+
+            if (!code) {
+
+                showToast(
+                    "⚠️ Hãy nhập mã Skin."
+                );
+
+                skinCode.focus();
 
                 return;
 
@@ -1311,33 +1030,30 @@
 
             localStorage.setItem(
                 "boxpvp_username",
-                name
+                user
             );
 
 
-            skinName.textContent =
-                name;
+            localStorage.setItem(
+                "boxpvp_skin_code",
+                code
+            );
 
 
-            infoUsername.textContent =
-                name;
+            previewUsername.textContent =
+                user;
 
 
-            status.textContent =
+            previewCode.textContent =
+                code;
+
+
+            previewStatus.textContent =
                 "Đã cập nhật";
 
 
-            usernameStatus.textContent =
-                "🟢 Username hợp lệ";
-
-
-            usernameStatus.classList.add(
-                "valid"
-            );
-
-
             showToast(
-                `👕 Đã cập nhật Skin cho ${name}`
+                `👕 Đã cập nhật Skin cho ${user}.`
             );
 
         }
@@ -1345,13 +1061,50 @@
 
 
     /* =========================
-       START
+       COPY CODE
     ========================= */
 
-    loadUsername();
+    copyCode.addEventListener(
+        "click",
+        async () => {
+
+            const code =
+                skinCode.value.trim();
+
+
+            if (!code) {
+
+                showToast(
+                    "⚠️ Chưa có mã Skin."
+                );
+
+                return;
+
+            }
+
+
+            try {
+
+                await navigator.clipboard.writeText(
+                    code
+                );
+
+                showToast(
+                    "📋 Đã sao chép mã Skin."
+                );
+
+            } catch {
+
+                showToast(
+                    `🎫 Mã Skin: ${code}`
+                );
+
+            }
+
+        }
+    );
 
 </script>
-
 
 </body>
 
