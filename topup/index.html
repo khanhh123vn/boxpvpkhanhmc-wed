@@ -2,37 +2,26 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
-
-    <meta
-        name="description"
-        content="Nạp Coin BOXPVP"
-    >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Nạp Coin | BOXPVP</title>
 
+    <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
 <!-- =====================================================
-     NAVBAR
+     HEADER
 ===================================================== -->
 
-<header class="navbar">
+<header class="topup-header">
 
-    <div class="nav-container">
+    <div class="topup-container header-inner">
 
-        <a
-            href="../index.html"
-            class="logo"
-        >
-            ⚔️ BOXPVP
+        <a href="../index.html" class="logo">
+            ⚔️ <span>BOXPVP</span>
         </a>
 
         <button
@@ -46,39 +35,27 @@
 
         <nav id="nav">
 
-            <a
-                href="../index.html"
-            >
+            <a href="../index.html">
                 🏠 Trang chủ
             </a>
 
-            <a
-                href="index.html"
-            >
+            <a href="../topup/" class="active">
                 🛒 Nạp
             </a>
 
-            <a
-                href="../code/"
-            >
+            <a href="../code/">
                 🎁 Code
             </a>
 
-            <a
-                href="../account/"
-            >
+            <a href="../account/">
                 👤 Tài khoản
             </a>
 
-            <a
-                href="../skin/"
-            >
+            <a href="../skin/">
                 👕 Skin
             </a>
 
-            <a
-                href="../ranking/"
-            >
+            <a href="../ranking/">
                 🏆 BXH
             </a>
 
@@ -95,508 +72,570 @@
 
 <main class="topup-page">
 
+    <div class="topup-container">
 
-    <!-- =================================================
-         HEADER
-    ================================================== -->
+        <!-- HERO -->
 
-    <section class="topup-header">
+        <section class="topup-hero">
 
-        <div class="topup-icon">
-            🛒
-        </div>
+            <div class="hero-icon">
+                🛒
+            </div>
 
-        <h1>
-            NẠP COIN BOXPVP
-        </h1>
+            <div>
+                <div class="hero-label">
+                    BOXPVP STORE
+                </div>
 
-        <p>
-            Chọn tài khoản, gói Coin và phương thức thanh toán.
-        </p>
+                <h1>
+                    NẠP COIN
+                </h1>
 
-    </section>
+                <p>
+                    Chọn tài khoản, gói Coin và phương thức thanh toán.
+                </p>
+            </div>
 
-
-    <!-- =================================================
-         CONTENT
-    ================================================== -->
-
-    <div class="topup-layout">
+        </section>
 
 
-        <!-- =============================================
-             LEFT
-        ============================================== -->
+        <!-- CONTENT -->
 
-        <div>
+        <div class="topup-layout">
 
 
-            <!-- =========================================
-                 BƯỚC 1
-            ========================================== -->
+            <!-- =================================================
+                 LEFT
+            ================================================= -->
 
-            <section class="topup-card">
+            <div class="topup-main">
 
-                <div class="step-title">
 
-                    <span>
-                        1
-                    </span>
+                <!-- STEP 1 -->
 
-                    <div>
+                <section class="topup-card">
 
-                        <h2>
-                            👤 ĐĂNG NHẬP BẰNG TÊN TÀI KHOẢN
-                        </h2>
+                    <div class="step-title">
 
-                        <p>
-                            Nhập tên Minecraft của bạn
-                        </p>
+                        <span class="step-number">
+                            01
+                        </span>
+
+                        <div>
+
+                            <h2>
+                                👤 Tài khoản
+                            </h2>
+
+                            <p>
+                                Nhập tên Minecraft của bạn
+                            </p>
+
+                        </div>
 
                     </div>
 
-                </div>
 
-
-                <label for="username">
-                    Tên tài khoản Minecraft
-                </label>
-
-                <input
-                    type="text"
-                    id="username"
-                    name="username"
-                    placeholder="Nhập username Minecraft..."
-                    autocomplete="off"
-                    maxlength="32"
-                >
-
-            </section>
-
-
-
-            <!-- =========================================
-                 BƯỚC 2
-            ========================================== -->
-
-            <section class="topup-card">
-
-                <div class="step-title">
-
-                    <span>
-                        2
-                    </span>
-
-                    <div>
-
-                        <h2>
-                            💰 CHỌN GÓI
-                        </h2>
-
-                        <p>
-                            Chọn số Coin muốn nạp
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-                <div class="package-grid">
-
-
-                    <!-- 10 COIN -->
-
-                    <button
-                        type="button"
-                        class="package"
-                        data-coin="10"
-                        data-price="10000"
-                    >
-
-                        <div class="package-icon">
-                            💰
-                        </div>
-
-                        <strong>
-                            Gói 10 Coin
-                        </strong>
-
-                        <span>
-                            10.000 VND
-                        </span>
-
-                    </button>
-
-
-                    <!-- 20 COIN -->
-
-                    <button
-                        type="button"
-                        class="package"
-                        data-coin="20"
-                        data-price="20000"
-                    >
-
-                        <div class="package-icon">
-                            💰
-                        </div>
-
-                        <strong>
-                            Gói 20 Coin
-                        </strong>
-
-                        <span>
-                            20.000 VND
-                        </span>
-
-                    </button>
-
-
-                    <!-- 50 COIN -->
-
-                    <button
-                        type="button"
-                        class="package"
-                        data-coin="50"
-                        data-price="50000"
-                    >
-
-                        <div class="package-icon">
-                            💰
-                        </div>
-
-                        <strong>
-                            Gói 50 Coin
-                        </strong>
-
-                        <span>
-                            50.000 VND
-                        </span>
-
-                    </button>
-
-
-                    <!-- 100 COIN -->
-
-                    <button
-                        type="button"
-                        class="package"
-                        data-coin="100"
-                        data-price="100000"
-                    >
-
-                        <div class="package-icon">
-                            💰
-                        </div>
-
-                        <strong>
-                            Gói 100 Coin
-                        </strong>
-
-                        <span>
-                            100.000 VND
-                        </span>
-
-                    </button>
-
-                </div>
-
-            </section>
-
-
-
-            <!-- =========================================
-                 BƯỚC 3
-            ========================================== -->
-
-            <section class="topup-card">
-
-                <div class="step-title">
-
-                    <span>
-                        3
-                    </span>
-
-                    <div>
-
-                        <h2>
-                            💳 PHƯƠNG THỨC THANH TOÁN
-                        </h2>
-
-                        <p>
-                            Chọn phương thức thanh toán
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-                <div class="payment-grid">
-
-
-                    <!-- ZING -->
-
-                    <button
-                        type="button"
-                        class="payment"
-                        data-payment="ZingCard"
-                    >
-
-                        🟦
-
-                        <span>
-                            ZingCard
-                        </span>
-
-                    </button>
-
-
-                    <!-- ZALOPAY -->
-
-                    <button
-                        type="button"
-                        class="payment"
-                        data-payment="ZaloPay"
-                    >
-
-                        🟢
-
-                        <span>
-                            ZaloPay
-                        </span>
-
-                    </button>
-
-
-                    <!-- VIETQR -->
-
-                    <button
-                        type="button"
-                        class="payment"
-                        data-payment="VietQR"
-                    >
-
-                        🟣
-
-                        <span>
-                            VietQR
-                        </span>
-
-                    </button>
-
-
-                    <!-- ATM -->
-
-                    <button
-                        type="button"
-                        class="payment"
-                        data-payment="ATM"
-                    >
-
-                        🏦
-
-                        <span>
-                            ATM
-                        </span>
-
-                    </button>
-
-
-                    <!-- CREDIT -->
-
-                    <button
-                        type="button"
-                        class="payment"
-                        data-payment="Credit Card"
-                    >
-
-                        💳
-
-                        <span>
-                            Credit Card
-                        </span>
-
-                    </button>
-
-
-                    <!-- VIETTEL -->
-
-                    <button
-                        type="button"
-                        class="payment"
-                        data-payment="Viettel"
-                    >
-
-                        📱
-
-                        <span>
-                            Viettel
-                        </span>
-
-                    </button>
-
-
-                    <!-- VINAPHONE -->
-
-                    <button
-                        type="button"
-                        class="payment"
-                        data-payment="Vinaphone"
-                    >
-
-                        📱
-
-                        <span>
-                            Vinaphone
-                        </span>
-
-                    </button>
-
-
-                    <!-- MOBIFONE -->
-
-                    <button
-                        type="button"
-                        class="payment"
-                        data-payment="Mobifone"
-                    >
-
-                        📱
-
-                        <span>
-                            Mobifone
-                        </span>
-
-                    </button>
-
-                </div>
-
-
-                <!-- =====================================
-                     CARD INPUT
-                ====================================== -->
-
-                <div
-                    class="card-input-area"
-                    id="cardInputArea"
-                    style="display: none;"
-                >
-
-                    <div class="card-input-title">
-                        🎫 THÔNG TIN THẺ
-                    </div>
-
-
-                    <label for="cardCode">
-                        Mã thẻ
+                    <label for="username">
+                        Tên tài khoản Minecraft
                     </label>
 
-                    <input
-                        type="text"
-                        id="cardCode"
-                        placeholder="Nhập mã thẻ..."
-                        autocomplete="off"
-                    >
+                    <div class="input-box">
 
+                        <span>
+                            🎮
+                        </span>
 
-                    <label for="cardSerial">
-                        Seri
-                    </label>
+                        <input
+                            id="username"
+                            type="text"
+                            placeholder="Nhập username Minecraft"
+                            value=""
+                            maxlength="16"
+                            autocomplete="off"
+                        >
 
-                    <input
-                        type="text"
-                        id="cardSerial"
-                        placeholder="Nhập seri..."
-                        autocomplete="off"
-                    >
+                    </div>
 
-                </div>
-
-            </section>
-
-        </div>
+                </section>
 
 
 
-        <!-- =============================================
-             RIGHT ORDER
-        ============================================== -->
+                <!-- STEP 2 -->
 
-        <aside class="order-card">
+                <section class="topup-card">
+
+                    <div class="step-title">
+
+                        <span class="step-number">
+                            02
+                        </span>
+
+                        <div>
+
+                            <h2>
+                                💰 Chọn gói Coin
+                            </h2>
+
+                            <p>
+                                Chọn số Coin muốn nạp
+                            </p>
+
+                        </div>
+
+                    </div>
 
 
-            <div class="order-header">
+                    <div class="package-grid">
 
-                <span>
-                    🧾
-                </span>
 
-                <div>
+                        <button
+                            class="package"
+                            data-coins="10"
+                            data-price="10000"
+                            type="button"
+                        >
 
-                    <h2>
-                        ĐƠN HÀNG
-                    </h2>
+                            <div class="package-icon">
+                                💰
+                            </div>
 
-                    <p>
-                        Kiểm tra thông tin trước khi tiếp tục
-                    </p>
+                            <div class="package-info">
 
-                </div>
+                                <strong>
+                                    10 Coin
+                                </strong>
+
+                                <span>
+                                    10.000 VND
+                                </span>
+
+                            </div>
+
+                            <div class="package-check">
+                                ✓
+                            </div>
+
+                        </button>
+
+
+
+                        <button
+                            class="package"
+                            data-coins="20"
+                            data-price="20000"
+                            type="button"
+                        >
+
+                            <div class="package-icon">
+                                💰
+                            </div>
+
+                            <div class="package-info">
+
+                                <strong>
+                                    20 Coin
+                                </strong>
+
+                                <span>
+                                    20.000 VND
+                                </span>
+
+                            </div>
+
+                            <div class="package-check">
+                                ✓
+                            </div>
+
+                        </button>
+
+
+
+                        <button
+                            class="package"
+                            data-coins="50"
+                            data-price="50000"
+                            type="button"
+                        >
+
+                            <div class="package-icon">
+                                💰
+                            </div>
+
+                            <div class="package-info">
+
+                                <strong>
+                                    50 Coin
+                                </strong>
+
+                                <span>
+                                    50.000 VND
+                                </span>
+
+                            </div>
+
+                            <div class="package-check">
+                                ✓
+                            </div>
+
+                        </button>
+
+
+
+                        <button
+                            class="package"
+                            data-coins="100"
+                            data-price="100000"
+                            type="button"
+                        >
+
+                            <div class="package-icon">
+                                💰
+                            </div>
+
+                            <div class="package-info">
+
+                                <strong>
+                                    100 Coin
+                                </strong>
+
+                                <span>
+                                    100.000 VND
+                                </span>
+
+                            </div>
+
+                            <div class="package-check">
+                                ✓
+                            </div>
+
+                        </button>
+
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- STEP 3 -->
+
+                <section class="topup-card">
+
+                    <div class="step-title">
+
+                        <span class="step-number">
+                            03
+                        </span>
+
+                        <div>
+
+                            <h2>
+                                💳 Thanh toán
+                            </h2>
+
+                            <p>
+                                Chọn phương thức thanh toán
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="payment-grid">
+
+
+                        <button
+                            class="payment"
+                            data-payment="ZingCard"
+                            type="button"
+                        >
+
+                            <span class="payment-icon zing">
+                                Z
+                            </span>
+
+                            <span>
+                                ZingCard
+                            </span>
+
+                        </button>
+
+
+
+                        <button
+                            class="payment"
+                            data-payment="ZaloPay"
+                            type="button"
+                        >
+
+                            <span class="payment-icon zalo">
+                                Z
+                            </span>
+
+                            <span>
+                                ZaloPay
+                            </span>
+
+                        </button>
+
+
+
+                        <button
+                            class="payment"
+                            data-payment="VietQR"
+                            type="button"
+                        >
+
+                            <span class="payment-icon qr">
+                                QR
+                            </span>
+
+                            <span>
+                                VietQR
+                            </span>
+
+                        </button>
+
+
+
+                        <button
+                            class="payment"
+                            data-payment="ATM"
+                            type="button"
+                        >
+
+                            <span class="payment-icon atm">
+                                ATM
+                            </span>
+
+                            <span>
+                                ATM
+                            </span>
+
+                        </button>
+
+
+
+                        <button
+                            class="payment"
+                            data-payment="Credit Card"
+                            type="button"
+                        >
+
+                            <span class="payment-icon card">
+                                💳
+                            </span>
+
+                            <span>
+                                Credit Card
+                            </span>
+
+                        </button>
+
+
+
+                        <button
+                            class="payment"
+                            data-payment="Viettel"
+                            type="button"
+                        >
+
+                            <span class="payment-icon mobile">
+                                V
+                            </span>
+
+                            <span>
+                                Viettel
+                            </span>
+
+                        </button>
+
+
+
+                        <button
+                            class="payment"
+                            data-payment="Vinaphone"
+                            type="button"
+                        >
+
+                            <span class="payment-icon mobile">
+                                V
+                            </span>
+
+                            <span>
+                                Vinaphone
+                            </span>
+
+                        </button>
+
+
+
+                        <button
+                            class="payment"
+                            data-payment="Mobifone"
+                            type="button"
+                        >
+
+                            <span class="payment-icon mobile">
+                                M
+                            </span>
+
+                            <span>
+                                Mobifone
+                            </span>
+
+                        </button>
+
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- CARD PAYMENT -->
+
+                <section
+                    class="topup-card card-payment"
+                    id="cardPayment"
+                >
+
+                    <div class="step-title">
+
+                        <span class="step-number">
+                            04
+                        </span>
+
+                        <div>
+
+                            <h2>
+                                🎫 Thông tin thẻ
+                            </h2>
+
+                            <p>
+                                Nhập mã thẻ và serial
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="card-fields">
+
+                        <div>
+
+                            <label for="cardCode">
+                                Mã thẻ
+                            </label>
+
+                            <input
+                                id="cardCode"
+                                type="text"
+                                placeholder="Nhập mã thẻ"
+                                autocomplete="off"
+                            >
+
+                        </div>
+
+
+                        <div>
+
+                            <label for="cardSerial">
+                                Serial
+                            </label>
+
+                            <input
+                                id="cardSerial"
+                                type="text"
+                                placeholder="Nhập serial"
+                                autocomplete="off"
+                            >
+
+                        </div>
+
+                    </div>
+
+                </section>
+
 
             </div>
 
 
-            <div class="order-content">
 
+            <!-- =================================================
+                 ORDER
+            ================================================= -->
 
-                <!-- USERNAME -->
+            <aside class="order-card">
 
-                <div class="order-row">
+                <div class="order-header">
 
-                    <span>
-                        Tài khoản
+                    <span class="order-icon">
+                        🧾
                     </span>
 
-                    <strong id="orderUsername">
-                        Chưa nhập
-                    </strong>
+                    <div>
+
+                        <h2>
+                            ĐƠN HÀNG
+                        </h2>
+
+                        <p>
+                            Kiểm tra trước khi tiếp tục
+                        </p>
+
+                    </div>
 
                 </div>
 
 
-                <!-- PACKAGE -->
+                <div class="order-info">
 
-                <div class="order-row">
 
-                    <span>
-                        Gói
-                    </span>
+                    <div class="order-row">
 
-                    <strong id="orderPackage">
-                        Chưa chọn
-                    </strong>
+                        <span>
+                            Tài khoản
+                        </span>
+
+                        <strong id="orderUsername">
+                            Chưa nhập
+                        </strong>
+
+                    </div>
+
+
+                    <div class="order-row">
+
+                        <span>
+                            Gói Coin
+                        </span>
+
+                        <strong id="orderCoins">
+                            Chưa chọn
+                        </strong>
+
+                    </div>
+
+
+                    <div class="order-row">
+
+                        <span>
+                            Thanh toán
+                        </span>
+
+                        <strong id="orderPayment">
+                            Chưa chọn
+                        </strong>
+
+                    </div>
+
 
                 </div>
 
-
-                <!-- PAYMENT -->
-
-                <div class="order-row">
-
-                    <span>
-                        Thanh toán
-                    </span>
-
-                    <strong id="orderPayment">
-                        Chưa chọn
-                    </strong>
-
-                </div>
-
-
-                <!-- PRICE -->
 
                 <div class="order-total">
 
@@ -611,48 +650,51 @@
                 </div>
 
 
-                <!-- CONTINUE -->
-
                 <button
-                    type="button"
-                    class="continue-button"
                     id="continueButton"
+                    class="continue-button"
+                    type="button"
                 >
+
                     TIẾP TỤC
+                    <span>
+                        →
+                    </span>
+
                 </button>
 
 
-                <!-- WARNING -->
+                <div class="secure-note">
 
-                <div class="demo-warning">
-
-                    <div>
-                        ⚠️
-                    </div>
-
-                    <div>
-
-                        <strong>
-                            Hệ thống thử nghiệm
-                        </strong>
-
-                        <p>
-                            Chức năng hiện chỉ mô phỏng giao diện.
-                            Chưa thực hiện giao dịch hoặc thu tiền thật.
-                        </p>
-
-                    </div>
+                    🔒
+                    <span>
+                        Thông tin đơn hàng được bảo vệ.
+                    </span>
 
                 </div>
 
-            </div>
 
-        </aside>
+                <div class="test-warning">
+
+                    <strong>
+                        ⚠️ Hệ thống thử nghiệm
+                    </strong>
+
+                    <p>
+                        Chức năng hiện chỉ mô phỏng giao diện.
+                        Chưa thực hiện giao dịch hoặc thu tiền thật.
+                    </p>
+
+                </div>
+
+            </aside>
+
+
+        </div>
 
     </div>
 
 </main>
-
 
 
 <!-- =====================================================
@@ -660,415 +702,226 @@
 ===================================================== -->
 
 <div
-    class="toast"
     id="toast"
->
-</div>
+    class="toast"
+></div>
 
 
-
-<!-- =====================================================
-     JAVASCRIPT
-===================================================== -->
+<script src="../script.js"></script>
 
 <script>
 
-    // =================================================
-    // ELEMENTS
-    // =================================================
+const usernameInput =
+    document.getElementById("username");
 
-    const usernameInput =
-        document.getElementById("username");
+const packages =
+    document.querySelectorAll(".package");
 
-    const packages =
-        document.querySelectorAll(".package");
+const payments =
+    document.querySelectorAll(".payment");
 
-    const payments =
-        document.querySelectorAll(".payment");
+const orderUsername =
+    document.getElementById("orderUsername");
 
-    const cardInputArea =
-        document.getElementById("cardInputArea");
+const orderCoins =
+    document.getElementById("orderCoins");
 
-    const cardCode =
-        document.getElementById("cardCode");
+const orderPayment =
+    document.getElementById("orderPayment");
 
-    const cardSerial =
-        document.getElementById("cardSerial");
+const orderPrice =
+    document.getElementById("orderPrice");
 
-    const orderUsername =
-        document.getElementById("orderUsername");
+const continueButton =
+    document.getElementById("continueButton");
 
-    const orderPackage =
-        document.getElementById("orderPackage");
+const cardPayment =
+    document.getElementById("cardPayment");
 
-    const orderPayment =
-        document.getElementById("orderPayment");
+let selectedPackage = null;
+let selectedPayment = null;
 
-    const orderPrice =
-        document.getElementById("orderPrice");
 
-    const continueButton =
-        document.getElementById("continueButton");
+// USERNAME
+
+usernameInput.addEventListener("input", () => {
+
+    const username =
+        usernameInput.value.trim();
+
+    orderUsername.textContent =
+        username || "Chưa nhập";
+
+});
+
+
+// PACKAGE
+
+packages.forEach(packageButton => {
+
+    packageButton.addEventListener("click", () => {
+
+        packages.forEach(item => {
+            item.classList.remove("selected");
+        });
+
+        packageButton.classList.add("selected");
+
+        selectedPackage = {
+            coins: packageButton.dataset.coins,
+            price: Number(packageButton.dataset.price)
+        };
+
+        orderCoins.textContent =
+            `${selectedPackage.coins} Coin`;
+
+        orderPrice.textContent =
+            selectedPackage.price.toLocaleString("vi-VN") + " VND";
+
+    });
+
+});
+
+
+// PAYMENT
+
+payments.forEach(paymentButton => {
+
+    paymentButton.addEventListener("click", () => {
+
+        payments.forEach(item => {
+            item.classList.remove("selected");
+        });
+
+        paymentButton.classList.add("selected");
+
+        selectedPayment =
+            paymentButton.dataset.payment;
+
+        orderPayment.textContent =
+            selectedPayment;
+
+        if (
+            selectedPayment === "ZingCard" ||
+            selectedPayment === "Viettel" ||
+            selectedPayment === "Vinaphone" ||
+            selectedPayment === "Mobifone"
+        ) {
+
+            cardPayment.classList.add("show");
+
+        } else {
+
+            cardPayment.classList.remove("show");
+
+        }
+
+    });
+
+});
+
+
+// CONTINUE
+
+continueButton.addEventListener("click", () => {
+
+    const username =
+        usernameInput.value.trim();
+
+
+    if (!username) {
+
+        showTopupToast(
+            "⚠️ Hãy nhập tên tài khoản Minecraft."
+        );
+
+        usernameInput.focus();
+
+        return;
+    }
+
+
+    if (!selectedPackage) {
+
+        showTopupToast(
+            "⚠️ Hãy chọn gói Coin."
+        );
+
+        return;
+    }
+
+
+    if (!selectedPayment) {
+
+        showTopupToast(
+            "⚠️ Hãy chọn phương thức thanh toán."
+        );
+
+        return;
+    }
+
+
+    if (
+        selectedPayment === "ZingCard" ||
+        selectedPayment === "Viettel" ||
+        selectedPayment === "Vinaphone" ||
+        selectedPayment === "Mobifone"
+    ) {
+
+        const code =
+            document.getElementById("cardCode").value.trim();
+
+        const serial =
+            document.getElementById("cardSerial").value.trim();
+
+
+        if (!code || !serial) {
+
+            showTopupToast(
+                "⚠️ Hãy nhập đầy đủ mã thẻ và serial."
+            );
+
+            return;
+        }
+
+    }
+
+
+    showTopupToast(
+        "🧪 Đây là giao diện thử nghiệm, chưa thực hiện thanh toán thật."
+    );
+
+});
+
+
+// TOAST
+
+function showTopupToast(message) {
 
     const toast =
         document.getElementById("toast");
 
-    const nav =
-        document.getElementById("nav");
-
-    const menuToggle =
-        document.getElementById("menuToggle");
-
-
-    // =================================================
-    // DATA
-    // =================================================
-
-    let selectedPackage = null;
-    let selectedPayment = null;
-
-
-    // =================================================
-    // TOAST
-    // =================================================
-
-    function showToast(message) {
-
-        if (!toast) {
-            return;
-        }
-
-        toast.textContent = message;
-
-        toast.classList.add("show");
-
-        clearTimeout(
-            window.topupToastTimer
-        );
-
-        window.topupToastTimer =
-            setTimeout(() => {
-
-                toast.classList.remove("show");
-
-            }, 2800);
-
+    if (!toast) {
+        return;
     }
 
+    toast.textContent =
+        message;
 
-    // =================================================
-    // MOBILE MENU
-    // =================================================
+    toast.classList.add("show");
 
-    if (menuToggle && nav) {
-
-        menuToggle.addEventListener(
-            "click",
-            () => {
-
-                nav.classList.toggle("open");
-
-            }
-        );
-
-    }
-
-
-    // =================================================
-    // USERNAME
-    // =================================================
-
-    usernameInput.addEventListener(
-        "input",
-        () => {
-
-            const username =
-                usernameInput.value.trim();
-
-            orderUsername.textContent =
-                username || "Chưa nhập";
-
-            localStorage.setItem(
-                "boxpvp_username",
-                username
-            );
-
-        }
+    clearTimeout(
+        window.topupToastTimer
     );
 
+    window.topupToastTimer =
+        setTimeout(() => {
 
-    // =================================================
-    // LOAD USERNAME
-    // =================================================
+            toast.classList.remove("show");
 
-    const savedUsername =
-        localStorage.getItem(
-            "boxpvp_username"
-        );
+        }, 3000);
 
-    if (savedUsername) {
-
-        usernameInput.value =
-            savedUsername;
-
-        orderUsername.textContent =
-            savedUsername;
-
-    }
-
-
-    // =================================================
-    // CHỌN GÓI
-    // =================================================
-
-    packages.forEach(
-        packageButton => {
-
-            packageButton.addEventListener(
-                "click",
-                () => {
-
-                    packages.forEach(
-                        item => {
-
-                            item.classList.remove(
-                                "selected"
-                            );
-
-                        }
-                    );
-
-
-                    packageButton.classList.add(
-                        "selected"
-                    );
-
-
-                    selectedPackage = {
-                        coin:
-                            Number(
-                                packageButton.dataset.coin
-                            ),
-
-                        price:
-                            Number(
-                                packageButton.dataset.price
-                            )
-                    };
-
-
-                    orderPackage.textContent =
-                        `${selectedPackage.coin} Coin`;
-
-
-                    orderPrice.textContent =
-                        selectedPackage.price.toLocaleString(
-                            "vi-VN"
-                        ) + " VND";
-
-                }
-            );
-
-        }
-    );
-
-
-    // =================================================
-    // CHỌN PHƯƠNG THỨC
-    // =================================================
-
-    payments.forEach(
-        paymentButton => {
-
-            paymentButton.addEventListener(
-                "click",
-                () => {
-
-                    payments.forEach(
-                        item => {
-
-                            item.classList.remove(
-                                "selected"
-                            );
-
-                        }
-                    );
-
-
-                    paymentButton.classList.add(
-                        "selected"
-                    );
-
-
-                    selectedPayment =
-                        paymentButton.dataset.payment;
-
-
-                    orderPayment.textContent =
-                        selectedPayment;
-
-
-                    // Hiện ô mã thẻ / seri
-                    // cho phương thức thẻ điện thoại
-                    // hoặc ZingCard.
-
-                    const cardMethods = [
-                        "ZingCard",
-                        "Viettel",
-                        "Vinaphone",
-                        "Mobifone"
-                    ];
-
-
-                    if (
-                        cardMethods.includes(
-                            selectedPayment
-                        )
-                    ) {
-
-                        cardInputArea.style.display =
-                            "block";
-
-                    } else {
-
-                        cardInputArea.style.display =
-                            "none";
-
-                    }
-
-                }
-            );
-
-        }
-    );
-
-
-    // =================================================
-    // CONTINUE
-    // =================================================
-
-    continueButton.addEventListener(
-        "click",
-        () => {
-
-            const username =
-                usernameInput.value.trim();
-
-
-            if (!username) {
-
-                showToast(
-                    "⚠️ Hãy nhập tên tài khoản Minecraft."
-                );
-
-                usernameInput.focus();
-
-                return;
-
-            }
-
-
-            if (!selectedPackage) {
-
-                showToast(
-                    "⚠️ Hãy chọn gói Coin."
-                );
-
-                return;
-
-            }
-
-
-            if (!selectedPayment) {
-
-                showToast(
-                    "⚠️ Hãy chọn phương thức thanh toán."
-                );
-
-                return;
-
-            }
-
-
-            const cardMethods = [
-                "ZingCard",
-                "Viettel",
-                "Vinaphone",
-                "Mobifone"
-            ];
-
-
-            if (
-                cardMethods.includes(
-                    selectedPayment
-                )
-            ) {
-
-                const code =
-                    cardCode.value.trim();
-
-                const serial =
-                    cardSerial.value.trim();
-
-
-                if (!code) {
-
-                    showToast(
-                        "⚠️ Hãy nhập mã thẻ."
-                    );
-
-                    cardCode.focus();
-
-                    return;
-
-                }
-
-
-                if (!serial) {
-
-                    showToast(
-                        "⚠️ Hãy nhập seri."
-                    );
-
-                    cardSerial.focus();
-
-                    return;
-
-                }
-
-            }
-
-
-            showToast(
-                `✅ Đã tạo đơn thử nghiệm: ${selectedPackage.coin} Coin`
-            );
-
-
-            console.log(
-                "BOXPVP DEMO ORDER",
-                {
-                    username:
-                        username,
-
-                    coin:
-                        selectedPackage.coin,
-
-                    price:
-                        selectedPackage.price,
-
-                    payment:
-                        selectedPayment,
-
-                    cardCode:
-                        cardCode.value,
-
-                    cardSerial:
-                        cardSerial.value
-                }
-            );
-
-        }
-    );
+}
 
 </script>
 
