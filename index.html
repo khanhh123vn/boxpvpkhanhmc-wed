@@ -14,7 +14,7 @@
 
     <meta
         name="description"
-        content="BOXPVP Minecraft BoxPvP Server"
+        content="BOXPVP - Minecraft BoxPvP Server"
     >
 
     <style>
@@ -25,11 +25,9 @@
             padding: 0;
         }
 
-
         html {
             scroll-behavior: smooth;
         }
-
 
         body {
 
@@ -42,25 +40,16 @@
                 sans-serif;
 
             background:
-
                 radial-gradient(
-                    circle at 50% -15%,
-                    rgba(255, 40, 40, .18),
+                    circle at 50% -20%,
+                    rgba(255,40,40,.15),
                     transparent 38%
                 ),
-
-                radial-gradient(
-                    circle at 100% 40%,
-                    rgba(255, 0, 0, .05),
-                    transparent 30%
-                ),
-
                 #080808;
 
             color: white;
 
             min-height: 100vh;
-
         }
 
 
@@ -76,18 +65,14 @@
 
             z-index: 1000;
 
-            width: 100%;
-
             border-bottom:
-                1px solid
-                rgba(255,255,255,.08);
+                1px solid rgba(255,255,255,.07);
 
             background:
                 rgba(8,8,8,.88);
 
             backdrop-filter:
                 blur(18px);
-
         }
 
 
@@ -95,12 +80,11 @@
 
             max-width: 1180px;
 
-            min-height: 72px;
+            height: 72px;
 
             margin: auto;
 
-            padding:
-                0 22px;
+            padding: 0 20px;
 
             display: flex;
 
@@ -109,7 +93,6 @@
             justify-content: space-between;
 
             gap: 20px;
-
         }
 
 
@@ -124,15 +107,11 @@
             font-weight: 900;
 
             white-space: nowrap;
-
         }
 
 
         .logo span {
-
-            color:
-                #ff3030;
-
+            color: #ff3030;
         }
 
 
@@ -143,19 +122,17 @@
             align-items: center;
 
             gap: 5px;
-
         }
 
 
         nav a {
 
             color:
-                rgba(255,255,255,.62);
+                rgba(255,255,255,.58);
 
             text-decoration: none;
 
-            padding:
-                10px 12px;
+            padding: 9px 11px;
 
             border-radius: 10px;
 
@@ -163,11 +140,7 @@
 
             font-weight: 700;
 
-            white-space: nowrap;
-
-            transition:
-                .18s ease;
-
+            transition: .18s ease;
         }
 
 
@@ -177,7 +150,6 @@
 
             background:
                 rgba(255,255,255,.06);
-
         }
 
 
@@ -189,31 +161,78 @@
                 rgba(255,48,48,.12);
 
             border:
-                1px solid
-                rgba(255,48,48,.2);
-
+                1px solid rgba(255,48,48,.18);
         }
 
 
         /* =====================================================
-           HERO
+           MAIN
         ===================================================== */
 
-        .hero {
+        main {
 
-            max-width: 1100px;
+            max-width: 1180px;
 
             margin: auto;
 
             padding:
-                95px 20px 75px;
-
-            text-align: center;
-
+                55px 20px 80px;
         }
 
 
-        .server-badge {
+        /* =====================================================
+           SERVER HERO
+        ===================================================== */
+
+        .hero {
+
+            position: relative;
+
+            overflow: hidden;
+
+            padding: 48px 42px;
+
+            border-radius: 24px;
+
+            border:
+                1px solid rgba(255,255,255,.08);
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(255,48,48,.09),
+                    rgba(255,255,255,.025)
+                );
+
+            box-shadow:
+                0 25px 80px rgba(0,0,0,.35);
+        }
+
+
+        .hero::before {
+
+            content: "";
+
+            position: absolute;
+
+            width: 300px;
+            height: 300px;
+
+            right: -120px;
+            top: -150px;
+
+            border-radius: 50%;
+
+            background:
+                rgba(255,30,30,.12);
+
+            filter: blur(20px);
+
+            pointer-events: none;
+        }
+
+
+        .status {
 
             display: inline-flex;
 
@@ -221,232 +240,160 @@
 
             gap: 8px;
 
-            padding:
-                8px 13px;
-
-            margin-bottom: 20px;
+            padding: 7px 11px;
 
             border-radius: 999px;
 
             background:
-                rgba(0,255,100,.045);
+                rgba(0,255,120,.06);
 
             border:
-                1px solid
-                rgba(0,255,100,.12);
+                1px solid rgba(0,255,120,.12);
 
             color:
-                rgba(255,255,255,.65);
+                #65ff9a;
 
             font-size: 11px;
 
             font-weight: 800;
 
-        }
-
-
-        .online-dot {
-
-            width: 7px;
-
-            height: 7px;
-
-            border-radius: 50%;
-
-            background:
-                #3cff72;
-
-            box-shadow:
-                0 0 12px
-                rgba(60,255,114,.8);
-
+            margin-bottom: 18px;
         }
 
 
         .hero h1 {
 
-            font-size:
-                clamp(42px, 7vw, 76px);
+            position: relative;
 
-            line-height: 1;
+            font-size: clamp(38px, 7vw, 72px);
+
+            line-height: .95;
 
             font-weight: 1000;
 
-            letter-spacing:
-                -3px;
-
+            letter-spacing: -3px;
         }
 
 
         .hero h1 span {
-
-            color:
-                #ff3030;
-
-            text-shadow:
-                0 0 40px
-                rgba(255,0,0,.22);
-
+            color: #ff3030;
         }
 
 
         .hero-subtitle {
 
-            margin-top: 18px;
+            position: relative;
+
+            margin-top: 16px;
 
             color:
-                rgba(255,255,255,.45);
+                rgba(255,255,255,.48);
 
-            font-size: 15px;
+            font-size: 14px;
 
+            line-height: 1.7;
+
+            max-width: 550px;
         }
 
 
-        .server-card {
+        .server-grid {
 
-            max-width: 760px;
+            position: relative;
 
-            margin:
-                38px auto 0;
+            margin-top: 30px;
 
-            padding: 25px;
+            display: grid;
 
-            border-radius: 20px;
+            grid-template-columns:
+                repeat(3, 1fr);
 
-            border:
-                1px solid
-                rgba(255,255,255,.08);
-
-            background:
-
-                linear-gradient(
-                    145deg,
-                    rgba(255,255,255,.045),
-                    rgba(255,255,255,.015)
-                );
-
-            box-shadow:
-                0 20px 70px
-                rgba(0,0,0,.35);
-
-        }
-
-
-        .server-status {
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            gap: 8px;
-
-            color:
-                #55ed78;
-
-            font-size: 12px;
-
-            font-weight: 900;
-
-        }
-
-
-        .server-ip {
-
-            margin-top: 15px;
-
-            padding:
-                14px 18px;
-
-            border-radius: 12px;
-
-            background:
-                rgba(0,0,0,.3);
-
-            border:
-                1px solid
-                rgba(255,255,255,.07);
-
-            font-family:
-                Consolas,
-                monospace;
-
-            font-size: 15px;
-
-            font-weight: 800;
-
-            cursor: pointer;
-
-            transition: .18s;
-
-        }
-
-
-        .server-ip:hover {
-
-            border-color:
-                rgba(255,48,48,.3);
-
-            background:
-                rgba(255,48,48,.05);
-
+            gap: 12px;
         }
 
 
         .server-info {
 
-            display: flex;
+            padding: 17px;
 
-            justify-content: center;
+            border-radius: 14px;
 
-            gap: 30px;
+            background:
+                rgba(255,255,255,.025);
 
-            margin-top: 18px;
-
+            border:
+                1px solid rgba(255,255,255,.07);
         }
 
 
-        .server-info div {
+        .server-info-label {
 
             color:
-                rgba(255,255,255,.4);
+                rgba(255,255,255,.38);
 
-            font-size: 11px;
+            font-size: 10px;
 
+            font-weight: 800;
+
+            text-transform: uppercase;
+
+            letter-spacing: 1px;
         }
 
 
-        .server-info strong {
+        .server-info-value {
 
-            display: block;
+            margin-top: 7px;
 
-            margin-top: 4px;
+            font-size: 15px;
 
-            color: white;
+            font-weight: 900;
 
-            font-size: 13px;
+            word-break: break-word;
+        }
 
+
+        .ip-box {
+
+            cursor: pointer;
+
+            transition: .18s ease;
+        }
+
+
+        .ip-box:hover {
+
+            border-color:
+                rgba(255,48,48,.35);
+
+            background:
+                rgba(255,48,48,.05);
         }
 
 
         .hero-buttons {
 
-            display: flex;
+            position: relative;
 
-            justify-content: center;
+            display: flex;
 
             gap: 10px;
 
-            margin-top: 25px;
-
+            margin-top: 24px;
         }
 
 
         .btn {
 
-            padding:
-                13px 20px;
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            min-height: 46px;
+
+            padding: 0 18px;
 
             border-radius: 12px;
 
@@ -456,26 +403,27 @@
 
             font-weight: 900;
 
-            transition: .18s;
+            transition: .18s ease;
 
+            cursor: pointer;
+
+            border: 0;
         }
 
 
         .btn-primary {
 
+            color: white;
+
             background:
                 linear-gradient(
                     135deg,
-                    #ff3c3c,
-                    #b90000
+                    #ff3b3b,
+                    #c60000
                 );
 
-            color: white;
-
             box-shadow:
-                0 12px 30px
-                rgba(255,0,0,.18);
-
+                0 10px 28px rgba(255,0,0,.2);
         }
 
 
@@ -484,6 +432,8 @@
             transform:
                 translateY(-2px);
 
+            box-shadow:
+                0 15px 35px rgba(255,0,0,.28);
         }
 
 
@@ -492,12 +442,10 @@
             color: white;
 
             background:
-                rgba(255,255,255,.045);
+                rgba(255,255,255,.05);
 
             border:
-                1px solid
-                rgba(255,255,255,.09);
-
+                1px solid rgba(255,255,255,.09);
         }
 
 
@@ -506,6 +454,8 @@
             background:
                 rgba(255,255,255,.08);
 
+            transform:
+                translateY(-2px);
         }
 
 
@@ -515,34 +465,122 @@
 
         .section {
 
-            max-width: 1100px;
-
-            margin:
-                0 auto 75px;
-
-            padding:
-                0 20px;
-
+            margin-top: 55px;
         }
 
 
-        .section-title {
+        .section-head {
 
-            display: flex;
+            margin-bottom: 20px;
+        }
 
-            align-items: center;
+
+        .section-label {
+
+            color:
+                #ff4747;
+
+            font-size: 10px;
+
+            font-weight: 900;
+
+            letter-spacing: 1.7px;
+        }
+
+
+        .section-head h2 {
+
+            margin-top: 5px;
+
+            font-size: 27px;
+
+            font-weight: 950;
+
+            letter-spacing: -.7px;
+        }
+
+
+        .section-head p {
+
+            margin-top: 6px;
+
+            color:
+                rgba(255,255,255,.42);
+
+            font-size: 13px;
+        }
+
+
+        /* =====================================================
+           6 FEATURE BOXES
+        ===================================================== */
+
+        .features {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
 
             gap: 14px;
-
-            margin-bottom: 24px;
-
         }
 
 
-        .section-title-icon {
+        .feature {
+
+            position: relative;
+
+            min-height: 175px;
+
+            padding: 23px;
+
+            border-radius: 18px;
+
+            border:
+                1px solid rgba(255,255,255,.08);
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,.045),
+                    rgba(255,255,255,.018)
+                );
+
+            text-decoration: none;
+
+            color: white;
+
+            overflow: hidden;
+
+            cursor: pointer;
+
+            transition:
+                transform .2s ease,
+                border-color .2s ease,
+                background .2s ease;
+        }
+
+
+        .feature:hover {
+
+            transform:
+                translateY(-4px);
+
+            border-color:
+                rgba(255,48,48,.32);
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,48,48,.09),
+                    rgba(255,255,255,.025)
+                );
+        }
+
+
+        .feature-icon {
 
             width: 48px;
-
             height: 48px;
 
             display: flex;
@@ -554,222 +592,35 @@
             border-radius: 14px;
 
             background:
-                rgba(255,48,48,.1);
+                rgba(255,48,48,.10);
 
             border:
-                1px solid
-                rgba(255,48,48,.18);
-
-            font-size: 21px;
-
-        }
-
-
-        .section-title h2 {
+                1px solid rgba(255,48,48,.14);
 
             font-size: 22px;
 
-            font-weight: 900;
-
+            margin-bottom: 18px;
         }
 
 
-        .section-title p {
-
-            margin-top: 4px;
-
-            color:
-                rgba(255,255,255,.4);
-
-            font-size: 12px;
-
-        }
-
-
-        /* =====================================================
-           6 FEATURES
-        ===================================================== */
-
-        .features-grid {
-
-            display: grid;
-
-            grid-template-columns:
-                repeat(3, 1fr);
-
-            gap: 15px;
-
-        }
-
-
-        .feature-card {
-
-            position: relative;
-
-            min-height: 165px;
-
-            padding: 22px;
-
-            display: flex;
-
-            flex-direction: column;
-
-            text-decoration: none;
-
-            color: white;
-
-            overflow: hidden;
-
-            border:
-                1px solid
-                rgba(255,255,255,.08);
-
-            border-radius: 18px;
-
-            background:
-
-                linear-gradient(
-                    145deg,
-                    rgba(255,255,255,.045),
-                    rgba(255,255,255,.015)
-                );
-
-            transition:
-                transform .2s ease,
-                border-color .2s ease,
-                background .2s ease,
-                box-shadow .2s ease;
-
-        }
-
-
-        .feature-card::before {
-
-            content: "";
-
-            position: absolute;
-
-            width: 150px;
-
-            height: 150px;
-
-            right: -70px;
-
-            bottom: -80px;
-
-            border-radius: 50%;
-
-            background:
-                rgba(255,48,48,.07);
-
-            transition: .25s;
-
-        }
-
-
-        .feature-card:hover {
-
-            transform:
-                translateY(-5px);
-
-            border-color:
-                rgba(255,48,48,.35);
-
-            background:
-
-                linear-gradient(
-                    145deg,
-                    rgba(255,48,48,.09),
-                    rgba(255,255,255,.02)
-                );
-
-            box-shadow:
-                0 18px 45px
-                rgba(0,0,0,.3);
-
-        }
-
-
-        .feature-card:hover::before {
-
-            transform:
-                scale(1.5);
-
-            background:
-                rgba(255,48,48,.12);
-
-        }
-
-
-        .feature-icon {
-
-            width: 46px;
-
-            height: 46px;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            margin-bottom: 15px;
-
-            border-radius: 13px;
-
-            background:
-                rgba(255,48,48,.1);
-
-            border:
-                1px solid
-                rgba(255,48,48,.15);
-
-            font-size: 21px;
-
-            transition: .2s;
-
-        }
-
-
-        .feature-card:hover .feature-icon {
-
-            transform:
-                scale(1.08);
-
-        }
-
-
-        .feature-content {
-
-            position: relative;
-
-            z-index: 2;
-
-        }
-
-
-        .feature-content h3 {
+        .feature h3 {
 
             font-size: 16px;
 
             font-weight: 900;
-
         }
 
 
-        .feature-content p {
-
-            max-width: 245px;
+        .feature p {
 
             margin-top: 6px;
 
             color:
-                rgba(255,255,255,.43);
+                rgba(255,255,255,.42);
 
             font-size: 12px;
 
-            line-height: 1.5;
-
+            line-height: 1.6;
         }
 
 
@@ -781,69 +632,442 @@
 
             bottom: 18px;
 
-            z-index: 2;
-
             color:
-                rgba(255,255,255,.3);
+                rgba(255,255,255,.28);
 
-            font-size: 20px;
-
-            font-weight: 900;
-
-            transition: .2s;
-
-        }
-
-
-        .feature-card:hover .feature-arrow {
-
-            color:
-                #ff4040;
-
-            transform:
-                translateX(5px);
-
+            font-size: 18px;
         }
 
 
         /* =====================================================
-           STATS
+           DISCORD
         ===================================================== */
 
-        .stats {
+        .discord-box {
+
+            position: relative;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 20px;
+
+            padding: 25px 28px;
+
+            border-radius: 18px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(88,101,242,.14),
+                    rgba(255,255,255,.025)
+                );
+
+            border:
+                1px solid rgba(88,101,242,.28);
+
+            box-shadow:
+                0 18px 50px rgba(0,0,0,.22);
+
+            overflow: hidden;
+        }
+
+
+        .discord-icon {
+
+            width: 58px;
+            height: 58px;
+
+            flex-shrink: 0;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border-radius: 16px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #5865f2,
+                    #404eed
+                );
+
+            font-size: 27px;
+        }
+
+
+        .discord-content {
+
+            flex: 1;
+        }
+
+
+        .discord-label {
+
+            color:
+                #929cff;
+
+            font-size: 10px;
+
+            font-weight: 900;
+
+            letter-spacing: 1.5px;
+        }
+
+
+        .discord-content h2 {
+
+            margin-top: 5px;
+
+            font-size: 19px;
+
+            font-weight: 900;
+        }
+
+
+        .discord-content p {
+
+            margin-top: 6px;
+
+            color:
+                rgba(255,255,255,.45);
+
+            font-size: 13px;
+
+            line-height: 1.6;
+        }
+
+
+        .discord-button {
+
+            flex-shrink: 0;
+
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            min-height: 46px;
+
+            padding: 0 20px;
+
+            border-radius: 12px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #5865f2,
+                    #404eed
+                );
+
+            color: white;
+
+            text-decoration: none;
+
+            font-size: 12px;
+
+            font-weight: 900;
+
+            transition: .18s ease;
+        }
+
+
+        .discord-button:hover {
+
+            transform:
+                translateY(-2px);
+
+            filter:
+                brightness(1.08);
+        }
+
+
+        /* =====================================================
+           LEADERBOARD
+        ===================================================== */
+
+        .leaderboard {
 
             display: grid;
 
             grid-template-columns:
-                repeat(4, 1fr);
+                1fr 280px;
+
+            gap: 18px;
+        }
+
+
+        .leader-card {
+
+            border:
+                1px solid rgba(255,255,255,.08);
+
+            border-radius: 18px;
+
+            background:
+                rgba(255,255,255,.025);
+
+            overflow: hidden;
+        }
+
+
+        .leader-head {
+
+            padding: 18px 20px;
+
+            border-bottom:
+                1px solid rgba(255,255,255,.07);
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+        }
+
+
+        .leader-head strong {
+            font-size: 14px;
+        }
+
+
+        .leader-head a {
+
+            color:
+                #ff5050;
+
+            text-decoration: none;
+
+            font-size: 11px;
+
+            font-weight: 800;
+        }
+
+
+        .leader-body {
+
+            padding: 10px;
+        }
+
+
+        .leader-player {
+
+            display: flex;
+
+            align-items: center;
 
             gap: 12px;
 
+            padding: 13px;
+
+            border-radius: 12px;
+
+            transition: .15s ease;
+        }
+
+
+        .leader-player:hover {
+
+            background:
+                rgba(255,255,255,.04);
+        }
+
+
+        .rank-number {
+
+            width: 28px;
+
+            color:
+                rgba(255,255,255,.3);
+
+            font-weight: 900;
+
+            text-align: center;
+        }
+
+
+        .player-avatar {
+
+            width: 38px;
+            height: 38px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border-radius: 10px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #ff3030,
+                    #7c0000
+                );
+
+            font-size: 14px;
+
+            font-weight: 900;
+        }
+
+
+        .player-name {
+
+            flex: 1;
+        }
+
+
+        .player-name strong {
+
+            display: block;
+
+            font-size: 13px;
+        }
+
+
+        .player-name span {
+
+            display: block;
+
+            margin-top: 3px;
+
+            color:
+                rgba(255,255,255,.35);
+
+            font-size: 10px;
+        }
+
+
+        .kills {
+
+            color:
+                #ff5050;
+
+            font-size: 11px;
+
+            font-weight: 900;
+        }
+
+
+        /* =====================================================
+           PROFILE
+        ===================================================== */
+
+        .profile-card {
+
+            padding: 23px;
+
+            border-radius: 18px;
+
+            border:
+                1px solid rgba(255,255,255,.08);
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,48,48,.07),
+                    rgba(255,255,255,.025)
+                );
+        }
+
+
+        .profile-top {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 14px;
+        }
+
+
+        .profile-avatar {
+
+            width: 55px;
+            height: 55px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border-radius: 15px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #ff3030,
+                    #8f0000
+                );
+
+            font-size: 20px;
+
+            font-weight: 900;
+        }
+
+
+        .profile-name {
+
+            font-size: 16px;
+
+            font-weight: 900;
+        }
+
+
+        .profile-rank {
+
+            margin-top: 4px;
+
+            color:
+                #ff4b4b;
+
+            font-size: 11px;
+
+            font-weight: 800;
+        }
+
+
+        .profile-stats {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(2,1fr);
+
+            gap: 8px;
+
+            margin-top: 20px;
         }
 
 
         .stat {
 
-            padding: 20px;
+            padding: 12px;
 
-            text-align: center;
-
-            border:
-                1px solid
-                rgba(255,255,255,.07);
-
-            border-radius: 16px;
+            border-radius: 11px;
 
             background:
-                rgba(255,255,255,.025);
-
+                rgba(255,255,255,.035);
         }
 
 
-        .stat-icon {
+        .stat span {
 
-            font-size: 20px;
+            display: block;
 
+            color:
+                rgba(255,255,255,.35);
+
+            font-size: 9px;
+
+            font-weight: 800;
         }
 
 
@@ -851,14 +1075,254 @@
 
             display: block;
 
-            margin-top: 9px;
+            margin-top: 5px;
 
-            font-size: 21px;
-
+            font-size: 14px;
         }
 
 
-        .stat span {
+        /* =====================================================
+           DAILY CODE
+        ===================================================== */
+
+        .daily-code {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 20px;
+
+            padding: 24px;
+
+            border-radius: 18px;
+
+            border:
+                1px solid rgba(255,255,255,.08);
+
+            background:
+                rgba(255,255,255,.025);
+        }
+
+
+        .daily-left {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 15px;
+        }
+
+
+        .daily-icon {
+
+            width: 48px;
+            height: 48px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border-radius: 14px;
+
+            background:
+                rgba(255,185,0,.08);
+
+            font-size: 22px;
+        }
+
+
+        .daily-code h3 {
+
+            font-size: 15px;
+        }
+
+
+        .daily-code p {
+
+            margin-top: 5px;
+
+            color:
+                rgba(255,255,255,.38);
+
+            font-size: 11px;
+        }
+
+
+        .code-value {
+
+            padding: 11px 15px;
+
+            border-radius: 10px;
+
+            background:
+                rgba(255,255,255,.05);
+
+            border:
+                1px dashed rgba(255,255,255,.12);
+
+            font-family:
+                monospace;
+
+            color:
+                #ffbaba;
+
+            font-size: 13px;
+
+            font-weight: 900;
+        }
+
+
+        /* =====================================================
+           STORE
+        ===================================================== */
+
+        .store-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(5, 1fr);
+
+            gap: 10px;
+        }
+
+
+        .store-item {
+
+            padding: 18px 12px;
+
+            text-align: center;
+
+            border-radius: 14px;
+
+            border:
+                1px solid rgba(255,255,255,.07);
+
+            background:
+                rgba(255,255,255,.025);
+
+            text-decoration: none;
+
+            color: white;
+
+            transition: .18s ease;
+        }
+
+
+        .store-item:hover {
+
+            transform:
+                translateY(-3px);
+
+            border-color:
+                rgba(255,48,48,.3);
+        }
+
+
+        .store-coin {
+
+            font-size: 22px;
+        }
+
+
+        .store-item strong {
+
+            display: block;
+
+            margin-top: 8px;
+
+            font-size: 13px;
+        }
+
+
+        .store-price {
+
+            margin-top: 5px;
+
+            color:
+                #ff5050;
+
+            font-size: 11px;
+
+            font-weight: 900;
+        }
+
+
+        /* =====================================================
+           SKIN
+        ===================================================== */
+
+        .skin-box {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 20px;
+
+            padding: 23px;
+
+            border-radius: 18px;
+
+            border:
+                1px solid rgba(255,255,255,.08);
+
+            background:
+                rgba(255,255,255,.025);
+        }
+
+
+        .skin-user {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 14px;
+        }
+
+
+        .skin-avatar {
+
+            width: 55px;
+            height: 55px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border-radius: 15px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #272727,
+                    #111
+                );
+
+            font-size: 22px;
+        }
+
+
+        .skin-user strong {
+
+            display: block;
+
+            font-size: 15px;
+        }
+
+
+        .skin-user span {
 
             display: block;
 
@@ -867,8 +1331,7 @@
             color:
                 rgba(255,255,255,.38);
 
-            font-size: 10px;
-
+            font-size: 11px;
         }
 
 
@@ -879,26 +1342,51 @@
         footer {
 
             border-top:
-                1px solid
-                rgba(255,255,255,.07);
+                1px solid rgba(255,255,255,.07);
 
             padding:
-                30px 20px;
+                35px 20px;
 
-            text-align: center;
+            background:
+                #050505;
+        }
+
+
+        .footer-inner {
+
+            max-width: 1180px;
+
+            margin: auto;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 20px;
+        }
+
+
+        .footer-logo {
+
+            font-size: 16px;
+
+            font-weight: 950;
+        }
+
+
+        .footer-logo span {
+            color: #ff3030;
+        }
+
+
+        .footer-text {
 
             color:
                 rgba(255,255,255,.35);
 
             font-size: 11px;
-
-        }
-
-
-        footer strong {
-
-            color: white;
-
         }
 
 
@@ -917,7 +1405,7 @@
             z-index: 9999;
 
             transform:
-                translate(-50%, 20px);
+                translate(-50%,20px);
 
             opacity: 0;
 
@@ -932,19 +1420,16 @@
                 #181818;
 
             border:
-                1px solid
-                rgba(255,255,255,.1);
+                1px solid rgba(255,255,255,.1);
 
             box-shadow:
-                0 15px 45px
-                rgba(0,0,0,.4);
+                0 15px 45px rgba(0,0,0,.45);
 
             font-size: 12px;
 
             font-weight: 800;
 
-            transition: .25s;
-
+            transition: .25s ease;
         }
 
 
@@ -953,8 +1438,7 @@
             opacity: 1;
 
             transform:
-                translate(-50%, 0);
-
+                translate(-50%,0);
         }
 
 
@@ -962,14 +1446,45 @@
            MOBILE
         ===================================================== */
 
-        @media (max-width: 850px) {
+        @media (max-width: 900px) {
+
+            .features {
+
+                grid-template-columns:
+                    repeat(2,1fr);
+            }
+
+
+            .leaderboard {
+
+                grid-template-columns:
+                    1fr;
+            }
+
+
+            .store-grid {
+
+                grid-template-columns:
+                    repeat(3,1fr);
+            }
+
+        }
+
+
+        @media (max-width: 700px) {
 
             .navbar {
 
-                padding: 14px;
+                height: auto;
+
+                min-height: 70px;
 
                 flex-direction: column;
 
+                padding:
+                    13px 15px;
+
+                gap: 9px;
             }
 
 
@@ -979,91 +1494,117 @@
 
                 overflow-x: auto;
 
-                justify-content:
-                    flex-start;
+                justify-content: flex-start;
+            }
 
+
+            nav a {
+
+                white-space: nowrap;
+
+                font-size: 11px;
+
+                padding:
+                    8px 9px;
+            }
+
+
+            main {
+
+                padding:
+                    30px 14px 60px;
             }
 
 
             .hero {
 
                 padding:
-                    65px 15px 55px;
-
+                    32px 22px;
             }
 
-
-            .features-grid {
-
-                grid-template-columns:
-                    repeat(2, 1fr);
-
-            }
-
-
-            .stats {
-
-                grid-template-columns:
-                    repeat(2, 1fr);
-
-            }
-
-        }
-
-
-        @media (max-width: 560px) {
 
             .hero h1 {
 
-                letter-spacing:
-                    -2px;
+                letter-spacing: -2px;
+            }
 
+
+            .server-grid {
+
+                grid-template-columns:
+                    1fr;
             }
 
 
             .hero-buttons {
 
-                flex-direction:
-                    column;
-
+                flex-direction: column;
             }
 
 
             .btn {
 
                 width: 100%;
-
             }
 
 
-            .features-grid {
+            .features {
 
                 grid-template-columns:
                     1fr;
-
             }
 
 
-            .stats {
+            .discord-box {
+
+                flex-direction: column;
+
+                align-items: flex-start;
+            }
+
+
+            .discord-button {
+
+                width: 100%;
+            }
+
+
+            .daily-code {
+
+                flex-direction: column;
+
+                align-items: flex-start;
+            }
+
+
+            .code-value {
+
+                width: 100%;
+
+                text-align: center;
+            }
+
+
+            .store-grid {
 
                 grid-template-columns:
-                    1fr 1fr;
-
+                    repeat(2,1fr);
             }
 
 
-            .section {
+            .skin-box {
 
-                padding:
-                    0 14px;
+                flex-direction: column;
 
+                align-items: flex-start;
             }
 
 
-            .server-info {
+            .footer-inner {
 
-                gap: 15px;
+                flex-direction: column;
 
+                align-items: flex-start;
             }
 
         }
@@ -1085,7 +1626,7 @@
     <div class="navbar">
 
         <a
-            href="/"
+            href="./index.html"
             class="logo"
         >
             ⚔️ <span>BOX</span>PVP
@@ -1095,29 +1636,29 @@
         <nav>
 
             <a
-                href="/"
+                href="./index.html"
                 class="active"
             >
                 🏠 Trang chủ
             </a>
 
-            <a href="/topup/">
+            <a href="./topup/">
                 🛒 Nạp
             </a>
 
-            <a href="/code/">
+            <a href="./code/">
                 🎁 Code
             </a>
 
-            <a href="/account/">
+            <a href="./account/">
                 👤 Tài khoản
             </a>
 
-            <a href="/skin/">
+            <a href="./skin/">
                 👕 Skin
             </a>
 
-            <a href="/ranking/">
+            <a href="./ranking/">
                 🏆 BXH
             </a>
 
@@ -1128,26 +1669,26 @@
 </header>
 
 
+
+<main>
+
+
 <!-- =====================================================
      HERO
 ===================================================== -->
 
 <section class="hero">
 
-
-    <div class="server-badge">
-
-        <span class="online-dot"></span>
-
-        SERVER ĐANG HOẠT ĐỘNG
-
+    <div
+        class="status"
+        id="serverStatus"
+    >
+        🟢 SERVER ĐANG HOẠT ĐỘNG
     </div>
 
 
     <h1>
-
-        ⚔️ <span>BOXPVP</span>
-
+        ⚔️ <span>BOX</span>PVP
     </h1>
 
 
@@ -1155,146 +1696,138 @@
 
         MINECRAFT BOX PVP SERVER
 
+        <br>
+
+        Chiến đấu, farm tài nguyên,
+        nâng cấp sức mạnh và leo bảng xếp hạng.
+
     </p>
 
 
-    <div class="server-card">
+    <div class="server-grid">
 
 
-        <div class="server-status">
+        <div class="server-info">
 
-            <span class="online-dot"></span>
+            <div class="server-info-label">
+                Trạng thái
+            </div>
 
-            <span id="serverStatus">
-                ĐANG KIỂM TRA SERVER
-            </span>
+            <div
+                class="server-info-value"
+                id="onlineText"
+            >
+                🟢 TRỰC TUYẾN
+            </div>
 
-        </div>
-
-
-        <div
-            class="server-ip"
-            id="serverIp"
-        >
-            boxpvpkhanhmc.levyathan.ch
         </div>
 
 
         <div class="server-info">
 
-            <div>
-
-                NGƯỜI CHƠI
-
-                <strong id="serverPlayers">
-                    0 / 100
-                </strong>
-
+            <div class="server-info-label">
+                Người chơi
             </div>
 
-
-            <div>
-
-                PHIÊN BẢN
-
-                <strong>
-                    1.20+
-                </strong>
-
-            </div>
-
-
-            <div>
-
-                TRẠNG THÁI
-
-                <strong>
-                    ONLINE
-                </strong>
-
+            <div
+                class="server-info-value"
+                id="serverPlayers"
+            >
+                0 / 0
             </div>
 
         </div>
 
 
-        <div class="hero-buttons">
+        <div
+            class="server-info ip-box"
+            id="copyIp"
+        >
 
-            <a
-                href="/topup/"
-                class="btn btn-primary"
+            <div class="server-info-label">
+                IP SERVER
+            </div>
+
+            <div
+                class="server-info-value"
+                id="serverIp"
             >
-                🎮 CHƠI NGAY
-            </a>
-
-
-            <a
-                href="#discord"
-                class="btn btn-secondary"
-            >
-                💬 DISCORD
-            </a>
+                boxpvpkhanhmc.levyathan.ch
+            </div>
 
         </div>
 
+
+    </div>
+
+
+    <div class="hero-buttons">
+
+        <button
+            class="btn btn-primary"
+            id="playButton"
+        >
+            🎮 CHƠI NGAY
+        </button>
+
+
+        <a
+            class="btn btn-secondary"
+            href="https://discord.gg/ttxmvuQmr"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            💬 DISCORD
+        </a>
 
     </div>
 
 </section>
 
 
+
 <!-- =====================================================
-     FEATURES
+     6 FEATURES
 ===================================================== -->
 
 <section class="section">
 
+    <div class="section-head">
 
-    <div class="section-title">
-
-        <div class="section-title-icon">
-            🔥
+        <div class="section-label">
+            🔥 TÍNH NĂNG
         </div>
 
-        <div>
+        <h2>
+            Mọi thứ cho BOXPVP
+        </h2>
 
-            <h2>
-                TÍNH NĂNG
-            </h2>
-
-            <p>
-                Mọi thứ cần thiết cho server BOXPVP.
-            </p>
-
-        </div>
+        <p>
+            Chọn một khu vực để sử dụng.
+        </p>
 
     </div>
 
 
-    <div class="features-grid">
+    <div class="features">
 
-
-        <!-- BOX PVP -->
 
         <a
-            href="/boxpvp/"
-            class="feature-card"
+            class="feature"
+            href="./boxpvp/"
         >
 
             <div class="feature-icon">
                 ⚔️
             </div>
 
-            <div class="feature-content">
+            <h3>
+                BoxPvP
+            </h3>
 
-                <h3>
-                    BoxPvP
-                </h3>
-
-                <p>
-                    Chiến đấu, farm và leo bảng xếp hạng.
-                </p>
-
-            </div>
+            <p>
+                Chiến đấu, farm và leo bảng xếp hạng.
+            </p>
 
             <div class="feature-arrow">
                 →
@@ -1303,28 +1836,23 @@
         </a>
 
 
-        <!-- TOPUP -->
 
         <a
-            href="/topup/"
-            class="feature-card"
+            class="feature"
+            href="./topup/"
         >
 
             <div class="feature-icon">
                 💰
             </div>
 
-            <div class="feature-content">
+            <h3>
+                Economy
+            </h3>
 
-                <h3>
-                    Nạp Coin
-                </h3>
-
-                <p>
-                    Nạp Coin và sử dụng trong server.
-                </p>
-
-            </div>
+            <p>
+                Nạp Coin và sử dụng trong server.
+            </p>
 
             <div class="feature-arrow">
                 →
@@ -1333,28 +1861,23 @@
         </a>
 
 
-        <!-- CODE -->
 
         <a
-            href="/code/"
-            class="feature-card"
+            class="feature"
+            href="./code/"
         >
 
             <div class="feature-icon">
                 🎁
             </div>
 
-            <div class="feature-content">
+            <h3>
+                Daily Code
+            </h3>
 
-                <h3>
-                    Code
-                </h3>
-
-                <p>
-                    Nhận phần thưởng hàng ngày từ BOXPVP.
-                </p>
-
-            </div>
+            <p>
+                Nhận Money và Shard mỗi ngày.
+            </p>
 
             <div class="feature-arrow">
                 →
@@ -1363,28 +1886,23 @@
         </a>
 
 
-        <!-- ACCOUNT -->
 
         <a
-            href="/account/"
-            class="feature-card"
+            class="feature"
+            href="./account/"
         >
 
             <div class="feature-icon">
                 👑
             </div>
 
-            <div class="feature-content">
+            <h3>
+                Rank & Account
+            </h3>
 
-                <h3>
-                    Tài khoản
-                </h3>
-
-                <p>
-                    Xem thông tin, rank và thành tích.
-                </p>
-
-            </div>
+            <p>
+                Xem tài khoản, rank và chỉ số người chơi.
+            </p>
 
             <div class="feature-arrow">
                 →
@@ -1393,28 +1911,23 @@
         </a>
 
 
-        <!-- SHOP -->
 
         <a
-            href="/shop/"
-            class="feature-card"
+            class="feature"
+            href="./shop/"
         >
 
             <div class="feature-icon">
                 🏪
             </div>
 
-            <div class="feature-content">
+            <h3>
+                Shop
+            </h3>
 
-                <h3>
-                    Shop
-                </h3>
-
-                <p>
-                    Mua bán vật phẩm và trang bị.
-                </p>
-
-            </div>
+            <p>
+                Mua bán vật phẩm và trang bị.
+            </p>
 
             <div class="feature-arrow">
                 →
@@ -1423,28 +1936,23 @@
         </a>
 
 
-        <!-- RANKING -->
 
         <a
-            href="/ranking/"
-            class="feature-card"
+            class="feature"
+            href="./ranking/"
         >
 
             <div class="feature-icon">
                 🏆
             </div>
 
-            <div class="feature-content">
+            <h3>
+                BXH
+            </h3>
 
-                <h3>
-                    BXH
-                </h3>
-
-                <p>
-                    Đua top Kills, Money và thành tích.
-                </p>
-
-            </div>
+            <p>
+                Đua TOP Money, Kills và thành tích.
+            </p>
 
             <div class="feature-arrow">
                 →
@@ -1458,101 +1966,235 @@
 </section>
 
 
+
 <!-- =====================================================
-     SERVER STATS
+     DISCORD
 ===================================================== -->
 
 <section class="section">
 
+    <div class="discord-box">
 
-    <div class="section-title">
 
-        <div class="section-title-icon">
-            📊
+        <div class="discord-icon">
+            💬
         </div>
 
-        <div>
+
+        <div class="discord-content">
+
+            <div class="discord-label">
+                COMMUNITY
+            </div>
 
             <h2>
-                SERVER
+                Tham gia Discord BOXPVP
             </h2>
 
             <p>
-                Thông tin nhanh về BOXPVP.
+                Tham gia cộng đồng BOXPVP để nhận thông báo,
+                sự kiện, hỗ trợ và trò chuyện cùng người chơi.
             </p>
 
         </div>
 
+
+        <a
+            class="discord-button"
+            href="https://discord.gg/ttxmvuQmr"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            💬 THAM GIA DISCORD
+        </a>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     LEADERBOARD
+===================================================== -->
+
+<section class="section">
+
+    <div class="section-head">
+
+        <div class="section-label">
+            LEADERBOARD
+        </div>
+
+        <h2>
+            🏆 BXH
+        </h2>
+
+        <p>
+            Xem những người chơi hàng đầu của BOXPVP.
+        </p>
+
     </div>
 
 
-    <div class="stats">
+    <div class="leaderboard">
 
 
-        <div class="stat">
+        <div class="leader-card">
 
-            <div class="stat-icon">
-                👥
+            <div class="leader-head">
+
+                <strong>
+                    🏆 TOP NGƯỜI CHƠI
+                </strong>
+
+                <a href="./ranking/">
+                    XEM TẤT CẢ →
+                </a>
+
             </div>
 
-            <strong id="statPlayers">
-                0
-            </strong>
 
-            <span>
-                NGƯỜI CHƠI
-            </span>
+            <div
+                class="leader-body"
+                id="homeRanking"
+            >
+
+                <div class="leader-player">
+
+                    <div class="rank-number">
+                        #
+                    </div>
+
+                    <div class="player-avatar">
+                        ?
+                    </div>
+
+                    <div class="player-name">
+
+                        <strong>
+                            Chưa có dữ liệu
+                        </strong>
+
+                        <span>
+                            Đang chờ dữ liệu người chơi
+                        </span>
+
+                    </div>
+
+                    <div class="kills">
+                        ⚔️ 0
+                    </div>
+
+                </div>
+
+            </div>
 
         </div>
 
 
-        <div class="stat">
 
-            <div class="stat-icon">
-                ⚔️
+        <div class="profile-card">
+
+
+            <div class="profile-top">
+
+                <div
+                    class="profile-avatar"
+                    id="profileAvatar"
+                >
+                    K
+                </div>
+
+
+                <div>
+
+                    <div
+                        class="profile-name"
+                        id="profileUsername"
+                    >
+                        khanhk360
+                    </div>
+
+                    <div class="profile-rank">
+                        Chưa có rank
+                    </div>
+
+                </div>
+
             </div>
 
-            <strong>
-                1.20+
-            </strong>
 
-            <span>
-                PHIÊN BẢN
-            </span>
-
-        </div>
+            <div class="profile-stats">
 
 
-        <div class="stat">
+                <div class="stat">
 
-            <div class="stat-icon">
-                🟢
+                    <span>
+                        MONEY
+                    </span>
+
+                    <strong>
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="stat">
+
+                    <span>
+                        SHARD
+                    </span>
+
+                    <strong>
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="stat">
+
+                    <span>
+                        KILLS
+                    </span>
+
+                    <strong>
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="stat">
+
+                    <span>
+                        DEATHS
+                    </span>
+
+                    <strong>
+                        0
+                    </strong>
+
+                </div>
+
+
             </div>
 
-            <strong>
-                ONLINE
-            </strong>
 
-            <span>
-                TRẠNG THÁI
-            </span>
+            <a
+                class="btn btn-secondary"
+                href="./account/"
+                style="
+                    width:100%;
+                    margin-top:15px;
+                "
+            >
+                👤 XEM TÀI KHOẢN
+            </a>
 
-        </div>
-
-
-        <div class="stat">
-
-            <div class="stat-icon">
-                🏆
-            </div>
-
-            <strong>
-                TOP
-            </strong>
-
-            <span>
-                BẢNG XẾP HẠNG
-            </span>
 
         </div>
 
@@ -1562,32 +2204,48 @@
 </section>
 
 
+
 <!-- =====================================================
-     DISCORD
+     DAILY CODE
 ===================================================== -->
 
-<section
-    class="section"
-    id="discord"
->
+<section class="section">
+
+    <div class="section-head">
+
+        <div class="section-label">
+            DAILY REWARD
+        </div>
+
+        <h2>
+            🎁 CODE HÔM NAY
+        </h2>
+
+        <p>
+            Mã phần thưởng mới mỗi ngày lúc 12:00.
+        </p>
+
+    </div>
 
 
-    <div class="server-card">
+    <div class="daily-code">
 
-        <div class="section-title">
 
-            <div class="section-title-icon">
-                💬
+        <div class="daily-left">
+
+            <div class="daily-icon">
+                🎁
             </div>
+
 
             <div>
 
-                <h2>
-                    THAM GIA DISCORD
-                </h2>
+                <h3>
+                    Mã phần thưởng
+                </h3>
 
                 <p>
-                    Tham gia cộng đồng BOXPVP.
+                    Nhập code để nhận Money + Shard.
                 </p>
 
             </div>
@@ -1595,23 +2253,232 @@
         </div>
 
 
-        <div style="text-align:center;">
-
-            <a
-                href="https://discord.gg/ttxmvuQmr"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="btn btn-primary"
-            >
-                💬 MỞ DISCORD
-            </a>
-
+        <div class="code-value">
+            BXP-7K2M-91QX
         </div>
+
+
+        <a
+            class="btn btn-primary"
+            href="./code/"
+        >
+            🎁 XEM CODE
+        </a>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     STORE
+===================================================== -->
+
+<section class="section">
+
+    <div class="section-head">
+
+        <div class="section-label">
+            STORE
+        </div>
+
+        <h2>
+            🛒 CỬA HÀNG
+        </h2>
+
+        <p>
+            Chọn gói Coin phù hợp với bạn.
+        </p>
 
     </div>
 
 
+    <div class="store-grid">
+
+
+        <a
+            class="store-item"
+            href="./topup/"
+        >
+
+            <div class="store-coin">
+                💰
+            </div>
+
+            <strong>
+                10 Coin
+            </strong>
+
+            <div class="store-price">
+                10.000đ
+            </div>
+
+        </a>
+
+
+        <a
+            class="store-item"
+            href="./topup/"
+        >
+
+            <div class="store-coin">
+                💰
+            </div>
+
+            <strong>
+                20 Coin
+            </strong>
+
+            <div class="store-price">
+                20.000đ
+            </div>
+
+        </a>
+
+
+        <a
+            class="store-item"
+            href="./topup/"
+        >
+
+            <div class="store-coin">
+                💰
+            </div>
+
+            <strong>
+                50 Coin
+            </strong>
+
+            <div class="store-price">
+                50.000đ
+            </div>
+
+        </a>
+
+
+        <a
+            class="store-item"
+            href="./topup/"
+        >
+
+            <div class="store-coin">
+                💰
+            </div>
+
+            <strong>
+                100 Coin
+            </strong>
+
+            <div class="store-price">
+                100.000đ
+            </div>
+
+        </a>
+
+
+        <a
+            class="store-item"
+            href="./topup/"
+        >
+
+            <div class="store-coin">
+                💰
+            </div>
+
+            <strong>
+                200 Coin
+            </strong>
+
+            <div class="store-price">
+                200.000đ
+            </div>
+
+        </a>
+
+
+    </div>
+
+
+    <a
+        class="btn btn-primary"
+        href="./topup/"
+        style="
+            margin-top:15px;
+        "
+    >
+        🛒 NẠP COIN
+    </a>
+
+
 </section>
+
+
+
+<!-- =====================================================
+     SKIN
+===================================================== -->
+
+<section class="section">
+
+    <div class="section-head">
+
+        <div class="section-label">
+            PLAYER SKIN
+        </div>
+
+        <h2>
+            👕 SKIN MINECRAFT
+        </h2>
+
+        <p>
+            Xem skin Minecraft của người chơi.
+        </p>
+
+    </div>
+
+
+    <div class="skin-box">
+
+
+        <div class="skin-user">
+
+            <div class="skin-avatar">
+                🙂
+            </div>
+
+
+            <div>
+
+                <strong id="skinUsername">
+                    khanhk360
+                </strong>
+
+                <span>
+                    Nhập username Minecraft để xem skin.
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <a
+            class="btn btn-secondary"
+            href="./skin/"
+        >
+            👕 MỞ SKIN
+        </a>
+
+
+    </div>
+
+</section>
+
+
+</main>
+
 
 
 <!-- =====================================================
@@ -1620,21 +2487,37 @@
 
 <footer>
 
-    <strong>
-        ⚔️ BOXPVP
-    </strong>
+    <div class="footer-inner">
 
-    <br>
 
-    Minecraft BoxPvP Server
+        <div>
 
-    <br><br>
+            <div class="footer-logo">
+                ⚔️ <span>BOX</span>PVP
+            </div>
 
-    <span id="footerStatus">
-        🟢 Đang kiểm tra server...
-    </span>
+            <div
+                class="footer-text"
+                style="margin-top:6px;"
+            >
+                Minecraft BoxPvP Server
+            </div>
+
+        </div>
+
+
+        <div
+            class="footer-text"
+            id="footerServerStatus"
+        >
+            🟢 Trực tuyến • 0/0
+        </div>
+
+
+    </div>
 
 </footer>
+
 
 
 <!-- =====================================================
@@ -1647,199 +2530,353 @@
 ></div>
 
 
+
 <script>
 
-const API_URL =
-    "https://boxpvp-backend.vercel.app";
+    /* =====================================================
+       API
+    ===================================================== */
+
+    const API_URL =
+        "https://boxpvp-backend.vercel.app";
 
 
-const toast =
-    document.getElementById("toast");
+    /* =====================================================
+       TOAST
+    ===================================================== */
+
+    const toast =
+        document.getElementById("toast");
 
 
-function showToast(message) {
+    function showToast(message) {
 
-    toast.textContent =
-        message;
+        if (!toast) return;
 
-    toast.classList.add("show");
+        toast.textContent =
+            message;
 
-    clearTimeout(
-        window.toastTimer
-    );
+        toast.classList.add(
+            "show"
+        );
 
-    window.toastTimer =
-        setTimeout(() => {
+        clearTimeout(
+            window.toastTimer
+        );
 
-            toast.classList.remove("show");
+        window.toastTimer =
+            setTimeout(() => {
 
-        }, 2500);
+                toast.classList.remove(
+                    "show"
+                );
 
-}
-
-
-/* =====================================================
-   COPY IP
-===================================================== */
-
-const serverIp =
-    document.getElementById("serverIp");
-
-
-serverIp.addEventListener(
-    "click",
-    async () => {
-
-        const ip =
-            serverIp.textContent.trim();
-
-        try {
-
-            await navigator.clipboard.writeText(ip);
-
-            showToast(
-                `📋 Đã sao chép IP: ${ip}`
-            );
-
-        } catch {
-
-            showToast(
-                `🎮 IP: ${ip}`
-            );
-
-        }
+            }, 2600);
 
     }
-);
 
 
-/* =====================================================
-   SERVER STATUS
-===================================================== */
 
-async function loadServerStatus() {
+    /* =====================================================
+       COPY IP
+    ===================================================== */
 
-    try {
-
-        const response =
-            await fetch(
-                `${API_URL}/api/server`,
-                {
-                    cache: "no-store"
-                }
-            );
-
-
-        if (!response.ok) {
-
-            throw new Error(
-                "API error"
-            );
-
-        }
-
-
-        const data =
-            await response.json();
-
-
-        const players =
-            Number(
-                data.players ?? 0
-            );
-
-
-        const maxPlayers =
-            Number(
-                data.maxPlayers ?? 100
-            );
-
-
-        const online =
-            Boolean(
-                data.online
-            );
-
-
-        if (data.ip) {
-
-            serverIp.textContent =
-                data.ip;
-
-        }
-
-
-        document
-            .getElementById(
-                "serverStatus"
-            )
-            .textContent =
-                online
-                    ? "🟢 TRỰC TUYẾN"
-                    : "🔴 NGOẠI TUYẾN";
-
-
-        document
-            .getElementById(
-                "serverPlayers"
-            )
-            .textContent =
-                `${players} / ${maxPlayers}`;
-
-
-        document
-            .getElementById(
-                "statPlayers"
-            )
-            .textContent =
-                players;
-
-
-        document
-            .getElementById(
-                "footerStatus"
-            )
-            .textContent =
-                online
-                    ? `🟢 Trực tuyến • ${players}/${maxPlayers}`
-                    : "🔴 Ngoại tuyến";
-
-
-    } catch (error) {
-
-        console.error(
-            "BOXPVP API:",
-            error
+    const copyIp =
+        document.getElementById(
+            "copyIp"
         );
 
 
-        document
-            .getElementById(
-                "serverStatus"
-            )
-            .textContent =
-                "🔴 KHÔNG KẾT NỐI API";
+    if (copyIp) {
+
+        copyIp.addEventListener(
+            "click",
+            async () => {
+
+                const ip =
+                    document
+                        .getElementById(
+                            "serverIp"
+                        )
+                        ?.textContent
+                        .trim();
 
 
-        document
-            .getElementById(
-                "footerStatus"
-            )
-            .textContent =
-                "🔴 Không kết nối được API";
+                if (!ip) return;
+
+
+                try {
+
+                    await navigator.clipboard.writeText(
+                        ip
+                    );
+
+                    showToast(
+                        `📋 Đã sao chép IP: ${ip}`
+                    );
+
+                } catch {
+
+                    showToast(
+                        `🎮 IP server: ${ip}`
+                    );
+
+                }
+
+            }
+        );
 
     }
 
-}
 
 
-loadServerStatus();
+    /* =====================================================
+       PLAY BUTTON
+    ===================================================== */
+
+    const playButton =
+        document.getElementById(
+            "playButton"
+        );
 
 
-setInterval(
-    loadServerStatus,
-    30000
-);
+    if (playButton) {
+
+        playButton.addEventListener(
+            "click",
+            async () => {
+
+                const ip =
+                    document
+                        .getElementById(
+                            "serverIp"
+                        )
+                        ?.textContent
+                        .trim();
+
+
+                try {
+
+                    await navigator.clipboard.writeText(
+                        ip
+                    );
+
+                    showToast(
+                        `🎮 Đã sao chép IP ${ip}. Mở Minecraft để tham gia!`
+                    );
+
+                } catch {
+
+                    showToast(
+                        `🎮 IP server: ${ip}`
+                    );
+
+                }
+
+            }
+        );
+
+    }
+
+
+
+    /* =====================================================
+       LOAD SERVER
+    ===================================================== */
+
+    async function loadServerStatus() {
+
+        try {
+
+            const response =
+                await fetch(
+                    `${API_URL}/api/server`
+                );
+
+
+            if (!response.ok) {
+
+                throw new Error(
+                    "API lỗi"
+                );
+
+            }
+
+
+            const data =
+                await response.json();
+
+
+            const onlineText =
+                document.getElementById(
+                    "onlineText"
+                );
+
+
+            const status =
+                document.getElementById(
+                    "serverStatus"
+                );
+
+
+            const players =
+                document.getElementById(
+                    "serverPlayers"
+                );
+
+
+            const ip =
+                document.getElementById(
+                    "serverIp"
+                );
+
+
+            const footer =
+                document.getElementById(
+                    "footerServerStatus"
+                );
+
+
+            const isOnline =
+                Boolean(
+                    data.online
+                );
+
+
+            if (onlineText) {
+
+                onlineText.textContent =
+                    isOnline
+                        ? "🟢 TRỰC TUYẾN"
+                        : "🔴 NGOẠI TUYẾN";
+
+            }
+
+
+            if (status) {
+
+                status.textContent =
+                    isOnline
+                        ? "🟢 SERVER ĐANG HOẠT ĐỘNG"
+                        : "🔴 SERVER ĐANG NGOẠI TUYẾN";
+
+            }
+
+
+            if (players) {
+
+                players.textContent =
+                    `${data.players ?? 0} / ${data.maxPlayers ?? 0}`;
+
+            }
+
+
+            if (ip && data.ip) {
+
+                ip.textContent =
+                    data.ip;
+
+            }
+
+
+            if (footer) {
+
+                footer.textContent =
+                    isOnline
+                        ? `🟢 Trực tuyến • ${data.players ?? 0}/${data.maxPlayers ?? 0}`
+                        : "🔴 Ngoại tuyến";
+
+            }
+
+
+        } catch (error) {
+
+            console.error(
+                "BOXPVP API:",
+                error
+            );
+
+        }
+
+    }
+
+
+
+    /* =====================================================
+       LOAD USERNAME
+    ===================================================== */
+
+    function loadUsername() {
+
+        const username =
+            localStorage.getItem(
+                "boxpvp_username"
+            );
+
+
+        if (!username) return;
+
+
+        const profile =
+            document.getElementById(
+                "profileUsername"
+            );
+
+
+        const skin =
+            document.getElementById(
+                "skinUsername"
+            );
+
+
+        const avatar =
+            document.getElementById(
+                "profileAvatar"
+            );
+
+
+        if (profile) {
+
+            profile.textContent =
+                username;
+
+        }
+
+
+        if (skin) {
+
+            skin.textContent =
+                username;
+
+        }
+
+
+        if (avatar) {
+
+            avatar.textContent =
+                username
+                    .charAt(0)
+                    .toUpperCase();
+
+        }
+
+    }
+
+
+
+    /* =====================================================
+       LOAD
+    ===================================================== */
+
+    loadUsername();
+
+    loadServerStatus();
+
+
+    setInterval(
+        loadServerStatus,
+        30000
+    );
 
 </script>
 
