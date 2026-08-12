@@ -1,6 +1,48 @@
-/* =====================================================
-   NAVBAR BOXPVP - MODERN
-===================================================== */
+/* =========================================================
+   BOXPVP TOPUP
+   Giao diện nạp Coin
+   ========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    font-family:
+        Inter,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+    background:
+        radial-gradient(
+            circle at 20% 0%,
+            rgba(255, 60, 60, 0.13),
+            transparent 32%
+        ),
+        radial-gradient(
+            circle at 90% 10%,
+            rgba(255, 120, 40, 0.08),
+            transparent 30%
+        ),
+        #07080d;
+
+    color: #f5f5f5;
+    line-height: 1.6;
+}
+
+/* =========================================================
+   NAVBAR
+   ========================================================= */
 
 .navbar {
     position: sticky;
@@ -9,14 +51,11 @@
 
     width: 100%;
 
-    background: rgba(7, 7, 7, 0.88);
+    background: rgba(7, 8, 13, 0.88);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+
     backdrop-filter: blur(18px);
     -webkit-backdrop-filter: blur(18px);
-
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-
-    box-shadow:
-        0 8px 30px rgba(0, 0, 0, 0.35);
 }
 
 .nav-container {
@@ -28,72 +67,46 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-
-    gap: 25px;
+    gap: 24px;
 }
 
-
-/* =====================================================
-   LOGO
-===================================================== */
-
 .logo {
-    display: inline-flex;
-    align-items: center;
-    gap: 9px;
-
     color: #ffffff;
     text-decoration: none;
 
-    font-size: 20px;
+    font-size: 22px;
     font-weight: 900;
-    letter-spacing: -0.4px;
+
+    letter-spacing: -0.5px;
 
     white-space: nowrap;
-
-    transition: 0.2s ease;
 }
 
-.logo:hover {
-    transform: translateY(-1px);
-    opacity: 0.85;
+.logo span {
+    color: #ff3030;
 }
 
-
-/* =====================================================
-   MENU
-===================================================== */
-
-.nav-container nav {
+.nav-links {
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    gap: 6px;
 
-    gap: 5px;
+    list-style: none;
 }
 
-
-/* =====================================================
-   MENU ITEM
-===================================================== */
-
-.nav-container nav a {
-    position: relative;
-
+.nav-links a {
     display: inline-flex;
     align-items: center;
-    justify-content: center;
 
     padding: 10px 13px;
 
-    color: #a8a8a8;
+    border-radius: 10px;
 
+    color: #a9adb8;
     text-decoration: none;
 
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 700;
-
-    border-radius: 10px;
 
     transition:
         color 0.2s ease,
@@ -101,127 +114,893 @@
         transform 0.2s ease;
 }
 
-.nav-container nav a:hover {
+.nav-links a:hover {
     color: #ffffff;
-
-    background:
-        rgba(255, 255, 255, 0.07);
-
+    background: rgba(255, 255, 255, 0.06);
     transform: translateY(-1px);
 }
 
-
-/* =====================================================
-   TRANG HIỆN TẠI
-===================================================== */
-
-.nav-container nav a[href="index.html"] {
+.nav-links a.active {
     color: #ffffff;
 
     background:
-        rgba(255, 255, 255, 0.10);
+        linear-gradient(
+            135deg,
+            rgba(255, 48, 48, 0.18),
+            rgba(255, 80, 40, 0.08)
+        );
+
+    border: 1px solid rgba(255, 70, 70, 0.2);
 }
 
+/* =========================================================
+   MAIN
+   ========================================================= */
 
-/* =====================================================
-   NÚT MENU MOBILE
-===================================================== */
+.topup-page {
+    width: min(1180px, calc(100% - 32px));
 
-.menu-toggle {
-    display: none;
+    margin: auto;
+    padding: 55px 0 80px;
+}
 
-    width: 43px;
-    height: 43px;
+/* =========================================================
+   HEADER
+   ========================================================= */
 
-    border: 1px solid rgba(255, 255, 255, 0.10);
-    border-radius: 11px;
+.page-header {
+    text-align: center;
+    margin-bottom: 42px;
+}
 
-    background: rgba(255, 255, 255, 0.06);
+.page-icon {
+    width: 68px;
+    height: 68px;
+
+    margin: 0 auto 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255, 45, 45, 0.22),
+            rgba(255, 105, 35, 0.08)
+        );
+
+    border: 1px solid rgba(255, 65, 65, 0.25);
+
+    box-shadow:
+        0 12px 45px rgba(255, 40, 40, 0.12);
+
+    font-size: 31px;
+}
+
+.page-header h1 {
+    margin-bottom: 8px;
+
+    font-size: clamp(30px, 5vw, 48px);
+    line-height: 1.1;
+
+    font-weight: 950;
+    letter-spacing: -1.5px;
+
+    color: #ffffff;
+}
+
+.page-header h1 span {
+    color: #ff3c3c;
+}
+
+.page-header p {
+    max-width: 650px;
+    margin: auto;
+
+    color: #969ba8;
+    font-size: 15px;
+}
+
+/* =========================================================
+   LAYOUT
+   ========================================================= */
+
+.topup-layout {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1.7fr)
+        minmax(300px, 0.9fr);
+
+    gap: 24px;
+
+    align-items: start;
+}
+
+.topup-left {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.topup-right {
+    position: sticky;
+    top: 94px;
+}
+
+/* =========================================================
+   CARD
+   ========================================================= */
+
+.topup-card {
+    padding: 26px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.045),
+            rgba(255, 255, 255, 0.018)
+        );
+
+    border: 1px solid rgba(255, 255, 255, 0.075);
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 18px 50px rgba(0, 0, 0, 0.2);
+
+    transition:
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.topup-card:hover {
+    border-color: rgba(255, 70, 70, 0.18);
+}
+
+/* =========================================================
+   STEP HEADER
+   ========================================================= */
+
+.step-header {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+
+    margin-bottom: 22px;
+}
+
+.step-number {
+    width: 38px;
+    height: 38px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 12px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff3030,
+            #c71919
+        );
 
     color: #ffffff;
 
+    font-size: 15px;
+    font-weight: 900;
+
+    box-shadow:
+        0 8px 25px rgba(255, 40, 40, 0.2);
+}
+
+.step-title h2 {
+    font-size: 17px;
+    font-weight: 900;
+
+    color: #ffffff;
+}
+
+.step-title p {
+    margin-top: 2px;
+
+    color: #777d89;
+    font-size: 12px;
+}
+
+/* =========================================================
+   INPUT
+   ========================================================= */
+
+.input-label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #c7cad1;
+
+    font-size: 13px;
+    font-weight: 800;
+}
+
+.username-input,
+.card-input,
+.seri-input {
+    width: 100%;
+
+    padding: 14px 16px;
+
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    border-radius: 12px;
+
+    outline: none;
+
+    background: rgba(0, 0, 0, 0.24);
+
+    color: #ffffff;
+
+    font-size: 14px;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+}
+
+.username-input::placeholder,
+.card-input::placeholder,
+.seri-input::placeholder {
+    color: #5e636e;
+}
+
+.username-input:focus,
+.card-input:focus,
+.seri-input:focus {
+    border-color: rgba(255, 55, 55, 0.7);
+
+    background: rgba(0, 0, 0, 0.32);
+
+    box-shadow:
+        0 0 0 3px rgba(255, 45, 45, 0.09);
+}
+
+/* =========================================================
+   COIN PACKAGES
+   ========================================================= */
+
+.package-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 14px;
+}
+
+.package {
+    position: relative;
+
+    padding: 20px;
+
+    min-height: 125px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
     cursor: pointer;
 
-    font-size: 20px;
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.035),
+            rgba(255, 255, 255, 0.012)
+        );
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    border-radius: 16px;
+
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.package:hover {
+    transform: translateY(-3px);
+
+    border-color: rgba(255, 65, 65, 0.45);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 45, 45, 0.08),
+            rgba(255, 255, 255, 0.018)
+        );
+
+    box-shadow:
+        0 12px 35px rgba(0, 0, 0, 0.2);
+}
+
+.package.selected {
+    border-color: #ff3838;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 45, 45, 0.15),
+            rgba(255, 45, 45, 0.04)
+        );
+
+    box-shadow:
+        0 0 0 2px rgba(255, 50, 50, 0.08),
+        0 14px 40px rgba(255, 40, 40, 0.1);
+}
+
+.package-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.package-icon {
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 11px;
+
+    background: rgba(255, 185, 0, 0.1);
+
+    font-size: 19px;
+}
+
+.package-check {
+    width: 20px;
+    height: 20px;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(255, 255, 255, 0.16);
 
     transition: 0.2s ease;
 }
 
-.menu-toggle:hover {
-    background: rgba(255, 255, 255, 0.11);
+.package.selected .package-check {
+    border-color: #ff3838;
+
+    background:
+        radial-gradient(
+            circle,
+            #ff3838 0 42%,
+            transparent 45%
+        );
 }
 
+.package-name {
+    margin-top: 13px;
 
-/* =====================================================
+    color: #ffffff;
+
+    font-size: 15px;
+    font-weight: 900;
+}
+
+.package-price {
+    margin-top: 3px;
+
+    color: #ff5a5a;
+
+    font-size: 13px;
+    font-weight: 800;
+}
+
+/* =========================================================
+   PAYMENT METHODS
+   ========================================================= */
+
+.payment-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+
+    gap: 10px;
+}
+
+.payment-method {
+    min-height: 72px;
+
+    padding: 12px 8px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    gap: 5px;
+
+    cursor: pointer;
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 13px;
+
+    background: rgba(255, 255, 255, 0.02);
+
+    color: #aeb2bb;
+
+    text-align: center;
+
+    transition:
+        0.2s ease;
+}
+
+.payment-method:hover {
+    border-color: rgba(255, 65, 65, 0.4);
+
+    color: #ffffff;
+
+    transform: translateY(-2px);
+}
+
+.payment-method.selected {
+    border-color: #ff3838;
+
+    color: #ffffff;
+
+    background:
+        rgba(255, 50, 50, 0.1);
+
+    box-shadow:
+        0 0 0 2px rgba(255, 50, 50, 0.06);
+}
+
+.payment-icon {
+    font-size: 20px;
+}
+
+.payment-name {
+    font-size: 11px;
+    font-weight: 800;
+}
+
+/* =========================================================
+   CARD / SERI
+   ========================================================= */
+
+.card-fields {
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 12px;
+
+    margin-top: 18px;
+}
+
+.field-group {
+    min-width: 0;
+}
+
+/* =========================================================
+   ORDER SUMMARY
+   ========================================================= */
+
+.order-card {
+    overflow: hidden;
+
+    padding: 0;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.055),
+            rgba(255, 255, 255, 0.018)
+        );
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 20px 55px rgba(0, 0, 0, 0.25);
+}
+
+.order-header {
+    padding: 22px 24px;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.order-header h2 {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+
+    font-size: 18px;
+    font-weight: 900;
+
+    color: #ffffff;
+}
+
+.order-header p {
+    margin-top: 3px;
+
+    color: #777d88;
+
+    font-size: 12px;
+}
+
+.order-body {
+    padding: 22px 24px;
+}
+
+.order-row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    gap: 15px;
+
+    padding: 13px 0;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.055);
+}
+
+.order-row:last-child {
+    border-bottom: 0;
+}
+
+.order-label {
+    color: #777d88;
+    font-size: 12px;
+}
+
+.order-value {
+    max-width: 58%;
+
+    color: #ffffff;
+
+    font-size: 13px;
+    font-weight: 800;
+
+    text-align: right;
+
+    overflow-wrap: anywhere;
+}
+
+.order-value.muted {
+    color: #5f6570;
+}
+
+.order-total {
+    margin-top: 12px;
+    padding-top: 18px;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.order-total span:first-child {
+    color: #b9bdc6;
+
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.order-total span:last-child {
+    color: #ff4747;
+
+    font-size: 23px;
+    font-weight: 950;
+}
+
+/* =========================================================
+   CONTINUE BUTTON
+   ========================================================= */
+
+.continue-button {
+    width: 100%;
+
+    margin-top: 20px;
+
+    padding: 15px 18px;
+
+    border: 0;
+    border-radius: 13px;
+
+    cursor: pointer;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff3b3b,
+            #c91f1f
+        );
+
+    color: #ffffff;
+
+    font-size: 14px;
+    font-weight: 900;
+
+    box-shadow:
+        0 12px 30px rgba(255, 45, 45, 0.18);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        filter 0.2s ease;
+}
+
+.continue-button:hover {
+    transform: translateY(-2px);
+
+    filter: brightness(1.08);
+
+    box-shadow:
+        0 16px 38px rgba(255, 45, 45, 0.25);
+}
+
+.continue-button:active {
+    transform: translateY(0);
+}
+
+/* =========================================================
+   WARNING
+   ========================================================= */
+
+.test-warning {
+    margin-top: 14px;
+
+    padding: 13px 14px;
+
+    border-radius: 12px;
+
+    background:
+        rgba(255, 180, 0, 0.06);
+
+    border: 1px solid rgba(255, 180, 0, 0.13);
+
+    color: #aaa39a;
+
+    font-size: 11px;
+
+    line-height: 1.5;
+}
+
+.test-warning strong {
+    display: block;
+
+    margin-bottom: 3px;
+
+    color: #e0c47c;
+}
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+footer {
+    width: min(1180px, calc(100% - 32px));
+
+    margin: 0 auto;
+
+    padding: 25px 0 40px;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+
+    color: #666b76;
+
+    text-align: center;
+
+    font-size: 12px;
+}
+
+/* =========================================================
+   TOAST
+   ========================================================= */
+
+.toast {
+    position: fixed;
+
+    left: 50%;
+    bottom: 25px;
+
+    z-index: 9999;
+
+    transform:
+        translate(-50%, 20px);
+
+    opacity: 0;
+    pointer-events: none;
+
+    padding: 13px 18px;
+
+    border-radius: 12px;
+
+    background:
+        rgba(20, 21, 27, 0.96);
+
+    border: 1px solid rgba(255, 255, 255, 0.1);
+
+    color: #ffffff;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    box-shadow:
+        0 15px 45px rgba(0, 0, 0, 0.35);
+
+    transition:
+        opacity 0.25s ease,
+        transform 0.25s ease;
+}
+
+.toast.show {
+    opacity: 1;
+
+    transform:
+        translate(-50%, 0);
+}
+
+/* =========================================================
+   SELECTION
+   ========================================================= */
+
+::selection {
+    background: rgba(255, 50, 50, 0.3);
+    color: #ffffff;
+}
+
+/* =========================================================
+   SCROLLBAR
+   ========================================================= */
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #07080d;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #2b2d34;
+    border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #3b3e47;
+}
+
+/* =========================================================
    MOBILE
-===================================================== */
+   ========================================================= */
 
-@media (max-width: 850px) {
+@media (max-width: 900px) {
 
-    .nav-container {
-        min-height: 66px;
+    .topup-layout {
+        grid-template-columns: 1fr;
     }
 
-    .menu-toggle {
-        display: flex;
-
-        align-items: center;
-        justify-content: center;
+    .topup-right {
+        position: static;
     }
 
-    .nav-container nav {
-        display: none;
-
-        position: absolute;
-
-        top: 75px;
-        left: 16px;
-        right: 16px;
-
-        padding: 10px;
-
-        flex-direction: column;
-        align-items: stretch;
-
-        background:
-            rgba(12, 12, 12, 0.97);
-
-        border: 1px solid rgba(255, 255, 255, 0.09);
-
-        border-radius: 15px;
-
-        box-shadow:
-            0 20px 50px rgba(0, 0, 0, 0.55);
-
-        backdrop-filter: blur(20px);
+    .payment-grid {
+        grid-template-columns:
+            repeat(4, 1fr);
     }
 
-    .nav-container nav.open {
-        display: flex;
-    }
-
-    .nav-container nav a {
-        justify-content: flex-start;
-
-        padding: 13px 15px;
-
-        font-size: 14px;
-    }
 }
 
-
-/* =====================================================
-   ĐIỆN THOẠI NHỎ
-===================================================== */
-
-@media (max-width: 450px) {
+@media (max-width: 700px) {
 
     .nav-container {
-        width: calc(100% - 22px);
+        min-height: 64px;
+
+        width: min(
+            100% - 20px,
+            1180px
+        );
+    }
+
+    .nav-links {
+        gap: 2px;
+    }
+
+    .nav-links a {
+        padding: 8px 7px;
+
+        font-size: 11px;
     }
 
     .logo {
         font-size: 18px;
+    }
+
+    .topup-page {
+        width: calc(100% - 20px);
+
+        padding-top: 35px;
+    }
+
+    .topup-card {
+        padding: 19px;
+    }
+
+    .package-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .payment-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .card-fields {
+        grid-template-columns: 1fr;
+    }
+
+    .page-header {
+        margin-bottom: 30px;
+    }
+
+    .page-header h1 {
+        font-size: 32px;
+    }
+
+}
+
+@media (max-width: 450px) {
+
+    .nav-container {
+        flex-direction: column;
+
+        padding: 12px 0;
+
+        gap: 8px;
+    }
+
+    .nav-links {
+        width: 100%;
+
+        justify-content: center;
+
+        flex-wrap: wrap;
+    }
+
+    .nav-links a {
+        font-size: 10px;
+    }
+
+    .topup-card {
+        padding: 16px;
+
+        border-radius: 16px;
+    }
+
+    .order-body,
+    .order-header {
+        padding-left: 17px;
+        padding-right: 17px;
     }
 
 }
