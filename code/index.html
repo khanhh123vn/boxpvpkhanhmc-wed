@@ -1,16 +1,23 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>Code | BOXPVP</title>
+
     <meta
         name="description"
-        content="Nhập mã nhận thưởng BOXPVP"
+        content="Code phần thưởng hàng ngày BOXPVP"
     >
 
     <style>
+
         * {
             box-sizing: border-box;
             margin: 0;
@@ -27,20 +34,22 @@
                 sans-serif;
 
             min-height: 100vh;
+
             color: #fff;
 
             background:
                 radial-gradient(
-                    circle at 50% -10%,
-                    rgba(255, 40, 40, .18),
-                    transparent 38%
+                    circle at 50% -20%,
+                    rgba(255, 35, 35, .18),
+                    transparent 40%
                 ),
                 #080808;
         }
 
-        /* ==============================
+
+        /* =========================
            HEADER
-        ============================== */
+        ========================= */
 
         header {
             position: sticky;
@@ -53,58 +62,81 @@
             background:
                 rgba(8,8,8,.88);
 
-            backdrop-filter: blur(18px);
+            backdrop-filter:
+                blur(18px);
         }
+
 
         .navbar {
             max-width: 1180px;
-            min-height: 72px;
+
+            height: 72px;
 
             margin: auto;
+
             padding: 0 22px;
 
             display: flex;
+
             align-items: center;
+
             justify-content: space-between;
-            gap: 20px;
         }
+
 
         .logo {
             color: #fff;
+
             text-decoration: none;
 
             font-size: 21px;
+
             font-weight: 900;
+
             white-space: nowrap;
         }
+
 
         .logo span {
             color: #ff3030;
         }
 
+
         nav {
             display: flex;
+
             align-items: center;
+
             gap: 6px;
         }
 
-        nav a {
-            color: rgba(255,255,255,.62);
-            text-decoration: none;
 
-            padding: 10px 13px;
+        nav a {
+            padding:
+                10px 13px;
+
             border-radius: 10px;
 
+            color:
+                rgba(255,255,255,.62);
+
+            text-decoration: none;
+
             font-size: 14px;
+
             font-weight: 700;
 
             transition: .18s ease;
         }
 
+
         nav a:hover {
             color: #fff;
-            background: rgba(255,255,255,.06);
+
+            background:
+                rgba(255,255,255,.06);
         }
+
 
         nav a.active {
             color: #fff;
@@ -113,61 +145,73 @@
                 rgba(255,48,48,.12);
 
             border:
-                1px solid rgba(255,48,48,.2);
+                1px solid
+                rgba(255,48,48,.2);
         }
 
-        /* ==============================
+
+        /* =========================
            MAIN
-        ============================== */
+        ========================= */
 
         main {
-            width: min(850px, calc(100% - 30px));
+            max-width: 900px;
 
             margin: auto;
 
             padding:
-                60px 0 80px;
+                55px 20px 80px;
         }
 
-        .hero {
+
+        .page-title {
             text-align: center;
+
             margin-bottom: 35px;
         }
 
-        .hero-icon {
-            width: 70px;
-            height: 70px;
 
-            margin: 0 auto 18px;
+        .page-icon {
+            width: 68px;
+            height: 68px;
+
+            margin:
+                0 auto 18px;
 
             display: flex;
+
             align-items: center;
+
             justify-content: center;
 
-            border-radius: 21px;
+            border-radius: 20px;
 
             background:
                 linear-gradient(
                     135deg,
                     #ff3030,
-                    #a50000
+                    #980000
                 );
 
             box-shadow:
-                0 18px 45px
+                0 15px 45px
                 rgba(255,0,0,.22);
 
-            font-size: 31px;
+            font-size: 30px;
         }
 
-        .hero h1 {
-            font-size: 36px;
+
+        .page-title h1 {
+            font-size: 35px;
+
             font-weight: 900;
+
             letter-spacing: -.8px;
         }
 
-        .hero p {
-            margin-top: 10px;
+
+        .page-title p {
+            margin-top: 9px;
 
             color:
                 rgba(255,255,255,.45);
@@ -175,15 +219,17 @@
             font-size: 14px;
         }
 
-        /* ==============================
+
+        /* =========================
            CODE CARD
-        ============================== */
+        ========================= */
 
         .code-card {
             overflow: hidden;
 
             border:
-                1px solid rgba(255,255,255,.08);
+                1px solid
+                rgba(255,255,255,.08);
 
             border-radius: 22px;
 
@@ -191,33 +237,70 @@
                 linear-gradient(
                     180deg,
                     rgba(255,255,255,.045),
-                    rgba(255,255,255,.018)
+                    rgba(255,255,255,.015)
                 );
 
             box-shadow:
                 0 25px 70px
-                rgba(0,0,0,.3);
+                rgba(0,0,0,.28);
         }
 
-        .card-top {
+
+        .code-top {
             padding: 28px;
 
+            text-align: center;
+
             border-bottom:
-                1px solid rgba(255,255,255,.07);
+                1px solid
+                rgba(255,255,255,.07);
 
             background:
                 linear-gradient(
-                    135deg,
+                    145deg,
                     rgba(255,48,48,.12),
                     transparent
                 );
         }
 
-        .card-top h2 {
-            font-size: 19px;
+
+        .status {
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 7px;
+
+            padding:
+                7px 12px;
+
+            border-radius: 999px;
+
+            color: #72ff8b;
+
+            background:
+                rgba(50,255,100,.07);
+
+            border:
+                1px solid
+                rgba(50,255,100,.14);
+
+            font-size: 11px;
+
+            font-weight: 800;
         }
 
-        .card-top p {
+
+        .code-top h2 {
+            margin-top: 16px;
+
+            font-size: 18px;
+
+            font-weight: 900;
+        }
+
+
+        .code-top p {
             margin-top: 6px;
 
             color:
@@ -226,70 +309,103 @@
             font-size: 13px;
         }
 
-        .card-body {
-            padding: 28px;
+
+        /* =========================
+           CODE DISPLAY
+        ========================= */
+
+        .code-section {
+            padding: 30px;
         }
 
-        /* ==============================
-           TODAY CODE
-        ============================== */
+
+        .code-label {
+            margin-bottom: 10px;
+
+            color:
+                rgba(255,255,255,.48);
+
+            font-size: 11px;
+
+            font-weight: 800;
+
+            letter-spacing: .5px;
+
+            text-transform: uppercase;
+        }
+
 
         .code-box {
-            padding: 25px;
+            position: relative;
 
-            border-radius: 18px;
+            min-height: 72px;
+
+            padding:
+                18px 135px 18px 20px;
+
+            display: flex;
+
+            align-items: center;
 
             border:
-                1px solid rgba(255,48,48,.18);
+                1px solid
+                rgba(255,48,48,.28);
+
+            border-radius: 15px;
 
             background:
                 rgba(255,48,48,.055);
 
-            text-align: center;
+            box-shadow:
+                inset 0 0 30px
+                rgba(255,0,0,.025);
         }
 
-        .code-label {
-            color:
-                rgba(255,255,255,.45);
 
-            font-size: 11px;
-            font-weight: 800;
+        .code-text {
+            color: #fff;
 
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
+            font-family:
+                Consolas,
+                monospace;
 
-        .code-value {
-            margin-top: 12px;
+            font-size: 19px;
 
-            font-size: 28px;
             font-weight: 900;
 
-            letter-spacing: 2px;
+            letter-spacing: 1px;
 
-            color: #fff;
+            word-break: break-all;
         }
 
+
         .copy-button {
-            margin-top: 18px;
+            position: absolute;
 
-            height: 44px;
+            right: 10px;
 
-            padding: 0 22px;
+            top: 10px;
+
+            height: 52px;
+
+            padding:
+                0 17px;
 
             border: 0;
+
             border-radius: 11px;
+
+            color: #fff;
 
             background:
                 linear-gradient(
                     135deg,
                     #ff3b3b,
-                    #c90000
+                    #bd0000
                 );
 
-            color: #fff;
-
             font-size: 12px;
+
             font-weight: 900;
 
             cursor: pointer;
@@ -297,17 +413,31 @@
             transition: .18s ease;
         }
 
+
         .copy-button:hover {
-            transform: translateY(-2px);
+            transform:
+                translateY(-2px);
 
             box-shadow:
-                0 10px 25px
+                0 8px 25px
                 rgba(255,0,0,.2);
         }
 
-        /* ==============================
-           REWARDS
-        ============================== */
+
+        /* =========================
+           REWARD
+        ========================= */
+
+        .reward-title {
+            margin-top: 30px;
+
+            margin-bottom: 14px;
+
+            font-size: 14px;
+
+            font-weight: 900;
+        }
+
 
         .rewards {
             display: grid;
@@ -315,178 +445,239 @@
             grid-template-columns:
                 repeat(2, 1fr);
 
-            gap: 12px;
-
-            margin-top: 18px;
+            gap: 13px;
         }
 
+
         .reward {
-            padding: 20px;
+            padding: 18px;
 
             border:
-                1px solid rgba(255,255,255,.07);
+                1px solid
+                rgba(255,255,255,.07);
 
             border-radius: 15px;
 
             background:
                 rgba(255,255,255,.025);
-        }
-
-        .reward-icon {
-            width: 40px;
-            height: 40px;
 
             display: flex;
+
             align-items: center;
+
+            gap: 14px;
+        }
+
+
+        .reward-icon {
+            width: 44px;
+            height: 44px;
+
+            flex-shrink: 0;
+
+            display: flex;
+
+            align-items: center;
+
             justify-content: center;
 
-            margin-bottom: 13px;
-
-            border-radius: 11px;
+            border-radius: 13px;
 
             background:
                 rgba(255,255,255,.06);
 
-            font-size: 19px;
+            font-size: 21px;
         }
 
-        .reward-title {
-            color:
-                rgba(255,255,255,.45);
 
-            font-size: 11px;
-            font-weight: 700;
-        }
-
-        .reward-value {
-            margin-top: 5px;
-
-            font-size: 18px;
-            font-weight: 900;
-        }
-
-        /* ==============================
-           INPUT
-        ============================== */
-
-        .claim {
-            margin-top: 25px;
-
-            padding: 22px;
-
-            border-top:
-                1px solid rgba(255,255,255,.07);
-        }
-
-        .claim h3 {
-            font-size: 15px;
-        }
-
-        .claim p {
-            margin-top: 5px;
+        .reward-info span {
+            display: block;
 
             color:
                 rgba(255,255,255,.4);
 
-            font-size: 12px;
+            font-size: 11px;
         }
 
-        .claim-form {
-            display: flex;
 
-            gap: 10px;
+        .reward-info strong {
+            display: block;
 
-            margin-top: 15px;
+            margin-top: 3px;
+
+            font-size: 17px;
         }
 
-        .input {
-            flex: 1;
 
-            height: 48px;
+        .money {
+            color: #ffd54a;
+        }
 
-            padding: 0 15px;
 
-            outline: none;
+        .shard {
+            color: #74dfff;
+        }
 
-            border-radius: 12px;
+
+        /* =========================
+           COUNTDOWN
+        ========================= */
+
+        .countdown {
+            margin-top: 24px;
+
+            padding: 20px;
 
             border:
-                1px solid rgba(255,255,255,.09);
+                1px solid
+                rgba(255,255,255,.07);
+
+            border-radius: 15px;
+
+            text-align: center;
 
             background:
-                rgba(0,0,0,.3);
+                rgba(255,255,255,.02);
+        }
+
+
+        .countdown-label {
+            color:
+                rgba(255,255,255,.4);
+
+            font-size: 11px;
+
+            font-weight: 800;
+        }
+
+
+        #countdown {
+            margin-top: 7px;
 
             color: #fff;
 
-            font-size: 14px;
+            font-family:
+                Consolas,
+                monospace;
+
+            font-size: 27px;
+
+            font-weight: 900;
+
+            letter-spacing: 2px;
         }
 
-        .input:focus {
-            border-color:
-                rgba(255,48,48,.65);
 
-            box-shadow:
-                0 0 0 3px
-                rgba(255,48,48,.08);
+        .countdown-time {
+            margin-top: 5px;
+
+            color:
+                rgba(255,255,255,.3);
+
+            font-size: 11px;
         }
+
+
+        /* =========================
+           CLAIM
+        ========================= */
 
         .claim-button {
-            height: 48px;
+            width: 100%;
 
-            padding: 0 20px;
+            height: 54px;
+
+            margin-top: 20px;
 
             border: 0;
-            border-radius: 12px;
+
+            border-radius: 14px;
+
+            color: #fff;
 
             background:
                 linear-gradient(
                     135deg,
                     #ff3b3b,
-                    #c90000
+                    #c40000
                 );
 
-            color: #fff;
+            font-size: 13px;
 
-            font-size: 12px;
             font-weight: 900;
 
             cursor: pointer;
+
+            box-shadow:
+                0 12px 35px
+                rgba(255,0,0,.18);
+
+            transition: .18s ease;
         }
 
-        /* ==============================
+
+        .claim-button:hover {
+            transform:
+                translateY(-2px);
+
+            box-shadow:
+                0 17px 40px
+                rgba(255,0,0,.25);
+        }
+
+
+        .claim-button.disabled {
+            cursor: not-allowed;
+
+            color:
+                rgba(255,255,255,.4);
+
+            background:
+                rgba(255,255,255,.06);
+
+            box-shadow: none;
+        }
+
+
+        /* =========================
            INFO
-        ============================== */
+        ========================= */
 
         .info {
             margin-top: 18px;
 
-            padding: 17px;
-
-            border-radius: 14px;
-
-            background:
-                rgba(255,190,0,.045);
+            padding: 15px;
 
             border:
-                1px solid rgba(255,190,0,.1);
+                1px solid
+                rgba(255,190,0,.12);
+
+            border-radius: 13px;
+
+            background:
+                rgba(255,190,0,.04);
 
             color:
                 rgba(255,255,255,.48);
 
-            font-size: 12px;
+            font-size: 11px;
 
-            line-height: 1.6;
+            line-height: 1.65;
         }
 
-        /* ==============================
+
+        /* =========================
            TOAST
-        ============================== */
+        ========================= */
 
         .toast {
             position: fixed;
 
             left: 50%;
+
             bottom: 25px;
+
+            z-index: 999;
 
             transform:
                 translate(-50%, 20px);
@@ -498,24 +689,25 @@
             padding:
                 13px 18px;
 
+            border:
+                1px solid
+                rgba(255,255,255,.1);
+
             border-radius: 12px;
 
             background: #181818;
-
-            border:
-                1px solid rgba(255,255,255,.1);
 
             box-shadow:
                 0 15px 45px
                 rgba(0,0,0,.4);
 
             font-size: 13px;
+
             font-weight: 700;
 
             transition: .25s ease;
-
-            z-index: 999;
         }
+
 
         .toast.show {
             opacity: 1;
@@ -524,18 +716,26 @@
                 translate(-50%, 0);
         }
 
-        /* ==============================
+
+        /* =========================
            MOBILE
-        ============================== */
+        ========================= */
 
         @media (max-width: 700px) {
 
             .navbar {
-                flex-direction: column;
+                height: auto;
+
+                min-height: 70px;
 
                 padding:
-                    14px 15px;
+                    13px 15px;
+
+                flex-direction: column;
+
+                gap: 10px;
             }
+
 
             nav {
                 width: 100%;
@@ -545,55 +745,77 @@
                 justify-content: flex-start;
             }
 
+
             nav a {
                 white-space: nowrap;
 
-                font-size: 12px;
-
                 padding:
                     8px 9px;
+
+                font-size: 12px;
             }
+
 
             main {
-                padding-top: 35px;
+                padding:
+                    35px 14px 60px;
             }
 
-            .hero h1 {
-                font-size: 29px;
+
+            .page-title h1 {
+                font-size: 28px;
             }
 
-            .card-body,
-            .card-top {
+
+            .code-section {
                 padding: 20px;
             }
+
+
+            .code-box {
+                padding:
+                    18px 18px 80px;
+            }
+
+
+            .copy-button {
+                left: 10px;
+
+                right: 10px;
+
+                bottom: 10px;
+
+                top: auto;
+
+                width: calc(100% - 20px);
+            }
+
 
             .rewards {
                 grid-template-columns: 1fr;
             }
 
-            .claim-form {
-                flex-direction: column;
-            }
-
-            .claim-button {
-                width: 100%;
-            }
-
-            .code-value {
-                font-size: 21px;
-            }
         }
+
     </style>
+
 </head>
+
 
 <body>
 
+
 <header>
+
     <div class="navbar">
 
-        <a href="../index.html" class="logo">
+        <a
+            href="../index.html"
+            class="logo"
+        >
             ⚔️ <span>BOX</span>PVP
         </a>
+
 
         <nav>
 
@@ -605,7 +827,10 @@
                 🛒 Nạp
             </a>
 
-            <a href="./" class="active">
+            <a
+                href="../code/"
+                class="active"
+            >
                 🎁 Code
             </a>
 
@@ -624,14 +849,16 @@
         </nav>
 
     </div>
+
 </header>
 
 
 <main>
 
-    <section class="hero">
 
-        <div class="hero-icon">
+    <div class="page-title">
+
+        <div class="page-icon">
             🎁
         </div>
 
@@ -640,46 +867,53 @@
         </h1>
 
         <p>
-            Nhập mã để nhận phần thưởng trong server.
+            Nhận phần thưởng hàng ngày từ BOXPVP.
         </p>
 
-    </section>
+    </div>
 
 
     <section class="code-card">
 
-        <div class="card-top">
+
+        <div class="code-top">
+
+            <div class="status">
+                🟢 ĐANG HOẠT ĐỘNG
+            </div>
 
             <h2>
-                🎁 Mã phần thưởng
+                🎁 Mã phần thưởng hôm nay
             </h2>
 
             <p>
-                Code hôm nay dành cho người chơi BOXPVP.
+                Code mới được cập nhật mỗi ngày lúc 12:00.
             </p>
 
         </div>
 
 
-        <div class="card-body">
+        <div class="code-section">
+
+
+            <div class="code-label">
+                Mã phần thưởng
+            </div>
 
 
             <div class="code-box">
 
-                <div class="code-label">
-                    CODE HÔM NAY
-                </div>
-
                 <div
-                    class="code-value"
+                    class="code-text"
                     id="dailyCode"
                 >
                     BXP-7K2M-91QX
                 </div>
 
+
                 <button
                     class="copy-button"
-                    id="copyButton"
+                    id="copyCode"
                 >
                     📋 SAO CHÉP CODE
                 </button>
@@ -687,7 +921,13 @@
             </div>
 
 
+            <div class="reward-title">
+                🎁 Phần thưởng
+            </div>
+
+
             <div class="rewards">
+
 
                 <div class="reward">
 
@@ -695,12 +935,16 @@
                         💰
                     </div>
 
-                    <div class="reward-title">
-                        MONEY
-                    </div>
+                    <div class="reward-info">
 
-                    <div class="reward-value">
-                        +500 Money
+                        <span>
+                            Tiền trong server
+                        </span>
+
+                        <strong class="money">
+                            +500 Money
+                        </strong>
+
                     </div>
 
                 </div>
@@ -712,67 +956,69 @@
                         💠
                     </div>
 
-                    <div class="reward-title">
-                        SHARD
+                    <div class="reward-info">
+
+                        <span>
+                            Shard
+                        </span>
+
+                        <strong class="shard">
+                            +10 Shard
+                        </strong>
+
                     </div>
 
-                    <div class="reward-value">
-                        +10 Shard
-                    </div>
+                </div>
 
+
+            </div>
+
+
+            <div class="countdown">
+
+                <div class="countdown-label">
+                    ⏰ CODE MỚI SAU
+                </div>
+
+
+                <div id="countdown">
+                    00:00:00
+                </div>
+
+
+                <div class="countdown-time">
+                    Mỗi ngày lúc 12:00
                 </div>
 
             </div>
 
 
-            <div class="claim">
-
-                <h3>
-                    🔐 Nhập Code
-                </h3>
-
-                <p>
-                    Nhập mã phần thưởng của bạn.
-                </p>
-
-
-                <div class="claim-form">
-
-                    <input
-                        class="input"
-                        id="codeInput"
-                        type="text"
-                        placeholder="Ví dụ: BXP-7K2M-91QX"
-                        autocomplete="off"
-                    >
-
-                    <button
-                        class="claim-button"
-                        id="claimButton"
-                    >
-                        NHẬN THƯỞNG
-                    </button>
-
-                </div>
-
-            </div>
+            <button
+                class="claim-button"
+                id="claimButton"
+            >
+                🎁 NHẬN CODE
+            </button>
 
 
             <div class="info">
 
-                ⏰ <strong>Code mới mỗi ngày lúc 12:00.</strong>
-                <br>
+                ⚠️ <strong>Lưu ý:</strong><br>
 
-                🎮 Phần thưởng được nhận trong server BOXPVP.
-                <br>
+                Mỗi tài khoản chỉ nên nhận code
+                một lần mỗi ngày.
 
-                ⚠️ Mỗi tài khoản chỉ nên sử dụng mỗi code một lần.
+                Phần thưởng Money và Shard sẽ được
+                cộng vào tài khoản Minecraft khi hệ
+                thống server được kết nối.
 
             </div>
+
 
         </div>
 
     </section>
+
 
 </main>
 
@@ -785,131 +1031,286 @@
 
 <script>
 
-    const dailyCode =
+    /* =========================
+       CONFIG
+    ========================= */
+
+    const DAILY_CODE =
+        "BXP-7K2M-91QX";
+
+
+    /* =========================
+       ELEMENTS
+    ========================= */
+
+    const codeElement =
         document.getElementById("dailyCode");
 
-    const copyButton =
-        document.getElementById("copyButton");
 
-    const codeInput =
-        document.getElementById("codeInput");
+    const copyButton =
+        document.getElementById("copyCode");
+
 
     const claimButton =
         document.getElementById("claimButton");
+
+
+    const countdown =
+        document.getElementById("countdown");
+
 
     const toast =
         document.getElementById("toast");
 
 
+    /* =========================
+       TOAST
+    ========================= */
+
     function showToast(message) {
 
-        toast.textContent = message;
+        toast.textContent =
+            message;
 
         toast.classList.add("show");
 
-        clearTimeout(window.toastTimer);
+        clearTimeout(
+            window.toastTimer
+        );
 
         window.toastTimer =
             setTimeout(() => {
 
-                toast.classList.remove("show");
+                toast.classList.remove(
+                    "show"
+                );
 
             }, 2600);
+
     }
 
 
-    /* ==============================
-       SAO CHÉP CODE
-    ============================== */
+    /* =========================
+       COPY CODE
+    ========================= */
 
     copyButton.addEventListener(
         "click",
         async () => {
 
-            const code =
-                dailyCode.textContent.trim();
-
             try {
 
-                await navigator.clipboard.writeText(code);
+                await navigator.clipboard.writeText(
+                    DAILY_CODE
+                );
 
                 showToast(
-                    `📋 Đã sao chép: ${code}`
+                    "📋 Đã sao chép code!"
                 );
 
             } catch {
 
                 showToast(
-                    `🎁 Code: ${code}`
+                    "🎁 Code: " + DAILY_CODE
                 );
 
             }
+
         }
     );
 
 
-    /* ==============================
-       NHẬN CODE
-    ============================== */
+    /* =========================
+       CLAIM
+    ========================= */
+
+    function claimCode() {
+
+        const today =
+            new Date()
+                .toLocaleDateString(
+                    "vi-VN"
+                );
+
+
+        const claimKey =
+            "boxpvp_code_claim_" + today;
+
+
+        if (
+            localStorage.getItem(
+                claimKey
+            )
+        ) {
+
+            showToast(
+                "⚠️ Bạn đã nhận code hôm nay."
+            );
+
+            return;
+
+        }
+
+
+        localStorage.setItem(
+            claimKey,
+            DAILY_CODE
+        );
+
+
+        showToast(
+            "🎁 Đã nhận code! +500 Money +10 Shard"
+        );
+
+
+        claimButton.textContent =
+            "✓ ĐÃ NHẬN HÔM NAY";
+
+
+        claimButton.classList.add(
+            "disabled"
+        );
+
+    }
+
 
     claimButton.addEventListener(
         "click",
-        () => {
-
-            const code =
-                codeInput.value
-                    .trim()
-                    .toUpperCase();
-
-
-            if (!code) {
-
-                showToast(
-                    "⚠️ Hãy nhập Code."
-                );
-
-                codeInput.focus();
-
-                return;
-            }
-
-
-            if (code !== dailyCode.textContent.trim()) {
-
-                showToast(
-                    "❌ Code không hợp lệ."
-                );
-
-                return;
-            }
-
-
-            showToast(
-                "🎉 Code hợp lệ! +500 Money +10 Shard"
-            );
-
-        }
+        claimCode
     );
 
 
-    /* ==============================
-       ENTER
-    ============================== */
+    /* =========================
+       CHECK CLAIM
+    ========================= */
 
-    codeInput.addEventListener(
-        "keydown",
-        event => {
+    function checkClaim() {
 
-            if (event.key === "Enter") {
+        const today =
+            new Date()
+                .toLocaleDateString(
+                    "vi-VN"
+                );
 
-                claimButton.click();
 
-            }
+        const claimKey =
+            "boxpvp_code_claim_" + today;
+
+
+        if (
+            localStorage.getItem(
+                claimKey
+            )
+        ) {
+
+            claimButton.textContent =
+                "✓ ĐÃ NHẬN HÔM NAY";
+
+            claimButton.classList.add(
+                "disabled"
+            );
 
         }
+
+    }
+
+
+    /* =========================
+       COUNTDOWN
+       12:00 VIỆT NAM
+    ========================= */
+
+    function updateCountdown() {
+
+        const now =
+            new Date();
+
+
+        const target =
+            new Date();
+
+
+        target.setHours(
+            12,
+            0,
+            0,
+            0
+        );
+
+
+        if (
+            now >= target
+        ) {
+
+            target.setDate(
+                target.getDate() + 1
+            );
+
+        }
+
+
+        const difference =
+            target - now;
+
+
+        const hours =
+            Math.floor(
+                difference /
+                (1000 * 60 * 60)
+            );
+
+
+        const minutes =
+            Math.floor(
+                (difference %
+                    (1000 * 60 * 60))
+                /
+                (1000 * 60)
+            );
+
+
+        const seconds =
+            Math.floor(
+                (difference %
+                    (1000 * 60))
+                /
+                1000
+            );
+
+
+        countdown.textContent =
+            String(hours).padStart(2,"0")
+            + ":"
+            +
+            String(minutes).padStart(2,"0")
+            + ":"
+            +
+            String(seconds).padStart(2,"0");
+
+    }
+
+
+    /* =========================
+       START
+    ========================= */
+
+    codeElement.textContent =
+        DAILY_CODE;
+
+
+    checkClaim();
+
+    updateCountdown();
+
+
+    setInterval(
+        updateCountdown,
+        1000
     );
 
 </script>
 
+
 </body>
+
 </html>
